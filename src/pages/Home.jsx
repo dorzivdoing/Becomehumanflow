@@ -77,35 +77,41 @@ function ContactFooter() {
 function ViewHome({ setView }) {
   return (
     <div>
+      {/* Quote strip */}
+      <div style={{ background: C.bg, padding: '100px 40px 48px', direction: 'rtl', position: 'relative' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px', fontStyle: 'italic' }}>
+            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
+          </p>
+          <p style={{ fontSize: '15px', color: C.sageMid, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
+        </div>
+      </div>
+
       {/* Hero */}
-      <div style={{ background: C.bg, padding: '100px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden', minHeight: '480px' }}>
-        <LeafAccent style={{ top: 60, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
+      <div style={{ background: C.cream, padding: '64px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+        <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '60px', flexWrap: 'wrap', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
-            <h1 style={{ fontSize: 'clamp(40px,6vw,64px)', fontWeight: 700, color: C.green, lineHeight: 1.15, margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
+            <div style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
+              ביוסינתזה - יוגה טיפולית
+            </div>
+            <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 700, color: C.green, lineHeight: 1.2, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif" }}>
               להיות אדם
             </h1>
-            <h2 style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 400, color: C.textMid, margin: '0 0 32px', lineHeight: 1.5, fontFamily: "'Assistant', sans-serif" }}>
+            <h2 style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 400, color: C.textMid, margin: '0 0 20px', lineHeight: 1.4, fontFamily: "'Assistant', sans-serif" }}>
               פסיכותרפיה גופנית אינטגרטיבית
             </h2>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+              קליניקה מבוססת מחקר לפסיכותרפיה גופנית (ביוסינתזה) ויוגה טיפולית. מרחב מקורקע המציע ליווי רגשי וסומטי מוסמך במשברי חיים, אבל, חרדה וטראומה.
+            </p>
             <button onClick={() => setView(5)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
               לתיאום שיחת הכרות קצרה
             </button>
           </div>
-          <div style={{ width: '200px', height: '200px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
+          <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
           </div>
-        </div>
-      </div>
-
-      {/* Quote strip */}
-      <div style={{ background: C.cream, padding: '72px 40px', direction: 'rtl', position: 'relative' }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px' }}>
-            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
-          </p>
-          <p style={{ fontSize: '15px', color: C.sageMid, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
         </div>
       </div>
 
