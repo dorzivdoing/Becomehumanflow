@@ -21,7 +21,3 @@ export default function BookingSection() {
     </section>
   );
 }
-
-git add .
-git commit -m "trigger sync for BookingSection"
-git push
