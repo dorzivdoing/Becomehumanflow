@@ -45,7 +45,7 @@ function CaveArtOverlay() {
       backgroundImage: `url(${CAVE_ART})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      opacity: 0.07,
+      opacity: 0.22,
     }} />
   );
 }
@@ -77,37 +77,44 @@ function ContactFooter({ setView }) {
 function ViewHome({ setView }) {
   return (
     <div>
-      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+      {/* Quote strip at top */}
+      <div style={{ ...caveSectionStyle, padding: '100px 40px 48px', direction: 'rtl', position: 'relative' }}>
         <CaveArtOverlay />
-        <div style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: '280px' }}>
-            <div style={{ fontSize: '12px', color: C.terra, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '16px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>
-              ביוסינתזה · יוגה טיפולית
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ fontSize: '17px', color: C.charcoal, lineHeight: 1.9, fontStyle: 'italic', letterSpacing: '0.02em', margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>
+            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
+          </p>
+          <p style={{ fontSize: '13px', color: C.terra, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
+        </div>
+      </div>
+
+      {/* Hero section - light background */}
+      <div style={{ background: C.bone, padding: '64px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
+          <div style={{ width: '220px', height: '220px', borderRadius: '50%', background: '#E8C4A8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: `3px solid ${C.terra}`, backgroundImage: `url(${CAVE_ART})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <span style={{ color: C.charcoal, fontSize: '13px', fontFamily: "'Assistant', sans-serif", background: 'rgba(249,238,226,0.75)', padding: '6px 12px', borderRadius: '8px' }}>תמונת פרופיל</span>
+          </div>
+          <div style={{ flex: 1, minWidth: '260px' }}>
+            <div style={{ fontSize: '12px', color: C.terra, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
+              ביוסינתזה - יוגה טיפולית
             </div>
-            <h1 style={{ fontSize: 'clamp(26px,4vw,44px)', fontWeight: 600, color: C.navy, lineHeight: 1.3, margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
+            <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 700, color: C.navy, lineHeight: 1.2, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif" }}>
               להיות אדם
             </h1>
-            <h2 style={{ fontSize: 'clamp(16px,2vw,22px)', fontWeight: 400, color: C.navy, margin: '0 0 24px', lineHeight: 1.4, opacity: 0.55, fontFamily: "'Assistant', sans-serif" }}>
+            <h2 style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 400, color: C.navy, margin: '0 0 20px', lineHeight: 1.4, opacity: 0.6, fontFamily: "'Assistant', sans-serif" }}>
               פסיכותרפיה גופנית אינטגרטיבית
             </h2>
-            <p style={{ fontSize: '16px', color: C.charcoal, lineHeight: 1.85, margin: '0 0 40px', maxWidth: '520px', letterSpacing: '0.01em', fontFamily: "'Assistant', sans-serif" }}>
+            <p style={{ fontSize: '15px', color: C.charcoal, lineHeight: 1.9, margin: '0 0 32px', letterSpacing: '0.01em', fontFamily: "'Assistant', sans-serif" }}>
               קליניקה מבוססת מחקר לפסיכותרפיה גופנית (ביוסינתזה) ויוגה טיפולית. מרחב מקורקע המציע ליווי רגשי וסומטי מוסמך במשברי חיים, אבל, חרדה וטראומה – מתוך עמדה טיפולית המכבדת את המורכבות של התודעה והגוף שלך.
             </p>
             <button onClick={() => setView(5)} style={{ background: C.terra, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
               לתיאום שיחת הכרות קצרה
             </button>
           </div>
-          <div style={{ width: '260px', height: '300px', borderRadius: '50%', background: '#E8C4A8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: `3px solid ${C.terra}`, backgroundImage: `url(${CAVE_ART})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.9 }}>
-            <span style={{ color: C.charcoal, fontSize: '13px', fontFamily: "'Assistant', sans-serif", background: 'rgba(249,238,226,0.7)', padding: '6px 12px', borderRadius: '8px' }}>תמונת פרופיל</span>
-          </div>
-        </div>
-        <QuoteBlock
-          text="לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו."
-          author="— דור"
-        />
         </div>
       </div>
+
       <ContactFooter setView={setView} />
     </div>
   );
