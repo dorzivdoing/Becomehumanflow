@@ -18,9 +18,7 @@ const CAVE_BG = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4
 const CAVE_ART = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/a3aefaccb_generated_image.png';
 
 const caveSectionStyle = {
-  backgroundImage: `url(${CAVE_BG})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  background: '#F0DDD0',
   position: 'relative',
 };
 
@@ -40,13 +38,29 @@ function QuoteBlock({ text, author }) {
 
 function CaveArtOverlay() {
   return (
-    <div style={{
-      position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden',
-      backgroundImage: `url(${CAVE_ART})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      opacity: 0.22,
-    }} />
+    <>
+      {/* Left side figures */}
+      <div style={{
+        position: 'absolute', top: 0, bottom: 0, left: 0, width: '180px',
+        pointerEvents: 'none',
+        backgroundImage: `url(${CAVE_ART})`,
+        backgroundSize: 'auto 100%',
+        backgroundPosition: 'right center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.28,
+      }} />
+      {/* Right side figures */}
+      <div style={{
+        position: 'absolute', top: 0, bottom: 0, right: 0, width: '180px',
+        pointerEvents: 'none',
+        backgroundImage: `url(${CAVE_ART})`,
+        backgroundSize: 'auto 100%',
+        backgroundPosition: 'left center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.28,
+        transform: 'scaleX(-1)',
+      }} />
+    </>
   );
 }
 
@@ -324,7 +338,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bone, minHeight: '100vh', backgroundImage: `url(${CAVE_BG})`, backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
+    <div style={{ fontFamily: "'Assistant', sans-serif", background: '#F0DDD0', minHeight: '100vh' }}>
       <Navbar view={view} setView={setView} />
       <div style={{ ...tx }}>
         {viewComponents[view]}
