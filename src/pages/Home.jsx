@@ -3,13 +3,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "@/components/clinic/Footer";
 
 const C = {
-  bone: '#F6F4F0',
-  white: '#FFFFFF',
-  navy: '#16222F',
-  charcoal: '#444F5A',
-  terra: '#B26E63',
-  terraLight: 'rgba(178,110,99,0.08)',
-  border: '#E8E4DE',
+  bone: '#F9EDE0',
+  white: '#FFF8F2',
+  navy: '#4A1E0E',
+  charcoal: '#6B3A2A',
+  terra: '#C4876B',
+  terraLight: 'rgba(196,135,107,0.12)',
+  border: '#E8C4A8',
+  cave1: '#D4896A',
+  cave2: '#B87A5A',
 };
 
 const tx = { transition: 'all 0.7s cubic-bezier(0.25, 1, 0.5, 1)' };
@@ -271,9 +273,60 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bone, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bone, minHeight: '100vh', position: 'relative' }}>
+      {/* Cave texture overlay */}
+      <div style={{
+        position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse at 20% 30%, rgba(196,135,107,0.10) 0%, transparent 60%),
+                     radial-gradient(ellipse at 80% 70%, rgba(180,100,70,0.08) 0%, transparent 55%),
+                     radial-gradient(ellipse at 50% 90%, rgba(74,30,14,0.06) 0%, transparent 50%)`,
+      }} />
+      {/* Cave art SVG decoration */}
+      <svg style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.07, width: '420px', height: '260px' }} viewBox="0 0 420 260" fill="none">
+        {/* Deer silhouette */}
+        <ellipse cx="120" cy="160" rx="45" ry="22" fill="#4A1E0E" />
+        <ellipse cx="155" cy="148" rx="18" ry="14" fill="#4A1E0E" />
+        <line x1="120" y1="182" x2="108" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="130" y1="182" x2="132" y2="212" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="148" y1="182" x2="142" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="158" y1="182" x2="162" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        {/* Antlers */}
+        <path d="M160 140 L168 118 M168 118 L160 108 M168 118 L178 112" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <path d="M152 140 L148 120 M148 120 L140 110 M148 120 L158 112" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        {/* Handprint */}
+        <ellipse cx="300" cy="80" rx="14" ry="18" fill="#4A1E0E" opacity="0.7"/>
+        <ellipse cx="287" cy="68" rx="4" ry="7" fill="#4A1E0E" opacity="0.7" transform="rotate(-15 287 68)"/>
+        <ellipse cx="294" cy="63" rx="4" ry="8" fill="#4A1E0E" opacity="0.7" transform="rotate(-5 294 63)"/>
+        <ellipse cx="303" cy="61" rx="4" ry="8" fill="#4A1E0E" opacity="0.7" transform="rotate(5 303 61)"/>
+        <ellipse cx="312" cy="64" rx="3.5" ry="7" fill="#4A1E0E" opacity="0.7" transform="rotate(15 312 64)"/>
+        <ellipse cx="319" cy="70" rx="3" ry="6" fill="#4A1E0E" opacity="0.7" transform="rotate(25 319 70)"/>
+        {/* Dots */}
+        <circle cx="240" cy="190" r="3.5" fill="#4A1E0E" opacity="0.5"/>
+        <circle cx="255" cy="183" r="2.5" fill="#4A1E0E" opacity="0.4"/>
+        <circle cx="268" cy="195" r="2" fill="#4A1E0E" opacity="0.3"/>
+        {/* Running human */}
+        <circle cx="360" cy="130" r="8" fill="#4A1E0E" opacity="0.6"/>
+        <line x1="360" y1="138" x2="360" y2="165" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="360" y1="145" x2="345" y2="155" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="360" y1="145" x2="375" y2="152" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="360" y1="165" x2="348" y2="182" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="360" y1="165" x2="372" y2="183" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        {/* Olive branch */}
+        <path d="M30 30 Q80 10 130 30 Q80 50 30 30Z" fill="#4A1E0E" opacity="0.25"/>
+        <path d="M50 22 Q80 5 110 22" stroke="#4A1E0E" strokeWidth="2" fill="none" opacity="0.3" strokeLinecap="round"/>
+      </svg>
+      {/* Top right cave art */}
+      <svg style={{ position: 'fixed', top: 70, right: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.06, width: '220px', height: '180px' }} viewBox="0 0 220 180" fill="none">
+        <ellipse cx="100" cy="90" rx="55" ry="28" fill="#4A1E0E"/>
+        <ellipse cx="145" cy="76" rx="22" ry="18" fill="#4A1E0E"/>
+        <line x1="100" y1="118" x2="88" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
+        <line x1="112" y1="118" x2="114" y2="150" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
+        <line x1="130" y1="118" x2="122" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
+        <line x1="143" y1="118" x2="148" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
+        <path d="M148 68 L158 44 M158 44 L148 32 M158 44 L170 38" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+      </svg>
       <Navbar view={view} setView={setView} />
-      <div style={{ ...tx }}>
+      <div style={{ ...tx, position: 'relative', zIndex: 1 }}>
         {viewComponents[view]}
       </div>
       <Footer />
@@ -303,9 +356,9 @@ function Navbar({ view, setView }) {
   };
 
   return (
-    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(246,244,240,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #E8E4DE', padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
+    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(249,237,224,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #E8C4A8', padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
-        <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: '#16222F', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
+        <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: '#4A1E0E', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
           להיות אדם
         </button>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
@@ -313,7 +366,7 @@ function Navbar({ view, setView }) {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 3;
             return (
-              <button key={i} onClick={() => handleViewClick(i)} style={{ fontSize: '14px', fontWeight: (isActive || isBlogActive) ? 600 : 400, color: (isActive || isBlogActive) ? '#B26E63' : '#444F5A', background: (isActive || isBlogActive) ? 'rgba(178,110,99,0.1)' : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif" }}>
+              <button key={i} onClick={() => handleViewClick(i)} style={{ fontSize: '14px', fontWeight: (isActive || isBlogActive) ? 600 : 400, color: (isActive || isBlogActive) ? '#C4876B' : '#6B3A2A', background: (isActive || isBlogActive) ? 'rgba(196,135,107,0.12)' : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif" }}>
                 {v}
               </button>
             );
