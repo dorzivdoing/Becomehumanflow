@@ -15,7 +15,7 @@ const C = {
 };
 
 const CAVE_BG = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c03298c3a_generated_image.png';
-const CAVE_ART = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/d2989f235_generated_image.png';
+const CAVE_ART = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/a3aefaccb_generated_image.png';
 
 const caveSectionStyle = {
   backgroundImage: `url(${CAVE_BG})`,
