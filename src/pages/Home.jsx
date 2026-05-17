@@ -281,49 +281,117 @@ export default function Home() {
                      radial-gradient(ellipse at 80% 70%, rgba(180,100,70,0.08) 0%, transparent 55%),
                      radial-gradient(ellipse at 50% 90%, rgba(74,30,14,0.06) 0%, transparent 50%)`,
       }} />
-      {/* Cave art SVG decoration */}
-      <svg style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.18, width: '420px', height: '260px' }} viewBox="0 0 420 260" fill="none">
-        {/* Deer silhouette */}
-        <ellipse cx="120" cy="160" rx="45" ry="22" fill="#4A1E0E" />
-        <ellipse cx="155" cy="148" rx="18" ry="14" fill="#4A1E0E" />
-        <line x1="120" y1="182" x2="108" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
-        <line x1="130" y1="182" x2="132" y2="212" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
-        <line x1="148" y1="182" x2="142" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
-        <line x1="158" y1="182" x2="162" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
-        {/* Antlers */}
-        <path d="M160 140 L168 118 M168 118 L160 108 M168 118 L178 112" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
-        <path d="M152 140 L148 120 M148 120 L140 110 M148 120 L158 112" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
-        {/* Handprint */}
-        <ellipse cx="300" cy="80" rx="14" ry="18" fill="#4A1E0E" opacity="0.7"/>
-        <ellipse cx="287" cy="68" rx="4" ry="7" fill="#4A1E0E" opacity="0.7" transform="rotate(-15 287 68)"/>
-        <ellipse cx="294" cy="63" rx="4" ry="8" fill="#4A1E0E" opacity="0.7" transform="rotate(-5 294 63)"/>
-        <ellipse cx="303" cy="61" rx="4" ry="8" fill="#4A1E0E" opacity="0.7" transform="rotate(5 303 61)"/>
-        <ellipse cx="312" cy="64" rx="3.5" ry="7" fill="#4A1E0E" opacity="0.7" transform="rotate(15 312 64)"/>
-        <ellipse cx="319" cy="70" rx="3" ry="6" fill="#4A1E0E" opacity="0.7" transform="rotate(25 319 70)"/>
-        {/* Dots */}
-        <circle cx="240" cy="190" r="3.5" fill="#4A1E0E" opacity="0.5"/>
-        <circle cx="255" cy="183" r="2.5" fill="#4A1E0E" opacity="0.4"/>
-        <circle cx="268" cy="195" r="2" fill="#4A1E0E" opacity="0.3"/>
-        {/* Running human */}
-        <circle cx="360" cy="130" r="8" fill="#4A1E0E" opacity="0.6"/>
-        <line x1="360" y1="138" x2="360" y2="165" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="360" y1="145" x2="345" y2="155" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
-        <line x1="360" y1="145" x2="375" y2="152" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
-        <line x1="360" y1="165" x2="348" y2="182" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
-        <line x1="360" y1="165" x2="372" y2="183" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
-        {/* Olive branch */}
-        <path d="M30 30 Q80 10 130 30 Q80 50 30 30Z" fill="#4A1E0E" opacity="0.25"/>
-        <path d="M50 22 Q80 5 110 22" stroke="#4A1E0E" strokeWidth="2" fill="none" opacity="0.3" strokeLinecap="round"/>
+      {/* Cave art SVG — bottom left: humans, animals, trees */}
+      <svg style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.18, width: '500px', height: '320px' }} viewBox="0 0 500 320" fill="none">
+        {/* === BISON === */}
+        <ellipse cx="80" cy="220" rx="48" ry="26" fill="#4A1E0E"/>
+        <ellipse cx="118" cy="205" rx="20" ry="16" fill="#4A1E0E"/>
+        {/* bison hump */}
+        <ellipse cx="90" cy="196" rx="18" ry="12" fill="#4A1E0E"/>
+        {/* bison legs */}
+        <line x1="68" y1="244" x2="62" y2="270" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="80" y1="245" x2="76" y2="272" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="98" y1="244" x2="95" y2="270" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="110" y1="243" x2="112" y2="270" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        {/* bison horn */}
+        <path d="M118 195 L126 178 L132 182" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        {/* bison tail */}
+        <path d="M33 220 Q22 210 26 200" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
+
+        {/* === DEER === */}
+        <ellipse cx="210" cy="228" rx="36" ry="18" fill="#4A1E0E"/>
+        <ellipse cx="238" cy="216" rx="14" ry="11" fill="#4A1E0E"/>
+        <line x1="200" y1="245" x2="194" y2="268" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="212" y1="246" x2="210" y2="270" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="224" y1="245" x2="220" y2="268" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="234" y1="244" x2="236" y2="268" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        {/* deer antlers */}
+        <path d="M240 208 L246 190 M246 190 L240 180 M246 190 L254 185" stroke="#4A1E0E" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+        <path d="M234 210 L230 193 M230 193 L224 184 M230 193 L238 186" stroke="#4A1E0E" strokeWidth="2" strokeLinecap="round" fill="none"/>
+
+        {/* === HUMAN FIGURE 1 — standing, arms raised === */}
+        <circle cx="320" cy="190" r="9" fill="#4A1E0E"/>
+        <line x1="320" y1="199" x2="320" y2="235" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        {/* arms raised */}
+        <line x1="320" y1="210" x2="302" y2="196" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="320" y1="210" x2="338" y2="196" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        {/* legs */}
+        <line x1="320" y1="235" x2="308" y2="258" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="320" y1="235" x2="332" y2="258" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+
+        {/* === HUMAN FIGURE 2 — running === */}
+        <circle cx="380" cy="195" r="8" fill="#4A1E0E"/>
+        <line x1="380" y1="203" x2="378" y2="232" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="379" y1="213" x2="362" y2="222" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="379" y1="213" x2="394" y2="206" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="378" y1="232" x2="366" y2="252" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="378" y1="232" x2="390" y2="250" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+
+        {/* === HUMAN FIGURE 3 — small, crouching === */}
+        <circle cx="440" cy="230" r="7" fill="#4A1E0E"/>
+        <line x1="440" y1="237" x2="440" y2="255" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="440" y1="244" x2="428" y2="250" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="440" y1="244" x2="452" y2="248" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="440" y1="255" x2="432" y2="270" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+        <line x1="440" y1="255" x2="448" y2="270" stroke="#4A1E0E" strokeWidth="3.5" strokeLinecap="round"/>
+
+        {/* === TREE 1 — simple trunk + branches === */}
+        <line x1="155" y1="270" x2="155" y2="210" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <line x1="155" y1="240" x2="138" y2="225" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="155" y1="232" x2="142" y2="215" stroke="#4A1E0E" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="155" y1="225" x2="165" y2="210" stroke="#4A1E0E" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="155" y1="238" x2="168" y2="228" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="155" y1="248" x2="144" y2="238" stroke="#4A1E0E" strokeWidth="2" strokeLinecap="round"/>
+
+        {/* === TREE 2 — palm-like === */}
+        <line x1="470" y1="290" x2="470" y2="235" stroke="#4A1E0E" strokeWidth="5" strokeLinecap="round"/>
+        <path d="M470 235 Q455 218 445 215" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        <path d="M470 235 Q462 215 460 205" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        <path d="M470 235 Q478 215 482 206" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
+        <path d="M470 235 Q484 220 490 218" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round" fill="none"/>
       </svg>
-      {/* Top right cave art */}
-      <svg style={{ position: 'fixed', top: 70, right: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.14, width: '220px', height: '180px' }} viewBox="0 0 220 180" fill="none">
-        <ellipse cx="100" cy="90" rx="55" ry="28" fill="#4A1E0E"/>
-        <ellipse cx="145" cy="76" rx="22" ry="18" fill="#4A1E0E"/>
-        <line x1="100" y1="118" x2="88" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
-        <line x1="112" y1="118" x2="114" y2="150" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
-        <line x1="130" y1="118" x2="122" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
-        <line x1="143" y1="118" x2="148" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
-        <path d="M148 68 L158 44 M158 44 L148 32 M158 44 L170 38" stroke="#4A1E0E" strokeWidth="4" strokeLinecap="round"/>
+
+      {/* Cave art SVG — top right: celestial bodies + birds + hand */}
+      <svg style={{ position: 'fixed', top: 65, right: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.15, width: '280px', height: '220px' }} viewBox="0 0 280 220" fill="none">
+        {/* === SUN === */}
+        <circle cx="220" cy="50" r="18" fill="#4A1E0E"/>
+        {/* sun rays */}
+        <line x1="220" y1="24" x2="220" y2="14" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="220" y1="76" x2="220" y2="86" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="194" y1="50" x2="184" y2="50" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="246" y1="50" x2="256" y2="50" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="202" y1="32" x2="195" y2="25" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="238" y1="68" x2="245" y2="75" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="238" y1="32" x2="245" y2="25" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+        <line x1="202" y1="68" x2="195" y2="75" stroke="#4A1E0E" strokeWidth="3" strokeLinecap="round"/>
+
+        {/* === CRESCENT MOON === */}
+        <path d="M140 35 Q158 50 140 65 Q122 55 130 45 Q135 38 140 35Z" fill="#4A1E0E"/>
+
+        {/* === STARS === */}
+        <circle cx="60" cy="30" r="3.5" fill="#4A1E0E"/>
+        <circle cx="80" cy="18" r="2.5" fill="#4A1E0E"/>
+        <circle cx="100" cy="38" r="2" fill="#4A1E0E"/>
+        <circle cx="50" cy="55" r="2" fill="#4A1E0E"/>
+        <circle cx="170" cy="22" r="2.5" fill="#4A1E0E"/>
+        <circle cx="185" cy="90" r="2" fill="#4A1E0E"/>
+        {/* star cross marks */}
+        <line x1="60" y1="22" x2="60" y2="38" stroke="#4A1E0E" strokeWidth="1.5" strokeLinecap="round"/>
+        <line x1="52" y1="30" x2="68" y2="30" stroke="#4A1E0E" strokeWidth="1.5" strokeLinecap="round"/>
+
+        {/* === BIRDS in flight === */}
+        <path d="M30 100 Q38 93 46 100" stroke="#4A1E0E" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        <path d="M50 90 Q60 82 70 90" stroke="#4A1E0E" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        <path d="M75 105 Q83 97 91 105" stroke="#4A1E0E" strokeWidth="2" fill="none" strokeLinecap="round"/>
+        <path d="M20 118 Q28 111 36 118" stroke="#4A1E0E" strokeWidth="2" fill="none" strokeLinecap="round"/>
+
+        {/* === HANDPRINT === */}
+        <ellipse cx="100" cy="170" rx="15" ry="20" fill="#4A1E0E" opacity="0.8"/>
+        <ellipse cx="85" cy="156" rx="4.5" ry="8" fill="#4A1E0E" opacity="0.8" transform="rotate(-18 85 156)"/>
+        <ellipse cx="92" cy="150" rx="4.5" ry="9" fill="#4A1E0E" opacity="0.8" transform="rotate(-6 92 150)"/>
+        <ellipse cx="101" cy="148" rx="4.5" ry="9" fill="#4A1E0E" opacity="0.8" transform="rotate(5 101 148)"/>
+        <ellipse cx="110" cy="151" rx="4" ry="8" fill="#4A1E0E" opacity="0.8" transform="rotate(16 110 151)"/>
+        <ellipse cx="117" cy="158" rx="3.5" ry="7" fill="#4A1E0E" opacity="0.8" transform="rotate(28 117 158)"/>
       </svg>
       <Navbar view={view} setView={setView} />
       <div style={{ ...tx, position: 'relative', zIndex: 1 }}>
