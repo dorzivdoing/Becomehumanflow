@@ -45,7 +45,7 @@ function CaveArtOverlay() {
       backgroundImage: `url(${CAVE_ART})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      opacity: 0.18,
+      opacity: 0.07,
     }} />
   );
 }
