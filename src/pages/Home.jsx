@@ -18,7 +18,7 @@ const CAVE_BG = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4
 const CAVE_ART = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/a3aefaccb_generated_image.png';
 
 const caveSectionStyle = {
-  background: '#F0DDD0',
+  background: '#FAF6F1',
   position: 'relative',
 };
 
@@ -39,25 +39,25 @@ function QuoteBlock({ text, author }) {
 function CaveArtOverlay() {
   return (
     <>
-      {/* Left side figures */}
+      {/* Bottom-left corner */}
       <div style={{
-        position: 'absolute', top: 0, bottom: 0, left: 0, width: '180px',
+        position: 'absolute', bottom: 0, left: 0, width: '160px', height: '160px',
         pointerEvents: 'none',
         backgroundImage: `url(${CAVE_ART})`,
-        backgroundSize: 'auto 100%',
-        backgroundPosition: 'right center',
-        backgroundRepeat: 'no-repeat',
-        opacity: 0.28,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.13,
+        borderRadius: '0 80px 0 0',
       }} />
-      {/* Right side figures */}
+      {/* Top-right corner */}
       <div style={{
-        position: 'absolute', top: 0, bottom: 0, right: 0, width: '180px',
+        position: 'absolute', top: 0, right: 0, width: '140px', height: '140px',
         pointerEvents: 'none',
         backgroundImage: `url(${CAVE_ART})`,
-        backgroundSize: 'auto 100%',
-        backgroundPosition: 'left center',
-        backgroundRepeat: 'no-repeat',
-        opacity: 0.28,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.10,
+        borderRadius: '0 0 0 70px',
         transform: 'scaleX(-1)',
       }} />
     </>
@@ -106,8 +106,8 @@ function ViewHome({ setView }) {
       <div style={{ background: C.bone, padding: '64px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <CaveArtOverlay />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
-          <div style={{ width: '220px', height: '220px', borderRadius: '50%', background: '#E8C4A8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: `3px solid ${C.terra}`, backgroundImage: `url(${CAVE_ART})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <span style={{ color: C.charcoal, fontSize: '13px', fontFamily: "'Assistant', sans-serif", background: 'rgba(249,238,226,0.75)', padding: '6px 12px', borderRadius: '8px' }}>תמונת פרופיל</span>
+          <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.terra}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(92,48,32,0.15)' }}>
+            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
           </div>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <div style={{ fontSize: '12px', color: C.terra, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
@@ -338,7 +338,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Assistant', sans-serif", background: '#F0DDD0', minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Assistant', sans-serif", background: '#FAF6F1', minHeight: '100vh' }}>
       <Navbar view={view} setView={setView} />
       <div style={{ ...tx }}>
         {viewComponents[view]}
