@@ -12,7 +12,7 @@ export default function BookingSection() {
   return (
     <section style={s.section}>
       <h2 style={s.h2}>תיאום שיחת הכרות קצרה (ללא עלות)</h2>
-      <p style={s.p}>בחרו מועד שנוח לכם מתוך זמני הפנאי שלי ביומן — ואני אחזור אליכם בשיחת טלפון קצרה.</p>
+      <p style={s.p}>בחרו מועד שנוח לכם ביומן ואני אחזור אליכם בשיחת טלפון קצרה.</p>
       <div style={s.row}>
         <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" style={s.btn1}>לחצו לבחירת מועד ביומן</a>
         <a href="https://wa.me/9720508451920" target="_blank" rel="noopener noreferrer" style={s.btn2}>מעדיפים וואטסאפ? דברו איתי</a>
@@ -21,3 +21,7 @@ export default function BookingSection() {
     </section>
   );
 }
+
+git add .
+git commit -m "trigger sync for BookingSection"
+git push

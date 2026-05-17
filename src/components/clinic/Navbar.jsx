@@ -1,43 +1,39 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar({ view, setView }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const onBlog = location.pathname === '/blog';
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navItems = ['בית', 'אודות', 'גישה', 'השראה ומחשבות', 'שאלות', 'קשר'];
 
-  const whatsappLink = "https://wa.me/972508451920";
+  const handleViewClick = (i) => {
+    if (onBlog) {
+      sessionStorage.setItem('targetView', i);
+      navigate('/');
+    } else {
+      setView && setView(i);
+    }
+  };
 
   return (
-    <nav
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-28 flex items-center justify-between">
-        <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${scrolled ? "text-navy" : "text-navy"}`}>
-          דור | פסיכותרפיה
-        </span>
-
-        <div className="flex items-center gap-6">
-          <Link to="/blog" className="text-sm font-medium text-slate hover:text-rose transition-colors duration-200">
-            בלוג
-          </Link>
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-slate hover:text-rose transition-colors duration-200"
-          >
-            צור קשר
-          </a>
+    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(246,244,240,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #E8E4DE', padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+        <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: '#16222F', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
+          להיות אדם
+        </button>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
+          {navItems.map((v, i) => {
+            const isActive = !onBlog && view === i;
+            const isBlogActive = onBlog && i === 3;
+            return (
+              <button key={i} onClick={() => handleViewClick(i)} style={{ fontSize: '14px', fontWeight: (isActive || isBlogActive) ? 600 : 400, color: (isActive || isBlogActive) ? '#B26E63' : '#444F5A', background: (isActive || isBlogActive) ? 'rgba(178,110,99,0.1)' : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif" }}>
+                {v}
+              </button>
+            );
+          })}
         </div>
+        <div style={{ width: '80px', flexShrink: 0 }} />
       </div>
     </nav>
   );
