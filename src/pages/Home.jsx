@@ -3,21 +3,34 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "@/components/clinic/Footer";
 
 const C = {
-  bone: '#F6F4F0',
-  white: '#FFFFFF',
-  navy: '#16222F',
-  charcoal: '#444F5A',
-  terra: '#B26E63',
-  terraLight: 'rgba(178,110,99,0.08)',
-  border: '#E8E4DE',
+  bone: '#F9EEE2',
+  sand: '#F0E0CC',
+  white: '#FBF5ED',
+  navy: '#5C3020',
+  charcoal: '#6B3A2A',
+  terra: '#C97A5A',
+  terraLight: 'rgba(201,122,90,0.10)',
+  border: '#E8C4A8',
+  darkBrown: '#3D1F0F',
+};
+
+const CAVE_BG = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c03298c3a_generated_image.png';
+const CAVE_ART = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/d2989f235_generated_image.png';
+
+const caveSectionStyle = {
+  backgroundImage: `url(${CAVE_BG})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  position: 'relative',
 };
 
 const tx = { transition: 'all 0.7s cubic-bezier(0.25, 1, 0.5, 1)' };
 
 function QuoteBlock({ text, author }) {
   return (
-    <div style={{ maxWidth: '640px', margin: '0 auto 56px', textAlign: 'center', padding: '36px 32px', background: C.terraLight, borderRadius: '14px', borderRight: `3px solid ${C.terra}` }}>
-      <p style={{ fontSize: '16px', color: C.charcoal, lineHeight: 1.85, fontStyle: 'italic', letterSpacing: '0.02em', margin: '0 0 10px' }}>
+    <div style={{ maxWidth: '640px', margin: '56px auto 0', textAlign: 'center', padding: '40px 32px', background: 'rgba(201,122,90,0.08)', borderRadius: '14px', borderTop: `2px solid ${C.terra}` }}>
+      <div style={{ fontSize: '36px', color: C.terra, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif' }}>"</div>
+      <p style={{ fontSize: '16px', color: C.charcoal, lineHeight: 1.9, fontStyle: 'italic', letterSpacing: '0.02em', margin: '0 0 14px' }}>
         {text}
       </p>
       {author && <p style={{ fontSize: '13px', color: C.terra, fontWeight: 600, margin: 0, letterSpacing: '0.04em' }}>{author}</p>}
@@ -25,22 +38,37 @@ function QuoteBlock({ text, author }) {
   );
 }
 
+function CaveArtOverlay() {
+  return (
+    <div style={{
+      position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden',
+      backgroundImage: `url(${CAVE_ART})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      opacity: 0.18,
+    }} />
+  );
+}
+
 function ContactFooter({ setView }) {
   return (
-    <div style={{ background: C.navy, padding: '64px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
-      <h3 style={{ fontSize: '22px', fontWeight: 500, color: C.white, margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
-        הזמנה למפגש ראשוני
-      </h3>
-      <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, margin: '0 0 36px', maxWidth: '440px', marginLeft: 'auto', marginRight: 'auto', fontFamily: "'Assistant', sans-serif" }}>
-        מזמין אותך ליצור קשר ולבדוק התאמה – בכבוד ובקצב שמתאים לך ולחייך.
-      </p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-        <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" style={{ background: C.terra, color: C.white, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap', fontFamily: "'Assistant', sans-serif", ...tx }}>
-          לחצו לבחירת מועד לשיחה ביומן הדיגיטלי
-        </a>
-        <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer" style={{ background: 'transparent', color: C.white, border: '1.5px solid rgba(178,110,99,0.5)', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap', fontFamily: "'Assistant', sans-serif", ...tx }}>
-          מעדיפים לשלוח הודעה? דברו איתי בוואטסאפ
-        </a>
+    <div style={{ background: C.darkBrown, padding: '64px 40px', textAlign: 'center', direction: 'rtl', marginTop: '0', position: 'relative', overflow: 'hidden' }}>
+      <CaveArtOverlay />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <h3 style={{ fontSize: '22px', fontWeight: 500, color: '#F9EEE2', margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
+          הזמנה למפגש ראשוני
+        </h3>
+        <p style={{ fontSize: '16px', color: 'rgba(249,238,226,0.65)', lineHeight: 1.8, margin: '0 0 36px', maxWidth: '440px', marginLeft: 'auto', marginRight: 'auto', fontFamily: "'Assistant', sans-serif" }}>
+          מזמין אותך ליצור קשר ולבדוק התאמה – בכבוד ובקצב שמתאים לך ולחייך.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+          <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" style={{ background: C.terra, color: '#F9EEE2', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            לחצו לבחירת מועד לשיחה ביומן הדיגיטלי
+          </a>
+          <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(61,31,15,0.6)', color: '#F9EEE2', border: '1.5px solid rgba(201,122,90,0.5)', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            מעדיפים לשלוח הודעה? דברו איתי בוואטסאפ
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -49,11 +77,9 @@ function ContactFooter({ setView }) {
 function ViewHome({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
-        <QuoteBlock
-          text="לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו."
-          author="— דור"
-        />
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: '280px' }}>
             <div style={{ fontSize: '12px', color: C.terra, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '16px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>
@@ -72,9 +98,14 @@ function ViewHome({ setView }) {
               לתיאום שיחת הכרות קצרה
             </button>
           </div>
-          <div style={{ width: '260px', height: '300px', borderRadius: '16px', background: '#DDD8D0', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: `3px solid ${C.terra}` }}>
-            <span style={{ color: '#9A9490', fontSize: '13px', fontFamily: "'Assistant', sans-serif" }}>תמונת פרופיל</span>
+          <div style={{ width: '260px', height: '300px', borderRadius: '50%', background: '#E8C4A8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: `3px solid ${C.terra}`, backgroundImage: `url(${CAVE_ART})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.9 }}>
+            <span style={{ color: C.charcoal, fontSize: '13px', fontFamily: "'Assistant', sans-serif", background: 'rgba(249,238,226,0.7)', padding: '6px 12px', borderRadius: '8px' }}>תמונת פרופיל</span>
           </div>
+        </div>
+        <QuoteBlock
+          text="לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו."
+          author="— דור"
+        />
         </div>
       </div>
       <ContactFooter setView={setView} />
@@ -85,11 +116,9 @@ function ViewHome({ setView }) {
 function ViewAbout({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
-        <QuoteBlock
-          text="I believed I wanted to be a poet, but deep down, I just wanted to be a poem."
-          author="— Jaime Gil de Biedma"
-        />
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.navy, textAlign: 'center', margin: '0 0 48px', fontFamily: "'Assistant', sans-serif" }}>
             על האדם שמאחורי הטיפול
@@ -109,6 +138,11 @@ function ViewAbout({ setView }) {
             </div>
           </div>
         </div>
+        <QuoteBlock
+          text="I believed I wanted to be a poet, but deep down, I just wanted to be a poem."
+          author="— Jaime Gil de Biedma"
+        />
+        </div>
       </div>
       <ContactFooter setView={setView} />
     </div>
@@ -123,11 +157,9 @@ function ViewApproach({ setView }) {
   ];
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
-        <QuoteBlock
-          text="הטיפול אינו תיקון של מה שמקולקל, אלא חיבור מחדש אל זרמי החיים המולדים שלנו."
-          author="— דיויד בואדלה"
-        />
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.navy, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             עמדה טיפולית אינטגרטיבית ושדות החיים
@@ -137,13 +169,18 @@ function ViewApproach({ setView }) {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
             {streams.map((s, i) => (
-              <div key={i} style={{ background: C.white, borderRadius: '14px', padding: '32px 28px', boxShadow: '0 4px 30px rgba(22,34,47,0.04)', borderBottom: `3px solid ${C.terra}` }}>
+              <div key={i} style={{ background: 'rgba(251,245,237,0.85)', borderRadius: '14px', padding: '32px 28px', boxShadow: '0 4px 30px rgba(92,48,32,0.06)', borderBottom: `3px solid ${C.terra}` }}>
                 <div style={{ fontSize: '11px', color: C.terra, fontWeight: 600, letterSpacing: '0.06em', marginBottom: '12px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>{s.sub}</div>
                 <h3 style={{ fontSize: '17px', fontWeight: 600, color: C.navy, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>{s.title}</h3>
                 <p style={{ fontSize: '14px', color: C.charcoal, lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{s.body}</p>
               </div>
             ))}
           </div>
+        </div>
+        <QuoteBlock
+          text="הטיפול אינו תיקון של מה שמקולקל, אלא חיבור מחדש אל זרמי החיים המולדים שלנו."
+          author="— דיויד בואדלה"
+        />
         </div>
       </div>
       <ContactFooter setView={setView} />
@@ -154,10 +191,9 @@ function ViewApproach({ setView }) {
 function ViewWritings({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
-        <QuoteBlock
-          text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך; להבין שהתודעה שלך היא לא בדיוק דבר שברור לך מאליו."
-        />
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.navy, textAlign: 'center', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
             מן המרחב: מחשבות, תודעה ושירה
@@ -165,7 +201,7 @@ function ViewWritings({ setView }) {
           <p style={{ textAlign: 'center', color: C.charcoal, fontSize: '16px', lineHeight: 1.85, margin: '0 0 56px', fontFamily: "'Assistant', sans-serif" }}>
             מרחב זה מוקדש למילים שבין החדר לשדה, תובנות על מורכבות התודעה, תהליכי אבל וקשב עמוק לזרמי החיים.
           </p>
-          <div style={{ background: C.white, borderRadius: '14px', padding: '48px 40px', boxShadow: '0 4px 30px rgba(22,34,47,0.04)', borderRight: `4px solid ${C.terra}`, textAlign: 'center' }}>
+          <div style={{ background: 'rgba(251,245,237,0.85)', borderRadius: '14px', padding: '48px 40px', boxShadow: '0 4px 30px rgba(92,48,32,0.06)', borderRight: `4px solid ${C.terra}`, textAlign: 'center' }}>
             <div style={{ fontSize: '32px', marginBottom: '16px', opacity: 0.3 }}>✦</div>
             <p style={{ fontSize: '15px', color: C.charcoal, lineHeight: 1.9, margin: 0, fontStyle: 'italic', fontFamily: "'Assistant', sans-serif" }}>
               כתבים ומחשבות יתווספו בקרוב. מרחב זה עדיין מתהווה — כמו כל תהליך טיפולי אמיתי.
@@ -176,6 +212,10 @@ function ViewWritings({ setView }) {
               לבלוג המלא ←
             </Link>
           </div>
+        </div>
+        <QuoteBlock
+          text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך; להבין שהתודעה שלך היא לא בדיוק דבר שברור לך מאליו."
+        />
         </div>
       </div>
       <ContactFooter setView={setView} />
@@ -202,14 +242,15 @@ function ViewFAQ({ setView }) {
   ];
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
-        <QuoteBlock text="הגוף שלנו רוצה, הראש שלנו לא גר שם... הקלאסיקה של חוסר אינטגרציה." />
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.navy, textAlign: 'center', margin: '0 0 48px', fontFamily: "'Assistant', sans-serif" }}>
             שאלות נפוצות וביטחון קליני
           </h2>
           {faqs.map((faq, i) => (
-            <div key={i} style={{ background: C.white, borderRadius: '12px', border: open === i ? `1.5px solid ${C.terra}` : `1.5px solid ${C.border}`, marginBottom: '12px', overflow: 'hidden', boxShadow: '0 4px 30px rgba(22,34,47,0.03)', ...tx }}>
+            <div key={i} style={{ background: 'rgba(251,245,237,0.88)', borderRadius: '12px', border: open === i ? `1.5px solid ${C.terra}` : `1.5px solid ${C.border}`, marginBottom: '12px', overflow: 'hidden', boxShadow: '0 4px 30px rgba(92,48,32,0.05)', ...tx }}>
               <button onClick={() => toggle(i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'right', gap: '16px' }}>
                 <span style={{ fontSize: '16px', fontWeight: 500, color: C.navy, lineHeight: 1.5, flex: 1, fontFamily: "'Assistant', sans-serif" }}>{faq.q}</span>
                 <span style={{ color: C.terra, fontSize: '22px', fontWeight: 300, flexShrink: 0, display: 'inline-block', transition: 'transform 0.3s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span>
@@ -220,6 +261,8 @@ function ViewFAQ({ setView }) {
             </div>
           ))}
         </div>
+        <QuoteBlock text="הגוף שלנו רוצה, הראש שלנו לא גר שם... הקלאסיקה של חוסר אינטגרציה." />
+        </div>
       </div>
       <ContactFooter setView={setView} />
     </div>
@@ -229,7 +272,9 @@ function ViewFAQ({ setView }) {
 function ViewContact() {
   return (
     <div>
-      <div style={{ background: C.bone, padding: '120px 40px 80px', direction: 'rtl' }}>
+      <div style={{ ...caveSectionStyle, padding: '120px 40px 80px', direction: 'rtl' }}>
+        <CaveArtOverlay />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.navy, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             הזמנה למפגש ראשוני
@@ -245,6 +290,7 @@ function ViewContact() {
               מעדיפים לשלוח הודעה? דברו איתי בוואטסאפ
             </a>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -271,7 +317,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bone, minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bone, minHeight: '100vh', backgroundImage: `url(${CAVE_BG})`, backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
       <Navbar view={view} setView={setView} />
       <div style={{ ...tx }}>
         {viewComponents[view]}
@@ -303,9 +349,9 @@ function Navbar({ view, setView }) {
   };
 
   return (
-    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(246,244,240,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #E8E4DE', padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
+    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(249,238,226,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #E8C4A8', padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
-        <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: '#16222F', background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
+        <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: C.navy, background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
           להיות אדם
         </button>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
@@ -313,7 +359,7 @@ function Navbar({ view, setView }) {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 3;
             return (
-              <button key={i} onClick={() => handleViewClick(i)} style={{ fontSize: '14px', fontWeight: (isActive || isBlogActive) ? 600 : 400, color: (isActive || isBlogActive) ? '#B26E63' : '#444F5A', background: (isActive || isBlogActive) ? 'rgba(178,110,99,0.1)' : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif" }}>
+              <button key={i} onClick={() => handleViewClick(i)} style={{ fontSize: '14px', fontWeight: (isActive || isBlogActive) ? 600 : 400, color: (isActive || isBlogActive) ? C.terra : C.charcoal, background: (isActive || isBlogActive) ? 'rgba(201,122,90,0.12)' : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif" }}>
                 {v}
               </button>
             );
