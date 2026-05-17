@@ -282,7 +282,7 @@ export default function Home() {
                      radial-gradient(ellipse at 50% 90%, rgba(74,30,14,0.06) 0%, transparent 50%)`,
       }} />
       {/* Cave art SVG decoration */}
-      <svg style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.07, width: '420px', height: '260px' }} viewBox="0 0 420 260" fill="none">
+      <svg style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.18, width: '420px', height: '260px' }} viewBox="0 0 420 260" fill="none">
         {/* Deer silhouette */}
         <ellipse cx="120" cy="160" rx="45" ry="22" fill="#4A1E0E" />
         <ellipse cx="155" cy="148" rx="18" ry="14" fill="#4A1E0E" />
@@ -316,7 +316,7 @@ export default function Home() {
         <path d="M50 22 Q80 5 110 22" stroke="#4A1E0E" strokeWidth="2" fill="none" opacity="0.3" strokeLinecap="round"/>
       </svg>
       {/* Top right cave art */}
-      <svg style={{ position: 'fixed', top: 70, right: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.06, width: '220px', height: '180px' }} viewBox="0 0 220 180" fill="none">
+      <svg style={{ position: 'fixed', top: 70, right: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.14, width: '220px', height: '180px' }} viewBox="0 0 220 180" fill="none">
         <ellipse cx="100" cy="90" rx="55" ry="28" fill="#4A1E0E"/>
         <ellipse cx="145" cy="76" rx="22" ry="18" fill="#4A1E0E"/>
         <line x1="100" y1="118" x2="88" y2="148" stroke="#4A1E0E" strokeWidth="6" strokeLinecap="round"/>
