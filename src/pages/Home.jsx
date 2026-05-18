@@ -144,13 +144,13 @@ function ViewApproach({ setView }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
             {streams.map((s, i) => (
               <div key={i} style={{ background: C.white, borderRadius: '14px', padding: '32px 28px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
-                <h3 style={{ fontSize: '17px', fontWeight: 600, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>{s.title}</h3>
+                <h3 style={{ fontSize: '17px', fontWeight: 600, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>{s.title}</h3>
                 <p style={{ fontSize: '14px', color: C.textMid, lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{s.body}</p>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ textAlign: 'center', margin: '48px auto 0', maxWidth: '140px' }}>
+        <div style={{ textAlign: 'center', margin: '48px auto 0', maxWidth: '80px' }}>
           <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75279c92f_logo-eap.png" alt="EAP - European Association for Psychotherapy" style={{ width: '100%', objectFit: 'contain', opacity: 0.85 }} />
         </div>
         <QuoteBlock
