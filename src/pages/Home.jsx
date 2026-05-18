@@ -150,7 +150,7 @@ function ViewApproach({ setView }) {
             ))}
           </div>
         </div>
-        <div style={{ textAlign: 'center', margin: '48px auto 0', maxWidth: '300px' }}>
+        <div style={{ textAlign: 'center', margin: '48px auto 0', maxWidth: '140px' }}>
           <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75279c92f_logo-eap.png" alt="EAP - European Association for Psychotherapy" style={{ width: '100%', objectFit: 'contain', opacity: 0.85 }} />
         </div>
         <QuoteBlock
