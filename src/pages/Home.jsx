@@ -468,7 +468,6 @@ function Navbar({ view, setView }) {
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
         <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: C.green, background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75baef097_Gemini_Generated_Image_yh6cbiyh6cbiyh6c.png" alt="לוגו" style={{ width: '40px', height: '40px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           להיות אדם
         </button>
 
