@@ -83,7 +83,7 @@ function ViewHome({ setView }) {
           </div>
 
           <div style={{ width: '220px', height: '280px', borderRadius: '14px', flexShrink: 0, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.13)', border: `1px solid ${C.border}` }}>
-            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
         </div>
       </div>
@@ -418,7 +418,19 @@ function Navbar({ view, setView }) {
             const active = isActive || isBlogActive;
             return (
               <button key={i} onClick={() => handleViewClick(i)}
-                style={{ fontSize: '13px', fontWeight: active ? 600 : 400, color: active ? C.white : C.textMid, background: active ? C.sage : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 10px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif", whiteSpace: 'nowrap' }}>
+                style={{ 
+                  fontSize: '14px', 
+                  fontWeight: active ? 600 : 400, 
+                  color: active ? C.white : C.textMid, 
+                  background: i === 6 && active ? C.sage : (i === 6 ? 'transparent' : (active ? C.sage : 'transparent')), 
+                  border: i === 6 ? `2px solid ${C.sage}` : 'none', 
+                  borderRadius: i === 6 ? '50px' : '8px', 
+                  padding: i === 6 ? '6px 16px' : '6px 10px', 
+                  cursor: 'pointer', 
+                  transition: 'all 0.3s', 
+                  fontFamily: "'Assistant', sans-serif", 
+                  whiteSpace: 'nowrap' 
+                }}>
                 {v}
               </button>
             );
@@ -441,7 +453,19 @@ function Navbar({ view, setView }) {
             const active = isActive || isBlogActive;
             return (
               <button key={i} onClick={() => handleViewClick(i)}
-                style={{ fontSize: '15px', fontWeight: active ? 600 : 400, color: active ? C.white : C.textMid, background: active ? C.sage : 'transparent', border: 'none', borderRadius: '8px', padding: '10px 16px', cursor: 'pointer', textAlign: 'right', fontFamily: "'Assistant', sans-serif", transition: 'all 0.2s' }}>
+                 style={{ 
+                  fontSize: '15px', 
+                  fontWeight: active ? 600 : 400, 
+                  color: active ? C.white : C.textMid, 
+                  background: i === 6 && active ? C.sage : (i === 6 ? 'transparent' : (active ? C.sage : 'transparent')), 
+                  border: i === 6 ? `2px solid ${C.sage}` : 'none', 
+                  borderRadius: i === 6 ? '50px' : '8px', 
+                  padding: i === 6 ? '10px 18px' : '10px 16px', 
+                  cursor: 'pointer', 
+                  textAlign: 'right', 
+                  fontFamily: "'Assistant', sans-serif", 
+                  transition: 'all 0.2s' 
+                }}>
                 {v}
               </button>
             );
