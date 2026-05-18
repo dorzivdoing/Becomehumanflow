@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "@/components/clinic/Footer";
 import { base44 } from "@/api/base44Client";
 
@@ -438,7 +438,7 @@ export default function Home() {
   return (
     <div style={{ fontFamily: "'Assistant', sans-serif", background: C.bg, minHeight: '100vh' }}>
       <Navbar view={view} setView={setView} />
-      <div>
+      <div style={{ paddingTop: '64px' }}>
         {viewComponents[view]}
       </div>
       <Footer />
@@ -450,10 +450,12 @@ function Navbar({ view, setView }) {
   const location = useLocation();
   const navigate = useNavigate();
   const onBlog = location.pathname === '/blog';
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = ['בית', 'אודות', 'גישה', 'למי מתאים?', 'השראה ומחשבות', 'שאלות', 'קשר'];
 
   const handleViewClick = (i) => {
+    setMenuOpen(false);
     if (onBlog) {
       sessionStorage.setItem('targetView', i);
       navigate('/');
@@ -463,36 +465,68 @@ function Navbar({ view, setView }) {
   };
 
   return (
-    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+    <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
         <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: C.green, background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
           להיות אדם
         </button>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
+
+        {/* Desktop nav */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flex: 1, margin: '0 16px', flexWrap: 'nowrap', overflow: 'hidden' }} className="hidden-mobile">
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 4;
             const active = isActive || isBlogActive;
             return (
               <button key={i} onClick={() => handleViewClick(i)}
-                style={{
-                  fontSize: '14px',
-                  fontWeight: active ? 600 : 400,
-                  color: active ? C.white : C.textMid,
-                  background: active ? C.sage : 'transparent',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '6px 14px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  fontFamily: "'Assistant', sans-serif"
-                }}>
+                style={{ fontSize: '13px', fontWeight: active ? 600 : 400, color: active ? C.white : C.textMid, background: active ? C.sage : 'transparent', border: 'none', borderRadius: '8px', padding: '6px 10px', cursor: 'pointer', transition: 'all 0.3s', fontFamily: "'Assistant', sans-serif", whiteSpace: 'nowrap' }}>
+                {v}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Hamburger button - mobile only */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="show-mobile"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px' }}
+        >
+          <span style={{ display: 'block', width: '22px', height: '2px', background: menuOpen ? 'transparent' : C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
+          <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: 'block', width: '22px', height: '2px', background: menuOpen ? 'transparent' : C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
+        </button>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      <div style={{ maxHeight: menuOpen ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.4s ease', background: 'rgba(244,241,236,0.99)', borderTop: menuOpen ? `1px solid ${C.border}` : 'none' }} className="show-mobile-block">
+        <div style={{ padding: '12px 20px 20px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {navItems.map((v, i) => {
+            const isActive = !onBlog && view === i;
+            const isBlogActive = onBlog && i === 4;
+            const active = isActive || isBlogActive;
+            return (
+              <button key={i} onClick={() => handleViewClick(i)}
+                style={{ fontSize: '15px', fontWeight: active ? 600 : 400, color: active ? C.white : C.textMid, background: active ? C.sage : 'transparent', border: 'none', borderRadius: '8px', padding: '10px 16px', cursor: 'pointer', textAlign: 'right', fontFamily: "'Assistant', sans-serif", transition: 'all 0.2s' }}>
                 {v}
               </button>
             );
           })}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 700px) {
+          .hidden-mobile { display: none !important; }
+          .show-mobile { display: flex !important; }
+          .show-mobile-block { display: block !important; }
+        }
+        @media (min-width: 701px) {
+          .show-mobile { display: none !important; }
+          .show-mobile-block { display: none !important; }
+          .hidden-mobile { display: flex !important; }
+        }
+      `}</style>
     </nav>
   );
 }
