@@ -93,8 +93,8 @@ function ViewHome({ setView }) {
             <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
               קליניקה מבוססת מחקר לפסיכותרפיה גופנית (ביוסינתזה) ויוגה טיפולית. מרחב מקורקע המציע ליווי רגשי וסומטי מוסמך במשברי חיים, אבל, חרדה וטראומה.
             </p>
-            <button onClick={() => setView(5)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
-              לתיאום שיחת הכרות קצרה
+            <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+              למי מתאים הטיפול?
             </button>
           </div>
           <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
@@ -266,6 +266,68 @@ function ViewFAQ({ setView }) {
   );
 }
 
+function ViewForWho({ setView }) {
+  const items = [
+    {
+      icon: '🌊',
+      title: 'חרדה, דיכאון ואבל',
+      body: 'התמודדות עם חרדה, דיכאון, קשיים עם אבל ואובדן.',
+    },
+    {
+      icon: '🔄',
+      title: 'תופעות רגשיות וגופניות',
+      body: 'תופעות רגשיות וגופניות שהופיעו בעקבות חוויות קשות — מתמשכות או חד-פעמיות.',
+    },
+    {
+      icon: '🌿',
+      title: 'משברי חיים',
+      body: 'ליווי במהלך או לאחר משברי חיים, כולל משברים רפואיים או שינויים גדולים.',
+    },
+    {
+      icon: '✨',
+      title: 'צמיחה והיכרות עם העצמי',
+      body: 'למי שבסך הכל טוב לו, אך מרגיש רצון עמוק להעמיק בהיכרות עם עצמו, לצמוח ולהתפתח.',
+    },
+  ];
+
+  return (
+    <div>
+      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+        <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
+        <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
+          <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', textAlign: 'center', marginBottom: '12px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>
+            למי מתאים הטיפול?
+          </p>
+          <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
+            מי מגיע לקליניקה?
+          </h2>
+          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 auto 48px', maxWidth: '580px', fontFamily: "'Assistant', sans-serif" }}>
+            הקליניקה מתאימה לאנשים בנקודות שונות בחיים — ממשבר חריף ועד מסע של צמיחה.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+            {items.map((item, i) => (
+              <div key={i} style={{ background: C.white, borderRadius: '14px', padding: '28px 24px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
+                <div style={{ fontSize: '28px', marginBottom: '12px' }}>{item.icon}</div>
+                <h3 style={{ fontSize: '16px', fontWeight: 600, color: C.green, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif" }}>{item.title}</h3>
+                <p style={{ fontSize: '14px', color: C.textMid, lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <button onClick={() => setView(6)}
+              style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+              לתיאום שיחת הכרות קצרה
+            </button>
+          </div>
+        </div>
+        <QuoteBlock text="לא צריך להיות בשבר גדול כדי לפנות לעזרה. לפעמים עצם הרצון לחיות חיים עמוקים יותר הוא סיבה מספיקה." />
+      </div>
+      <ContactFooter />
+    </div>
+  );
+}
+
 function ViewContact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -371,6 +433,7 @@ export default function Home() {
     <ViewHome setView={setView} />,
     <ViewAbout setView={setView} />,
     <ViewApproach setView={setView} />,
+    <ViewForWho setView={setView} />,
     <ViewWritings setView={setView} />,
     <ViewFAQ setView={setView} />,
     <ViewContact />,
@@ -392,7 +455,7 @@ function Navbar({ view, setView }) {
   const navigate = useNavigate();
   const onBlog = location.pathname === '/blog';
 
-  const navItems = ['בית', 'אודות', 'גישה', 'השראה ומחשבות', 'שאלות', 'קשר'];
+  const navItems = ['בית', 'אודות', 'גישה', 'למי מתאים?', 'השראה ומחשבות', 'שאלות', 'קשר'];
 
   const handleViewClick = (i) => {
     if (onBlog) {
@@ -412,7 +475,7 @@ function Navbar({ view, setView }) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
-            const isBlogActive = onBlog && i === 3;
+            const isBlogActive = onBlog && i === 4;
             const active = isActive || isBlogActive;
             return (
               <button key={i} onClick={() => handleViewClick(i)}
