@@ -53,12 +53,9 @@ function ContactFooter() {
       <LeafAccent style={{ bottom: -20, left: -20, width: '120px', transform: 'rotate(30deg)' }} />
       <LeafAccent style={{ top: -10, right: -10, width: '100px', transform: 'rotate(-20deg) scaleX(-1)' }} />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <h3 style={{ fontSize: '28px', fontWeight: 600, color: C.green, margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
-          הזמנה למפגש ראשוני
+        <h3 style={{ fontSize: '28px', fontWeight: 600, color: C.green, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
+          יצירת קשר
         </h3>
-        <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.8, margin: '0 0 40px', maxWidth: '420px', marginLeft: 'auto', marginRight: 'auto', fontFamily: "'Assistant', sans-serif" }}>
-          מזמין אותך ליצור קשר ולבדוק התאמה – בכבוד ובקצב שמתאים לך ולחייך.
-        </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
             style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Assistant', sans-serif", ...tx }}>
@@ -275,12 +272,9 @@ function ViewContact() {
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
-            הזמנה למפגש ראשוני
+          <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
+            יצירת קשר
           </h2>
-          <p style={{ fontSize: '17px', color: C.textMid, lineHeight: 1.85, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
-            מזמין אותך ליצור קשר ולבדוק התאמה – בכבוד ובקצב שמתאים לך ולחייך.
-          </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
             <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
               style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 32px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", ...tx }}>
