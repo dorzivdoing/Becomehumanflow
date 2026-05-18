@@ -46,15 +46,7 @@ function QuoteBlock({ text, author }) {
   );
 }
 
-function ContactFooter() {
-  return (
-    <div style={{ background: C.green, padding: '20px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
-      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: 'Assistant, sans-serif' }}>
-        דור זיו &nbsp;·&nbsp; פסיכותרפיה גופנית
-      </p>
-    </div>
-  );
-}
+
 
 function ViewHome({ setView }) {
   return (
@@ -95,7 +87,6 @@ function ViewHome({ setView }) {
           </div>
         </div>
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -130,7 +121,6 @@ function ViewAbout({ setView }) {
           author="— חאימה חיל דה בידמה"
         />
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -168,7 +158,6 @@ function ViewApproach({ setView }) {
           author="— דיויד בואדלה"
         />
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -194,7 +183,6 @@ function ViewWritings({ setView }) {
         </div>
         <QuoteBlock text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך." />
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -238,7 +226,6 @@ function ViewFAQ({ setView }) {
         </div>
         <QuoteBlock text="הגוף שלנו רוצה, הראש שלנו לא גר שם... הקלאסיקה של חוסר אינטגרציה." />
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -282,7 +269,6 @@ function ViewForWho({ setView }) {
         </div>
         <QuoteBlock text="לא צריך להיות בשבר גדול כדי לפנות לעזרה. לפעמים עצם הרצון לחיות חיים עמוקים יותר הוא סיבה מספיקה." />
       </div>
-      <ContactFooter />
     </div>
   );
 }
@@ -361,7 +347,6 @@ function ViewContact() {
           </div>
         </div>
       </div>
-      <ContactFooter />
     </div>
   );
 }
