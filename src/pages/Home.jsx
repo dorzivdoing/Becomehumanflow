@@ -418,10 +418,9 @@ function Navbar({ view, setView }) {
   return (
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', cursor: 'pointer' }} onClick={() => handleViewClick(0)}>
-          <span style={{ fontSize: '16px', fontWeight: 600, color: C.green, fontFamily: 'Assistant, sans-serif', lineHeight: 1.2 }}>דור זיו</span>
-          <span style={{ fontSize: '11px', fontWeight: 400, color: C.textMid, fontFamily: 'Assistant, sans-serif', letterSpacing: '0.04em' }}>פסיכותרפיה גופנית</span>
-        </div>
+        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 600, fontSize: '16px', color: C.green, fontFamily: 'Assistant, sans-serif' }}>
+          דור זיו
+        </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flex: 1, margin: '0 16px', flexWrap: 'nowrap', overflow: 'hidden' }} className="hidden-mobile">
           {navItems.map((v, i) => {
