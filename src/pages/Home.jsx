@@ -127,9 +127,9 @@ function ViewAbout({ setView }) {
 
 function ViewApproach({ setView }) {
   const streams = [
-    { sub: 'Somatic Grounding · השכבה המזודרמלית', title: 'זרם התנועה והקרקוע', body: 'שחרור דפוסי מתח כרוניים שנאגרו בגוף כתוצאה ממתח מתמשך או אירועי קיצון. ביסוס תחושת הקרקע והיציבות הפיזית כמקור ישיר לוויסות רגשי.' },
-    { sub: 'Neuro-Vegetative Regulation · השכבה האנדודרמלית', title: 'זרם הנשימה והרגש', body: 'תמיכה ומציאות של נשימה מלאה למערכת עצבים שנשחקה. ויסות החרדה והצפה רגשית באמצעות יוגה טיפולית עדינה ומותאמת.' },
-    { sub: 'Spacious Awareness · השכבה האקטודרמלית', title: 'זרם התודעה והקשב', body: 'פיתוח קשב סקרן ומיינדפולנס כלפי המורכבות של התודעה שלך. תרגום התחושות הסומטיות למילים, כדי לאפשר גישה אל הנתונים העשירים של מי שאתה.' },
+    { title: 'הקרקע והתנועה', body: 'ביסוס תחושת קרקע ויציבות גופנית כמקור ישיר לוויסות רגשי ותחושת ביטחון ומקום בעולם. ערוץ זה מתמקד בשחרור דפוסי מתח, נוקשות וקיפאון כרוניים בשרירים ובשלד, שהצטברו במערכת בעקבות דחק מתמשך או אירועי קיצון וטראומה, ומשיב לגוף את חופש התנועה והחיוניות שלו.' },
+    { title: 'הרגש והנשימה', body: 'חיבור למקצב הפנימי, ויסות והכלה של רגשות ותחושות אינטנסיביות באמצעות הנשימה. עבודה זו מעניקה תמיכה עמוקה למערכת העצבים, ומאפשרת מעבר ממצבי הצפה או אדישות אל מרכז פנימי יציב ומווסת.' },
+    { title: 'מחשבות ותשומת לב', body: 'פיתוח קשב סקרן, חקירה ובהירות מנטלית כלפי המורכבות של התודעה והקשרי העולם שלך. תרגום עדין של תחושות ורגשות למילים בהירות בעלות משמעות, כדי ליצור אינטגרציה שלמה, לחבר בין הראש לגוף ולאפשר גישה אל המהות האותנטית היחודית לך.' },
   ];
   return (
     <div>
@@ -138,15 +138,17 @@ function ViewApproach({ setView }) {
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
-            עמדה טיפולית אינטגרטיבית ושדות החיים
+            הגישה
           </h2>
-          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, maxWidth: '700px', margin: '0 auto 48px', fontFamily: "'Assistant', sans-serif" }}>
-            הכלים בהם אנו משתמשים בקליניקה מבוססים על ספרות מקצועית, מחקר סומטי ונוירו-ביולוגיה.
+          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', fontWeight: 600, margin: '0 auto 20px', letterSpacing: '0.01em', fontFamily: "'Assistant', sans-serif" }}>
+            עמדה טיפולית אינטגרטיבית לחיים
+          </p>
+          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', lineHeight: 1.9, maxWidth: '780px', margin: '0 auto 48px', fontFamily: "'Assistant', sans-serif" }}>
+            גישת הביוסינתזה (שפירושה המילולי הוא "אינטגרציה של חיים") היא שיטת טיפול בינלאומית מעולם הפסיכותרפיה הגופנית. היא נוסדה בשנות השבעים על ידי החוקר והתרפיסט דייויד בואדלה, מתוך הבנה עמוקה שהאדם הוא שלם אחד. השיטה נשענת על שילוב מרתק ומבוסס בין פסיכולוגיית המעמקים וגישת יחסי האובייקט (הקשר המוקדם בין האם לתינוק), לבין מחקרים מודרניים בחקר המוח, תיאוריות ויסות רגשי ומדעי ההתפתחות העוברית. הביוסינתזה מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) ומראה כיצד עבודה סומטית, בתוך יחסי אמון, יכולה להביא לשינוי עמוק ויציב, ללא צורך ב״לנפץ״ הגנות, ״לתקן״ את מה שנשבר, או לפתוח פצעים בצורה מכאיבה.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
             {streams.map((s, i) => (
               <div key={i} style={{ background: C.white, borderRadius: '14px', padding: '32px 28px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
-                <div style={{ fontSize: '11px', color: C.sage, fontWeight: 600, letterSpacing: '0.06em', marginBottom: '12px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>{s.sub}</div>
                 <h3 style={{ fontSize: '17px', fontWeight: 600, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>{s.title}</h3>
                 <p style={{ fontSize: '14px', color: C.textMid, lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{s.body}</p>
               </div>
