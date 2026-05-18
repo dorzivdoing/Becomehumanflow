@@ -138,11 +138,8 @@ function ViewApproach({ setView }) {
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
-            הגישה
-          </h2>
-          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', fontWeight: 600, margin: '0 auto 20px', letterSpacing: '0.01em', fontFamily: "'Assistant', sans-serif" }}>
             עמדה טיפולית אינטגרטיבית לחיים
-          </p>
+          </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', lineHeight: 1.9, maxWidth: '780px', margin: '0 auto 48px', fontFamily: "'Assistant', sans-serif" }}>
             גישת הביוסינתזה (שפירושה המילולי הוא "אינטגרציה של חיים") היא שיטת טיפול בינלאומית מעולם הפסיכותרפיה הגופנית. היא נוסדה בשנות השבעים על ידי החוקר והתרפיסט דייויד בואדלה, מתוך הבנה עמוקה שהאדם הוא שלם אחד. השיטה נשענת על שילוב מרתק ומבוסס בין פסיכולוגיית המעמקים וגישת יחסי האובייקט (הקשר המוקדם בין האם לתינוק), לבין מחקרים מודרניים בחקר המוח, תיאוריות ויסות רגשי ומדעי ההתפתחות העוברית. הביוסינתזה מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) ומראה כיצד עבודה סומטית, בתוך יחסי אמון, יכולה להביא לשינוי עמוק ויציב, ללא צורך ב״לנפץ״ הגנות, ״לתקן״ את מה שנשבר, או לפתוח פצעים בצורה מכאיבה.
           </p>
