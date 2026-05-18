@@ -50,7 +50,7 @@ function ContactFooter() {
   return (
     <div style={{ background: C.green, padding: '20px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
       <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: 'Assistant, sans-serif' }}>
-        © דור זיו
+        דור זיו &nbsp;·&nbsp; פסיכותרפיה גופנית
       </p>
     </div>
   );
