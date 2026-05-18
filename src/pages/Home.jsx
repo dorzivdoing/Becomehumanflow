@@ -150,8 +150,9 @@ function ViewApproach({ setView }) {
             ))}
           </div>
         </div>
-        <div style={{ textAlign: 'center', margin: '48px auto 0', maxWidth: '80px' }}>
-          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75279c92f_logo-eap.png" alt="EAP - European Association for Psychotherapy" style={{ width: '100%', objectFit: 'contain', opacity: 0.85 }} />
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '32px', margin: '48px auto 0', flexWrap: 'wrap' }}>
+          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75279c92f_logo-eap.png" alt="EAP - European Association for Psychotherapy" style={{ width: '60px', objectFit: 'contain', opacity: 0.85 }} />
+          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/7cf2b25bb_----e1718642093662.png" alt="Biosynthesis - International Foundation for Biosynthesis IFB" style={{ height: '60px', objectFit: 'contain', opacity: 0.85 }} />
         </div>
         <QuoteBlock
           text="הטיפול אינו תיקון של מה שמקולקל, אלא חיבור מחדש אל זרמי החיים המולדים שלנו."
