@@ -29,7 +29,7 @@ export default function Navbar({ view, setView }) {
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(238,233,225,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, padding: '0 40px', direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
-          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75baef097_Gemini_Generated_Image_yh6cbiyh6cbiyh6c.png" alt="לוגו" style={{ width: '44px', height: '44px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/ada1e6b9f_Gemini_Generated_Image_yh6cbiyh6cbiyh6c-removebg-preview.png" alt="לוגו" style={{ width: '44px', height: '44px', objectFit: 'contain' }} />
         </button>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
           {navItems.map((v, i) => {
