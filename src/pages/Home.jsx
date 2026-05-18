@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "@/components/clinic/Footer";
+import { base44 } from "@/api/base44Client";
 
 const C = {
   bg: '#EEE9E1',       // אבן חמה - רקע ראשי
@@ -266,24 +267,87 @@ function ViewFAQ({ setView }) {
 }
 
 function ViewContact() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    await base44.integrations.Core.SendEmail({
+      to: 'dorziv@gmail.com',
+      subject: `פנייה חדשה מ-${form.name}`,
+      body: `שם: ${form.name}\nאימייל: ${form.email}\n\n${form.message}`,
+    });
+    setSent(true);
+    setSending(false);
+  };
+
   return (
     <div>
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, margin: '0 0 48px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-            <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-              style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 32px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", ...tx }}>
-              לחצו לבחירת מועד לשיחה ביומן הדיגיטלי
-            </a>
-            <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-              style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '16px 32px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", ...tx }}>
-              מעדיפים לשלוח הודעה? דברו איתי בוואטסאפ
-            </a>
+          <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+            {/* Form */}
+            <div style={{ flex: 1, minWidth: '280px' }}>
+              {sent ? (
+                <div style={{ background: C.cream, borderRadius: '14px', padding: '40px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '32px', marginBottom: '12px' }}>✓</div>
+                  <p style={{ fontSize: '17px', color: C.green, fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>ההודעה נשלחה, תודה!</p>
+                  <p style={{ fontSize: '14px', color: C.textMid, fontFamily: "'Assistant', sans-serif" }}>אחזור אליך בהקדם.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    { key: 'name', label: 'שם', type: 'text', placeholder: 'השם שלך' },
+                    { key: 'email', label: 'אימייל', type: 'email', placeholder: 'כתובת המייל שלך' },
+                  ].map(({ key, label, type, placeholder }) => (
+                    <div key={key}>
+                      <label style={{ display: 'block', fontSize: '14px', color: C.textMid, marginBottom: '6px', fontFamily: "'Assistant', sans-serif" }}>{label}</label>
+                      <input
+                        type={type}
+                        required
+                        placeholder={placeholder}
+                        value={form[key]}
+                        onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                        style={{ width: '100%', padding: '12px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.white, color: C.text, outline: 'none', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                  ))}
+                  <div>
+                    <label style={{ display: 'block', fontSize: '14px', color: C.textMid, marginBottom: '6px', fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
+                    <textarea
+                      required
+                      rows={5}
+                      placeholder="במה אוכל לעזור?"
+                      value={form.message}
+                      onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                      style={{ width: '100%', padding: '12px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.white, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
+                    />
+                  </div>
+                  <button type="submit" disabled={sending}
+                    style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, ...tx }}>
+                    {sending ? 'שולח...' : 'שליחה'}
+                  </button>
+                </form>
+              )}
+            </div>
+            {/* Buttons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', minWidth: '260px' }}>
+              <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
+                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', ...tx }}>
+                📅 לבחירת מועד ביומן הדיגיטלי
+              </a>
+              <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
+                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', ...tx }}>
+                💬 דברו איתי בוואטסאפ
+              </a>
+            </div>
           </div>
         </div>
       </div>
