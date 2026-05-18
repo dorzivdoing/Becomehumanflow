@@ -4,18 +4,19 @@ import Footer from "@/components/clinic/Footer";
 import { base44 } from "@/api/base44Client";
 
 const C = {
-  bg: '#EEE9E1',
-  bgDark: '#E3DDD5',
-  green: '#3B4A3C',
-  sage: '#6B8F71',
+  bg: '#EDE8DF',
+  bgDark: '#E0D9CE',
+  green: '#2B3A2C',
+  sage: '#6B8C6E',
   sageMid: '#4F6B54',
-  sageLight: 'rgba(107,143,113,0.10)',
-  text: '#3B4A3C',
-  textMid: '#5A6B5C',
+  sageLight: 'rgba(107,140,110,0.10)',
+  text: '#2B3A2C',
+  textMid: '#4A5C4B',
   textLight: '#7A8B7C',
-  border: '#C4CFC5',
-  white: '#FDFBF8',
-  cream: '#F5F1EB',
+  border: '#C5CFBF',
+  white: '#FAF7F2',
+  cream: '#F3EDE3',
+  warm: '#A0785A',
 };
 
 const tx = { transition: 'all 0.4s ease' };
@@ -47,9 +48,9 @@ function QuoteBlock({ text, author }) {
 
 function ContactFooter() {
   return (
-    <div style={{ background: C.green, padding: '32px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
-      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
-        © דור זיו פסיכותרפיה גופנית
+    <div style={{ background: C.green, padding: '20px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
+      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
+        © {new Date().getFullYear()} דור זיו
       </p>
     </div>
   );
@@ -63,12 +64,16 @@ function ViewHome({ setView }) {
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
-            <div style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '16px', fontFamily: "'Assistant', sans-serif" }}>
-              פסיכותרפיה גופנית · בית אורן · אונליין
+            <div style={{ fontSize: '14px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '28px', fontFamily: "'Assistant', sans-serif" }}>
+              פסיכותרפיה גופנית &nbsp;·&nbsp; בית אורן &nbsp;·&nbsp; אונליין
             </div>
 
-            <div style={{ borderRight: `3px solid ${C.sage}`, paddingRight: '16px', margin: '0 0 28px' }}>
-              <p style={{ fontSize: 'clamp(14px,1.8vw,17px)', color: C.textMid, lineHeight: 1.9, fontFamily: "'Assistant', sans-serif", margin: '0 0 8px', fontStyle: 'italic' }}>
+            <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, color: C.green, lineHeight: 1.15, margin: '0 0 28px', fontFamily: "'Assistant', sans-serif", letterSpacing: '-0.01em' }}>
+              דור זיו
+            </h1>
+
+            <div style={{ borderRight: `3px solid ${C.sage}`, paddingRight: '18px', margin: '0 0 32px' }}>
+              <p style={{ fontSize: 'clamp(14px,1.8vw,16px)', color: C.textMid, lineHeight: 1.95, fontFamily: "'Assistant', sans-serif", margin: '0 0 10px', fontStyle: 'italic' }}>
                 ליבי כל כך קטן,<br />
                 הוא כמעט בלתי נראה.<br />
                 כיצד יכול אתה לאכסן בתוכו צער כה רב?<br />
@@ -79,22 +84,18 @@ function ViewHome({ setView }) {
               <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— ג׳לאל א-דין רומי</p>
             </div>
 
-            <h1 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 400, color: C.textMid, lineHeight: 1.3, margin: '0 0 32px', fontFamily: "'Assistant', sans-serif", opacity: 0.75 }}>
-              דור זיו
-            </h1>
-
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-              <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'stretch' }}>
+              <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 26px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
                 למי מתאים הטיפול?
               </button>
-              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '13px 26px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
                 יצירת קשר
               </button>
             </div>
           </div>
 
-          <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
-            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          <div style={{ width: '220px', height: '280px', borderRadius: '110px 110px 90px 90px', flexShrink: 0, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.13)', border: `1px solid ${C.border}` }}>
+            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
         </div>
       </div>
@@ -421,7 +422,7 @@ function Navbar({ view, setView }) {
   return (
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
-        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 700, fontSize: '17px', color: C.green, fontFamily: "'Assistant', sans-serif" }}>
+        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 300, fontSize: '20px', color: C.green, fontFamily: "'Assistant', sans-serif", letterSpacing: '0.01em' }}>
           דור זיו
         </button>
 
