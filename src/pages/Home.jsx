@@ -49,8 +49,8 @@ function QuoteBlock({ text, author }) {
 function ContactFooter() {
   return (
     <div style={{ background: C.green, padding: '20px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
-      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
-        © {new Date().getFullYear()} דור זיו
+      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: 'Assistant, sans-serif' }}>
+        © דור זיו
       </p>
     </div>
   );
@@ -67,10 +67,6 @@ function ViewHome({ setView }) {
             <div style={{ fontSize: '14px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '28px', fontFamily: "'Assistant', sans-serif" }}>
               פסיכותרפיה גופנית &nbsp;·&nbsp; בית אורן &nbsp;·&nbsp; אונליין
             </div>
-
-            <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, color: C.green, lineHeight: 1.15, margin: '0 0 28px', fontFamily: "'Assistant', sans-serif", letterSpacing: '-0.01em' }}>
-              דור זיו
-            </h1>
 
             <div style={{ borderRight: `3px solid ${C.sage}`, paddingRight: '18px', margin: '0 0 32px' }}>
               <p style={{ fontSize: 'clamp(14px,1.8vw,16px)', color: C.textMid, lineHeight: 1.95, fontFamily: "'Assistant', sans-serif", margin: '0 0 10px', fontStyle: 'italic' }}>
