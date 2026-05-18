@@ -377,7 +377,6 @@ export default function Home() {
       <div style={{ paddingTop: '64px' }}>
         {viewComponents[view]}
       </div>
-      <Footer />
     </div>
   );
 }
