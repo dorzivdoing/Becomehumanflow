@@ -10,7 +10,7 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
       fontFamily: {
-        heebo: ['Heebo', 'sans-serif'],
+        assistant: ['Assistant', 'sans-serif'],
       },
   		colors: {
         linen: '#F2EFE9',
