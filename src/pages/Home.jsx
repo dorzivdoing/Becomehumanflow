@@ -339,12 +339,13 @@ function ViewContact() {
             </div>
             {/* Buttons */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', minWidth: '260px' }}>
+              <p style={{ fontSize: '14px', fontWeight: 600, color: C.textMid, margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.03em' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', ...tx }}>
+                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
                 📅 לבחירת מועד ביומן הדיגיטלי
               </a>
               <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', ...tx }}>
+                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
                 💬 דברו איתי בוואטסאפ
               </a>
             </div>
