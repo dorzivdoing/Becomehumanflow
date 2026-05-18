@@ -4,30 +4,27 @@ import Footer from "@/components/clinic/Footer";
 import { base44 } from "@/api/base44Client";
 
 const C = {
-  bg: '#EEE9E1',       // אבן חמה - רקע ראשי
+  bg: '#EEE9E1',
   bgDark: '#E3DDD5',
-  green: '#3B4A3C',    // ירוק כהה עמוק
-  sage: '#6B8F71',     // מרווה - גוון ירוק-אפרפר
-  sageMid: '#4F6B54',  // מרווה כהה
+  green: '#3B4A3C',
+  sage: '#6B8F71',
+  sageMid: '#4F6B54',
   sageLight: 'rgba(107,143,113,0.10)',
   text: '#3B4A3C',
   textMid: '#5A6B5C',
   textLight: '#7A8B7C',
   border: '#C4CFC5',
-  footerBg: '#3B4A3C',
-  white: '#FDFBF8',    // לבן עם גוון חמים
-  cream: '#F5F1EB',    // קרם - רקע משני
+  white: '#FDFBF8',
+  cream: '#F5F1EB',
 };
 
 const tx = { transition: 'all 0.4s ease' };
 
-// Subtle botanical leaf SVG for corner accents
 function LeafAccent({ style }) {
   return (
     <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg"
       style={{ position: 'absolute', pointerEvents: 'none', opacity: 0.18, ...style }}>
-      <path d="M60 150 C60 150 10 100 20 50 C30 10 90 5 100 50 C110 90 60 150 60 150Z"
-        stroke="#7A9E7E" strokeWidth="1.5" fill="none" />
+      <path d="M60 150 C60 150 10 100 20 50 C30 10 90 5 100 50 C110 90 60 150 60 150Z" stroke="#7A9E7E" strokeWidth="1.5" fill="none" />
       <path d="M60 150 C60 150 60 80 60 20" stroke="#7A9E7E" strokeWidth="1" fill="none" />
       <path d="M60 120 C40 100 25 85 25 70" stroke="#7A9E7E" strokeWidth="0.8" fill="none" />
       <path d="M60 100 C80 80 90 65 88 52" stroke="#7A9E7E" strokeWidth="0.8" fill="none" />
@@ -50,24 +47,10 @@ function QuoteBlock({ text, author }) {
 
 function ContactFooter() {
   return (
-    <div style={{ background: C.bg, padding: '80px 40px', textAlign: 'center', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
-      <LeafAccent style={{ bottom: -20, left: -20, width: '120px', transform: 'rotate(30deg)' }} />
-      <LeafAccent style={{ top: -10, right: -10, width: '100px', transform: 'rotate(-20deg) scaleX(-1)' }} />
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <h3 style={{ fontSize: '28px', fontWeight: 600, color: C.green, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
-          יצירת קשר
-        </h3>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-          <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-            style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Assistant', sans-serif", ...tx }}>
-            📅 לחצו לבחירת מועד לשיחה ביומן הדיגיטלי
-          </a>
-          <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-            style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Assistant', sans-serif", ...tx }}>
-            💬 מעדיפים לשלוח הודעה? דברו איתי בוואטסאפ
-          </a>
-        </div>
-      </div>
+    <div style={{ background: C.green, padding: '32px 40px', textAlign: 'center', direction: 'rtl', marginTop: '80px' }}>
+      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
+        © דור זיו פסיכותרפיה גופנית
+      </p>
     </div>
   );
 }
@@ -75,44 +58,46 @@ function ContactFooter() {
 function ViewHome({ setView }) {
   return (
     <div>
-      {/* Hero */}
       <div style={{ background: C.bg, padding: '100px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
-            <div style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
-              ביוסינתזה - יוגה טיפולית
+            <div style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', marginBottom: '16px', fontFamily: "'Assistant', sans-serif" }}>
+              פסיכותרפיה גופנית · בית אורן · אונליין
             </div>
-            <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 700, color: C.green, lineHeight: 1.2, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif" }}>
-              להיות אדם
+
+            <div style={{ borderRight: `3px solid ${C.sage}`, paddingRight: '16px', margin: '0 0 28px' }}>
+              <p style={{ fontSize: 'clamp(14px,1.8vw,17px)', color: C.textMid, lineHeight: 1.9, fontFamily: "'Assistant', sans-serif", margin: '0 0 8px', fontStyle: 'italic' }}>
+                ליבי כל כך קטן,<br />
+                הוא כמעט בלתי נראה.<br />
+                כיצד יכול אתה לאכסן בתוכו צער כה רב?<br />
+                ״הבט״, הוא ענה,<br />
+                ״עיניך קטנות אף יותר,<br />
+                ובכל זאת - הן מכילות את העולם״
+              </p>
+              <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— ג׳לאל א-דין רומי</p>
+            </div>
+
+            <h1 style={{ fontSize: 'clamp(20px,3vw,28px)', fontWeight: 400, color: C.textMid, lineHeight: 1.3, margin: '0 0 32px', fontFamily: "'Assistant', sans-serif", opacity: 0.75 }}>
+              דור זיו
             </h1>
-            <h2 style={{ fontSize: 'clamp(16px,2vw,20px)', fontWeight: 400, color: C.textMid, margin: '0 0 20px', lineHeight: 1.4, fontFamily: "'Assistant', sans-serif" }}>
-              פסיכותרפיה גופנית אינטגרטיבית
-            </h2>
-            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
-              קליניקה מבוססת מחקר לפסיכותרפיה גופנית (ביוסינתזה) ויוגה טיפולית. מרחב מקורקע המציע ליווי רגשי וסומטי מוסמך במשברי חיים, אבל, חרדה וטראומה.
-            </p>
-            <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
-              למי מתאים הטיפול?
-            </button>
+
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+                למי מתאים הטיפול?
+              </button>
+              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+                יצירת קשר
+              </button>
+            </div>
           </div>
+
           <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
           </div>
         </div>
       </div>
-
-      {/* Quote strip - middle */}
-      <div style={{ background: C.cream, padding: '72px 40px', direction: 'rtl', position: 'relative' }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px', fontStyle: 'italic' }}>
-            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
-          </p>
-          <p style={{ fontSize: '15px', color: C.sageMid, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
-        </div>
-      </div>
-
       <ContactFooter />
     </div>
   );
@@ -144,8 +129,8 @@ function ViewAbout({ setView }) {
           </div>
         </div>
         <QuoteBlock
-          text="I believed I wanted to be a poet, but deep down, I just wanted to be a poem."
-          author="— Jaime Gil de Biedma"
+          text="חשבתי שאני רוצה להיות משורר, אבל בעומק ליבי — רציתי פשוט להיות שיר."
+          author="— חאימה חיל דה בידמה"
         />
       </div>
       <ContactFooter />
@@ -209,7 +194,6 @@ function ViewWritings({ setView }) {
               כתבים ומחשבות יתווספו בקרוב. מרחב זה עדיין מתהווה — כמו כל תהליך טיפולי אמיתי.
             </p>
           </div>
-          
         </div>
         <QuoteBlock text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך." />
       </div>
@@ -264,28 +248,11 @@ function ViewFAQ({ setView }) {
 
 function ViewForWho({ setView }) {
   const items = [
-    {
-      icon: '🌊',
-      title: 'חרדה, דיכאון ואבל',
-      body: 'התמודדות עם חרדה, דיכאון, קשיים עם אבל ואובדן.',
-    },
-    {
-      icon: '🔄',
-      title: 'תופעות רגשיות וגופניות',
-      body: 'תופעות רגשיות וגופניות שהופיעו בעקבות חוויות קשות — מתמשכות או חד-פעמיות.',
-    },
-    {
-      icon: '🌿',
-      title: 'משברי חיים',
-      body: 'ליווי במהלך או לאחר משברי חיים, כולל משברים רפואיים או שינויים גדולים.',
-    },
-    {
-      icon: '✨',
-      title: 'צמיחה והיכרות עם העצמי',
-      body: 'למי שבסך הכל טוב לו, אך מרגיש רצון עמוק להעמיק בהיכרות עם עצמו, לצמוח ולהתפתח.',
-    },
+    { icon: '🌊', title: 'חרדה, דיכאון ואבל', body: 'התמודדות עם חרדה, דיכאון, קשיים עם אבל ואובדן.' },
+    { icon: '🔄', title: 'תופעות רגשיות וגופניות', body: 'תופעות רגשיות וגופניות שהופיעו בעקבות חוויות קשות — מתמשכות או חד-פעמיות.' },
+    { icon: '🌿', title: 'משברי חיים', body: 'ליווי במהלך או לאחר משברי חיים, כולל משברים רפואיים או שינויים גדולים.' },
+    { icon: '✨', title: 'צמיחה והיכרות עם העצמי', body: 'למי שבסך הכל טוב לו, אך מרגיש רצון עמוק להעמיק בהיכרות עם עצמו, לצמוח ולהתפתח.' },
   ];
-
   return (
     <div>
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
@@ -311,8 +278,7 @@ function ViewForWho({ setView }) {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <button onClick={() => setView(6)}
-              style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            <button onClick={() => setView(6)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
               לתיאום שיחת הכרות קצרה
             </button>
           </div>
@@ -351,7 +317,6 @@ function ViewContact() {
             יצירת קשר
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
-            {/* Form */}
             <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)' }}>
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '20px 0' }}>
@@ -367,26 +332,16 @@ function ViewContact() {
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
                       <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{label}</label>
-                      <input
-                        type={type}
-                        required
-                        placeholder={placeholder}
-                        value={form[key]}
+                      <input type={type} required placeholder={placeholder} value={form[key]}
                         onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', boxSizing: 'border-box' }}
-                      />
+                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', boxSizing: 'border-box' }} />
                     </div>
                   ))}
                   <div>
                     <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
-                    <textarea
-                      required
-                      rows={4}
-                      placeholder="במה אוכל לעזור?"
-                      value={form.message}
+                    <textarea required rows={4} placeholder="במה אוכל לעזור?" value={form.message}
                       onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
-                    />
+                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }} />
                   </div>
                   <button type="submit" disabled={sending}
                     style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 500, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, width: '100%', ...tx }}>
@@ -395,8 +350,6 @@ function ViewContact() {
                 </form>
               )}
             </div>
-
-            {/* Buttons */}
             <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <p style={{ fontSize: '13px', fontWeight: 600, color: C.textMid, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
@@ -411,6 +364,7 @@ function ViewContact() {
           </div>
         </div>
       </div>
+      <ContactFooter />
     </div>
   );
 }
@@ -467,11 +421,10 @@ function Navbar({ view, setView }) {
   return (
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
-        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
-          <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/ada1e6b9f_Gemini_Generated_Image_yh6cbiyh6cbiyh6c-removebg-preview.png" alt="לוגו" style={{ width: '44px', height: '44px', objectFit: 'contain' }} />
+        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 700, fontSize: '17px', color: C.green, fontFamily: "'Assistant', sans-serif" }}>
+          דור זיו
         </button>
 
-        {/* Desktop nav */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flex: 1, margin: '0 16px', flexWrap: 'nowrap', overflow: 'hidden' }} className="hidden-mobile">
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
@@ -486,19 +439,14 @@ function Navbar({ view, setView }) {
           })}
         </div>
 
-        {/* Hamburger button - mobile only */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="show-mobile"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px' }}
-        >
-          <span style={{ display: 'block', width: '22px', height: '2px', background: menuOpen ? 'transparent' : C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
+        <button onClick={() => setMenuOpen(!menuOpen)} className="show-mobile"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px' }}>
+          <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
-          <span style={{ display: 'block', width: '22px', height: '2px', background: menuOpen ? 'transparent' : C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
+          <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
       <div style={{ maxHeight: menuOpen ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.4s ease', background: 'rgba(244,241,236,0.99)', borderTop: menuOpen ? `1px solid ${C.border}` : 'none' }} className="show-mobile-block">
         <div style={{ padding: '12px 20px 20px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {navItems.map((v, i) => {
