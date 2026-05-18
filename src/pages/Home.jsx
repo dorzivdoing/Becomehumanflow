@@ -169,10 +169,10 @@ function ViewWritings({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
-            מן המרחב: מחשבות, תודעה ושירה
+            מן השדה: דברים תקופתיים שנאספים או נכתבים
           </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 0 56px', fontFamily: "'Assistant', sans-serif" }}>
-            מרחב זה מוקדש למילים שבין החדר לשדה.
+            מרחב זה מוקדש ליצירות מעוררות, אמנות, שירה, מחשבות וכתבים.
           </p>
           <div style={{ background: C.white, borderRadius: '14px', padding: '48px 40px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderRight: `4px solid ${C.sage}`, textAlign: 'center' }}>
             <div style={{ fontSize: '32px', marginBottom: '16px', opacity: 0.3 }}>✦</div>
