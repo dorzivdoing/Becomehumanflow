@@ -7,7 +7,20 @@ import Footer from "@/components/clinic/Footer";
 import { motion } from "framer-motion";
 import { Clock, Tag } from "lucide-react";
 
-const CATEGORIES = ["הכל", "ביוסינתזה", "יוגה טיפולית", "גוף ונפש", "חרדה ודיכאון", "צמיחה אישית", "מחשבות ותובנות"];
+const C = {
+  bg: '#EEE9E1',
+  white: '#FDFBF8',
+  cream: '#F5F1EB',
+  green: '#3B4A3C',
+  sage: '#6B8F71',
+  sageMid: '#4F6B54',
+  sageLight: 'rgba(107,143,113,0.10)',
+  text: '#3B4A3C',
+  textMid: '#5A6B5C',
+  border: '#C4CFC5',
+};
+
+const CATEGORIES = ["הכל", "מחשבות", "כתבים", "מוזיקה", "אמנות", "שירה"];
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("הכל");
@@ -22,33 +35,44 @@ export default function Blog() {
     : posts.filter(p => p.category === activeCategory);
 
   return (
-    <div className="font-heebo min-h-screen bg-linen" dir="rtl">
+    <div style={{ fontFamily: "'Assistant', sans-serif", minHeight: '100vh', background: C.bg, direction: 'rtl' }}>
       <Navbar />
 
       {/* Header */}
-      <div className="pt-32 pb-16 px-6 md:px-16 lg:px-28 bg-white text-center">
+      <div style={{ paddingTop: '120px', paddingBottom: '64px', paddingRight: '40px', paddingLeft: '40px', background: C.cream, textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <p className="text-rose font-medium tracking-widest text-sm uppercase mb-3">מחשבות מהקליניקה</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-navy mb-5">הבלוג</h1>
-          <div className="w-12 h-0.5 bg-rose mx-auto mb-6"></div>
-          <p className="text-slate text-lg font-light max-w-xl mx-auto leading-relaxed">
+          <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
+            מחשבות מהקליניקה
+          </p>
+          <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 700, color: C.green, margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
+            השראה ומחשבות
+          </h1>
+          <div style={{ width: '40px', height: '2px', background: C.sage, margin: '0 auto 20px', opacity: 0.6 }} />
+          <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.85, maxWidth: '500px', margin: '0 auto', fontFamily: "'Assistant', sans-serif" }}>
             מאמרים, תובנות וחוויות מתחום הביוסינתזה, הגוף, והנפש – לקריאה, לעיון, ולהנחת זרעים.
           </p>
         </motion.div>
       </div>
 
       {/* Category Filter */}
-      <div className="sticky top-16 z-30 bg-linen/90 backdrop-blur-sm border-b border-border py-4 px-6 md:px-16 lg:px-28">
-        <div className="flex gap-3 flex-wrap justify-center">
+      <div style={{ position: 'sticky', top: '64px', zIndex: 30, background: 'rgba(238,233,225,0.95)', backdropFilter: 'blur(8px)', borderBottom: `1px solid ${C.border}`, padding: '16px 40px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
           {CATEGORIES.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                activeCategory === cat
-                  ? "bg-navy text-white shadow-sm"
-                  : "bg-white text-slate hover:bg-rose/10 hover:text-navy border border-border"
-              }`}
+              style={{
+                padding: '8px 18px',
+                borderRadius: '20px',
+                fontSize: '13px',
+                fontWeight: activeCategory === cat ? 600 : 400,
+                fontFamily: "'Assistant', sans-serif",
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                background: activeCategory === cat ? C.sage : C.white,
+                color: activeCategory === cat ? C.white : C.textMid,
+                border: activeCategory === cat ? 'none' : `1px solid ${C.border}`,
+              }}
             >
               {cat}
             </button>
@@ -57,17 +81,17 @@ export default function Blog() {
       </div>
 
       {/* Posts Grid */}
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-28 py-16">
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 40px' }}>
         {isLoading ? (
-          <div className="flex justify-center py-24">
-            <div className="w-8 h-8 border-4 border-rose/30 border-t-rose rounded-full animate-spin"></div>
+          <div style={{ display: 'flex', justifyContent: 'center', padding: '80px 0' }}>
+            <div style={{ width: '32px', height: '32px', border: `3px solid ${C.sageLight}`, borderTop: `3px solid ${C.sage}`, borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-24 text-slate font-light text-lg">
+          <div style={{ textAlign: 'center', padding: '80px 0', color: C.textMid, fontSize: '17px', fontFamily: "'Assistant', sans-serif" }}>
             אין מאמרים בקטגוריה זו עדיין.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '28px' }}>
             {filtered.map((post, i) => (
               <motion.div
                 key={post.id}
@@ -75,37 +99,38 @@ export default function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
               >
-                <Link to={`/blog/${post.slug || post.id}`} className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
-                  {/* Cover image */}
-                  <div className="h-48 bg-gradient-to-br from-rose/20 to-slate/10 overflow-hidden">
+                <Link to={`/blog/${post.slug || post.id}`} style={{ display: 'block', background: C.white, borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', textDecoration: 'none', transition: 'all 0.3s', height: '100%' }}>
+                  <div style={{ height: '180px', background: `linear-gradient(135deg, ${C.sageLight}, rgba(107,143,113,0.05))`, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {post.cover_image_url ? (
-                      <img src={post.cover_image_url} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={post.cover_image_url} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-4xl opacity-30">🌿</div>
+                      <div style={{ fontSize: '40px', opacity: 0.3 }}>🌿</div>
                     )}
                   </div>
-                  <div className="p-6">
-                    <span className="inline-block bg-rose/15 text-rose text-xs font-medium px-3 py-1 rounded-full mb-3">
-                      {post.category}
-                    </span>
-                    <h2 className="text-navy text-xl font-bold mb-3 leading-snug group-hover:text-rose transition-colors duration-200">
+                  <div style={{ padding: '24px' }}>
+                    {post.category && (
+                      <span style={{ display: 'inline-block', background: C.sageLight, color: C.sageMid, fontSize: '12px', fontWeight: 600, padding: '4px 12px', borderRadius: '20px', marginBottom: '12px', fontFamily: "'Assistant', sans-serif" }}>
+                        {post.category}
+                      </span>
+                    )}
+                    <h2 style={{ fontSize: '18px', fontWeight: 600, color: C.green, margin: '0 0 10px', lineHeight: 1.4, fontFamily: "'Assistant', sans-serif" }}>
                       {post.title}
                     </h2>
                     {post.excerpt && (
-                      <p className="text-slate text-sm font-light leading-relaxed mb-4 line-clamp-3">
+                      <p style={{ fontSize: '14px', color: C.textMid, lineHeight: 1.75, margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {post.excerpt}
                       </p>
                     )}
-                    <div className="flex items-center gap-4 text-slate/60 text-xs mt-auto">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', color: C.textMid, fontSize: '12px', opacity: 0.7 }}>
                       {post.read_time_minutes && (
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: "'Assistant', sans-serif" }}>
+                          <Clock size={12} />
                           {post.read_time_minutes} דקות קריאה
                         </span>
                       )}
                       {post.tags?.length > 0 && (
-                        <span className="flex items-center gap-1">
-                          <Tag className="w-3 h-3" />
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: "'Assistant', sans-serif" }}>
+                          <Tag size={12} />
                           {post.tags.slice(0, 2).join(", ")}
                         </span>
                       )}

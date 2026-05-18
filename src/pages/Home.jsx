@@ -209,11 +209,7 @@ function ViewWritings({ setView }) {
               כתבים ומחשבות יתווספו בקרוב. מרחב זה עדיין מתהווה — כמו כל תהליך טיפולי אמיתי.
             </p>
           </div>
-          <div style={{ marginTop: '32px', textAlign: 'center' }}>
-            <Link to="/blog" style={{ fontSize: '15px', color: C.sage, fontWeight: 500, textDecoration: 'none', borderBottom: `1px solid ${C.sage}`, paddingBottom: '2px', fontFamily: "'Assistant', sans-serif" }}>
-              לבלוג המלא ←
-            </Link>
-          </div>
+          
         </div>
         <QuoteBlock text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך." />
       </div>
