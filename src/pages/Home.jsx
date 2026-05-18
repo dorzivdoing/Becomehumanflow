@@ -106,7 +106,7 @@ function ViewHome({ setView }) {
       </div>
 
       {/* Quote strip - middle */}
-      <div style={{ background: C.bg, padding: '72px 40px', direction: 'rtl', position: 'relative' }}>
+      <div style={{ background: C.cream, padding: '72px 40px', direction: 'rtl', position: 'relative' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px', fontStyle: 'italic' }}>
             לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
