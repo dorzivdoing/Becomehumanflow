@@ -292,60 +292,61 @@ function ViewContact() {
           <h2 style={{ fontSize: 'clamp(22px,4vw,36px)', fontWeight: 600, color: C.green, margin: '0 0 48px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
-          <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
             {/* Form */}
-            <div style={{ flex: 1, minWidth: '280px' }}>
+            <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)' }}>
               {sent ? (
-                <div style={{ background: C.cream, borderRadius: '14px', padding: '40px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '32px', marginBottom: '12px' }}>✓</div>
-                  <p style={{ fontSize: '17px', color: C.green, fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>ההודעה נשלחה, תודה!</p>
-                  <p style={{ fontSize: '14px', color: C.textMid, fontFamily: "'Assistant', sans-serif" }}>אחזור אליך בהקדם.</p>
+                <div style={{ textAlign: 'center', padding: '20px 0' }}>
+                  <div style={{ fontSize: '36px', marginBottom: '12px' }}>✓</div>
+                  <p style={{ fontSize: '17px', color: C.green, fontWeight: 500, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>ההודעה נשלחה, תודה!</p>
+                  <p style={{ fontSize: '14px', color: C.textMid, margin: 0, fontFamily: "'Assistant', sans-serif" }}>אחזור אליך בהקדם.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {[
                     { key: 'name', label: 'שם', type: 'text', placeholder: 'השם שלך' },
                     { key: 'email', label: 'אימייל', type: 'email', placeholder: 'כתובת המייל שלך' },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
-                      <label style={{ display: 'block', fontSize: '14px', color: C.textMid, marginBottom: '6px', fontFamily: "'Assistant', sans-serif" }}>{label}</label>
+                      <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{label}</label>
                       <input
                         type={type}
                         required
                         placeholder={placeholder}
                         value={form[key]}
                         onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                        style={{ width: '100%', padding: '12px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.white, color: C.text, outline: 'none', boxSizing: 'border-box' }}
+                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', boxSizing: 'border-box' }}
                       />
                     </div>
                   ))}
                   <div>
-                    <label style={{ display: 'block', fontSize: '14px', color: C.textMid, marginBottom: '6px', fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
+                    <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
                     <textarea
                       required
-                      rows={5}
+                      rows={4}
                       placeholder="במה אוכל לעזור?"
                       value={form.message}
                       onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                      style={{ width: '100%', padding: '12px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.white, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
+                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
                     />
                   </div>
                   <button type="submit" disabled={sending}
-                    style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, ...tx }}>
+                    style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 500, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, width: '100%', ...tx }}>
                     {sending ? 'שולח...' : 'שליחה'}
                   </button>
                 </form>
               )}
             </div>
+
             {/* Buttons */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', minWidth: '260px' }}>
-              <p style={{ fontSize: '14px', fontWeight: 600, color: C.textMid, margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.03em' }}>דרכים נוספות לקשר</p>
+            <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <p style={{ fontSize: '13px', fontWeight: 600, color: C.textMid, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
                 📅 לבחירת מועד ביומן הדיגיטלי
               </a>
               <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '16px 24px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
                 💬 דברו איתי בוואטסאפ
               </a>
             </div>
