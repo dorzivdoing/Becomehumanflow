@@ -3,19 +3,19 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "@/components/clinic/Footer";
 
 const C = {
-  bg: '#F4F1EC',
-  bgDark: '#E8E3DB',
-  green: '#2C3A2E',
-  sage: '#7A9E7E',
-  sageMid: '#5C7E60',
-  sageLight: 'rgba(122,158,126,0.12)',
-  text: '#2C3A2E',
-  textMid: '#4A5C4D',
-  textLight: '#6B7F6D',
-  border: '#C8D4C4',
-  footerBg: '#2C3A2E',
-  white: '#FFFFFF',
-  cream: '#F9F6F0',
+  bg: '#EEE9E1',       // אבן חמה - רקע ראשי
+  bgDark: '#E3DDD5',
+  green: '#3B4A3C',    // ירוק כהה עמוק
+  sage: '#6B8F71',     // מרווה - גוון ירוק-אפרפר
+  sageMid: '#4F6B54',  // מרווה כהה
+  sageLight: 'rgba(107,143,113,0.10)',
+  text: '#3B4A3C',
+  textMid: '#5A6B5C',
+  textLight: '#7A8B7C',
+  border: '#C4CFC5',
+  footerBg: '#3B4A3C',
+  white: '#FDFBF8',    // לבן עם גוון חמים
+  cream: '#F5F1EB',    // קרם - רקע משני
 };
 
 const tx = { transition: 'all 0.4s ease' };
@@ -77,18 +77,8 @@ function ContactFooter() {
 function ViewHome({ setView }) {
   return (
     <div>
-      {/* Quote strip */}
-      <div style={{ background: C.bg, padding: '100px 40px 48px', direction: 'rtl', position: 'relative' }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px', fontStyle: 'italic' }}>
-            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
-          </p>
-          <p style={{ fontSize: '15px', color: C.sageMid, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
-        </div>
-      </div>
-
       {/* Hero */}
-      <div style={{ background: C.cream, padding: '64px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.cream, padding: '100px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
@@ -112,6 +102,16 @@ function ViewHome({ setView }) {
           <div style={{ width: '220px', height: '220px', borderRadius: '50%', flexShrink: 0, border: `3px solid ${C.sage}`, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.15)' }}>
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
           </div>
+        </div>
+      </div>
+
+      {/* Quote strip - middle */}
+      <div style={{ background: C.bg, padding: '72px 40px', direction: 'rtl', position: 'relative' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ fontSize: 'clamp(17px,2.5vw,22px)', color: C.green, lineHeight: 1.85, fontFamily: "'Assistant', sans-serif", margin: '0 0 20px', fontStyle: 'italic' }}>
+            לבחור בטוב, ברגעי החסד והמזל המחברים, במילה הטובה בתוך רגעים קשים, במה שמיטיב איתך – זו אינה פריבילגיה. בזמנים כמו שלנו זה הכרח; כדי שנזכור שגם בתוך מציאות בלתי נסבלת קיים יופי שמושיט יד ממעמקים וקורא לנו לבחור בו.
+          </p>
+          <p style={{ fontSize: '15px', color: C.sageMid, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>— דור</p>
         </div>
       </div>
 
@@ -349,7 +349,7 @@ function Navbar({ view, setView }) {
         <button onClick={() => handleViewClick(0)} style={{ fontWeight: 700, fontSize: '17px', color: C.green, background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'Assistant', sans-serif", flexShrink: 0 }}>
           להיות אדם
         </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1, margin: '0 32px' }}>
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 3;
