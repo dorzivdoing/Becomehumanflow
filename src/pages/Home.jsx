@@ -23,14 +23,11 @@ const tx = { transition: 'all 0.4s ease' };
 
 function LeafAccent({ style }) {
   return (
-    <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style={{ position: 'absolute', pointerEvents: 'none', opacity: 0.18, ...style }}>
-      <path d="M60 150 C60 150 10 100 20 50 C30 10 90 5 100 50 C110 90 60 150 60 150Z" stroke="#7A9E7E" strokeWidth="1.5" fill="none" />
-      <path d="M60 150 C60 150 60 80 60 20" stroke="#7A9E7E" strokeWidth="1" fill="none" />
-      <path d="M60 120 C40 100 25 85 25 70" stroke="#7A9E7E" strokeWidth="0.8" fill="none" />
-      <path d="M60 100 C80 80 90 65 88 52" stroke="#7A9E7E" strokeWidth="0.8" fill="none" />
-      <path d="M60 80 C42 65 32 52 33 40" stroke="#7A9E7E" strokeWidth="0.7" fill="none" />
-    </svg>
+    <img
+      src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/8a7c7f10d_generated_image.png"
+      alt=""
+      style={{ position: 'absolute', pointerEvents: 'none', opacity: 0.22, ...style }}
+    />
   );
 }
 
