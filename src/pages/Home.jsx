@@ -44,7 +44,7 @@ function QuoteBlock({ text, author }) {
 function ViewHome({ setView }) {
   return (
     <div>
-      <div style={{ background: 'linear-gradient(160deg, #E8E2D8 0%, #DDD7CC 40%, #D5CFC4 100%)', padding: '28px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(160deg, #E8E2D8 0%, #DDD7CC 40%, #D5CFC4 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
         <div className="home-flex" style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
@@ -107,7 +107,7 @@ function ViewHome({ setView }) {
 function ViewAbout({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
@@ -147,7 +147,7 @@ function ViewApproach({ setView }) {
   ];
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
@@ -186,7 +186,7 @@ function ViewApproach({ setView }) {
 function ViewWritings({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
@@ -227,7 +227,7 @@ function ViewFAQ({ setView }) {
   ];
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
@@ -302,7 +302,7 @@ function ViewForWho({ setView }) {
 
   return (
     <div>
-      <div style={{ background: C.bg, padding: '40px 24px 80px', direction: 'rtl' }}>
+      <div style={{ background: C.bg, padding: '60px 24px 80px', direction: 'rtl' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
           {/* Header */}
@@ -396,7 +396,7 @@ function ViewContact() {
 
   return (
     <div>
-      <div style={{ background: C.navy, padding: '80px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: C.navy, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
