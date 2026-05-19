@@ -186,7 +186,7 @@ function ViewApproach({ setView }) {
 const writings = [
   {
     text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`,
-    author: 'David Whyte — Consolations',
+    author: 'David Whyte, Consolations',
   },
 ];
 
