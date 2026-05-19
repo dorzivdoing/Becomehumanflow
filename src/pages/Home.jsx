@@ -582,19 +582,14 @@ function ViewContactContent() {
           <div style={{ marginTop: '48px' }}>
             <h3 style={{ fontSize: '20px', fontWeight: 600, color: C.white, margin: '0 0 24px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>מיקום הקליניקה</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px' }}>
-                <MapContainer center={beitOrenCoords} zoom={15} style={{ height: '100%', width: '100%' }}>
-                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; OpenStreetMap contributors' />
-                  <Marker position={beitOrenCoords}>
-                    <Popup direction="top" offset={[0, -10]}>
-                      <div style={{ textAlign: 'center', fontFamily: "'Assistant', sans-serif", direction: 'rtl' }}>
-                        <p style={{ margin: '0 0 8px', fontWeight: 600, fontSize: '14px' }}>בית אורן</p>
-                        <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>קליניקה לפסיכותרפיה גופנית</p>
-                      </div>
-                    </Popup>
-                  </Marker>
-                </MapContainer>
-              </div>
+              <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+                style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px', display: 'block', textDecoration: 'none', position: 'relative' }}>
+                <div style={{ height: '100%', width: '100%', backgroundImage: 'url("https://maps.googleapis.com/maps/api/staticmap?center=31.9454,34.7633&zoom=15&size=400x320&key=AIzaSyD3PZOXJe0eNvnYjZsUQKCG_S_LXbSTXQc")', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ background: 'rgba(0,0,0,0.6)', color: C.white, padding: '12px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, fontFamily: "'Assistant', sans-serif" }}>
+                    לחץ לפתיחה בגוגל מאפס →
+                  </div>
+                </div>
+              </a>
               <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
