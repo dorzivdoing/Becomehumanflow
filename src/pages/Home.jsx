@@ -602,10 +602,6 @@ function ViewContactContent() {
                     style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
                     🧭 הנחיות הגעה ב-Waze
                   </a>
-                  <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
-                    style={{ background: '#4285F4', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                    📍 המיקום בגוגל מאפס
-                  </a>
                   </div>
               </div>
             </div>
