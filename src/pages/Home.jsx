@@ -342,7 +342,7 @@ function ViewForWho({ setView }) {
 
           {/* Not found note */}
           <div style={{ background: C.white, borderRadius: '14px', padding: '20px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '0', textAlign: 'center' }}>
-            <p style={{ fontSize: '15px', color: '#1E2631', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, color: '#1E2631', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
               אם לא מצאת את הנושא שלך בכתוב מעלה, ניתן לכתוב בפנייה ונברר יחד.
             </p>
           </div>
@@ -363,7 +363,7 @@ function ViewForWho({ setView }) {
             <p style={{ fontSize: '16px', color: 'rgba(246,244,240,0.92)', lineHeight: 1.85, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
               לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח — מתוך הבנה שלהיות אדם בוגר בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.
             </p>
-            <button onClick={() => setView(6)} style={{ background: 'rgba(255,255,255,0.15)', color: C.white, border: '1.5px solid rgba(255,255,255,0.45)', borderRadius: '10px', padding: '14px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            <button onClick={() => setView(6)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
               יצירת קשר
             </button>
           </div>
