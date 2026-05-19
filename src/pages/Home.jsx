@@ -138,7 +138,7 @@ function ViewAbout({ setView }) {
         </div>
         <QuoteBlock
           text="חשבתי שאני רוצה להיות משורר, אבל בעומק ליבי — רציתי פשוט להיות שיר."
-          author="— חאימה חיל דה בידמה"
+          author="— חיימה גיל דה בידמה"
         />
       </div>
     </motion.div>
