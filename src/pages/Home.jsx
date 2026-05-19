@@ -599,13 +599,19 @@ function ViewContactContent() {
                 <div>
                   <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
                   <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.8, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-                    בית אורן, שטח מטיפול יוקרתי בעמק יזרעאל, קרוב לחוות מטיילים ופעעוע אתרים טבעיים.
+                    הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.
                   </p>
-                </div>
-                <a href={`https://waze.com/ul?ll=${beitOrenCoords[0]},${beitOrenCoords[1]}&navigate=yes`} target="_blank" rel="noopener noreferrer"
-                  style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                  🧭 הנחיות הגעה ב-Waze
-                </a>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
+                    style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                    🧭 הנחיות הגעה ב-Waze
+                  </a>
+                  <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+                    style={{ background: '#4285F4', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                    📍 המיקום בגוגל מאפס
+                  </a>
+                  </div>
               </div>
             </div>
           </div>
@@ -632,19 +638,17 @@ function ViewAccessibility() {
           </div>
 
           <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>הנגשה למוגבלויות שונות</h3>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>נגישות בקליניקה</h3>
             <ul style={{ margin: 0, paddingRight: '20px', fontSize: '15px', color: C.textMid, lineHeight: 1.9, fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-              <li style={{ marginBottom: '10px' }}>אנשים עם כיסאות גלגלים: הקליניקה מיתאמת לגישה של כיסא גלגלים עם שירותים נגישים בקרבת מרחק</li>
-              <li style={{ marginBottom: '10px' }}>כעוורים או חרשים: אנו יכולים להתאים את הטיפול לצרכים מיוחדים. אנא הודיע מראש</li>
-              <li style={{ marginBottom: '10px' }}>עם תנאים רפואיים מיוחדים: ניתן לדיין כל בקשה לצרכים מיוחדים</li>
-              <li>עם קשיים נפשיים או חרדה חברתית: הסביבה שלנו תוכננה להיות כמה שיותר רגוע ותומך</li>
+              <li style={{ marginBottom: '10px' }}>הקליניקה נגישה לבעלי כיסא גלגלים</li>
+              <li>אם קיימות מגבלות ראיה, שמיעה או צרכים מיוחדים אחרים שלא הוזכרו - אבקש לציין זאת בפניה או בשיחת טלפון</li>
             </ul>
           </div>
 
           <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
             <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>טיפול אונליין</h3>
             <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
-              ניתן לקיים את הטיפול באמצעות טלה-וידיאו, מה שעושה אותו נגיש לאנשים שמתקשים בנסיעה או שחיים במרחק. ניתן להתאים את הטיפול למצבים שונים, ובכללם טיפול עם או ללא מגע גופני.
+              ניתן לקיים טיפול אונליין עבור אנשים שמתקשים בנסיעות, שמתגוררים במרחק (גם בחו״ל), נמצאים במעברים ומטיילים או פשוט מעדיפים את סביבת ביתם. יש צורך במחשב עם מצלמה ורשת אינטרנט תקינים וסביבה נעימה ובטוחה להיפגש בה.
             </p>
           </div>
 
