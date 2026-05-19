@@ -148,7 +148,7 @@ function ViewApproach({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             עמדה טיפולית אינטגרטיבית לחיים
           </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', lineHeight: 1.9, maxWidth: '780px', margin: '0 auto 48px', fontFamily: "'Assistant', sans-serif" }}>
@@ -186,7 +186,7 @@ function ViewWritings({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
             מן השדה: דברים תקופתיים שנאספים או נכתבים
           </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 0 56px', fontFamily: "'Assistant', sans-serif" }}>
@@ -227,7 +227,7 @@ function ViewFAQ({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 600, color: C.green, textAlign: 'center', margin: '0 0 48px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             שאלות נפוצות וביטחון קליני
           </h2>
           {faqs.map((faq, i) => (
@@ -294,8 +294,8 @@ function ViewForWho({ setView }) {
     },
   ];
 
-  const pStyle = { fontSize: '15px', color: '#1E2631', lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' };
-  const labelStyle = { fontSize: '15px', fontWeight: 700, color: C.sage, margin: '12px 0 4px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
+  const pStyle = { fontSize: '15px', color: '#1E2631', lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
+  const labelStyle = { fontSize: '14px', fontWeight: 700, color: C.sage, margin: '12px 0 4px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
 
   return (
     <div>
@@ -303,7 +303,7 @@ function ViewForWho({ setView }) {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
           {/* Header */}
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             למי מתאימה פסיכותרפיה גופנית?
           </h2>
           <p style={{ ...pStyle, marginBottom: '16px' }}>
@@ -327,7 +327,7 @@ function ViewForWho({ setView }) {
                   <div style={{ flex: 1 }}>
                     <h4 style={{ fontSize: '16px', fontWeight: 700, color: C.green, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>{c.title}</h4>
                     <p style={{ ...pStyle, marginBottom: '10px' }}>{c.body}</p>
-                    <p style={{ ...labelStyle }}>איך זה יכול להחוות ביום יום? *</p>
+                    <p style={{ ...labelStyle }}>איך זה יכול להחוות ביום יום?*</p>
                     <p style={{ ...pStyle }}>{c.daily}</p>
                   </div>
                 </div>
@@ -335,17 +335,17 @@ function ViewForWho({ setView }) {
             ))}
           </div>
 
-          {/* Not found note */}
-          <div style={{ background: C.white, borderRadius: '14px', padding: '20px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '20px', textAlign: 'center' }}>
-            <p style={{ fontSize: '15px', fontWeight: 700, color: '#1E2631', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
-              אם לא מצאת את הנושא שלך, ניתן לכתוב לי ונבדוק יחד.
-            </p>
-          </div>
-
-          {/* Disclaimer */}
-          <p style={{ fontSize: '14px', color: '#5A6573', fontStyle: 'italic', margin: '8px 0 0', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
+          {/* Disclaimer - right after challenge 7 */}
+          <p style={{ fontSize: '13px', color: '#5A6573', fontStyle: 'italic', margin: '6px 0 20px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
             * משתנה מאדם לאדם.
           </p>
+
+          {/* Not found note */}
+          <div style={{ background: C.white, borderRadius: '14px', padding: '20px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '0', textAlign: 'center' }}>
+            <p style={{ fontSize: '15px', color: '#1E2631', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
+              אם לא מצאת את הנושא שלך בכתוב מעלה, ניתן לכתוב בפנייה ונברר יחד.
+            </p>
+          </div>
 
           {/* Process - moved above CTA */}
           <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '32px' }}>
@@ -395,7 +395,7 @@ function ViewContact() {
     <div>
       <div style={{ background: C.navy, padding: '80px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 700, color: C.white, margin: '0 0 48px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.white, margin: '0 0 32px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
