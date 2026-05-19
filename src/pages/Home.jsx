@@ -302,8 +302,8 @@ function ViewForWho({ setView }) {
 
   return (
     <div>
-      <div style={{ background: C.bg, padding: '60px 24px 80px', direction: 'rtl' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
 
           {/* Header */}
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
