@@ -548,7 +548,7 @@ function ViewContactContent() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
             {/* Form - Right Column */}
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', order: 2 }}>
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)' }}>
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '20px 0' }}>
                   <div style={{ fontSize: '36px', marginBottom: '12px' }}>✓</div>
@@ -583,8 +583,8 @@ function ViewContactContent() {
             </div>
 
             {/* Buttons - Left Column */}
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '16px', order: 1 }}>
-              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
                 style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
                 📅 לבחירת מועד ביומן הדיגיטלי
