@@ -249,43 +249,119 @@ function ViewFAQ({ setView }) {
 }
 
 function ViewForWho({ setView }) {
-  const items = [
-    { icon: '🌊', title: 'חרדה, דיכאון ואבל', body: 'התמודדות עם חרדה, דיכאון, קשיים עם אבל ואובדן.' },
-    { icon: '🔄', title: 'תופעות רגשיות וגופניות', body: 'תופעות רגשיות וגופניות שהופיעו בעקבות חוויות קשות — מתמשכות או חד-פעמיות.' },
-    { icon: '🌿', title: 'משברי חיים', body: 'ליווי במהלך או לאחר משברי חיים, כולל משברים רפואיים או שינויים גדולים.' },
-    { icon: '✨', title: 'צמיחה והיכרות עם העצמי', body: 'למי שבסך הכל טוב לו, אך מרגיש רצון עמוק להעמיק בהיכרות עם עצמו, לצמוח ולהתפתח.' },
+  const challenges = [
+    {
+      num: '1',
+      title: 'לחץ, חרדה ודריכות יתר',
+      body: 'כשהמערכת העצבית פועלת בעומס יתר ממושך או נושאת רישום של אירוע סוער מן העבר, החרדה והדריכות מפסיקות להיות רק "מחשבה" והופכות למצב קיומי קבוע המנהל את הגוף.',
+      daily: 'חוסר שקט פנימי כרוני, בהלה עוצמתית מרעשים או גירויים קטנים, כתפיים מורמות ונוקשות, נשימה קצרה או שטחית, דפיקות לב מואצות, תחושת איום, הצפה פתאומית או מועקה בבית החזה המקשים על היכולת להרפות, להירגע ולישון.',
+    },
+    {
+      num: '2',
+      title: 'דכדוך, נסיגה וחוסר חיוניות (מצבי קפיאה וצמצום)',
+      body: 'לעיתים, כדי להגן על עצמנו מכאב, פחד או מהצפה שהיו גדולים מכפי שהמערכת יכלה לשאת, הגוף והנפש נוקטים בצמצום ונסיגה, מה שמוביל תחושה של תקיעות והפחתת תחושת חיוניות טבעית.',
+      daily: 'תחושת ריקנות, כובד פיזי כהה בגפיים (כאילו נדרש מאמץ עצום רק כדי להזיז את הגוף), נטייה להתנתק מהסביבה או מהגוף ברגעי מתח (דיסוציאציה), קהות רגשית וחושית, חוסר חום פיזי, מבט או יציבה רופסים או עמומים.',
+    },
+    {
+      num: '3',
+      title: 'אבל ואובדן',
+      body: 'צער עמוק ואובדן של אדם קרוב, מערכת יחסים או שלב משמעותי בחיים, המתרחש בסביבה ובעולם, משנים את המערכת שחיים בה. לעיתים קשה לגעת בתכנים האלו והם מרגישים נפיצים או מסוכנים.',
+      daily: 'תחושת ריקנות, כובד פיזי בלב או בגפיים, שאלות קיומיות, חוסר משמעות או ערך, חוויה של זמן קופא בעוד העולם ממשיך לנוע כרגיל, קושי לבכות או להרגיש רגשות.',
+    },
+    {
+      num: '4',
+      title: 'קשיים במערכות יחסים, גבולות וקשר',
+      body: 'האופן שבו אנחנו מתקשרים עם העולם קשור ישירות לגבולות הגופניים והאנרגטיים שלנו. ליכולת להישאר בקשר עם עצמנו בזמן שבקשר עם אחר, במיוחד אם הגבולות הללו נפרצו או נפגעו בעבר.',
+      daily: 'תחושה של "היבלעות", דריכות גבוהה או תחושה של ׳אני נעלם׳ בתוך זוגיות או מול סמכות, קושי פיזי להגיד "לא" (הרגשה של מחנק או כיווץ בגרון), או לחלופין בניית חומות נוקשות ומשוריינות שמובילות לבדידות.',
+    },
+    {
+      num: '5',
+      title: 'תופעות רגשיות וגופניות',
+      body: 'פעמים רבות הגוף "מדבר" ומנציח תאונות, פציעות או חוויות רגשיות קשות מן העבר דרך סימפטומים, כאבים כרוניים או תחושות מצוקה משתנות, מבלי שיש להם פתרון או הסבר רפואי ברור.',
+      daily: 'כאבים שהוגדרו פסיכוסומטיים, תופעות גופניות שלא חולפות, שינוי משמעותי בתחושת העצמי, חוסר תחושה, חוויות של פלאשבקים.',
+    },
+    {
+      num: '6',
+      title: 'משברי חיים ומשברים רפואיים',
+      body: 'מפגש פתאומי עם חולי, פציעה, או שינוי דרמטי במצב הבריאותי, מייצר לעיתים טראומה רפואית המטלטלת את תחושת השליטה והביטחון הבסיסית בעולם ומציף שאלות קיומיות גדולות.',
+      daily: 'חוויה עמוקה של בגידת הגוף, פחד קיומי מהעתיד, חוסר אונים בתפקוד הגוף, קושי ומתח בהסתגלות למגבלות חדשות שנכפו על ידי תאונה, פציעה או מחלה.',
+    },
+    {
+      num: '7',
+      title: 'צמיחה, העמקה וחיבור לחיוּת',
+      body: 'פנייה לטיפול לא חייבת לנבוע רק מתוך שבר חריף. לעיתים הדחף להתחיל תהליך מגיע מתוך רצון פנימי עמוק להאט את הקצב האוטומטי של החיים, להכיר את עצמך ולחיות חיים מלאים יותר.',
+      daily: 'תחושה עמומה של תקיעות ביומיום, "אוטומט" קבוע ותחושת חוסר חיוניות, לצד דחף פנימי שקט המבקש להעמיק, לחקור, ללכת אחר דחף וסקרנות טבעיים. רצון לחיבור לסמכות פנימית ויציבות בעולם.',
+    },
   ];
+
+  const pStyle = { fontSize: '15px', color: '#1E2631', lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif" };
+  const labelStyle = { fontSize: '13px', fontWeight: 700, color: C.sage, margin: '12px 0 4px', fontFamily: "'Assistant', sans-serif" };
+
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
-        <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
-        <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
-          <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, letterSpacing: '0.1em', textAlign: 'center', marginBottom: '12px', textTransform: 'uppercase', fontFamily: "'Assistant', sans-serif" }}>
-            למי מתאים הטיפול?
-          </p>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 12px', fontFamily: "'Assistant', sans-serif" }}>
-            מי מגיע לקליניקה?
+      <div style={{ background: C.bg, padding: '40px 24px 80px', direction: 'rtl' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+
+          {/* Header */}
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+            למה מתאימה פסיכותרפיה גופנית?
           </h2>
-          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 auto 48px', maxWidth: '580px', fontFamily: "'Assistant', sans-serif" }}>
-            הקליניקה מתאימה לאנשים בנקודות שונות בחיים — ממשבר חריף ועד מסע של צמיחה.
+          <p style={{ ...pStyle, textAlign: 'center', maxWidth: '660px', margin: '0 auto 16px' }}>
+            פסיכותרפיה גופנית מציעה חוויה בה, מעבר לדיבור, נתייחס לכל מה שמתרחש בגוף שמשמש כשותף מלא בתהליך של עיבוד, איזון וויסות. קשר שנבנה בו אמון, קשב למה שמתרחש בגוף ובמרחב, תנועה בכיוונים הפתוחים מאפשרים להתקדם במקום שהמילים לבדן לפעמים אינן יכולות להגיע אליהם.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-            {items.map((item, i) => (
-              <div key={i} style={{ background: C.white, borderRadius: '14px', padding: '28px 24px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
-                <div style={{ fontSize: '28px', marginBottom: '12px' }}>{item.icon}</div>
-                <h3 style={{ fontSize: '16px', fontWeight: 600, color: C.green, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif" }}>{item.title}</h3>
-                <p style={{ fontSize: '14px', color: C.textMid, lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{item.body}</p>
+          <p style={{ ...pStyle, fontWeight: 700, textAlign: 'center', maxWidth: '660px', margin: '0 auto 40px' }}>
+            הטיפול מתאים לכל מי שמרגיש שתופעות רגשיות, מנטליות או פיזיות שונות מנהלות אותו בעקבות חוויות קשות ואירועי חיים. בין אם מדובר באירוע חד-פעמי חריף או בהתמודדות מתמשכת; בין אם זה קרה בשלב מוקדם או מאוחר בחיים; ובין אם הסיבה לתחושות האלו ידועה וברורה לך לחלוטין או שנותרה עמומה, מבלבלת ולא מוסברת.
+          </p>
+
+          {/* Process */}
+          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '40px' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>מבנה התהליך וציפיות</h3>
+            <p style={{ ...pStyle, marginBottom: '12px' }}>
+              אם זו הפעם הראשונה שבה הגעת למרחב של טיפול, חשוב לדעת שכל תהליך הוא ייחודי, מותאם אליך ואל הצרכים שלך באופן אישי. בהתאם לאתגר או לנושא, הטיפול יכול להיות קצר מועד (חצי שנה) או ארוך טווח.
+            </p>
+            <p style={{ ...pStyle }}>
+              הגישה שמנחה אותי מבוססת על בניית קשר טיפולי שיש בו אמון, כבוד וסקרנות. יחד, ולעיתים באומץ, נפעל להשגת המטרות איתן הגעת. המפגש הראשון והבאים אחריו הם הזדמנות להיכרות ראשונית, לשאילת שאלות, ולבדיקה משותפת האם העבודה יחד מרגישה נכונה ומתאימה עבורך.
+            </p>
+          </div>
+
+          {/* Challenges */}
+          <h3 style={{ fontSize: '18px', fontWeight: 700, color: C.green, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>האתגרים שאנו פוגשים בקליניקה</h3>
+          <p style={{ ...pStyle, color: '#5A6B5C', marginBottom: '24px' }}>
+            אם הגוף או הנפש אותתו לך שהגיע הזמן לעצור ולברר או להעמיק, אלו האתגרים והנושאים המרכזיים להם ניתן לתת מענה:
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {challenges.map((c) => (
+              <div key={c.num} style={{ background: C.white, borderRadius: '14px', padding: '24px 28px', border: '1px solid rgba(22,34,47,0.08)' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <span style={{ background: C.sage, color: C.white, borderRadius: '50%', width: '26px', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, flexShrink: 0, marginTop: '2px', fontFamily: "'Assistant', sans-serif" }}>{c.num}</span>
+                  <div style={{ flex: 1 }}>
+                    <h4 style={{ fontSize: '16px', fontWeight: 700, color: C.green, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>{c.title}</h4>
+                    <p style={{ ...pStyle, marginBottom: '10px' }}>{c.body}</p>
+                    <p style={{ ...labelStyle }}>איך זה יכול להחוות ביום יום?</p>
+                    <p style={{ ...pStyle, fontSize: '14px', color: '#232B32' }}>{c.daily}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <button onClick={() => setView(6)} style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 14px rgba(178,110,99,0.3)', ...tx }}>
-              לתיאום שיחת הכרות קצרה
+
+          {/* Disclaimer */}
+          <p style={{ fontSize: '14px', color: '#5A6573', fontStyle: 'italic', margin: '32px 0 0', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
+            * משתנה מאדם לאדם.
+          </p>
+
+          {/* CTA */}
+          <div style={{ background: C.navy, borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(246,244,240,0.9)', lineHeight: 1.85, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif" }}>
+              לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח יותר — מתוך הבנה שלהיות אדם בוגר ומקורקע בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.
+            </p>
+            <button onClick={() => setView(6)} style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '15px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 18px rgba(178,110,99,0.4)', ...tx }}>
+              ליצירת קשר
             </button>
           </div>
+
         </div>
-        <QuoteBlock text="לא צריך להיות בשבר גדול כדי לפנות לעזרה. לפעמים עצם הרצון לחיות חיים עמוקים יותר הוא סיבה מספיקה." />
       </div>
     </div>
   );
