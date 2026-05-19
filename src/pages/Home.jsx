@@ -279,7 +279,7 @@ function ViewWritings({ setView }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(160deg, #E8F5E9 0%, #F1F8E9 40%, #FFFDE7 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
