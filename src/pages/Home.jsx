@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "@/components/clinic/Footer";
 import { base44 } from "@/api/base44Client";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const C = {
   bg: '#EDE8DF',
@@ -514,6 +515,8 @@ function ViewContactContent() {
     setSending(false);
   };
 
+  const beitOrenCoords = [31.9454, 34.7633];
+
   return (
     <div>
       <div style={{ background: C.navy, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
@@ -567,9 +570,86 @@ function ViewContactContent() {
               </a>
             </div>
           </div>
+
+          {/* Location Section */}
+          <div style={{ marginTop: '48px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 600, color: C.white, margin: '0 0 24px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>מיקום הקליניקה</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px' }}>
+                <MapContainer center={beitOrenCoords} zoom={15} style={{ height: '100%', width: '100%' }}>
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; OpenStreetMap contributors' />
+                  <Marker position={beitOrenCoords}>
+                    <Popup direction="top" offset={[0, -10]}>
+                      <div style={{ textAlign: 'center', fontFamily: "'Assistant', sans-serif", direction: 'rtl' }}>
+                        <p style={{ margin: '0 0 8px', fontWeight: 600, fontSize: '14px' }}>בית אורן</p>
+                        <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>קליניקה לפסיכותרפיה גופנית</p>
+                      </div>
+                    </Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
+                  <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.8, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+                    בית אורן, שטח מטיפול יוקרתי בעמק יזרעאל, קרוב לחוות מטיילים ופעעוע אתרים טבעיים.
+                  </p>
+                </div>
+                <a href={`https://waze.com/ul?ll=${beitOrenCoords[0]},${beitOrenCoords[1]}&navigate=yes`} target="_blank" rel="noopener noreferrer"
+                  style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                  🧭 הנחיות הגעה ב-Waze
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function ViewAccessibility() {
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+            נגישות בקליניקה
+          </h2>
+
+          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>גישה פיזית</h3>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
+              הקליניקה בבית אורן נמצאת בקרקע עם גישה ישירה ללא מדרגות. יש חניה מיוחדת לאנשים עם מוגבלות בקרבת הכניסה. עם זאת, אם יש צורך בהנגשה מיוחדת, אנא צור קשר מראש כדי שנוכל להסדיר הכל.
+            </p>
+          </div>
+
+          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>הנגשה למוגבלויות שונות</h3>
+            <ul style={{ margin: 0, paddingRight: '20px', fontSize: '15px', color: C.textMid, lineHeight: 1.9, fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+              <li style={{ marginBottom: '10px' }}>אנשים עם כיסאות גלגלים: הקליניקה מיתאמת לגישה של כיסא גלגלים עם שירותים נגישים בקרבת מרחק</li>
+              <li style={{ marginBottom: '10px' }}>כעוורים או חרשים: אנו יכולים להתאים את הטיפול לצרכים מיוחדים. אנא הודיע מראש</li>
+              <li style={{ marginBottom: '10px' }}>עם תנאים רפואיים מיוחדים: ניתן לדיין כל בקשה לצרכים מיוחדים</li>
+              <li>עם קשיים נפשיים או חרדה חברתית: הסביבה שלנו תוכננה להיות כמה שיותר רגוע ותומך</li>
+            </ul>
+          </div>
+
+          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>טיפול אונליין</h3>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
+              ניתן לקיים את הטיפול באמצעות טלה-וידיאו, מה שעושה אותו נגיש לאנשים שמתקשים בנסיעה או שחיים במרחק. ניתן להתאים את הטיפול למצבים שונים, ובכללם טיפול עם או ללא מגע גופני.
+            </p>
+          </div>
+
+          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>יצירת קשר לצרכים מיוחדים</h3>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
+              אם יש לך צרכים מיוחדים של נגישות שלא הזכרנו כאן, אנא צור קשר עם דור בעדכון מלא על הנקודות החשובות לך. אנו שוקדים על הכנת מרחב טיפולי בטוח, נגיש וכוללני לכל אחד.
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -591,6 +671,7 @@ export default function Home() {
     <ViewWritings setView={setView} key="4" />,
     <ViewAbout setView={setView} key="5" />,
     <ViewContact key="6" />,
+    <ViewAccessibility key="7" />,
   ];
 
   return (
@@ -609,7 +690,7 @@ function Navbar({ view, setView }) {
   const onBlog = location.pathname === '/blog';
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = ['בית', 'הגישה', 'למי מתאים הטיפול?', 'שאלות נפוצות', 'מן השדה', 'אודותיי', 'קשר'];
+  const navItems = ['בית', 'הגישה', 'למי מתאים הטיפול?', 'שאלות נפוצות', 'מן השדה', 'אודותיי', 'קשר', 'נגישות'];
 
   const handleViewClick = (i) => {
     setMenuOpen(false);
