@@ -199,12 +199,9 @@ function ViewWritings({ setView }) {
       <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
-            מן השדה: דברים תקופתיים שנאספים או נכתבים
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+            השראה עונתית שנאספה או נכתבה
           </h2>
-          <p style={{ textAlign: 'right', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 0 40px', fontFamily: "'Assistant', sans-serif" }}>
-            מרחב זה מוקדש ליצירות מעוררות, אמנות, שירה, מחשבות וכתבים.
-          </p>
 
           {/* Card */}
           <div style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -234,7 +231,6 @@ function ViewWritings({ setView }) {
             </div>
           )}
         </div>
-        <QuoteBlock text="ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של התודעה שלך." />
       </div>
     </div>
   );
@@ -293,7 +289,7 @@ function ViewForWho({ setView }) {
     },
     {
       num: '2',
-      title: 'דכדוך, נסיגה וחוסר חיוניות (מצבי קפיאה וצמצום)',
+      title: 'דכדוך, נסיגה וחוסר חיוניות',
       body: 'לעיתים, כדי להגן על עצמנו מכאב, פחד או מהצפה שהיו גדולים מכפי שהמערכת יכלה לשאת, הגוף והנפש נוקטים בצמצום ונסיגה, מה שמוביל תחושה של תקיעות והפחתת תחושת חיוניות טבעית.',
       daily: 'תחושת ריקנות, כובד פיזי כהה בגפיים (כאילו נדרש מאמץ עצום רק כדי להזיז את הגוף), נטייה להתנתק מהסביבה או מהגוף ברגעי מתח (דיסוציאציה), קהות רגשית וחושית, חוסר חום פיזי, מבט או יציבה רופסים או עמומים.',
     },
@@ -521,7 +517,7 @@ function Navbar({ view, setView }) {
   const onBlog = location.pathname === '/blog';
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = ['בית', 'אודותיי', 'הגישה', 'למי מתאים הטיפול?', 'השראה ומחשבות', 'שאלות', 'קשר'];
+  const navItems = ['בית', 'אודותיי', 'הגישה', 'למי מתאים הטיפול?', 'מן השדה', 'שאלות', 'קשר'];
 
   const handleViewClick = (i) => {
     setMenuOpen(false);
