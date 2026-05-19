@@ -187,6 +187,30 @@ const writings = [
   {
     text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`,
     author: 'David Whyte, Consolations',
+    rtl: false,
+  },
+  {
+    text: `זהו דבר מפחיד לאהוב,
+את מה שהמוות יכול לקחת.
+לאהוב, לקוות, לחלום,
+וכן! לאבד.
+
+מדובר בדבר המיועד לטיפשים,
+לאהוב,
+אבל דבר קדוש הוא,
+לאהוב את מה שהמוות יכול לקחת.
+
+משום שחייך נחיו בתוכי,
+הצחוק שלך רומם אותי,
+המילה שלך הייתה מתנה עבורי.
+
+לזכור את זה מעורר שמחה כואבת.
+זהו דבר אנושי לאהוב,
+זהו דבר קדוש,
+לאהוב
+את שהמוות יכול לקחת`,
+    author: 'מיוחס לרבי חיים שטרן בספרו ׳בקצה תהום הצער׳ של פרנסיס וולר, בתרגום רוני גרוס.',
+    rtl: true,
   },
 ];
 
@@ -206,12 +230,12 @@ function ViewWritings({ setView }) {
           {/* Card */}
           <div style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <div style={{ fontSize: '36px', color: C.sage, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif', lineHeight: 1 }}>"</div>
-              <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: 'ltr', textAlign: 'left' }}>
+              <div style={{ fontSize: '36px', color: C.sage, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif', lineHeight: 1, textAlign: writings[current].rtl ? 'right' : 'left' }}>"</div>
+              <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line' }}>
                 {writings[current].text}
               </p>
             </div>
-            <p style={{ fontSize: '13px', color: C.sage, fontWeight: 600, margin: 0, fontFamily: "'Assistant', sans-serif", direction: 'ltr', textAlign: 'left' }}>
+            <p style={{ fontSize: '13px', color: C.sage, fontWeight: 600, margin: 0, fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left' }}>
               — {writings[current].author}
             </p>
           </div>
