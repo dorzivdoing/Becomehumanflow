@@ -427,6 +427,11 @@ function ViewForWho({ setView }) {
             </p>
           </div>
 
+          <QuoteBlock
+            text='אולי זה לא סיפור שמח. אבל הוא אמיתי והוא שלי'
+            author='— מתוך הספר ״ירושה רגשית״ מאת גלית אטלס'
+          />
+
           {/* CTA */}
           <div style={{ background: C.white, borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px', border: '1px solid rgba(22,34,47,0.08)' }}>
             <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
