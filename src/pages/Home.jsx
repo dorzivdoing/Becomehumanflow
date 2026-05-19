@@ -447,7 +447,7 @@ function ViewForWhoContent({ setView }) {
           </div>
 
           {/* Disclaimer - right after challenge 7 */}
-          <p style={{ fontSize: '13px', color: '#5A6573', fontStyle: 'italic', margin: '6px 0 20px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
+          <p style={{ fontSize: '13px', color: '#5A6573', fontStyle: 'italic', margin: '6px 0 20px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
             * משתנה מאדם לאדם.
           </p>
 
