@@ -629,40 +629,66 @@ function ViewContactContent() {
 }
 
 function ViewAccessibility() {
+  const pStyle = { fontSize: '15px', color: '#232B32', lineHeight: 1.7, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
+  const h3Style = { fontSize: '17px', fontWeight: 700, color: '#1E2631', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
+  const sectionStyle = { marginBottom: '2rem' };
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
-            נגישות בקליניקה
-          </h2>
+          {/* Main Title */}
+          <h1 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: '#1E2631', textAlign: 'right', margin: '0 0 24px', fontFamily: "'Assistant', sans-serif" }}>
+            נגישות במרחב הטיפולי
+          </h1>
 
-          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>גישה פיזית</h3>
-            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
-              הקליניקה בבית אורן נמצאת בקרקע עם גישה ישירה ללא מדרגות. יש חניה מיוחדת לאנשים עם מוגבלות בקרבת הכניסה. עם זאת, אם יש צורך בהנגשה מיוחדת, אנא צור קשר מראש כדי שנוכל להסדיר הכל.
+          {/* Intro */}
+          <p style={{ ...pStyle, marginBottom: '2rem', fontSize: '16px' }}>
+            חלק בלתי נפרד מיצירת מרחב טיפולי בטוח, כוללני ומזמין לכל אחד, הוא השאיפה לאפשר גישה מלאה ומותאמת לצרכים השונים של המגיעים לקליניקה.
+          </p>
+
+          {/* Section 1: Physical Access */}
+          <div style={sectionStyle}>
+            <h3 style={h3Style}>גישה פיזית ומרחבית</h3>
+            <ul style={{ margin: 0, paddingRight: '24px', ...pStyle, textAlign: 'right' }}>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>מיקום וגישה:</strong> הקליניקה בבית אורן ממוקמת בקומת קרקע, עם גישה ישירה לחלוטין וללא מדרגות. המרחב נגיש ומותאם למשתמשים בכיסאות גלגלים.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>חניה:</strong> בקרבת כניסת המבנה קיימת חניה ייעודית לאנשים עם מוגבלות.
+              </li>
+            </ul>
+            <p style={{ ...pStyle, marginTop: '16px', textAlign: 'justify' }}>
+              אם יש לך צורך בהסדרת הנגשה פיזית ספציפית או בליווי בעת ההגעה, אבקש ליצור איתי קשר מראש כדי שנוכל להיערך לכך בצורה המיטבית.
             </p>
           </div>
 
-          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>נגישות בקליניקה</h3>
-            <ul style={{ margin: 0, paddingRight: '20px', fontSize: '15px', color: C.textMid, lineHeight: 1.9, fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-              <li style={{ marginBottom: '10px' }}>הקליניקה נגישה לבעלי כיסא גלגלים</li>
-              <li>אם קיימות מגבלות ראיה, שמיעה או צרכים מיוחדים אחרים שלא הוזכרו - אבקש לציין זאת בפניה או בשיחת טלפון</li>
+          {/* Section 2: Special Needs */}
+          <div style={sectionStyle}>
+            <h3 style={h3Style}>התאמות וצרכים מיוחדים</h3>
+            <p style={{ ...pStyle, textAlign: 'justify' }}>
+              אם קיימות מוגבלויות ראייה, שמיעה, רגישויות סנסוריות או צרכים מיוחדים אחרים שלא צוינו כאן, אני מזמין אותך לציין זאת כבר בפנייה הראשונית או במהלך שיחת הטלפון שלנו, על מנת שנוכל להתאים את אופי המפגש והמרחב עבורך.
+            </p>
+          </div>
+
+          {/* Section 3: Online */}
+          <div style={sectionStyle}>
+            <h3 style={h3Style}>אפשרות למפגשים מרחוק (טיפול אונליין)</h3>
+            <p style={{ ...pStyle, marginBottom: '12px', textAlign: 'justify' }}>
+              עבור אנשים המתמודדים עם מגבלות ניידות, קשיי נסיעה, או עבור מי שמתגוררים במרחק (כולל תושבי חוץ), נמצאים בתקופות מעבר וטיולים, או פשוט מעדיפים את העבודה הסומטית בסביבתם הביתית – ניתן לקיים את התהליך הטיפולי באופן מלא באונליין.
+            </p>
+            <ul style={{ margin: 0, paddingRight: '24px', ...pStyle, textAlign: 'right' }}>
+              <li>
+                <strong>תנאים נדרשים:</strong> כדי לאפשר את העבודה, יש צורך במחשב עם מצלמה וחיבור אינטרנט תקין ויציב, לצד סביבה שקטה, נעימה ובטוחה לחלוטין שבה ניתן לדבר ולנוע בחופשיות ללא הפרעה.
+              </li>
             </ul>
           </div>
 
-          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginBottom: '24px' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>טיפול אונליין</h3>
-            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
-              ניתן לקיים טיפול אונליין עבור אנשים שמתקשים בנסיעות, שמתגוררים במרחק (גם בחו״ל), נמצאים במעברים ומטיילים או פשוט מעדיפים את סביבת ביתם. יש צורך במחשב עם מצלמה ורשת אינטרנט תקינים וסביבה נעימה ובטוחה להיפגש בה.
-            </p>
-          </div>
-
-          <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>יצירת קשר לצרכים מיוחדים</h3>
-            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
-              אם יש לך צרכים מיוחדים של נגישות שלא הזכרנו כאן, אנא צור קשר עם דור בעדכון מלא על הנקודות החשובות לך. אנו שוקדים על הכנת מרחב טיפולי בטוח, נגיש וכוללני לכל אחד.
+          {/* Section 4: CTA */}
+          <div style={{ background: '#B26E63', borderRadius: '14px', padding: '32px 28px', marginTop: '2rem', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#F6F4F0', margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>יצירת קשר והתייעצות</h3>
+            <p style={{ fontSize: '15px', color: '#F6F4F0', lineHeight: 1.7, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>
+              אם יש לך צרכים מיוחדים או שאלות בנושאי נגישות שלא קיבלו מענה בעמוד זה, אנא אל תהסס לפנות אליי בשיחה או בהודעה עם פירוט של הנקודות החשובות לך. אנו שוקדים על הכנת מרחב טיפולי בטוח, נגיש וכוללני לכל אחד, ויחד נבין כיצד לייצר את המענה המדויק עבורך.
             </p>
           </div>
         </div>
