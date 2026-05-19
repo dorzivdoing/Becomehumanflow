@@ -359,8 +359,8 @@ function ViewForWho({ setView }) {
           </div>
 
           {/* CTA */}
-          <div style={{ background: '#2D2250', borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px' }}>
-            <p style={{ fontSize: '16px', color: 'rgba(246,244,240,0.92)', lineHeight: 1.85, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
+          <div style={{ background: C.white, borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px', border: '1px solid rgba(22,34,47,0.08)' }}>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
               לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח — מתוך הבנה שלהיות אדם בוגר בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.
             </p>
             <button onClick={() => setView(6)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
