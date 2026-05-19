@@ -279,8 +279,9 @@ function ViewWritings({ setView }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: 'linear-gradient(160deg, #F6F4F0 0%, #F3F0E9 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
-        <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
+      <div style={{ background: 'linear-gradient(160deg, #F0F5EE 0%, #F6F4F0 50%, #F3EFDE 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+        <LeafAccent style={{ top: 20, left: 20, width: '120px', opacity: 0.6 }} />
+        <LeafAccent style={{ bottom: 40, right: 10, width: '100px', transform: 'rotate(-20deg) scaleX(-1)', opacity: 0.5 }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             השראה עונתית שנאספה או נכתבה
