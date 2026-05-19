@@ -111,7 +111,7 @@ function ViewAbout({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             אודותיי
           </h2>
           <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -125,7 +125,7 @@ function ViewAbout({ setView }) {
                 'התהליך הטיפולי בחדר לעולם אינו מנותק מהעולם שבחוץ. בעבודה המשותפת שלנו אני לוקח בחשבון את ההקשרים הרלוונטיים לחייך – הגנאולוגיה האישית והקשרי חייך, מתוך ידיעה עמוקה שאנחנו תמיד קשורים לאנשים, לסיפורים ולמקומות שעיצבו אותנו. המבט הרחב והזיקה הזו הם שהובילו אותי גם אל עולמות התוכן של טקסי אבל, חיים ומוות, בהשראת עבודתם של פרנסיס וולר (Francis Weller) וסטיבן ג׳נקינסון (Stephen Jenkinson). דרכם, התרחבה תפיסתי לגבי החשיבות העצומה של עבודה קבוצתית וקהילתית כמרחב לתחזוקה האנושית לה אנו זקוקים כדי לפגוש ולשאת את הכאב והצער שיגיעו אלינו; לצד ההבנה העמוקה שצער ואבל (ושלל אירועי חיים אנושיים אחרים) אינם פתולוגיה שיש לתקן, אלא דרכו של עולם והמעבר בו. הם חלק בלתי נפרד מתהליך של חניכה והבשלה כאנשים בוגרים, והם חובתנו האנושית כלפי אלו שהיו כאן לפנינו, כמו גם כלפי אלו שיגיעו אחרינו. זהו מסלול התפתחותי משמעותי שבו אני ממשיך לצמוח ולהעמיק מדי יום.',
                 'אל המפגשים הטיפוליים בקליניקה אני מביא איתי הקשבה עמוקה, סקרנות, יצירתיות והומור. הכוונה המרכזית שמנחה אותי היא לבנות יחד איתך יחסים טיפוליים שיש בהם אמון הדדי, כבוד וקצב מדויק שמתאים לך ולהקשרים הייחודיים של חייך.',
               ].map((p, i) => (
-                <p key={i} style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>{p}</p>
+                <p key={i} style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>{p}</p>
               ))}
             </div>
           </div>
@@ -151,7 +151,7 @@ function ViewApproach({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             עמדה טיפולית אינטגרטיבית לחיים
           </h2>
           <p style={{ textAlign: 'right', color: C.textMid, fontSize: '15px', lineHeight: 1.9, margin: '0 0 48px', fontFamily: "'Assistant', sans-serif" }}>
@@ -189,7 +189,7 @@ function ViewWritings({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
             מן השדה: דברים תקופתיים שנאספים או נכתבים
           </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 0 56px', fontFamily: "'Assistant', sans-serif" }}>
@@ -230,7 +230,7 @@ function ViewFAQ({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             שאלות נפוצות וביטחון קליני
           </h2>
           {faqs.map((faq, i) => (
@@ -306,7 +306,7 @@ function ViewForWho({ setView }) {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
           {/* Header */}
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             למי מתאימה פסיכותרפיה גופנית?
           </h2>
           <p style={{ ...pStyle, marginBottom: '16px' }}>
@@ -398,7 +398,7 @@ function ViewContact() {
     <div>
       <div style={{ background: C.navy, padding: '80px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.white, margin: '0 0 32px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
