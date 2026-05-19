@@ -22,13 +22,7 @@ const C = {
 const tx = { transition: 'all 0.4s ease' };
 
 function LeafAccent({ style }) {
-  return (
-    <img
-      src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/8a7c7f10d_generated_image.png"
-      alt=""
-      style={{ position: 'absolute', pointerEvents: 'none', opacity: 0.22, ...style }}
-    />
-  );
+  return null;
 }
 
 function QuoteBlock({ text, author }) {
