@@ -279,7 +279,7 @@ function ViewWritings({ setView }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: 'linear-gradient(160deg, #E8F5E9 0%, #F1F8E9 40%, #FFFDE7 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(160deg, #F6F4F0 0%, #F3F0E9 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
@@ -302,10 +302,10 @@ function ViewWritings({ setView }) {
           )}
 
           {/* Card */}
-          <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid #B26E63`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ fontSize: '36px', color: C.sage, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif', lineHeight: 1, textAlign: writings[current].rtl ? 'right' : 'left' }}>"</div>
-              <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line' }}>
+              <p style={{ fontSize: '16px', color: '#1A2228', lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line' }}>
                 {writings[current].text}
               </p>
             </div>
