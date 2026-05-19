@@ -417,10 +417,10 @@ function ViewForWhoContent({ setView }) {
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             למי מתאימה פסיכותרפיה גופנית?
           </h2>
-          <p style={{ ...pStyle, marginBottom: '16px' }}>
+          <p style={{ ...pStyle, marginBottom: '16px', textAlign: 'justify' }}>
             פסיכותרפיה גופנית מציעה חוויה בה מעבר לדיבור נתייחס לכל מה שמתרחש בגוף שמשמש כשותף מלא בתהליך של עיבוד, איזון וויסות. קשר שנבנה בו אמון, קשב למתרחש בגוף ובמרחב ולרצונות העמוקים והמהותיים שנובעים בו, תנועה בכיוונים הפתוחים מאפשרים להתקדם במקום שהמילים לבדן לפעמים אינן יכולות להגיע אליהם.
           </p>
-          <p style={{ ...pStyle, marginBottom: '40px' }}>
+          <p style={{ ...pStyle, marginBottom: '40px', textAlign: 'justify' }}>
             הטיפול מתאים לכל מי שמרגיש שתופעות רגשיות, מנטליות או פיזיות שונות מנהלות אותו בעקבות חוויות קשות ואירועי חיים. בין אם מדובר באירוע חד-פעמי חריף או בהתמודדות מתמשכת; בין אם זה קרה בשלב מוקדם או מאוחר בחיים; ובין אם הסיבה לתחושות האלו ידועה וברורה לך לחלוטין או שנותרה עמומה, מבלבלת ולא מוסברת.
           </p>
 
@@ -437,9 +437,9 @@ function ViewForWhoContent({ setView }) {
                   <span style={{ background: C.sage, color: C.white, borderRadius: '50%', width: '26px', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, flexShrink: 0, marginTop: '2px', fontFamily: "'Assistant', sans-serif" }}>{c.num}</span>
                   <div style={{ flex: 1 }}>
                     <h4 style={{ fontSize: '16px', fontWeight: 700, color: C.green, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>{c.title}</h4>
-                    <p style={{ ...pStyle, marginBottom: '10px' }}>{c.body}</p>
+                    <p style={{ ...pStyle, marginBottom: '10px', textAlign: 'justify' }}>{c.body}</p>
                     <p style={{ ...labelStyle, textAlign: 'center' }}>איך זה יכול להחוות ביום יום?*</p>
-                    <p style={{ ...pStyle }}>{c.daily}</p>
+                    <p style={{ ...pStyle, textAlign: 'justify' }}>{c.daily}</p>
                   </div>
                 </div>
               </motion.div>
@@ -476,7 +476,7 @@ function ViewForWhoContent({ setView }) {
 
           {/* CTA */}
           <div style={{ background: C.white, borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px', border: '1px solid rgba(22,34,47,0.08)' }}>
-            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+            <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.9, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
               לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח — מתוך הבנה שלהיות אדם בוגר בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.
             </p>
             <button onClick={() => setView(6)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
