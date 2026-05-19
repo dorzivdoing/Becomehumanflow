@@ -111,6 +111,9 @@ function ViewAbout({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+            אודותיי
+          </h2>
           <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
             <div style={{ width: '150px', height: '170px', borderRadius: '12px', flexShrink: 0, border: `2px solid ${C.sage}`, overflow: 'hidden' }}>
               <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
@@ -148,11 +151,11 @@ function ViewApproach({ setView }) {
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             עמדה טיפולית אינטגרטיבית לחיים
           </h2>
-          <p style={{ textAlign: 'center', color: C.textMid, fontSize: '15px', lineHeight: 1.9, maxWidth: '780px', margin: '0 auto 48px', fontFamily: "'Assistant', sans-serif" }}>
-            גישת הביוסינתזה (שפירושה המילולי הוא "אינטגרציה של חיים") היא שיטת טיפול בינלאומית מעולם הפסיכותרפיה הגופנית. היא נוסדה בשנות השבעים על ידי החוקר והתרפיסט דייויד בואדלה, מתוך הבנה עמוקה שהאדם הוא שלם אחד. השיטה נשענת על שילוב מרתק ומבוסס בין פסיכולוגיית המעמקים וגישת יחסי האובייקט (הקשר המוקדם בין האם לתינוק), לבין מחקרים מודרניים בחקר המוח, תיאוריות ויסות רגשי ומדעי ההתפתחות העוברית. הביוסינתזה מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) ומראה כיצד עבודה סומטית, בתוך יחסי אמון, יכולה להביא לשינוי עמוק ויציב, ללא צורך ב״לנפץ״ הגנות, ״לתקן״ את מה שנשבר, או לפתוח פצעים בצורה מכאיבה.
+          <p style={{ textAlign: 'right', color: C.textMid, fontSize: '15px', lineHeight: 1.9, margin: '0 0 48px', fontFamily: "'Assistant', sans-serif" }}>
+            גישת הביוסינתזה היא שיטת טיפול בינלאומית מעולם הפסיכותרפיה הגופנית. היא נוסדה בשנות השבעים על ידי החוקר והתרפיסט דיוויד בואדלה, מתוך הבנה עמוקה שהאדם הוא שלם אחד. השיטה נשענת על שילוב מרתק ומבוסס בין פסיכולוגיית המעמקים וגישת יחסי האובייקט, לבין מחקרים מודרניים בחקר המוח, תיאוריות ויסות רגשי ומדעי ההתפתחות העוברית. הביוסינתזה מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) ומראה כיצד עבודה סומטית, בתוך יחסי אמון, יכולה להביא לשינוי עמוק ויציב, ללא צורך ב״לנפץ״ הגנות, ״לתקן״ את מה שנשבר, או לפתוח פצעים בצורה מכאיבה.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
             {streams.map((s, i) => (
@@ -186,7 +189,7 @@ function ViewWritings({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif" }}>
             מן השדה: דברים תקופתיים שנאספים או נכתבים
           </h2>
           <p style={{ textAlign: 'center', color: C.textMid, fontSize: '16px', lineHeight: 1.85, margin: '0 0 56px', fontFamily: "'Assistant', sans-serif" }}>
@@ -227,7 +230,7 @@ function ViewFAQ({ setView }) {
       <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             שאלות נפוצות וביטחון קליני
           </h2>
           {faqs.map((faq, i) => (
@@ -303,7 +306,7 @@ function ViewForWho({ setView }) {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
           {/* Header */}
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'center', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.green, textAlign: 'right', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             למי מתאימה פסיכותרפיה גופנית?
           </h2>
           <p style={{ ...pStyle, marginBottom: '16px' }}>
@@ -395,7 +398,7 @@ function ViewContact() {
     <div>
       <div style={{ background: C.navy, padding: '80px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.white, margin: '0 0 32px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.white, margin: '0 0 32px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
