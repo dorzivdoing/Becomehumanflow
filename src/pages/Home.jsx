@@ -542,13 +542,13 @@ function ViewContactContent() {
     <div>
       <div style={{ background: C.navy, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: C.white, margin: '0 0 48px 0', textAlign: 'right', fontFamily: "'Assistant', sans-serif", paddingRight: '4px' }}>
-            יצירת קשר
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
+            דרכים ליצירת קשר
           </h2>
 
-          {/* Form Section */}
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', maxWidth: '500px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
+            {/* Form - Right Column */}
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', order: 2 }}>
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '20px 0' }}>
                   <div style={{ fontSize: '36px', marginBottom: '12px' }}>✓</div>
@@ -581,40 +581,45 @@ function ViewContactContent() {
                 </form>
               )}
             </div>
-          </div>
 
-          {/* Other Contact Methods */}
-          <div style={{ marginBottom: '48px' }}>
-            <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase', textAlign: 'right' }}>דרכים נוספות לקשר</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            {/* Buttons - Left Column */}
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '16px', order: 1 }}>
+              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
                 style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
                 📅 לבחירת מועד ביומן הדיגיטלי
               </a>
               <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
                 style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
-                💬 דברו איתי בוואטסאפ
+                💬 דברו איתי וואטס
               </a>
             </div>
           </div>
 
           {/* Location Section */}
-          <div>
-            <h3 style={{ fontSize: '20px', fontWeight: 600, color: C.white, margin: '0 0 24px', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>מיקום הקליניקה</h3>
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(246,244,240,0.15)' }}>
-              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase', textAlign: 'right' }}>פרטי מיקום</p>
-              <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.8, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-                הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
-                  style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                  🧭 הנחיות הגעה ב-Waze
-                </a>
-                <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
-                  style={{ background: '#0B81F5', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                  📍 מפה בגוגל
-                </a>
+          <div style={{ marginTop: '48px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+              <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+                style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px', display: 'block', textDecoration: 'none', position: 'relative' }}>
+                <div style={{ height: '100%', width: '100%', backgroundImage: 'url("https://maps.googleapis.com/maps/api/staticmap?center=31.9454,34.7633&zoom=15&size=400x320&key=AIzaSyD3PZOXJe0eNvnYjZsUQKCG_S_LXbSTXQc")', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ background: 'rgba(0,0,0,0.6)', color: C.white, padding: '12px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, fontFamily: "'Assistant', sans-serif" }}>
+                    לחץ לפתיחה בגוגל מאפס →
+                  </div>
+                </div>
+              </a>
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
+                  <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.8, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+                    הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
+                    style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                    🧭 הנחיות הגעה ב-Waze
+                  </a>
+                </div>
               </div>
             </div>
           </div>
