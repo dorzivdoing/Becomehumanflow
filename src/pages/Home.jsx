@@ -263,6 +263,21 @@ function ViewWritings({ setView }) {
             השראה עונתית שנאספה או נכתבה
           </h2>
 
+          {/* Navigation */}
+          {total > 1 && (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
+              <button onClick={() => setCurrent(c => Math.max(0, c - 1))} disabled={current === 0}
+                style={{ background: 'none', border: `1.5px solid ${C.sage}`, borderRadius: '50%', width: '36px', height: '36px', cursor: current === 0 ? 'not-allowed' : 'pointer', color: C.sage, fontSize: '18px', opacity: current === 0 ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                ‹
+              </button>
+              <span style={{ fontSize: '13px', color: C.textLight, fontFamily: "'Assistant', sans-serif" }}>{current + 1} / {total}</span>
+              <button onClick={() => setCurrent(c => Math.min(total - 1, c + 1))} disabled={current === total - 1}
+                style={{ background: 'none', border: `1.5px solid ${C.sage}`, borderRadius: '50%', width: '36px', height: '36px', cursor: current === total - 1 ? 'not-allowed' : 'pointer', color: C.sage, fontSize: '18px', opacity: current === total - 1 ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                ›
+              </button>
+            </div>
+          )}
+
           {/* Card */}
           <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
@@ -275,21 +290,6 @@ function ViewWritings({ setView }) {
               — {writings[current].author}
             </p>
           </motion.div>
-
-          {/* Navigation */}
-          {total > 1 && (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '24px' }}>
-              <button onClick={() => setCurrent(c => Math.max(0, c - 1))} disabled={current === 0}
-                style={{ background: 'none', border: `1.5px solid ${C.sage}`, borderRadius: '50%', width: '36px', height: '36px', cursor: current === 0 ? 'not-allowed' : 'pointer', color: C.sage, fontSize: '18px', opacity: current === 0 ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                ‹
-              </button>
-              <span style={{ fontSize: '13px', color: C.textLight, fontFamily: "'Assistant', sans-serif" }}>{current + 1} / {total}</span>
-              <button onClick={() => setCurrent(c => Math.min(total - 1, c + 1))} disabled={current === total - 1}
-                style={{ background: 'none', border: `1.5px solid ${C.sage}`, borderRadius: '50%', width: '36px', height: '36px', cursor: current === total - 1 ? 'not-allowed' : 'pointer', color: C.sage, fontSize: '18px', opacity: current === total - 1 ? 0.3 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                ›
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </motion.div>
