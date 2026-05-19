@@ -204,6 +204,11 @@ const writings = [
     rtl: false,
   },
   {
+    text: `Stand still. The trees ahead and bushes beside you are not lost.\nWherever you are is called here,\nand you must treat it as a powerful stranger,\nmust ask permission to know it and be known.\nThe forest breathes. Listen.\nIt answers, I have made this place around you.\nIf you leave it, you may come back again, saying Here.\nNo two trees are the same to Raven.\nNo two branches are the same to Wren.\nIf what a tree or a bush does is lost on you,\nYou are surely lost. Stand still. The forest knows\nWhere you are. You must let it find you.`,
+    author: 'David Wagoner, Traveling Light',
+    rtl: false,
+  },
+  {
     text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`,
     author: 'David Whyte, Consolations',
     rtl: false,
