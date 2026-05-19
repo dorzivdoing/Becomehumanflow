@@ -6,17 +6,19 @@ import { base44 } from "@/api/base44Client";
 const C = {
   bg: '#EDE8DF',
   bgDark: '#E0D9CE',
-  green: '#2B3A2C',
-  sage: '#6B8C6E',
-  sageMid: '#4F6B54',
-  sageLight: 'rgba(107,140,110,0.10)',
-  text: '#2B3A2C',
-  textMid: '#4A5C4B',
-  textLight: '#7A8B7C',
-  border: '#C5CFBF',
+  green: '#1E2631',
+  sage: '#5A7A5D',
+  sageMid: '#3D5C42',
+  sageLight: 'rgba(90,122,93,0.10)',
+  text: '#1E2631',
+  textMid: '#232B32',
+  textLight: '#5A6B5C',
+  border: 'rgba(22,34,47,0.12)',
   white: '#FAF7F2',
   cream: '#F3EDE3',
-  warm: '#A0785A',
+  warm: '#B26E63',
+  clay: '#B26E63',
+  navy: '#16222F',
 };
 
 const tx = { transition: 'all 0.4s ease' };
@@ -28,8 +30,8 @@ function LeafAccent({ style }) {
 function QuoteBlock({ text, author }) {
   return (
     <div style={{ maxWidth: '640px', margin: '56px auto 0', textAlign: 'center', padding: '40px 32px' }}>
-      <div style={{ fontSize: '36px', color: C.sage, opacity: 0.5, marginBottom: '12px', fontFamily: 'Georgia, serif' }}>"</div>
-      <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.9, fontStyle: 'italic', letterSpacing: '0.02em', margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>
+      <div style={{ fontSize: '36px', color: C.sage, opacity: 0.6, marginBottom: '12px', fontFamily: 'Georgia, serif' }}>"</div>
+      <p style={{ fontSize: '16px', color: C.text, lineHeight: 1.9, fontStyle: 'italic', fontWeight: 600, letterSpacing: '0.02em', margin: '0 0 14px', fontFamily: "'Assistant', sans-serif" }}>
         {text}
       </p>
       {author && <p style={{ fontSize: '13px', color: C.sage, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>{author}</p>}
@@ -64,10 +66,10 @@ function ViewHome({ setView }) {
             </div>
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'stretch' }}>
-              <button onClick={() => setView(3)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '8px', padding: '14px 28px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+              <button onClick={() => setView(3)} style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '14px 28px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 14px rgba(178,110,99,0.3)', ...tx }}>
                 למי מתאים הטיפול?
               </button>
-              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.green, border: `2px solid ${C.sage}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.navy, border: `2px solid ${C.navy}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
                 יצירת קשר
               </button>
             </div>
@@ -278,7 +280,7 @@ function ViewForWho({ setView }) {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <button onClick={() => setView(6)} style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 500, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+            <button onClick={() => setView(6)} style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 32px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 14px rgba(178,110,99,0.3)', ...tx }}>
               לתיאום שיחת הכרות קצרה
             </button>
           </div>
@@ -308,20 +310,18 @@ function ViewContact() {
 
   return (
     <div>
-      <div style={{ background: C.bg, padding: '120px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
-        <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
-        <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'scaleX(-1)' }} />
+      <div style={{ background: C.navy, padding: '80px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 600, color: C.green, margin: '0 0 48px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 700, color: C.white, margin: '0 0 48px', textAlign: 'center', fontFamily: "'Assistant', sans-serif" }}>
             יצירת קשר
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
-            <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)' }}>
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)' }}>
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '20px 0' }}>
                   <div style={{ fontSize: '36px', marginBottom: '12px' }}>✓</div>
-                  <p style={{ fontSize: '17px', color: C.green, fontWeight: 500, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>ההודעה נשלחה, תודה!</p>
-                  <p style={{ fontSize: '14px', color: C.textMid, margin: 0, fontFamily: "'Assistant', sans-serif" }}>אחזור אליך בהקדם.</p>
+                  <p style={{ fontSize: '17px', color: C.white, fontWeight: 600, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>ההודעה נשלחה, תודה!</p>
+                  <p style={{ fontSize: '14px', color: 'rgba(246,244,240,0.7)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>אחזור אליך בהקדם.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
@@ -330,33 +330,33 @@ function ViewContact() {
                     { key: 'email', label: 'אימייל', type: 'email', placeholder: 'כתובת המייל שלך' },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
-                      <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{label}</label>
+                      <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{label}</label>
                       <input type={type} required placeholder={placeholder} value={form[key]}
                         onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', boxSizing: 'border-box' }} />
+                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: '1.5px solid rgba(246,244,240,0.25)', fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: 'rgba(255,255,255,0.08)', color: C.white, outline: 'none', boxSizing: 'border-box' }} />
                     </div>
                   ))}
                   <div>
-                    <label style={{ display: 'block', fontSize: '13px', color: C.textMid, marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
+                    <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>הודעה</label>
                     <textarea required rows={4} placeholder="במה אוכל לעזור?" value={form.message}
                       onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: `1.5px solid ${C.border}`, fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: C.bg, color: C.text, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }} />
+                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: '1.5px solid rgba(246,244,240,0.25)', fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: 'rgba(255,255,255,0.08)', color: C.white, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }} />
                   </div>
                   <button type="submit" disabled={sending}
-                    style={{ background: C.sage, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 500, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, width: '100%', ...tx }}>
+                    style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 600, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, width: '100%', boxShadow: '0 4px 14px rgba(178,110,99,0.4)', ...tx }}>
                     {sending ? 'שולח...' : 'שליחה'}
                   </button>
                 </form>
               )}
             </div>
-            <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <p style={{ fontSize: '13px', fontWeight: 600, color: C.textMid, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
+            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
               <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-                style={{ background: C.sage, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
                 📅 לבחירת מועד ביומן הדיגיטלי
               </a>
               <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-                style={{ background: 'transparent', color: C.green, border: `1.5px solid ${C.sage}`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
                 💬 דברו איתי בוואטסאפ
               </a>
             </div>
