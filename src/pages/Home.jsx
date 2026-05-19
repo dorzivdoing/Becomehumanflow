@@ -294,7 +294,7 @@ function ViewForWho({ setView }) {
     },
   ];
 
-  const pStyle = { fontSize: '15px', color: '#1E2631', lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
+  const pStyle = { fontSize: '15px', color: '#1E2631', lineHeight: 1.9, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'justify' };
   const labelStyle = { fontSize: '15px', fontWeight: 700, color: C.sage, margin: '12px 0 4px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' };
 
   return (
@@ -309,7 +309,7 @@ function ViewForWho({ setView }) {
           <p style={{ ...pStyle, marginBottom: '16px' }}>
             פסיכותרפיה גופנית מציעה חוויה בה מעבר לדיבור נתייחס לכל מה שמתרחש בגוף שמשמש כשותף מלא בתהליך של עיבוד, איזון וויסות. קשר שנבנה בו אמון, קשב למתרחש בגוף ובמרחב ולרצונות העמוקים והמהותיים שנובעים בו, תנועה בכיוונים הפתוחים מאפשרים להתקדם במקום שהמילים לבדן לפעמים אינן יכולות להגיע אליהם.
           </p>
-          <p style={{ ...pStyle, fontWeight: 700, marginBottom: '40px' }}>
+          <p style={{ ...pStyle, marginBottom: '40px' }}>
             הטיפול מתאים לכל מי שמרגיש שתופעות רגשיות, מנטליות או פיזיות שונות מנהלות אותו בעקבות חוויות קשות ואירועי חיים. בין אם מדובר באירוע חד-פעמי חריף או בהתמודדות מתמשכת; בין אם זה קרה בשלב מוקדם או מאוחר בחיים; ובין אם הסיבה לתחושות האלו ידועה וברורה לך לחלוטין או שנותרה עמומה, מבלבלת ולא מוסברת.
           </p>
 
@@ -327,7 +327,7 @@ function ViewForWho({ setView }) {
                   <div style={{ flex: 1 }}>
                     <h4 style={{ fontSize: '16px', fontWeight: 700, color: C.green, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>{c.title}</h4>
                     <p style={{ ...pStyle, marginBottom: '10px' }}>{c.body}</p>
-                    <p style={{ ...labelStyle }}>* איך זה יכול להחוות ביום יום?</p>
+                    <p style={{ ...labelStyle }}>איך זה יכול להחוות ביום יום? *</p>
                     <p style={{ ...pStyle }}>{c.daily}</p>
                   </div>
                 </div>
@@ -336,9 +336,11 @@ function ViewForWho({ setView }) {
           </div>
 
           {/* Not found note */}
-          <p style={{ ...pStyle, color: '#5A6B5C', margin: '20px 0 0', textAlign: 'right' }}>
-            אם לא מצאת את הנושא שלך, ניתן לכתוב לי ונבדוק יחד.
-          </p>
+          <div style={{ background: C.white, borderRadius: '14px', padding: '20px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '20px', textAlign: 'center' }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, color: '#1E2631', margin: 0, fontFamily: "'Assistant', sans-serif" }}>
+              אם לא מצאת את הנושא שלך, ניתן לכתוב לי ונבדוק יחד.
+            </p>
+          </div>
 
           {/* Disclaimer */}
           <p style={{ fontSize: '14px', color: '#5A6573', fontStyle: 'italic', margin: '8px 0 0', textAlign: 'right', fontFamily: "'Assistant', sans-serif" }}>
@@ -347,7 +349,7 @@ function ViewForWho({ setView }) {
 
           {/* Process - moved above CTA */}
           <div style={{ background: C.white, borderRadius: '14px', padding: '28px 28px', border: '1px solid rgba(22,34,47,0.08)', marginTop: '32px' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>מבנה התהליך וציפיות</h3>
+            <h3 style={{ fontSize: '17px', fontWeight: 700, color: C.green, margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>מבנה התהליך וציפיות</h3>
             <p style={{ ...pStyle, marginBottom: '12px' }}>
               אם זו הפעם הראשונה שבה הגעת למרחב של טיפול, חשוב לדעת שכל תהליך הוא ייחודי, מותאם אליך ואל הצרכים שלך באופן אישי. בהתאם לאתגר או לנושא, הטיפול יכול להיות קצר מועד (חצי שנה) או ארוך טווח.
             </p>
@@ -357,11 +359,11 @@ function ViewForWho({ setView }) {
           </div>
 
           {/* CTA */}
-          <div style={{ background: '#2C3A2E', borderRadius: '16px', padding: '36px 28px', textAlign: 'right', marginTop: '32px' }}>
-            <p style={{ fontSize: '16px', color: 'rgba(246,244,240,0.9)', lineHeight: 1.85, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+          <div style={{ background: '#2D2250', borderRadius: '16px', padding: '36px 28px', textAlign: 'center', marginTop: '32px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(246,244,240,0.92)', lineHeight: 1.85, margin: '0 0 24px', fontFamily: "'Assistant', sans-serif", textAlign: 'justify' }}>
               לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח — מתוך הבנה שלהיות אדם בוגר בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.
             </p>
-            <button onClick={() => setView(6)} style={{ background: '#3D5C42', color: C.white, border: 'none', borderRadius: '10px', padding: '15px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 18px rgba(44,58,46,0.35)', ...tx }}>
+            <button onClick={() => setView(6)} style={{ background: 'rgba(255,255,255,0.15)', color: C.white, border: '1.5px solid rgba(255,255,255,0.45)', borderRadius: '10px', padding: '14px 36px', fontSize: '16px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
               יצירת קשר
             </button>
           </div>
