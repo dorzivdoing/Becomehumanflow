@@ -493,11 +493,11 @@ export default function Home() {
 
   const viewComponents = [
     <ViewHome setView={setView} />,
-    <ViewAbout setView={setView} />,
     <ViewApproach setView={setView} />,
     <ViewForWho setView={setView} />,
     <ViewWritings setView={setView} />,
     <ViewFAQ setView={setView} />,
+    <ViewAbout setView={setView} />,
     <ViewContact />,
   ];
 
@@ -517,7 +517,7 @@ function Navbar({ view, setView }) {
   const onBlog = location.pathname === '/blog';
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = ['בית', 'אודותיי', 'הגישה', 'למי מתאים הטיפול?', 'מן השדה', 'שאלות', 'קשר'];
+  const navItems = ['בית', 'הגישה', 'למי מתאים הטיפול?', 'מן השדה', 'שאלות', 'אודותיי', 'קשר'];
 
   const handleViewClick = (i) => {
     setMenuOpen(false);
