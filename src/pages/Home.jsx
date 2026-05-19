@@ -576,7 +576,7 @@ function Navbar({ view, setView }) {
   const onBlog = location.pathname === '/blog';
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = ['בית', 'הגישה', 'למי מתאים הטיפול?', 'שאלות', 'מן השדה', 'אודותיי', 'קשר'];
+  const navItems = ['בית', 'הגישה', 'למי מתאים הטיפול?', 'שאלות נפוצות', 'מן השדה', 'אודותיי', 'קשר'];
 
   const handleViewClick = (i) => {
     setMenuOpen(false);
