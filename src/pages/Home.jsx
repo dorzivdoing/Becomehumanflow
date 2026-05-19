@@ -51,10 +51,10 @@ function QuoteBlock({ text, author }) {
 function ViewHome({ setView }) {
   return (
     <div>
-      <div style={{ background: C.bg, padding: '100px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(160deg, #E8E2D8 0%, #DDD7CC 40%, #D5CFC4 100%)', padding: '100px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
+        <div className="home-flex" style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: 'rtl' }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <div style={{ fontSize: '14px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '28px', fontFamily: "'Assistant', sans-serif" }}>
               פסיכותרפיה גופנית &nbsp;·&nbsp; בית אורן &nbsp;·&nbsp; אונליין
@@ -80,12 +80,32 @@ function ViewHome({ setView }) {
                 יצירת קשר
               </button>
             </div>
+
+            {/* Mobile: image below buttons */}
+            <div className="home-img-mobile" style={{ display: 'none', justifyContent: 'center', marginTop: '36px' }}>
+              <div style={{ width: '180px', height: '230px', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.13)', border: `1px solid ${C.border}` }}>
+                <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+              </div>
+            </div>
           </div>
 
-          <div style={{ width: '220px', height: '280px', borderRadius: '14px', flexShrink: 0, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.13)', border: `1px solid ${C.border}` }}>
+          {/* Desktop: image on the side */}
+          <div className="home-img-desktop" style={{ width: '220px', height: '280px', borderRadius: '14px', flexShrink: 0, overflow: 'hidden', boxShadow: '0 8px 32px rgba(44,58,46,0.13)', border: `1px solid ${C.border}` }}>
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="דור" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
         </div>
+
+        {/* Mobile: image centered below buttons */}
+        <style>{`
+          @media (max-width: 700px) {
+            .home-img-desktop { display: none !important; }
+            .home-img-mobile { display: flex !important; }
+            .home-flex { flex-direction: column !important; }
+          }
+          @media (min-width: 701px) {
+            .home-img-mobile { display: none !important; }
+          }
+        `}</style>
       </div>
     </div>
   );
@@ -407,7 +427,7 @@ function Navbar({ view, setView }) {
   return (
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: 'rtl', fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
-        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 600, fontSize: '16px', color: C.green, fontFamily: 'Assistant, sans-serif' }}>
+        <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 700, fontSize: '20px', color: C.green, fontFamily: 'Assistant, sans-serif' }}>
           דור זיו
         </button>
 
