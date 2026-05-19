@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import Footer from "@/components/clinic/Footer";
 import { base44 } from "@/api/base44Client";
 
@@ -43,7 +44,7 @@ function QuoteBlock({ text, author }) {
 
 function ViewHome({ setView }) {
   return (
-    <div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: 'linear-gradient(160deg, #E8E2D8 0%, #DDD7CC 40%, #D5CFC4 100%)', padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 20, left: 10, width: '110px', transform: 'rotate(15deg)' }} />
         <LeafAccent style={{ bottom: 20, right: 20, width: '90px', transform: 'rotate(-25deg) scaleX(-1)' }} />
@@ -100,13 +101,13 @@ function ViewHome({ setView }) {
           }
         `}</style>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ViewAbout({ setView }) {
   return (
-    <div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px', transform: 'rotate(10deg)' }} />
         <LeafAccent style={{ bottom: 40, right: 0, width: '90px', transform: 'rotate(-15deg) scaleX(-1)' }} />
@@ -118,7 +119,7 @@ function ViewAbout({ setView }) {
             <div style={{ flex: 1, minWidth: '240px' }}>
               {[
                 'שלום, אני דור. השם שבחרתי לקליניקה, "להיות אדם", נולד מתוך התבוננות ארוכה על כך שלהיות אדם בוגר בעולם הזה הוא תהליך מתמשך, הלוקח זמן ודורש חניכה. המהלך המקצועי שלי התחיל לפני כ-11 שנים מתוך מחקר ועיבוד אישי ומקצועי עמוק, שהוביל אותי אל עולמות הטיפול הגופני והרגשי. מאז שנת 2017 אני מלווה בקליניקה מבוגרים בתהליכי שינוי, התמודדות וצמיחה מתוך משבר באופן פרטני - תחילה דרך עבודה מעמיקה עם יוגה טיפולית ככלי לטיפול ושיקום כאבי גוף, ומשנת 2022 כפסיכותרפיסט גופני בגישת ביוסינתזה. אני מוסמך בגישה זו מטעם המכון הבינלאומי בשוויץ (IIBS) ומשמש כחבר בסגל ההוראה של בית הספר לביוסינתזה בישראל.',
-                'אני מתחבר עמוקות לגישת הביוסינתזה מכיוון שהגישה מתאימה את עצמה לאדם, ולא להפך, וכל אחד יוכל למצוא בה שביל פתוח ומשוחרר שעובד ומתאים לו. כפסיכותרפיה גופנית אינטגרטיבית, היא מבוססת על יצירת חיבור ואיזון מחדש בין חלקים שונים בך, ומאפשרת לנוע מתוך המצוקה אל עבר המשאבים הטבעיים, תוך השבת תחושת החיוּת והחיוניות ליום-יום. ניתן להשתמש בה במגע מושכל, אך זו לא חובה והדבר תלוי בהעדפה אישית של כל אחד מהצדדים במפגש. במפגשים, נמצא את הדרך לקשר בין התחושות הגופניות, הרגשות והמחשבות שעולות, מתוך כבוד וקשב עמוק למורכבות של התודעה ושל הלא-מודע.',
+                'אני מתחבר עמוקות לגישת הביוסינתזה מכיוון שהגישה מתאימה את עצמה לאדם, ולא להפך, וכל אחד יוכל למצוא בה שביל פתוח ומשוחרר שעובד ומתאים לו. כפסיכותרפיה גופנית אינטגרטיבית, היא מבוססת על יצירת חיבור ואיזון מחדש בין חלקים שונים בך, ומאפשרת לנוע מתוך המצוקה אל עבור המשאבים הטבעיים, תוך השבת תחושת החיוּת והחיוניות ליום-יום. ניתן להשתמש בה במגע מושכל, אך זו לא חובה והדבר תלוי בהעדפה אישית של כל אחד מהצדדים במפגש. במפגשים, נמצא את הדרך לקשר בין התחושות הגופניות, הרגשות והמחשבות שעולות, מתוך כבוד וקשב עמוק למורכבות של התודעה ושל הלא-מודע.',
                 'התהליך הטיפולי בחדר לעולם אינו מנותק מהעולם שבחוץ. בעבודה המשותפת שלנו אני לוקח בחשבון את ההקשרים הרלוונטיים לחייך – הגנאולוגיה האישית והקשרי חייך, מתוך ידיעה עמוקה שאנחנו תמיד קשורים לאנשים, לסיפורים ולמקומות שעיצבו אותנו. המבט הרחב והזיקה הזו הם שהובילו אותי גם אל עולמות התוכן של טקסי אבל, חיים ומוות, בהשראת עבודתם של פרנסיס וולר (Francis Weller) וסטיבן ג׳נקינסון (Stephen Jenkinson). דרכם, התרחבה תפיסתי לגבי החשיבות העצומה של עבודה קבוצתית וקהילתית כמרחב לתחזוקה האנושית לה אנו זקוקים כדי לפגוש ולשאת את הכאב והצער שיגיעו אלינו; לצד ההבנה העמוקה שצער ואבל (ושלל אירועי חיים אנושיים אחרים) אינם פתולוגיה שיש לתקן, אלא דרכו של עולם והמעבר בו. הם חלק בלתי נפרד מתהליך של חניכה והבשלה כאנשים בוגרים, והם חובתנו האנושית כלפי אלו שהיו כאן לפנינו, כמו גם כלפי אלו שיגיעו אחרינו. זהו מסלול התפתחותי משמעותי שבו אני ממשיך לצמוח ולהעמיק מדי יום.',
                 'אל המפגשים הטיפוליים בקליניקה אני מביא איתי הקשבה עמוקה, סקרנות, יצירתיות והומור. הכוונה המרכזית שמנחה אותי היא לבנות יחד איתך יחסים טיפוליים שיש בהם אמון הדדי, כבוד וקצב מדויק שמתאים לך ולהקשרים הייחודיים של חייך.',
               ].map((p, i) => (
@@ -132,12 +133,20 @@ function ViewAbout({ setView }) {
           author="— חאימה חיל דה בידמה"
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ViewApproach({ setView }) {
-  const streams = [
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <ViewApproachContent setView={setView} />
+    </motion.div>
+  );
+}
+
+function ViewApproachContent({ setView }) {
+   const streams = [
     { title: 'קרקע ותנועה', body: 'ביסוס תחושת קרקע ויציבות גופנית כמקור ישיר לוויסות רגשי ותחושת ביטחון ומקום בעולם. ערוץ זה מתמקד בשחרור דפוסי מתח, נוקשות וקיפאון כרוניים בשרירים ובשלד, שהצטברו במערכת בעקבות דחק מתמשך או אירועי קיצון וטראומה, ומשיב לגוף את חופש התנועה והחיוניות שלו.' },
     { title: 'רגש ונשימה', body: 'חיבור למקצב הפנימי, ויסות והכלה של רגשות ותחושות אינטנסיביות באמצעות הנשימה. עבודה זו מעניקה תמיכה עמוקה למערכת העצבים, ומאפשרת מעבר ממצבי הצפה או אדישות אל מרכז פנימי יציב ומווסת.' },
     { title: 'מחשבות ותשומת לב', body: 'פיתוח קשב סקרן, חקירה ובהירות מנטלית כלפי המורכבות של התודעה והקשרי העולם שלך. תרגום עדין של תחושות ורגשות למילים בהירות בעלות משמעות, כדי ליצור אינטגרציה שלמה, לחבר בין הראש לגוף ולאפשר גישה אל המהות האותנטית היחודית לך.' },
@@ -246,7 +255,7 @@ function ViewWritings({ setView }) {
   const total = writings.length;
 
   return (
-    <div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: C.bg, padding: '60px 40px 80px', direction: 'rtl', position: 'relative', overflow: 'hidden' }}>
         <LeafAccent style={{ top: 80, left: 0, width: '100px' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
@@ -255,7 +264,7 @@ function ViewWritings({ setView }) {
           </h2>
 
           {/* Card */}
-          <div style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid ${C.sage}`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ fontSize: '36px', color: C.sage, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif', lineHeight: 1, textAlign: writings[current].rtl ? 'right' : 'left' }}>"</div>
               <p style={{ fontSize: '16px', color: C.textMid, lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line' }}>
@@ -265,7 +274,7 @@ function ViewWritings({ setView }) {
             <p style={{ fontSize: '13px', color: C.sage, fontWeight: 600, margin: 0, fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left' }}>
               — {writings[current].author}
             </p>
-          </div>
+          </motion.div>
 
           {/* Navigation */}
           {total > 1 && (
@@ -283,11 +292,19 @@ function ViewWritings({ setView }) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ViewFAQ({ setView }) {
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <ViewFAQContent setView={setView} />
+    </motion.div>
+  );
+}
+
+function ViewFAQContent({ setView }) {
   const [open, setOpen] = useState(null);
   const toggle = (i) => setOpen(open === i ? null : i);
   const faqs = [
@@ -313,7 +330,7 @@ function ViewFAQ({ setView }) {
             שאלות נפוצות וביטחון קליני
           </h2>
           {faqs.map((faq, i) => (
-            <div key={i} style={{ background: C.white, borderRadius: '12px', border: open === i ? `1.5px solid ${C.sage}` : `1.5px solid ${C.border}`, marginBottom: '12px', overflow: 'hidden', ...tx }}>
+            <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} style={{ background: C.white, borderRadius: '12px', border: open === i ? `1.5px solid ${C.sage}` : `1.5px solid ${C.border}`, marginBottom: '12px', overflow: 'hidden', ...tx }}>
               <button onClick={() => toggle(i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'right', gap: '16px' }}>
                 <span style={{ fontSize: '16px', fontWeight: 500, color: C.green, lineHeight: 1.5, flex: 1, fontFamily: "'Assistant', sans-serif" }}>{faq.q}</span>
                 <span style={{ color: C.sage, fontSize: '22px', fontWeight: 300, flexShrink: 0, display: 'inline-block', transition: 'transform 0.3s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span>
@@ -321,7 +338,7 @@ function ViewFAQ({ setView }) {
               <div style={{ maxHeight: open === i ? '500px' : '0px', overflow: 'hidden', transition: 'max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1)' }}>
                 <p style={{ padding: '0 24px 24px', color: C.textMid, fontSize: '15px', lineHeight: 1.85, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{faq.a}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <QuoteBlock
@@ -334,6 +351,14 @@ function ViewFAQ({ setView }) {
 }
 
 function ViewForWho({ setView }) {
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <ViewForWhoContent setView={setView} />
+    </motion.div>
+  );
+}
+
+function ViewForWhoContent({ setView }) {
   const challenges = [
     {
       num: '1',
@@ -405,8 +430,8 @@ function ViewForWho({ setView }) {
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {challenges.map((c) => (
-              <div key={c.num} style={{ background: C.white, borderRadius: '14px', padding: '24px 28px', border: '1px solid rgba(22,34,47,0.08)' }}>
+            {challenges.map((c, idx) => (
+              <motion.div key={c.num} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.05 }} style={{ background: C.white, borderRadius: '14px', padding: '24px 28px', border: '1px solid rgba(22,34,47,0.08)' }}>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                   <span style={{ background: C.sage, color: C.white, borderRadius: '50%', width: '26px', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, flexShrink: 0, marginTop: '2px', fontFamily: "'Assistant', sans-serif" }}>{c.num}</span>
                   <div style={{ flex: 1 }}>
@@ -416,7 +441,7 @@ function ViewForWho({ setView }) {
                     <p style={{ ...pStyle }}>{c.daily}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -465,6 +490,14 @@ function ViewForWho({ setView }) {
 }
 
 function ViewContact() {
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <ViewContactContent />
+    </motion.div>
+  );
+}
+
+function ViewContactContent() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -551,13 +584,13 @@ export default function Home() {
   });
 
   const viewComponents = [
-    <ViewHome setView={setView} />,
-    <ViewApproach setView={setView} />,
-    <ViewForWho setView={setView} />,
-    <ViewFAQ setView={setView} />,
-    <ViewWritings setView={setView} />,
-    <ViewAbout setView={setView} />,
-    <ViewContact />,
+    <ViewHome setView={setView} key="0" />,
+    <ViewApproach setView={setView} key="1" />,
+    <ViewForWho setView={setView} key="2" />,
+    <ViewFAQ setView={setView} key="3" />,
+    <ViewWritings setView={setView} key="4" />,
+    <ViewAbout setView={setView} key="5" />,
+    <ViewContact key="6" />,
   ];
 
   return (
