@@ -598,10 +598,10 @@ function ViewContactContent() {
               </div>
 
               {/* Location Details */}
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
-                <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.6, margin: '0 0 12px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-                  הקליניקה ממוקמת בבית אורן.
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 0px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
+                <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.6, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+                  הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.
                 </p>
                 <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
                   style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 16px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
@@ -615,17 +615,7 @@ function ViewContactContent() {
             </div>
           </div>
 
-          {/* Map Section */}
-          <div style={{ marginTop: '0px' }}>
-            <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
-              style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px', display: 'block', textDecoration: 'none', position: 'relative' }}>
-              <div style={{ height: '100%', width: '100%', backgroundImage: 'url("https://maps.googleapis.com/maps/api/staticmap?center=31.9454,34.7633&zoom=15&size=400x320&key=AIzaSyD3PZOXJe0eNvnYjZsUQKCG_S_LXbSTXQc")', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ background: 'rgba(0,0,0,0.6)', color: C.white, padding: '12px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, fontFamily: "'Assistant', sans-serif" }}>
-                  לחץ לפתיחה בגוגל מאפס →
-                </div>
-              </div>
-            </a>
-          </div>
+
         </div>
       </div>
     </div>
