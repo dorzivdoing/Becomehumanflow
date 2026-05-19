@@ -457,7 +457,7 @@ function Navbar({ view, setView }) {
       </div>
 
       <div style={{ maxHeight: menuOpen ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.4s ease', background: 'rgba(244,241,236,0.99)', borderTop: menuOpen ? `1px solid ${C.border}` : 'none' }} className="show-mobile-block">
-        <div style={{ padding: '12px 20px 20px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ padding: '12px 20px 20px', display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 4;
@@ -473,9 +473,10 @@ function Navbar({ view, setView }) {
                   borderRadius: i === 6 ? '50px' : '8px', 
                   padding: i === 6 ? '10px 18px' : '10px 16px', 
                   cursor: 'pointer', 
-                  textAlign: 'right', 
+                  textAlign: 'center', 
                   fontFamily: "'Assistant', sans-serif", 
-                  transition: 'all 0.2s' 
+                  transition: 'all 0.2s',
+                  width: '100%'
                 }}>
                 {v}
               </button>
