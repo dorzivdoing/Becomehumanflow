@@ -199,6 +199,11 @@ function ViewApproachContent({ setView }) {
 
 const writings = [
   {
+    text: `It's still possible to fully understand you have been always been the place where the miracle has happened:\n\nthat you have been since your birth, the bread given and the wine lifted, the change witnessed and the change itself,\nthat you have secretly been, all along, a goodness that can continue to be a goodness to itself.\nIt's still possible in the end\nto realize why you are here\nand why you have endured,\nand why you might have suffered so much, so that in the end, you could witness love, miraculously arriving from nowhere, crossing bravely as it does, out of darkness, from that great and spacious stillness inside you, to the simple, light-filled life of being said.`,
+    author: 'David Whyte, Still Possible',
+    rtl: false,
+  },
+  {
     text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`,
     author: 'David Whyte, Consolations',
     rtl: false,
