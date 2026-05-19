@@ -582,46 +582,49 @@ function ViewContactContent() {
               )}
             </div>
 
-            {/* Buttons - Left Column */}
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
-              <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-                style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
-                📅 לבחירת מועד ביומן הדיגיטלי
-              </a>
-              <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-                style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
-                💬 דברו איתי וואטס
-              </a>
+            {/* Buttons & Location - Left Column */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              {/* Contact Methods */}
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>דרכים נוספות לקשר</p>
+                <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
+                  style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
+                  📅 לבחירת מועד ביומן הדיגיטלי
+                </a>
+                <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
+                  style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                  💬 דברו איתי וואטס
+                </a>
+              </div>
+
+              {/* Location Details */}
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
+                <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.6, margin: '0 0 12px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
+                  הקליניקה ממוקמת בבית אורן.
+                </p>
+                <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
+                  style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 16px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                  🧭 Waze
+                </a>
+                <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+                  style={{ background: '#0B81F5', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 16px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
+                  📍 Google Maps
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Location Section */}
-          <div style={{ marginTop: '48px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-              <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
-                style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px', display: 'block', textDecoration: 'none', position: 'relative' }}>
-                <div style={{ height: '100%', width: '100%', backgroundImage: 'url("https://maps.googleapis.com/maps/api/staticmap?center=31.9454,34.7633&zoom=15&size=400x320&key=AIzaSyD3PZOXJe0eNvnYjZsUQKCG_S_LXbSTXQc")', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ background: 'rgba(0,0,0,0.6)', color: C.white, padding: '12px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, fontFamily: "'Assistant', sans-serif" }}>
-                    לחץ לפתיחה בגוגל מאפס →
-                  </div>
-                </div>
-              </a>
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>פרטי מיקום</p>
-                  <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.8, margin: '0 0 20px', fontFamily: "'Assistant', sans-serif", textAlign: 'right' }}>
-                    הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.
-                  </p>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
-                    style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                    🧭 הנחיות הגעה ב-Waze
-                  </a>
+          {/* Map Section */}
+          <div style={{ marginTop: '0px' }}>
+            <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+              style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(246,244,240,0.15)', height: '320px', display: 'block', textDecoration: 'none', position: 'relative' }}>
+              <div style={{ height: '100%', width: '100%', backgroundImage: 'url("https://maps.googleapis.com/maps/api/staticmap?center=31.9454,34.7633&zoom=15&size=400x320&key=AIzaSyD3PZOXJe0eNvnYjZsUQKCG_S_LXbSTXQc")', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ background: 'rgba(0,0,0,0.6)', color: C.white, padding: '12px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, fontFamily: "'Assistant', sans-serif" }}>
+                  לחץ לפתיחה בגוגל מאפס →
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
