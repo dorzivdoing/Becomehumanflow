@@ -622,20 +622,20 @@ function Navbar({ view, setView }) {
         </div>
 
         <button onClick={() => handleViewClick(6)} className="show-mobile"
-          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '7px 14px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', marginLeft: '8px' }}>
+          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', marginLeft: '12px', minHeight: '44px' }}>
           יצירת קשר
         </button>
 
         <button onClick={() => setMenuOpen(!menuOpen)} className="show-mobile"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px' }}>
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '12px', display: 'none', flexDirection: 'column', gap: '5px', minHeight: '44px', minWidth: '44px', justifyContent: 'center' }}>
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
         </button>
       </div>
 
-      <div style={{ maxHeight: menuOpen ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.4s ease', background: 'rgba(244,241,236,0.99)', borderTop: menuOpen ? `1px solid ${C.border}` : 'none' }} className="show-mobile-block">
-        <div style={{ padding: '12px 20px 20px', display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+      <div style={{ maxHeight: menuOpen ? '600px' : '0', overflow: 'hidden', transition: 'max-height 0.4s ease', background: 'rgba(244,241,236,0.99)', borderTop: menuOpen ? `1px solid ${C.border}` : 'none' }} className="show-mobile-block">
+        <div style={{ padding: '16px 20px 24px', display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
           {navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
             const isBlogActive = onBlog && i === 4;
@@ -643,18 +643,22 @@ function Navbar({ view, setView }) {
             return (
               <button key={i} onClick={() => handleViewClick(i)}
                  style={{ 
-                  fontSize: '15px', 
-                  fontWeight: active ? 600 : 400, 
+                  fontSize: '16px', 
+                  fontWeight: active ? 600 : 500, 
                   color: active ? C.white : C.textMid, 
                   background: i === 6 && active ? C.sage : (i === 6 ? 'transparent' : (active ? C.sage : 'transparent')), 
                   border: i === 6 ? `2px solid ${C.sage}` : 'none', 
                   borderRadius: i === 6 ? '50px' : '8px', 
-                  padding: i === 6 ? '10px 18px' : '10px 16px', 
+                  padding: i === 6 ? '12px 24px' : '14px 18px', 
                   cursor: 'pointer', 
                   textAlign: 'center', 
                   fontFamily: "'Assistant', sans-serif", 
                   transition: 'all 0.2s',
-                  width: '100%'
+                  width: '100%',
+                  minHeight: '48px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
                 {v}
               </button>
