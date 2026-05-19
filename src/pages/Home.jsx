@@ -608,7 +608,7 @@ function ViewContactContent() {
                 </a>
                 <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
                   style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
-                  💬 דברו איתי וואטס
+                  💬 לשליחת הודעה בווטסאפ
                 </a>
               </div>
 
