@@ -448,6 +448,11 @@ function Navbar({ view, setView }) {
           })}
         </div>
 
+        <button onClick={() => handleViewClick(6)} className="show-mobile"
+          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '7px 14px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', marginLeft: '8px' }}>
+          יצירת קשר
+        </button>
+
         <button onClick={() => setMenuOpen(!menuOpen)} className="show-mobile"
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px' }}>
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
