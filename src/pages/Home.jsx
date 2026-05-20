@@ -581,39 +581,39 @@ function ViewContact({ t }) {
 
 function ViewAccessibility({ t }) {
   const a = t.accessibility;
-  const pStyle = { fontSize: '15px', color: '#232B32', lineHeight: 1.7, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: t.dir === 'rtl' ? 'right' : 'left' };
-  const h3Style = { fontSize: '17px', fontWeight: 700, color: '#1E2631', margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", textAlign: t.dir === 'rtl' ? 'right' : 'left' };
+  const isRtl = t.dir === 'rtl';
+  const pStyle = { fontSize: '15px', color: '#232B32', lineHeight: 1.55, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: isRtl ? 'right' : 'left' };
+  const h3Style = { fontSize: '17px', fontWeight: 700, color: '#1E2631', margin: '0 0 10px', fontFamily: "'Assistant', sans-serif", textAlign: isRtl ? 'right' : 'left' };
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: C.bg, padding: '60px 40px 80px', direction: t.dir }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: '#1E2631', textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 24px', fontFamily: "'Assistant', sans-serif" }}>
+          <h1 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: '#1E2631', textAlign: isRtl ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
           </h1>
-          <p style={{ ...pStyle, marginBottom: '2rem', fontSize: '16px' }}>{a.intro}</p>
 
-          <div style={{ marginBottom: '2rem' }}>
+          {/* Section 1 - Physical access */}
+          <div style={{ marginBottom: '20px' }}>
             <h3 style={h3Style}>{a.s1Title}</h3>
-            <p style={{ ...pStyle, marginBottom: '12px' }}>{a.s1p1}</p>
-            <p style={{ ...pStyle, marginBottom: '12px' }}>{a.s1p2}</p>
+            <p style={{ ...pStyle, marginBottom: '8px' }}>{a.s1p1}</p>
+            <p style={{ ...pStyle, marginBottom: '8px' }}>{a.s1p2}</p>
             <p style={{ ...pStyle }}>{a.s1p3}</p>
           </div>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <h3 style={h3Style}>{a.s2Title}</h3>
-            <p style={{ ...pStyle }}>{a.s2p1}</p>
-          </div>
-
-          <div style={{ marginBottom: '2rem' }}>
-            <h3 style={h3Style}>{a.s3Title}</h3>
-            <p style={{ ...pStyle, marginBottom: '12px' }}>{a.s3p1}</p>
+          {/* Section 3 - Remote sessions */}
+          <div style={{ marginBottom: '20px' }}>
+            <h3 style={h3Style}>
+              {a.s3TitleMain}{' '}
+              <span style={{ textDecoration: 'underline' }}>{a.s3TitleSub}</span>
+            </h3>
+            <p style={{ ...pStyle, marginBottom: '8px' }}>{a.s3p1}</p>
             <p style={{ ...pStyle }}>{a.s3p2}</p>
           </div>
 
-          <div style={{ background: '#B26E63', borderRadius: '14px', padding: '32px 28px', marginTop: '2rem' }}>
-            <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#F6F4F0', margin: '0 0 14px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>{a.ctaTitle}</h3>
-            <p style={{ fontSize: '15px', color: '#F6F4F0', lineHeight: 1.7, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>{a.ctaText}</p>
+          {/* Special needs - terracotta box */}
+          <div style={{ background: '#B26E63', borderRadius: '14px', padding: '24px 28px' }}>
+            <p style={{ fontSize: '15px', color: '#F6F4F0', lineHeight: 1.65, margin: 0, fontFamily: "'Assistant', sans-serif", textAlign: isRtl ? 'right' : 'left' }}>{a.specialNeedsText}</p>
           </div>
         </div>
       </div>
