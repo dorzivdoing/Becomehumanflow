@@ -384,12 +384,42 @@ function ViewForWho({ setView, t }) {
 
 function ViewContact({ t }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const c = t.contact;
+  const isRtl = t.dir === 'rtl';
+
+  const validate = (fields) => {
+    const errs = {};
+    if (!fields.name.trim()) errs.name = c.errRequired;
+    const phoneClean = fields.phone.replace(/[\s\-\(\)]/g, '');
+    if (!phoneClean) errs.phone = c.errRequired;
+    else if (!/^[\+]?[0-9]{7,15}$/.test(phoneClean)) errs.phone = c.errPhone;
+    if (fields.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errs.email = c.errEmail;
+    if (!fields.message.trim()) errs.message = c.errRequired;
+    return errs;
+  };
+
+  const handleBlur = (key) => {
+    setTouched(t => ({ ...t, [key]: true }));
+    setErrors(validate(form));
+  };
+
+  const handleChange = (key, value) => {
+    const updated = { ...form, [key]: value };
+    setForm(updated);
+    if (touched[key]) setErrors(validate(updated));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const allTouched = { name: true, phone: true, email: true, message: true };
+    setTouched(allTouched);
+    const errs = validate(form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
     setSending(true);
     await base44.functions.invoke('sendContactEmail', {
       name: form.name,
@@ -401,11 +431,32 @@ function ViewContact({ t }) {
     setSending(false);
   };
 
+  const inputStyle = (key) => ({
+    width: '100%',
+    padding: '11px 14px',
+    borderRadius: '8px',
+    border: touched[key] && errors[key] ? '1.5px solid #E57373' : '1.5px solid rgba(246,244,240,0.25)',
+    fontSize: '15px',
+    fontFamily: "'Assistant', sans-serif",
+    background: 'rgba(255,255,255,0.08)',
+    color: C.white,
+    outline: 'none',
+    boxSizing: 'border-box',
+  });
+
+  const errStyle = {
+    fontSize: '12px',
+    color: '#E57373',
+    marginTop: '5px',
+    fontFamily: "'Assistant', sans-serif",
+    textAlign: isRtl ? 'right' : 'left',
+  };
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: C.navy, padding: '60px 40px 80px', direction: t.dir }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: t.dir === 'rtl' ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: isRtl ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
             {c.title}
           </h2>
 
@@ -418,7 +469,7 @@ function ViewContact({ t }) {
                   <p style={{ fontSize: '14px', color: 'rgba(246,244,240,0.7)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>{c.successSub}</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {[
                     { key: 'name', label: c.nameLbl, type: 'text', placeholder: c.namePh, required: true },
                     { key: 'phone', label: c.phoneLbl, type: 'tel', placeholder: c.phonePh, required: true },
@@ -428,21 +479,39 @@ function ViewContact({ t }) {
                       <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>
                         {label}{required && <span style={{ color: C.clay, marginRight: '2px' }}>*</span>}
                       </label>
-                      <input type={type} required={required} placeholder={placeholder} value={form[key]}
-                        onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                        style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: '1.5px solid rgba(246,244,240,0.25)', fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: 'rgba(255,255,255,0.08)', color: C.white, outline: 'none', boxSizing: 'border-box' }} />
+                      <input
+                        type={type}
+                        placeholder={placeholder}
+                        value={form[key]}
+                        onChange={e => handleChange(key, e.target.value)}
+                        onBlur={() => handleBlur(key)}
+                        style={inputStyle(key)}
+                      />
+                      {touched[key] && errors[key] && <p style={errStyle}>{errors[key]}</p>}
                     </div>
                   ))}
                   <div>
-                    <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{c.msgLbl}</label>
-                    <textarea required rows={4} placeholder={c.msgPh} value={form.message}
-                      onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                      style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: '1.5px solid rgba(246,244,240,0.25)', fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: 'rgba(255,255,255,0.08)', color: C.white, outline: 'none', resize: 'vertical', boxSizing: 'border-box' }} />
+                    <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{c.msgLbl}<span style={{ color: C.clay, marginRight: '2px' }}>*</span></label>
+                    <textarea
+                      rows={4}
+                      placeholder={c.msgPh}
+                      value={form.message}
+                      onChange={e => handleChange('message', e.target.value)}
+                      onBlur={() => handleBlur('message')}
+                      style={{ ...inputStyle('message'), resize: 'vertical' }}
+                    />
+                    {touched.message && errors.message && <p style={errStyle}>{errors.message}</p>}
                   </div>
                   <button type="submit" disabled={sending}
-                    style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 600, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.7 : 1, width: '100%', boxShadow: '0 4px 14px rgba(178,110,99,0.4)', ...tx }}>
+                    style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 600, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.8 : 1, width: '100%', boxShadow: '0 4px 14px rgba(178,110,99,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', ...tx }}>
+                    {sending && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 0.8s linear infinite' }}>
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                      </svg>
+                    )}
                     {sending ? c.sending : c.send}
                   </button>
+                  <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                 </form>
               )}
             </div>
