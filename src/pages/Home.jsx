@@ -403,7 +403,7 @@ function ViewContact({ t }) {
   };
 
   const handleBlur = (key) => {
-    setTouched(t => ({ ...t, [key]: true }));
+    setTouched(prev => ({ ...prev, [key]: true }));
     setErrors(validate(form));
   };
 
@@ -435,38 +435,50 @@ function ViewContact({ t }) {
     width: '100%',
     padding: '11px 14px',
     borderRadius: '8px',
-    border: touched[key] && errors[key] ? '1.5px solid #E57373' : '1.5px solid rgba(246,244,240,0.25)',
+    border: touched[key] && errors[key] ? '1.5px solid #C0392B' : `1.5px solid ${C.border}`,
     fontSize: '15px',
     fontFamily: "'Assistant', sans-serif",
-    background: 'rgba(255,255,255,0.08)',
-    color: C.white,
+    background: C.white,
+    color: C.text,
     outline: 'none',
     boxSizing: 'border-box',
   });
 
   const errStyle = {
     fontSize: '12px',
-    color: '#E57373',
+    color: '#C0392B',
     marginTop: '5px',
+    fontFamily: "'Assistant', sans-serif",
+    textAlign: isRtl ? 'right' : 'left',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    fontSize: '13px',
+    color: C.textLight,
+    marginBottom: '6px',
+    fontWeight: 600,
     fontFamily: "'Assistant', sans-serif",
     textAlign: isRtl ? 'right' : 'left',
   };
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: C.navy, padding: '60px 40px 80px', direction: t.dir }}>
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.white, margin: '0 0 32px', textAlign: isRtl ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
+      <div style={{ background: C.bg, padding: '60px 40px 80px', direction: t.dir }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, margin: '0 0 40px', textAlign: isRtl ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
             {c.title}
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'start' }}>
-            <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '36px', border: '1px solid rgba(246,244,240,0.15)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', alignItems: 'start' }}>
+
+            {/* Form card */}
+            <div style={{ background: C.white, borderRadius: '16px', padding: '36px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
               {sent ? (
-                <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                  <div style={{ fontSize: '36px', marginBottom: '12px' }}>✓</div>
-                  <p style={{ fontSize: '17px', color: C.white, fontWeight: 600, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>{c.successTitle}</p>
-                  <p style={{ fontSize: '14px', color: 'rgba(246,244,240,0.7)', margin: 0, fontFamily: "'Assistant', sans-serif" }}>{c.successSub}</p>
+                <div style={{ textAlign: 'center', padding: '32px 0' }}>
+                  <div style={{ width: '56px', height: '56px', background: '#E8F5E9', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: '24px' }}>✓</div>
+                  <p style={{ fontSize: '18px', color: C.green, fontWeight: 600, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif" }}>{c.successTitle}</p>
+                  <p style={{ fontSize: '14px', color: C.textLight, margin: 0, fontFamily: "'Assistant', sans-serif" }}>{c.successSub}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
@@ -476,8 +488,8 @@ function ViewContact({ t }) {
                     { key: 'email', label: c.emailLbl, type: 'email', placeholder: c.emailPh, required: false },
                   ].map(({ key, label, type, placeholder, required }) => (
                     <div key={key}>
-                      <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>
-                        {label}{required && <span style={{ color: C.clay, marginRight: '2px' }}>*</span>}
+                      <label style={labelStyle}>
+                        {label}{required && <span style={{ color: C.clay }}> *</span>}
                       </label>
                       <input
                         type={type}
@@ -491,7 +503,7 @@ function ViewContact({ t }) {
                     </div>
                   ))}
                   <div>
-                    <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{c.msgLbl}<span style={{ color: C.clay, marginRight: '2px' }}>*</span></label>
+                    <label style={labelStyle}>{c.msgLbl}<span style={{ color: C.clay }}> *</span></label>
                     <textarea
                       rows={4}
                       placeholder={c.msgPh}
@@ -503,7 +515,7 @@ function ViewContact({ t }) {
                     {touched.message && errors.message && <p style={errStyle}>{errors.message}</p>}
                   </div>
                   <button type="submit" disabled={sending}
-                    style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '13px 0', fontSize: '15px', fontWeight: 600, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.8 : 1, width: '100%', boxShadow: '0 4px 14px rgba(178,110,99,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', ...tx }}>
+                    style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '10px', padding: '14px 0', fontSize: '15px', fontWeight: 700, cursor: sending ? 'not-allowed' : 'pointer', fontFamily: "'Assistant', sans-serif", opacity: sending ? 0.8 : 1, width: '100%', boxShadow: '0 4px 14px rgba(178,110,99,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', ...tx }}>
                     {sending && (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 0.8s linear infinite' }}>
                         <path d="M21 12a9 9 0 1 1-6.219-8.56" />
@@ -516,32 +528,40 @@ function ViewContact({ t }) {
               )}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '24px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 4px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>{c.contactMethodsLabel}</p>
-                <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
-                  style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.35)', ...tx }}>
-                  {c.calendlyBtn}
-                </a>
-                <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
-                  style={{ background: 'transparent', color: C.white, border: `1.5px solid rgba(246,244,240,0.35)`, borderRadius: '10px', padding: '15px 20px', fontSize: '15px', fontWeight: 500, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
-                  {c.waBtn}
-                </a>
+            {/* Right column */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+
+              {/* Contact methods */}
+              <div style={{ background: C.white, borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
+                <p style={{ fontSize: '12px', fontWeight: 700, color: C.textLight, margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.07em', textTransform: 'uppercase' }}>{c.contactMethodsLabel}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer"
+                    style={{ background: C.clay, color: C.white, borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', boxShadow: '0 4px 14px rgba(178,110,99,0.25)', ...tx }}>
+                    {c.calendlyBtn}
+                  </a>
+                  <a href="https://wa.me/972508451920" target="_blank" rel="noopener noreferrer"
+                    style={{ background: 'transparent', color: C.green, border: `2px solid ${C.sage}`, borderRadius: '10px', padding: '14px 20px', fontSize: '15px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                    {c.waBtn}
+                  </a>
+                </div>
               </div>
 
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '16px', padding: '24px', border: '1px solid rgba(246,244,240,0.15)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(246,244,240,0.6)', margin: '0 0 0px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' }}>{c.locationLabel}</p>
-                <p style={{ fontSize: '15px', color: C.white, lineHeight: 1.6, margin: '0 0 8px', fontFamily: "'Assistant', sans-serif", textAlign: t.dir === 'rtl' ? 'right' : 'left' }}>
+              {/* Location */}
+              <div style={{ background: C.white, borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(44,58,46,0.07)', borderBottom: `3px solid ${C.sage}` }}>
+                <p style={{ fontSize: '12px', fontWeight: 700, color: C.textLight, margin: '0 0 10px', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.07em', textTransform: 'uppercase' }}>{c.locationLabel}</p>
+                <p style={{ fontSize: '15px', color: C.textMid, lineHeight: 1.7, margin: '0 0 16px', fontFamily: "'Assistant', sans-serif", textAlign: isRtl ? 'right' : 'left' }}>
                   {c.locationText}
                 </p>
-                <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
-                  style={{ background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 16px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                  🧭 Waze
-                </a>
-                <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
-                  style={{ background: '#0B81F5', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 16px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', cursor: 'pointer', ...tx }}>
-                  📍 Google Maps
-                </a>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer"
+                    style={{ flex: 1, background: '#0066CC', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                    🧭 Waze
+                  </a>
+                  <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer"
+                    style={{ flex: 1, background: '#0B81F5', color: C.white, border: 'none', borderRadius: '10px', padding: '12px 8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', fontFamily: "'Assistant', sans-serif", textAlign: 'center', display: 'block', ...tx }}>
+                    📍 Google Maps
+                  </a>
+                </div>
               </div>
             </div>
           </div>
