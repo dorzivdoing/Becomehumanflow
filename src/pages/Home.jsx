@@ -635,9 +635,9 @@ function Navbar({ view, setView, lang, setLang, t }) {
           {t.langToggle}
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="show-mobile">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, justifyContent: 'center' }} className="show-mobile">
           <button onClick={() => handleViewClick(6)}
-            style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px' }}
+            style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px' }}
             className="show-mobile">
             {t.navItems[6]}
           </button>
