@@ -51,16 +51,18 @@ function ViewHome({ setView, t }) {
               <p style={{ fontSize: '12px', color: C.sage, fontWeight: 600, margin: 0, letterSpacing: '0.04em', fontFamily: "'Assistant', sans-serif" }}>{h.poemAuthor}</p>
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'stretch' }}>
-              <button onClick={() => setView(2)} style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '14px 28px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 14px rgba(178,110,99,0.3)', ...tx }}>
+            <div className="home-btns" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'stretch' }}>
+              <button onClick={() => setView(2)} className="home-btn-full" style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '14px 28px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", boxShadow: '0 4px 14px rgba(178,110,99,0.3)', ...tx }}>
                 {h.btn1}
               </button>
-              <button onClick={() => setView(5)} style={{ background: 'transparent', color: C.navy, border: `2px solid ${C.navy}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
-                {h.btn2}
-              </button>
-              <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.navy, border: `2px solid ${C.navy}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
-                {h.btn3}
-              </button>
+              <div className="home-btns-row" style={{ display: 'flex', gap: '12px' }}>
+                <button onClick={() => setView(5)} style={{ background: 'transparent', color: C.navy, border: `2px solid ${C.navy}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+                  {h.btn2}
+                </button>
+                <button onClick={() => setView(6)} style={{ background: 'transparent', color: C.navy, border: `2px solid ${C.navy}`, borderRadius: '50px', padding: '12px 24px', fontSize: '15px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", ...tx }}>
+                  {h.btn3}
+                </button>
+              </div>
             </div>
 
             <div className="home-img-mobile" style={{ display: 'none', justifyContent: 'center', marginTop: '36px' }}>
@@ -80,6 +82,9 @@ function ViewHome({ setView, t }) {
             .home-img-desktop { display: none !important; }
             .home-img-mobile { display: flex !important; }
             .home-flex { flex-direction: column !important; }
+            .home-btns { flex-direction: column !important; }
+            .home-btn-full { width: 100% !important; }
+            .home-btns-row { width: 100% !important; justify-content: center !important; }
           }
           @media (min-width: 701px) {
             .home-img-mobile { display: none !important; }
