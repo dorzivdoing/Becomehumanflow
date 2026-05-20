@@ -11,6 +11,15 @@ Deno.serve(async (req) => {
       body: `שם: ${name}\nטלפון: ${phone}\nאימייל: ${email}\n\nהודעה:\n${message}`,
     });
 
+    if (email) {
+      await base44.asServiceRole.integrations.Core.SendEmail({
+        from_name: 'דור זיו',
+        to: email,
+        subject: 'הפנייה שלך התקבלה',
+        body: `שלום ${name},\n\nהפנייה שלך התקבלה. אצור קשר בהקדם.\n\nדור זיו\nפסיכותרפיה גופנית`,
+      });
+    }
+
     return Response.json({ success: true });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
