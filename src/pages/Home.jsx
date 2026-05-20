@@ -388,6 +388,7 @@ function ViewContact({ t }) {
   const [touched, setTouched] = useState({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(null);
   const c = t.contact;
   const isRtl = t.dir === 'rtl';
 
@@ -420,14 +421,19 @@ function ViewContact({ t }) {
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
     setSending(true);
-    await base44.functions.invoke('sendContactEmail', {
+    setSendError(null);
+    const res = await base44.functions.invoke('sendContactEmail', {
       name: form.name,
       email: form.email,
       phone: form.phone,
       message: form.message,
     });
-    setSent(true);
     setSending(false);
+    if (res.data?.success) {
+      setSent(true);
+    } else {
+      setSendError(res.data?.error || 'שגיאה בשליחה, נסה שוב');
+    }
   };
 
   const inputStyle = (key) => ({
@@ -522,6 +528,9 @@ function ViewContact({ t }) {
                     )}
                     {sending ? c.sending : c.send}
                   </button>
+                  {sendError && (
+                    <p style={{ color: '#C0392B', fontSize: '13px', textAlign: 'center', fontFamily: "'Assistant', sans-serif", margin: 0 }}>{sendError}</p>
+                  )}
                   <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                 </form>
               )}
