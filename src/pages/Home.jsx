@@ -679,10 +679,12 @@ function Navbar({ view, setView, lang, setLang, t }) {
   return (
     <nav style={{ position: 'fixed', top: 0, right: 0, left: 0, zIndex: 50, background: 'rgba(244,241,236,0.97)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${C.border}`, direction: t.dir, fontFamily: "'Assistant', sans-serif" }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', padding: '0 20px' }}>
+        {/* Logo */}
         <button onClick={() => handleViewClick(0)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexShrink: 0, fontWeight: 700, fontSize: '20px', color: C.green, fontFamily: 'Assistant, sans-serif' }}>
           {t.name}
         </button>
 
+        {/* Desktop nav */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flex: 1, margin: '0 16px', flexWrap: 'nowrap', overflow: 'hidden' }} className="hidden-mobile">
           {t.navItems.map((v, i) => {
             const isActive = !onBlog && view === i;
@@ -708,19 +710,21 @@ function Navbar({ view, setView, lang, setLang, t }) {
           })}
         </div>
 
-        {/* Lang toggle desktop - end of navbar */}
+        {/* Lang toggle desktop */}
         <button onClick={toggleLang} className="hidden-mobile"
           style={{ background: 'transparent', color: C.sage, border: `1.5px solid ${C.sage}`, borderRadius: '6px', padding: '4px 10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', flexShrink: 0 }}>
           {t.langToggle}
         </button>
 
-        <button onClick={() => handleViewClick(6)}
-          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px', flexShrink: 0, marginLeft: '8px', marginRight: '8px' }}
-          className="show-mobile">
-          {t.navItems[6]}
-        </button>
+        {/* Mobile: contact button in center + hamburger on edge */}
+        <div style={{ display: 'none', alignItems: 'center', gap: '8px', flex: 1, justifyContent: 'center' }} className="show-mobile">
+          <button onClick={() => handleViewClick(6)}
+            style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '8px 18px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", minHeight: '40px', flexShrink: 0 }}>
+            {t.navItems[6]}
+          </button>
+        </div>
         <button onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '12px', display: 'none', flexDirection: 'column', gap: '5px', minHeight: '44px', minWidth: '44px', justifyContent: 'center', flexShrink: 0, marginLeft: 'auto' }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none', flexDirection: 'column', gap: '5px', minHeight: '44px', minWidth: '44px', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}
           className="show-mobile">
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
           <span style={{ display: 'block', width: '22px', height: '2px', background: C.green, transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
