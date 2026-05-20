@@ -706,7 +706,7 @@ function Navbar({ view, setView, lang, setLang, t }) {
         </button>
 
         <button onClick={() => handleViewClick(6)}
-          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px', flex: 1, marginLeft: '8px', marginRight: '8px' }}
+          style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '10px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px', flexShrink: 0, marginLeft: '8px', marginRight: '8px' }}
           className="show-mobile">
           {t.navItems[6]}
         </button>
