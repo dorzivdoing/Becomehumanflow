@@ -383,7 +383,7 @@ function ViewForWho({ setView, t }) {
 }
 
 function ViewContact({ t }) {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const c = t.contact;
@@ -391,10 +391,11 @@ function ViewContact({ t }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    await base44.integrations.Core.SendEmail({
-      to: 'dorzivbio@gmail.com',
-      subject: `New inquiry from ${form.name}`,
-      body: `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    await base44.functions.invoke('sendContactEmail', {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
     });
     setSent(true);
     setSending(false);
@@ -419,12 +420,15 @@ function ViewContact({ t }) {
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {[
-                    { key: 'name', label: c.nameLbl, type: 'text', placeholder: c.namePh },
-                    { key: 'email', label: c.emailLbl, type: 'email', placeholder: c.emailPh },
-                  ].map(({ key, label, type, placeholder }) => (
+                    { key: 'name', label: c.nameLbl, type: 'text', placeholder: c.namePh, required: true },
+                    { key: 'phone', label: c.phoneLbl, type: 'tel', placeholder: c.phonePh, required: true },
+                    { key: 'email', label: c.emailLbl, type: 'email', placeholder: c.emailPh, required: false },
+                  ].map(({ key, label, type, placeholder, required }) => (
                     <div key={key}>
-                      <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>{label}</label>
-                      <input type={type} required placeholder={placeholder} value={form[key]}
+                      <label style={{ display: 'block', fontSize: '13px', color: 'rgba(246,244,240,0.75)', marginBottom: '6px', fontWeight: 500, fontFamily: "'Assistant', sans-serif" }}>
+                        {label}{required && <span style={{ color: C.clay, marginRight: '2px' }}>*</span>}
+                      </label>
+                      <input type={type} required={required} placeholder={placeholder} value={form[key]}
                         onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
                         style={{ width: '100%', padding: '11px 14px', borderRadius: '8px', border: '1.5px solid rgba(246,244,240,0.25)', fontSize: '15px', fontFamily: "'Assistant', sans-serif", background: 'rgba(255,255,255,0.08)', color: C.white, outline: 'none', boxSizing: 'border-box' }} />
                     </div>
