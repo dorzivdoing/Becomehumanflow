@@ -392,7 +392,7 @@ function ViewContact({ t }) {
     e.preventDefault();
     setSending(true);
     await base44.integrations.Core.SendEmail({
-      to: 'dorziv@gmail.com',
+      to: 'dorzivbio@gmail.com',
       subject: `New inquiry from ${form.name}`,
       body: `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
     });
