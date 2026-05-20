@@ -622,19 +622,15 @@ function Navbar({ view, setView, lang, setLang, t }) {
               </button>
             );
           })}
-          {/* Lang toggle desktop */}
-          <button onClick={toggleLang}
-            style={{ marginInlineStart: '8px', background: 'transparent', color: C.sage, border: `1.5px solid ${C.sage}`, borderRadius: '6px', padding: '4px 10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', flexShrink: 0 }}>
-            {t.langToggle}
-          </button>
         </div>
 
+        {/* Lang toggle desktop - end of navbar */}
+        <button onClick={toggleLang} className="hidden-mobile"
+          style={{ background: 'transparent', color: C.sage, border: `1.5px solid ${C.sage}`, borderRadius: '6px', padding: '4px 10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", letterSpacing: '0.05em', flexShrink: 0 }}>
+          {t.langToggle}
+        </button>
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="show-mobile">
-          <button onClick={toggleLang}
-            style={{ background: 'transparent', color: C.sage, border: `1.5px solid ${C.sage}`, borderRadius: '6px', padding: '6px 10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px' }}
-            className="show-mobile">
-            {t.langToggle}
-          </button>
           <button onClick={() => handleViewClick(6)}
             style={{ background: C.clay, color: C.white, border: 'none', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', fontFamily: "'Assistant', sans-serif", display: 'none', minHeight: '44px' }}
             className="show-mobile">
