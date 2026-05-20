@@ -398,7 +398,6 @@ function ViewContact({ t }) {
     if (!phoneClean) errs.phone = c.errRequired;
     else if (!/^[\+]?[0-9]{7,15}$/.test(phoneClean)) errs.phone = c.errPhone;
     if (fields.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errs.email = c.errEmail;
-    if (!fields.message.trim()) errs.message = c.errRequired;
     return errs;
   };
 
@@ -484,9 +483,9 @@ function ViewContact({ t }) {
                 <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {[
                     { key: 'name', label: c.nameLbl, type: 'text', placeholder: c.namePh, required: true },
-                    { key: 'phone', label: c.phoneLbl, type: 'tel', placeholder: c.phonePh, required: true },
+                    { key: 'phone', label: c.phoneLbl, type: 'tel', placeholder: c.phonePh, required: true, dir: 'rtl' },
                     { key: 'email', label: c.emailLbl, type: 'email', placeholder: c.emailPh, required: false },
-                  ].map(({ key, label, type, placeholder, required }) => (
+                  ].map(({ key, label, type, placeholder, required, dir }) => (
                     <div key={key}>
                       <label style={labelStyle}>
                         {label}{required && <span style={{ color: C.clay }}> *</span>}
@@ -497,13 +496,13 @@ function ViewContact({ t }) {
                         value={form[key]}
                         onChange={e => handleChange(key, e.target.value)}
                         onBlur={() => handleBlur(key)}
-                        style={inputStyle(key)}
+                        style={{ ...inputStyle(key), ...(dir ? { direction: dir } : {}) }}
                       />
                       {touched[key] && errors[key] && <p style={errStyle}>{errors[key]}</p>}
                     </div>
                   ))}
                   <div>
-                    <label style={labelStyle}>{c.msgLbl}<span style={{ color: C.clay }}> *</span></label>
+                    <label style={labelStyle}>{c.msgLbl}</label>
                     <textarea
                       rows={4}
                       placeholder={c.msgPh}
