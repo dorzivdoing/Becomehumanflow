@@ -234,7 +234,7 @@ function ViewWritings({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: 'linear-gradient(160deg, #F0F5EE 0%, #F6F4F0 50%, #F3EFDE 100%)', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(180deg, #F6F4F0 0%, #F3F0E9 100%)', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         {/* Spring blossom decorations */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden' }}>
           <svg style={{ position: 'absolute', top: '20px', right: '30px', opacity: 0.18 }} width="120" height="120" viewBox="0 0 120 120">
@@ -293,10 +293,10 @@ function ViewWritings({ t }) {
           )}
 
           <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}
-            style={{ background: C.white, borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid #B26E63`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            style={{ background: '#FDFCFA', borderRadius: '16px', padding: '48px 44px', boxShadow: '0 2px 20px rgba(44,58,46,0.08)', borderRight: `4px solid #B26E63`, borderTop: `1px solid #7A8B84`, minHeight: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ fontSize: '36px', color: C.sage, opacity: 0.4, marginBottom: '12px', fontFamily: 'Georgia, serif', lineHeight: 1, textAlign: writings[current].rtl ? 'right' : 'left' }}>"</div>
-              <p style={{ fontSize: '16px', color: '#1A2228', lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line' }}>
+              <p style={{ fontSize: '16px', color: '#1A2228', lineHeight: 1.95, margin: '0 0 20px', fontStyle: 'italic', fontFamily: "'Assistant', sans-serif", direction: writings[current].rtl ? 'rtl' : 'ltr', textAlign: writings[current].rtl ? 'right' : 'left', whiteSpace: 'pre-line', fontWeight: 500 }}>
                 {writings[current].text}
               </p>
             </div>
