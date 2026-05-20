@@ -234,46 +234,24 @@ function ViewWritings({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: 'linear-gradient(180deg, #F6F4F0 0%, #F3F0E9 100%)', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        {/* Spring blossom decorations */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden' }}>
-          <svg style={{ position: 'absolute', top: '20px', right: '30px', opacity: 0.18 }} width="120" height="120" viewBox="0 0 120 120">
-            <g fill="#5A7A5D">
-              <ellipse cx="60" cy="30" rx="12" ry="28" transform="rotate(0 60 60)" />
-              <ellipse cx="60" cy="30" rx="12" ry="28" transform="rotate(45 60 60)" />
-              <ellipse cx="60" cy="30" rx="12" ry="28" transform="rotate(90 60 60)" />
-              <ellipse cx="60" cy="30" rx="12" ry="28" transform="rotate(135 60 60)" />
-            </g>
-            <circle cx="60" cy="60" r="8" fill="#B26E63" opacity="0.6" />
-          </svg>
-          <svg style={{ position: 'absolute', bottom: '40px', left: '20px', opacity: 0.13 }} width="90" height="90" viewBox="0 0 120 120">
-            <g fill="#7A9E7E">
-              <ellipse cx="60" cy="30" rx="10" ry="24" transform="rotate(0 60 60)" />
-              <ellipse cx="60" cy="30" rx="10" ry="24" transform="rotate(60 60 60)" />
-              <ellipse cx="60" cy="30" rx="10" ry="24" transform="rotate(120 60 60)" />
-            </g>
-            <circle cx="60" cy="60" r="7" fill="#D4A0A0" opacity="0.5" />
-          </svg>
-          <svg style={{ position: 'absolute', top: '50%', left: '5%', opacity: 0.10 }} width="60" height="100" viewBox="0 0 60 100">
-            <path d="M30 100 Q30 60 30 0" stroke="#5A7A5D" strokeWidth="2" fill="none" />
-            <ellipse cx="30" cy="30" rx="18" ry="10" fill="#5A7A5D" transform="rotate(-30 30 30)" />
-            <ellipse cx="30" cy="50" rx="16" ry="9" fill="#5A7A5D" transform="rotate(20 30 50)" />
-          </svg>
-          <svg style={{ position: 'absolute', top: '15%', left: '15%', opacity: 0.09 }} width="40" height="40" viewBox="0 0 40 40">
-            {[0,60,120,180,240,300].map(a => (
-              <ellipse key={a} cx="20" cy="10" rx="5" ry="10" fill="#C4A882" transform={`rotate(${a} 20 20)`} />
-            ))}
-            <circle cx="20" cy="20" r="4" fill="#B26E63" opacity="0.7" />
-          </svg>
-          <svg style={{ position: 'absolute', bottom: '20%', right: '8%', opacity: 0.10 }} width="50" height="50" viewBox="0 0 40 40">
-            {[0,60,120,180,240,300].map(a => (
-              <ellipse key={a} cx="20" cy="10" rx="5" ry="10" fill="#A8C4A2" transform={`rotate(${a} 20 20)`} />
-            ))}
-            <circle cx="20" cy="20" r="4" fill="#5A7A5D" opacity="0.6" />
-          </svg>
-        </div>
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        {/* Background photo with vintage filter */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          backgroundImage: 'url(https://media.base44.com/images/public/6a098e797170ea9e67f23db4/0af3848d5_WhatsAppImage2026-05-04at112551.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 40%',
+          filter: 'saturate(0.55) brightness(0.82) sepia(0.25) contrast(0.9)',
+          zIndex: 0,
+        }} />
+        {/* Warm linen overlay for vintage/faded feel and text legibility */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          background: 'linear-gradient(180deg, rgba(246,244,240,0.72) 0%, rgba(243,240,233,0.78) 100%)',
+          zIndex: 1,
+        }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             {w.title}
           </h2>
