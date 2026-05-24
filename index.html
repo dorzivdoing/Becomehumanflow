@@ -184,17 +184,18 @@
   <div class="nav-inner">
     <button class="nav-logo" id="navLogo"></button>
     <div class="nav-links" id="navLinks"></div>
-    <button class="lang-btn" id="langBtn" onclick="toggleLang()"></button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language"></button>
     <div class="mobile-contact">
       <button class="mobile-contact-btn" id="mobileContactBtn" onclick="showView(6)"></button>
     </div>
-    <button class="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
       <span id="hb1"></span><span id="hb2"></span><span id="hb3"></span>
     </button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu"></div>
 
+<main id="mainContent">
 <!-- VIEW 0: HOME -->
 <div class="view active" id="view-0">
   <div class="hero-bg">
@@ -299,7 +300,7 @@ const writings = [
 const content = {
   he: {
     dir:'rtl', name:'דור זיו',
-    navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות'],
+    navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות','תקנון'],
     langToggle:'EN', footerText:'© 2025 דור זיו - פסיכותרפיה גופנית',
     home:{ subtitle:'פסיכותרפיה גופנית · בית אורן · אונליין', poemLines:'ליבי כל כך קטן,\nהוא כמעט בלתי נראה.\nכיצד יכול אתה לאכסן בתוכו צער כה רב?\n״הבט״, הוא ענה,\n״עיניך קטנות אף יותר,\nובכל זאת - הן מכילות את העולם״', poemAuthor:'- ג׳לאל א-דין רומי', btn1:'למי מתאים הטיפול?', btn2:'אודותיי', btn3:'יצירת קשר' },
     approach:{
@@ -365,6 +366,37 @@ const content = {
       ],
       quote:{text:'חשבתי שאני רוצה להיות משורר, אבל בעומק ליבי - רציתי פשוט להיות שיר.',author:'- חיימה גיל דה בידמה'}
     },
+    legal:{
+      title:'תקנון, תנאי שימוש ומדיניות האתר',
+      html:`<p>ברוכים הבאים לאתר של דור זיו - קליניקה לפסיכותרפיה גופנית (להלן: "האתר"). האתר מנוהל על ידי דור זיו, עוסק פטור (להלן: "הנהלת האתר" או "המטפל"). השימוש באתר, בתכניו ובשירותים המוצעים בו, כפוף לתנאי השימוש המפורטים להלן. גלישה באתר ו/או השארת פרטים מהווים את הסכמתך לתנאים אלו.</p>
+<h3>1. פטור מאחריות מקצועית ורפואית</h3>
+<ul>
+<li><strong>מידע בלבד:</strong> התכנים, המאמרים והמידע המופיעים באתר נועדו להעשרה ולמתן מידע כללי בלבד. הם אינם מהווים בשום אופן תחליף לייעוץ פסיכולוגי, פסיכיאטרי, רפואי או מקצועי מכל סוג שהוא.</li>
+<li><strong>היעדר יחסי מטפל-מטופל:</strong> קריאת התכנים באתר או יצירת קשר ראשוני דרך טופס צור קשר אינם יוצרים יחסי מטפל-מטופל. יחסים אלו ייווצרו אך ורק לאחר פגישה אישית, תיאום ציפיות וחתימה על הסכם טיפולי.</li>
+<li><strong>מצבי חירום:</strong> האתר אינו נותן מענה למצבי חירום. במקרה של מצוקה חריפה או מצב חירום, יש לפנות באופן מיידי לחדר מיון, לרופא המטפל או למוקדי החירום המקובלים.</li>
+<li><strong>אחריות אישית:</strong> ההסתמכות על המידע המופיע באתר היא על אחריות המשתמש בלבד.</li>
+</ul>
+<h3>2. קניין רוחני</h3>
+<p>כל זכויות היוצרים והקניין הרוחני באתר - לרבות טקסטים, מאמרים, עיצובים, והתכנים המילוליים - שייכים בלעדית לדור זיו (או לבעלי הזכויות המקוריים שצוטטו כדין). אין להעתיק, לשכפל, להפיץ או לעשות כל שימוש מסחרי בתכנים אלו ללא קבלת אישור מראש ובכתב.</p>
+<h3>3. מדיניות פרטיות ועוגיות</h3>
+<ul>
+<li><strong>איסוף מידע וסודיות:</strong> בעת השארת פרטים בטופס יצירת הקשר באתר, המידע נשמר אך ורק על מנת שנוכל לחזור אליך ולתת לך מענה. המידע נשמר בסודיות מלאה ולא יועבר לשום צד שלישי, אלא אם נידרש לכך על פי חוק.</li>
+<li><strong>אי-שימוש בעוגיות:</strong> נכון לעת זו, האתר אינו אוסף או שומר קובצי עוגיות (Cookies) בדפדפן שלך לצורכי מעקב, סטטיסטיקה או פרסום ממוקד. הגלישה באתר היא אנונימית.</li>
+</ul>
+<h3>4. חוק התקשורת (דיוור ישיר)</h3>
+<p>על ידי השארת פרטיך באתר וסימון התיבה הרלוונטית לאישור בטופס יצירת הקשר, הנך מאשר/ת להנהלת האתר לשלוח אליך הודעות, עדכונים מקצועיים או חומרים הקשורים לקליניקה באמצעות דוא"ל או WhatsApp. באפשרותך לחזור בך מהסכמתך בכל עת ולבקש את הסרתך מרשימת התפוצה על ידי שליחת הודעת החזר או פנייה ישירה.</p>
+<h3>5. הצהרת נגישות</h3>
+<p>אנו רואים חשיבות רבה במתן שירות שוויוני ונגיש לכלל חלקי האוכלוסייה, לרבות אנשים עם מוגבלויות. הושקעו מאמצים להנגיש את האתר כך שיתאים לגלישה נוחה לכולם ולשימוש בקוראי מסך.</p>
+<ul>
+<li>האתר עוצב בניגודיות צבעים נוחה לעין ובגופנים קריאים.</li>
+<li>האתר מותאם לגלישה ממחשבים שולחניים וממכשירים ניידים.</li>
+<li>שולבו תגיות ARIA ומבנה סמנטי כדי להקל על הניווט באמצעות המקלדת וקוראי מסך.</li>
+</ul>
+<p>אם נתקלת בקושי כלשהו בגלישה באתר או שיש לך הצעה לשיפור, ניתן לפנות לדור זיו בדוא"ל: dorziv@gmail.com</p>
+<h3>6. סמכות שיפוט</h3>
+<p>על תנאי שימוש אלו יחולו אך ורק דיני מדינת ישראל. סמכות השיפוט הבלעדית בכל עניין ומחלוקת הנוגעים לאתר זה נתונה לבתי המשפט המוסמכים במחוז חיפה.</p>
+<p><em>תאריך עדכון אחרון: יוני 2026</em></p>`
+    },
     contact:{
       title:'דרכים ליצירת קשר',
       nameLbl:'שם',namePh:'השם שלך',
@@ -378,6 +410,8 @@ const content = {
       calendlyBtn:'📅 לבחירת מועד ביומן הדיגיטלי',
       waBtn:'💬 לשליחת הודעה בווטסאפ',
       locationLabel:'פרטי מיקום',
+      consentLbl:'אני מסכים/ה למדיניות הפרטיות ומאשר/ת קבלת עדכונים מקצועיים.',
+      consentLink:'קרא/י תקנון',
       locationText:'הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.',
     },
     accessibility:{
@@ -394,7 +428,7 @@ const content = {
   },
   en: {
     dir:'ltr', name:'Dor Ziv',
-    navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility'],
+    navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility','Terms'],
     langToggle:'עב', footerText:'© 2025 Dor Ziv - Somatic Psychotherapy',
     home:{ subtitle:'Somatic Psychotherapy · Beit Oren · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
     approach:{
@@ -460,6 +494,37 @@ const content = {
       ],
       quote:{text:'I thought I wanted to be a poet, but deep in my heart - I simply wanted to be a poem.',author:'- Jaime Gil de Biedma'}
     },
+    legal:{
+      title:'Terms, Privacy & Accessibility',
+      html:`<p>Welcome to the website of Dor Ziv - Somatic Psychotherapy Clinic (the "Site"). The Site is managed by Dor Ziv, licensed practitioner (the "Site Management" or "Therapist"). Use of the Site, its content, and the services offered therein is subject to the terms of use detailed below. Browsing the Site and/or submitting your details constitutes your agreement to these terms.</p>
+<h3>1. Disclaimer of Professional and Medical Liability</h3>
+<ul>
+<li><strong>Information only:</strong> The content, articles, and information appearing on this Site are intended for enrichment and general information purposes only. They do not constitute a substitute for psychological, psychiatric, medical, or professional advice of any kind.</li>
+<li><strong>No therapist-client relationship:</strong> Reading the content on the Site or making initial contact through the contact form does not create a therapist-client relationship. Such a relationship will only be established following a personal meeting, alignment of expectations, and signing of a therapeutic agreement.</li>
+<li><strong>Emergency situations:</strong> The Site does not provide a response to emergency situations. In the event of acute distress or an emergency, please contact the nearest emergency room, your treating physician, or emergency services immediately.</li>
+<li><strong>Personal responsibility:</strong> Reliance on the information appearing on the Site is solely at the user's own risk.</li>
+</ul>
+<h3>2. Intellectual Property</h3>
+<p>All copyright and intellectual property on the Site - including texts, articles, designs, and written content - belong exclusively to Dor Ziv (or to the original rights holders duly cited). No copying, reproduction, distribution, or commercial use of this content is permitted without prior written consent.</p>
+<h3>3. Privacy Policy and Cookies</h3>
+<ul>
+<li><strong>Data collection and confidentiality:</strong> When you submit your details through the contact form, the information is stored solely for the purpose of responding to your inquiry. Your information is kept strictly confidential and will not be shared with any third party, unless required by law.</li>
+<li><strong>No cookies:</strong> This Site does not collect or store cookies in your browser for tracking, analytics, or targeted advertising purposes. Browsing the Site is anonymous.</li>
+</ul>
+<h3>4. Direct Marketing Law</h3>
+<p>By submitting your details on the Site and checking the relevant consent checkbox in the contact form, you consent to the Site Management sending you messages, professional updates, or materials related to the clinic via email or WhatsApp. You may withdraw your consent at any time by sending a reply message or contacting us directly.</p>
+<h3>5. Accessibility Statement</h3>
+<p>We are committed to providing equal and accessible service to all members of the public, including people with disabilities. Efforts have been made to make this Site accessible and suitable for comfortable browsing for everyone, including screen reader users.</p>
+<ul>
+<li>The Site is designed with comfortable color contrast and readable fonts.</li>
+<li>The Site is responsive and adapted for desktop and mobile browsing.</li>
+<li>ARIA labels and semantic structure have been incorporated to facilitate keyboard navigation and screen reader use.</li>
+</ul>
+<p>If you encounter any difficulty browsing the Site or have a suggestion for improvement, please contact Dor Ziv at: dorziv@gmail.com</p>
+<h3>6. Jurisdiction</h3>
+<p>These terms of use shall be governed exclusively by the laws of the State of Israel. Exclusive jurisdiction over any matter or dispute relating to this Site is vested in the competent courts of the Haifa district.</p>
+<p><em>Last updated: June 2026</em></p>`
+    },
     contact:{
       title:'Ways to Get in Touch',
       nameLbl:'Name',namePh:'Your name',
@@ -473,6 +538,8 @@ const content = {
       calendlyBtn:'📅 Schedule a time in my digital calendar',
       waBtn:'💬 Send a WhatsApp message',
       locationLabel:'Location',
+      consentLbl:'I agree to the privacy policy and consent to receive professional updates.',
+      consentLink:'Read Terms',
       locationText:'The clinic is located in Beit Oren. Upon arrival for the first session, I will guide you on where to park and exactly where we meet.',
     },
     accessibility:{
@@ -538,7 +605,7 @@ function renderNav() {
   `<button class="mobile-lang-btn" onclick="toggleLang()">${T.langToggle} - ${lang==='he'?'Switch to English':'עבור לעברית'}</button>`;
 
   // footer texts
-  for(let i=0;i<8;i++) { const f=el(`footerText${i}`); if(f) f.textContent = T.footerText; }
+  for(let i=0;i<9;i++) { const f=el(`footerText${i}`); if(f) f.textContent = T.footerText; }
 }
 
 // ── VIEWS ────────────────────────────────────────────────────────────────────
@@ -638,9 +705,9 @@ function renderWritings() {
   el('writingsInner').innerHTML = `
     <h2 style="font-size:clamp(26px,5vw,40px);font-weight:400;color:var(--green);text-align:${isRtl()?'right':'left'};margin:0 0 32px;font-family:'Assistant',sans-serif">${w.title}</h2>
     <div class="writings-nav">
-      <button class="writings-nav-btn" onclick="prevWriting()" ${writingIndex===0?'disabled':''}>&#8249;</button>
+      <button class="writings-nav-btn" onclick="prevWriting()" aria-label="Previous" ${writingIndex===0?'disabled':''}>&#8249;</button>
       <span class="writings-counter">${writingIndex+1} / ${total}</span>
-      <button class="writings-nav-btn" onclick="nextWriting()" ${writingIndex===total-1?'disabled':''}>&#8250;</button>
+      <button class="writings-nav-btn" onclick="nextWriting()" aria-label="Next" ${writingIndex===total-1?'disabled':''}>&#8250;</button>
     </div>
     <div class="writing-card">
       <div>
@@ -689,6 +756,12 @@ function renderContact() {
             <div class="form-group">
               <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.msgLbl}</label>
               <textarea class="form-input form-textarea" name="message" placeholder="${c.msgPh}" id="inp-message" rows="4"></textarea>
+            </div>
+            <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;margin-bottom:4px">
+              <input type="checkbox" name="consent" id="inp-consent" required style="margin-top:4px;flex-shrink:0;accent-color:var(--sage);width:16px;height:16px" />
+              <label for="inp-consent" style="font-size:13px;color:var(--textLight);line-height:1.5;cursor:pointer;font-family:'Assistant',sans-serif">
+                ${c.consentLbl} <span onclick="showView(8)" style="color:var(--sage);text-decoration:underline;cursor:pointer">${c.consentLink}</span>
+              </label>
             </div>
             <button type="submit" class="btn-submit" id="submitBtn">${c.send}</button>
             <p id="sendError" style="color:#C0392B;font-size:13px;text-align:center;font-family:'Assistant',sans-serif;margin:8px 0 0;display:none"></p>
@@ -743,6 +816,16 @@ function renderAccessibility() {
   `;
 }
 
+
+function renderLegal() {
+  const l = t().legal;
+  const el8 = el('legalInner');
+  if (!el8) return;
+  el8.dir = t().dir;
+  el8.style.textAlign = isRtl() ? 'right' : 'left';
+  el8.innerHTML = '<h2 class="sec-h2" style="text-align:' + (isRtl() ? 'right' : 'left') + '">' + l.title + '</h2>' + l.html;
+}
+
 function renderAll() {
   renderNav();
   renderHome();
@@ -753,6 +836,7 @@ function renderAll() {
   renderAbout();
   renderContact();
   renderAccessibility();
+  renderLegal();
 }
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────────────
@@ -777,6 +861,7 @@ function toggleLang() {
   formErrors = {}; formTouched = {};
   renderAll();
   document.documentElement.dir = t().dir;
+  document.documentElement.lang = lang;
 }
 
 function toggleFaq(i) {
