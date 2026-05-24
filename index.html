@@ -224,7 +224,7 @@
       </div>
     </div>
   </div>
-  <footer><p id="footerText0"></p></footer>
+  <footer><p id="footerText0"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink0"></button></footer>
 </div>
 
 <!-- VIEW 1: APPROACH -->
@@ -232,7 +232,7 @@
   <div class="section">
     <div class="section-inner-md" id="approachInner"></div>
   </div>
-  <footer><p id="footerText1"></p></footer>
+  <footer><p id="footerText1"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink1"></button></footer>
 </div>
 
 <!-- VIEW 2: FOR WHO -->
@@ -240,7 +240,7 @@
   <div class="section">
     <div class="section-inner-md" id="forWhoInner"></div>
   </div>
-  <footer><p id="footerText2"></p></footer>
+  <footer><p id="footerText2"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink2"></button></footer>
 </div>
 
 <!-- VIEW 3: FAQ -->
@@ -248,7 +248,7 @@
   <div class="section">
     <div class="section-inner" id="faqInner"></div>
   </div>
-  <footer><p id="footerText3"></p></footer>
+  <footer><p id="footerText3"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink3"></button></footer>
 </div>
 
 <!-- VIEW 4: WRITINGS -->
@@ -258,7 +258,7 @@
     <div class="writings-overlay"></div>
     <div class="writings-content" id="writingsInner"></div>
   </div>
-  <footer><p id="footerText4"></p></footer>
+  <footer><p id="footerText4"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink4"></button></footer>
 </div>
 
 <!-- VIEW 5: ABOUT -->
@@ -266,7 +266,7 @@
   <div class="section">
     <div class="section-inner" id="aboutInner"></div>
   </div>
-  <footer><p id="footerText5"></p></footer>
+  <footer><p id="footerText5"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink5"></button></footer>
 </div>
 
 <!-- VIEW 6: CONTACT -->
@@ -274,7 +274,7 @@
   <div class="section">
     <div id="contactInner"></div>
   </div>
-  <footer><p id="footerText6"></p></footer>
+  <footer><p id="footerText6"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink6"></button></footer>
 </div>
 
 <!-- VIEW 7: ACCESSIBILITY -->
@@ -282,7 +282,7 @@
   <div class="section">
     <div class="section-inner" id="accessibilityInner"></div>
   </div>
-  <footer><p id="footerText7"></p></footer>
+  <footer><p id="footerText7"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink7"></button></footer>
 </div>
 
 <!-- VIEW 8: LEGAL -->
@@ -290,7 +290,7 @@
   <div class="section">
     <div class="section-inner" id="legalInner" style="max-width:760px;margin:0 auto"></div>
   </div>
-  <footer><p id="footerText8"></p></footer>
+  <footer><p id="footerText8"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink8"></button></footer>
 </div>
 
 <script>
@@ -308,8 +308,8 @@ const writings = [
 const content = {
   he: {
     dir:'rtl', name:'דור זיו',
-    navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות','תקנון'],
-    langToggle:'EN', footerText:'© 2025 דור זיו - פסיכותרפיה גופנית',
+    navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות'],
+    langToggle:'EN', footerText:'© 2025 דור זיו - פסיכותרפיה גופנית', legalLinkText:'תקנון ופרטיות',
     home:{ subtitle:'פסיכותרפיה גופנית · בית אורן · אונליין', poemLines:'ליבי כל כך קטן,\nהוא כמעט בלתי נראה.\nכיצד יכול אתה לאכסן בתוכו צער כה רב?\n״הבט״, הוא ענה,\n״עיניך קטנות אף יותר,\nובכל זאת - הן מכילות את העולם״', poemAuthor:'- ג׳לאל א-דין רומי', btn1:'למי מתאים הטיפול?', btn2:'אודותיי', btn3:'יצירת קשר' },
     approach:{
       title:'גישה שמחברת חיים',
@@ -430,14 +430,14 @@ const content = {
       s1p3:'אם יש לך צורך בהסדרת הנגשה פיזית ספציפית או בליווי בעת ההגעה, אבקש ליצור איתי קשר מראש.',
       s3TitleMain:'אפשרות למפגשים מרחוק',s3TitleSub:'(תנאים נדרשים)',
       s3p1:'עבור אנשים המתמודדים עם מגבלות ניידות, קשיי נסיעה, או עבור מי שמתגוררים במרחק - ניתן לקיים את התהליך הטיפולי באופן מלא באונליין.',
-      s3p2:'כדי לאפשר את העבודה, יש צורך במחשב עם מצלמה וחיבור אינטרנט תקין ויציב, לצד סביבה שקטה, נעימה ובטוחה.',
+      s3p2:'כדי לאפשר מפגשים מרחוק נדרש מחשב עם מצלמה וחיבור אינטרנט תקין ויציב, לצד סביבה שקטה, נעימה ובטוחה שבה ניתן לדבר ולנוע בחופשיות ללא הפרעה.',
       specialNeedsText:'אם קיימות מוגבלויות ראייה, שמיעה, סנסוריות או צרכים מיוחדים אחרים שלא צוינו כאן, נא לכתוב זאת בפנייה על מנת שנוכל להתאים את אופי המפגש והמרחב עבורך.',
     }
   },
   en: {
     dir:'ltr', name:'Dor Ziv',
-    navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility','Terms'],
-    langToggle:'עב', footerText:'© 2025 Dor Ziv - Somatic Psychotherapy',
+    navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility'],
+    langToggle:'עב', footerText:'© 2025 Dor Ziv - Somatic Psychotherapy', legalLinkText:'Terms & Privacy',
     home:{ subtitle:'Somatic Psychotherapy · Beit Oren · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
     approach:{
       title:'A Perspective That Connects Life',
@@ -613,7 +613,10 @@ function renderNav() {
   `<button class="mobile-lang-btn" onclick="toggleLang()">${T.langToggle} - ${lang==='he'?'Switch to English':'עבור לעברית'}</button>`;
 
   // footer texts
-  for(let i=0;i<9;i++) { const f=el(`footerText${i}`); if(f) f.textContent = T.footerText; }
+  for(let i=0;i<9;i++) {
+    const f=el('footerText'+i); if(f) f.textContent = T.footerText;
+    const l=el('legalLink'+i); if(l) l.textContent = T.legalLinkText;
+  }
 }
 
 // ── VIEWS ────────────────────────────────────────────────────────────────────
@@ -806,7 +809,7 @@ function renderAccessibility() {
   const a = t().accessibility;
   el('accessibilityInner').dir = t().dir;
   el('accessibilityInner').innerHTML = `
-    <h1 style="font-size:clamp(26px,5vw,40px);font-weight:700;color:#1E2631;text-align:${isRtl()?'right':'left'};margin:0 0 20px;font-family:'Assistant',sans-serif">${a.title}</h1>
+    <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${a.title}</h2>
     <div class="accessibility-box">
       <h3 class="accessibility-h3" style="text-align:${isRtl()?'right':'left'}">${a.s1Title}</h3>
       <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p1}</p>
