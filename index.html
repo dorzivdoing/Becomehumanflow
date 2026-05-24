@@ -69,7 +69,7 @@
     .stream-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:48px; }
     .stream-card { background:var(--white); border-radius:14px; padding:32px 28px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
     .stream-card h3 { font-size:17px; font-weight:600; color:var(--green); margin:0 0 14px; font-family:'Assistant',sans-serif; text-align:center; }
-    .stream-card p { font-size:14px; color:var(--textMid); line-height:1.85; margin:0; font-family:'Assistant',sans-serif; }
+    .stream-card p { font-size:14px; color:var(--textMid); line-height:1.85; margin:0; font-family:'Assistant',sans-serif; text-align:justify; }
     /* LOGOS */
     .logos-row { display:flex; justify-content:center; align-items:center; gap:32px; margin:48px auto 0; flex-wrap:wrap; }
     .logo-box { width:120px; height:80px; background:var(--white); border-radius:8px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 8px rgba(44,58,46,0.06); }
@@ -376,21 +376,17 @@ const content = {
     },
     legal:{
       title:'תקנון, תנאי שימוש ומדיניות האתר',
-      html:`<p>ברוכים הבאים לאתר של דור זיו - קליניקה לפסיכותרפיה גופנית (להלן: "האתר"). האתר מנוהל על ידי דור זיו, עוסק פטור (להלן: "הנהלת האתר" או "המטפל"). השימוש באתר, בתכניו ובשירותים המוצעים בו, כפוף לתנאי השימוש המפורטים להלן. גלישה באתר ו/או השארת פרטים מהווים את הסכמתך לתנאים אלו.</p>
+      html:`<p>ברוכים הבאים לאתר של דור זיו - קליניקה לפסיכותרפיה גופנית (להלן: "האתר"). האתר מנוהל על ידי דור זיו (להלן: "הנהלת האתר" או "המטפל"). השימוש באתר, בתכניו ובשירותים המוצעים בו, כפוף לתנאי השימוש המפורטים להלן. גלישה באתר ו/או השארת פרטים מהווים את הסכמתך לתנאים אלו.</p>
 <h3>1. פטור מאחריות מקצועית ורפואית</h3>
-<ul>
-<li><strong>מידע בלבד:</strong> התכנים, המאמרים והמידע המופיעים באתר נועדו להעשרה ולמתן מידע כללי בלבד. הם אינם מהווים בשום אופן תחליף לייעוץ פסיכולוגי, פסיכיאטרי, רפואי או מקצועי מכל סוג שהוא.</li>
-<li><strong>היעדר יחסי מטפל-מטופל:</strong> קריאת התכנים באתר או יצירת קשר ראשוני דרך טופס צור קשר אינם יוצרים יחסי מטפל-מטופל. יחסים אלו ייווצרו אך ורק לאחר פגישה אישית, תיאום ציפיות וחתימה על הסכם טיפולי.</li>
-<li><strong>מצבי חירום:</strong> האתר אינו נותן מענה למצבי חירום. במקרה של מצוקה חריפה או מצב חירום, יש לפנות באופן מיידי לחדר מיון, לרופא המטפל או למוקדי החירום המקובלים.</li>
-<li><strong>אחריות אישית:</strong> ההסתמכות על המידע המופיע באתר היא על אחריות המשתמש בלבד.</li>
-</ul>
+<p><strong>מידע בלבד:</strong> התכנים, המאמרים והמידע המופיעים באתר נועדו להעשרה ולמתן מידע כללי בלבד. הם אינם מהווים בשום אופן תחליף לייעוץ פסיכולוגי, פסיכיאטרי, רפואי או מקצועי מכל סוג שהוא.</p>
+<p><strong>היעדר יחסי מטפל-מטופל:</strong> קריאת התכנים באתר או יצירת קשר ראשוני דרך טופס צור קשר אינם יוצרים יחסי מטפל-מטופל. יחסים אלו ייווצרו אך ורק לאחר פגישה אישית, תיאום ציפיות וחתימה על הסכם טיפולי.</p>
+<p><strong>מצבי חירום:</strong> האתר אינו נותן מענה למצבי חירום. במקרה של מצוקה חריפה או מצב חירום, יש לפנות באופן מיידי לחדר מיון, לרופא המטפל או למוקדי החירום המקובלים.</p>
+<p><strong>אחריות אישית:</strong> ההסתמכות על המידע המופיע באתר היא על אחריות המשתמש בלבד.</p>
 <h3>2. קניין רוחני</h3>
 <p>כל זכויות היוצרים והקניין הרוחני באתר - לרבות טקסטים, מאמרים, עיצובים, והתכנים המילוליים - שייכים בלעדית לדור זיו (או לבעלי הזכויות המקוריים שצוטטו כדין). אין להעתיק, לשכפל, להפיץ או לעשות כל שימוש מסחרי בתכנים אלו ללא קבלת אישור מראש ובכתב.</p>
 <h3>3. מדיניות פרטיות ועוגיות</h3>
-<ul>
-<li><strong>איסוף מידע וסודיות:</strong> בעת השארת פרטים בטופס יצירת הקשר באתר, המידע נשמר אך ורק על מנת שנוכל לחזור אליך ולתת לך מענה. המידע נשמר בסודיות מלאה ולא יועבר לשום צד שלישי, אלא אם נידרש לכך על פי חוק.</li>
-<li><strong>אי-שימוש בעוגיות:</strong> נכון לעת זו, האתר אינו אוסף או שומר קובצי עוגיות (Cookies) בדפדפן שלך לצורכי מעקב, סטטיסטיקה או פרסום ממוקד. הגלישה באתר היא אנונימית.</li>
-</ul>
+<p><strong>איסוף מידע וסודיות:</strong> בעת השארת פרטים בטופס יצירת הקשר באתר, המידע נשמר אך ורק על מנת שנוכל לחזור אליך ולתת לך מענה. המידע נשמר בסודיות מלאה ולא יועבר לשום צד שלישי, אלא אם נידרש לכך על פי חוק.</p>
+<p><strong>אי-שימוש בעוגיות:</strong> נכון לעת זו, האתר אינו אוסף או שומר קובצי עוגיות (Cookies) בדפדפן שלך לצורכי מעקב, סטטיסטיקה או פרסום ממוקד. הגלישה באתר היא אנונימית.</p>
 <h3>4. חוק התקשורת (דיוור ישיר)</h3>
 <p>על ידי השארת פרטיך באתר וסימון התיבה הרלוונטית לאישור בטופס יצירת הקשר, הנך מאשר/ת להנהלת האתר לשלוח אליך הודעות, עדכונים מקצועיים או חומרים הקשורים לקליניקה באמצעות דוא"ל או WhatsApp. באפשרותך לחזור בך מהסכמתך בכל עת ולבקש את הסרתך מרשימת התפוצה על ידי שליחת הודעת החזר או פנייה ישירה.</p>
 <h3>5. הצהרת נגישות</h3>
@@ -400,9 +396,9 @@ const content = {
 <li>האתר מותאם לגלישה ממחשבים שולחניים וממכשירים ניידים.</li>
 <li>שולבו תגיות ARIA ומבנה סמנטי כדי להקל על הניווט באמצעות המקלדת וקוראי מסך.</li>
 </ul>
-<p>אם נתקלת בקושי כלשהו בגלישה באתר או שיש לך הצעה לשיפור, ניתן לפנות לדור זיו בדוא"ל: dorziv@gmail.com</p>
+<p>אם נתקלת בקושי כלשהו בגלישה באתר או שיש לך הצעה לשיפור, ניתן לפנות לדור זיו בדוא"ל: dorzivbio@gmail.com</p>
 <h3>6. סמכות שיפוט</h3>
-<p>על תנאי שימוש אלו יחולו אך ורק דיני מדינת ישראל. סמכות השיפוט הבלעדית בכל עניין ומחלוקת הנוגעים לאתר זה נתונה לבתי המשפט המוסמכים במחוז חיפה.</p>
+<p>על תנאי שימוש אלו יחולו אך ורק דיני מדינת ישראל. סמכות השיפוט הבלעדית בכל עניין ומחלוקת הנוגעים לאתר זה נתונה לבתי המשפט המוסמכים בישראל.</p>
 <p><em>תאריך עדכון אחרון: יוני 2026</em></p>`
     },
     contact:{
@@ -428,7 +424,7 @@ const content = {
       s1p1:'מיקום וגישה: הקליניקה בבית אורן ממוקמת בקומת קרקע, עם גישה ישירה וללא מדרגות. המרחב נגיש ומותאם למשתמשים בכיסאות גלגלים.',
       s1p2:'חניה: בקרבת כניסת המבנה (60-70 מ) קיימת חניה ייעודית לאנשים עם מוגבלות.',
       s1p3:'אם יש לך צורך בהסדרת הנגשה פיזית ספציפית או בליווי בעת ההגעה, אבקש ליצור איתי קשר מראש.',
-      s3TitleMain:'אפשרות למפגשים מרחוק',s3TitleSub:'(תנאים נדרשים)',
+      s3TitleMain:'אפשרות למפגשים מרחוק',s3TitleSub:'',
       s3p1:'עבור אנשים המתמודדים עם מגבלות ניידות, קשיי נסיעה, או עבור מי שמתגוררים במרחק - ניתן לקיים את התהליך הטיפולי באופן מלא באונליין.',
       s3p2:'כדי לאפשר מפגשים מרחוק נדרש מחשב עם מצלמה וחיבור אינטרנט תקין ויציב, לצד סביבה שקטה, נעימה ובטוחה שבה ניתן לדבר ולנוע בחופשיות ללא הפרעה.',
       specialNeedsText:'אם קיימות מוגבלויות ראייה, שמיעה, סנסוריות או צרכים מיוחדים אחרים שלא צוינו כאן, נא לכתוב זאת בפנייה על מנת שנוכל להתאים את אופי המפגש והמרחב עבורך.',
@@ -556,7 +552,7 @@ const content = {
       s1p1:'Location & Access: The clinic in Beit Oren is located on the ground floor, with direct access and no stairs. The space is accessible and adapted for wheelchair users.',
       s1p2:'Parking: Close to the building entrance (60–70 m) there is a dedicated parking space for people with disabilities.',
       s1p3:'If you need to arrange specific physical accessibility or accompanying support upon arrival, please contact me in advance.',
-      s3TitleMain:'Remote Sessions',s3TitleSub:'(Required Conditions)',
+      s3TitleMain:'Remote Sessions',s3TitleSub:'',
       s3p1:'For people dealing with mobility limitations, difficulty traveling, or those who live at a distance - the therapeutic process can be conducted fully online.',
       s3p2:'To enable the work, you will need a computer with a camera and a reliable internet connection, as well as a quiet, comfortable, and safe environment.',
       specialNeedsText:'If you have visual or hearing impairments, sensory sensitivities, or other special needs not listed here, please mention this in your inquiry so that we can adapt our sessions to suit you.',
@@ -833,7 +829,7 @@ function renderLegal() {
   const el8 = el('legalInner');
   if (!el8) return;
   el8.dir = t().dir;
-  el8.style.textAlign = isRtl() ? 'right' : 'left';
+  el8.style.textAlign = 'justify';
   el8.innerHTML = '<h2 class="sec-h2" style="text-align:' + (isRtl() ? 'right' : 'left') + '">' + l.title + '</h2>' + l.html;
 }
 
