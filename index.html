@@ -1,17 +1,853 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>דור זיו · פסיכותרפיה גופנית</title>
-    <meta name="description" content="דור זיו - פסיכותרפיה גופנית, ביוסינתזה וטיפול גופני אינטגרטיבי" />
-    <meta property="og:title" content="דור זיו · פסיכותרפיה גופנית" />
-    <meta property="og:description" content="דור זיו - פסיכותרפיה גופנית, ביוסינתזה וטיפול גופני אינטגרטיבי" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>דור זיו | פסיכותרפיה גופנית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg:#EDE8DF; --white:#FAF7F2; --green:#1E2631;
+      --sage:#5A7A5D; --text:#1E2631; --textMid:#232B32;
+      --textLight:#5A6B5C; --border:rgba(22,34,47,0.12);
+      --warm:#B26E63; --navy:#16222F;
+    }
+    body { font-family:'Assistant',sans-serif; background:var(--bg); color:var(--green); }
+    /* NAV */
+    nav { position:fixed; top:0; right:0; left:0; z-index:100; background:rgba(244,241,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:64px; }
+    .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { font-weight:700; font-size:20px; color:var(--green); background:none; border:none; cursor:pointer; font-family:'Assistant',sans-serif; }
+    .nav-links { display:flex; align-items:center; gap:4px; flex:1; margin:0 16px; flex-wrap:nowrap; overflow:hidden; }
+    .nav-btn { font-size:13px; font-weight:400; color:var(--textLight); background:transparent; border:none; border-radius:8px; padding:6px 8px; cursor:pointer; transition:all 0.3s; font-family:'Assistant',sans-serif; white-space:nowrap; }
+    .nav-btn.active { font-weight:600; color:var(--white); background:var(--sage); }
+    .nav-btn.contact-btn { border:2px solid var(--sage); border-radius:50px; padding:6px 14px; color:var(--navy); }
+    .nav-btn.contact-btn.active { background:var(--sage); color:var(--white); }
+    .lang-btn { background:transparent; color:var(--sage); border:1.5px solid var(--sage); border-radius:6px; padding:4px 10px; font-size:13px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; flex-shrink:0; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; min-height:44px; min-width:44px; justify-content:center; align-items:center; flex-shrink:0; }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--green); transition:all 0.3s; }
+    .mobile-contact { display:none; align-items:center; gap:8px; flex:1; justify-content:center; }
+    .mobile-contact-btn { background:var(--warm); color:var(--white); border:none; border-radius:8px; padding:8px 18px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; min-height:40px; }
+    .mobile-menu { display:none; position:fixed; top:64px; right:0; left:0; z-index:99; background:rgba(244,241,236,0.99); border-bottom:1px solid var(--border); flex-direction:column; padding:16px 20px 24px; gap:8px; align-items:center; max-height:calc(100vh - 64px); overflow-y:auto; }
+    .mobile-menu.open { display:flex; }
+    .mobile-btn { font-size:16px; font-weight:500; color:var(--textLight); background:transparent; border:none; border-radius:8px; padding:14px 18px; cursor:pointer; text-align:center; font-family:'Assistant',sans-serif; transition:all 0.2s; width:100%; min-height:48px; display:flex; align-items:center; justify-content:center; }
+    .mobile-btn.active { font-weight:600; color:var(--white); background:var(--sage); }
+    .mobile-btn.contact-btn { border:2px solid var(--sage); border-radius:50px; }
+    .mobile-lang-btn { margin-top:8px; background:transparent; color:var(--sage); border:1.5px solid var(--sage); border-radius:8px; padding:12px 24px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; width:100%; min-height:48px; }
+    /* VIEWS */
+    .view { display:none; padding-top:64px; }
+    .view.active { display:block; }
+    /* QUOTE */
+    .quote-block { max-width:640px; margin:56px auto 0; text-align:center; padding:40px 32px; }
+    .quote-mark { font-size:36px; color:var(--sage); opacity:0.6; margin-bottom:12px; font-family:Georgia,serif; }
+    .quote-text { font-size:16px; color:var(--text); line-height:1.9; font-style:italic; font-weight:600; letter-spacing:0.02em; margin:0 0 14px; font-family:'Assistant',sans-serif; }
+    .quote-author { font-size:13px; color:var(--sage); font-weight:600; letter-spacing:0.04em; font-family:'Assistant',sans-serif; }
+    /* SECTIONS */
+    .section { padding:60px 40px 80px; background:var(--bg); }
+    .section-inner { max-width:700px; margin:0 auto; }
+    .section-inner-md { max-width:800px; margin:0 auto; }
+    .section-inner-lg { max-width:1000px; margin:0 auto; }
+    /* HOME */
+    .hero-bg { background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
+    .hero-grid { position:relative; z-index:1; max-width:900px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
+    .hero-text { flex:1; min-width:260px; }
+    .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
+    .hero-poem { margin:0 0 32px; }
+    .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
+    .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
+    .hero-btns { display:flex; gap:12px; flex-wrap:wrap; align-items:stretch; }
+    .btn-hero-main { background:var(--warm); color:var(--white); border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
+    .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
+    .hero-btns-row { display:flex; gap:12px; }
+    .btn-hero-outline { background:transparent; color:var(--navy); border:2px solid var(--navy); border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
+    .btn-hero-outline:hover { background:rgba(22,34,47,0.06); }
+    .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:1px solid var(--border); }
+    .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-portrait-mobile { display:none; justify-content:center; margin-top:36px; }
+    .hero-portrait-mobile-inner { width:180px; height:230px; border-radius:14px; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:1px solid var(--border); }
+    /* CARDS */
+    .stream-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:48px; }
+    .stream-card { background:var(--white); border-radius:14px; padding:32px 28px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
+    .stream-card h3 { font-size:17px; font-weight:600; color:var(--green); margin:0 0 14px; font-family:'Assistant',sans-serif; text-align:center; }
+    .stream-card p { font-size:14px; color:var(--textMid); line-height:1.85; margin:0; font-family:'Assistant',sans-serif; }
+    /* LOGOS */
+    .logos-row { display:flex; justify-content:center; align-items:center; gap:32px; margin:48px auto 0; flex-wrap:wrap; }
+    .logo-box { width:120px; height:80px; background:var(--white); border-radius:8px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 8px rgba(44,58,46,0.06); }
+    .logo-box img { width:100%; height:100%; object-fit:contain; padding:8px; opacity:0.85; }
+    /* FOR WHO CARDS */
+    .challenge-card { background:var(--white); border-radius:14px; padding:24px 28px; border:1px solid rgba(22,34,47,0.08); margin-bottom:16px; }
+    .challenge-header { display:flex; gap:12px; align-items:flex-start; }
+    .challenge-num { background:var(--sage); color:var(--white); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; font-family:'Assistant',sans-serif; }
+    .challenge-title { font-size:16px; font-weight:700; color:var(--green); margin:0 0 8px; font-family:'Assistant',sans-serif; }
+    .challenge-body { font-size:15px; color:var(--text); line-height:1.9; margin:0 0 10px; font-family:'Assistant',sans-serif; }
+    .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:12px 0 4px; font-family:'Assistant',sans-serif; text-align:center; }
+    .challenge-daily { font-size:15px; color:var(--text); line-height:1.9; font-family:'Assistant',sans-serif; }
+    /* CTA BOX */
+    .cta-box { background:var(--white); border-radius:16px; padding:36px 28px; text-align:center; margin-top:32px; border:1px solid rgba(22,34,47,0.08); }
+    .cta-box p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 24px; font-family:'Assistant',sans-serif; }
+    .btn-cta { background:var(--sage); color:var(--white); border:none; border-radius:10px; padding:14px 36px; font-size:16px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
+    .btn-cta:hover { opacity:0.9; transform:translateY(-1px); }
+    /* FAQ */
+    .faq-item { background:var(--white); border-radius:12px; border-bottom:1px solid rgba(22,34,47,0.08); margin-bottom:12px; overflow:hidden; transition:all 0.4s; }
+    .faq-btn { width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 24px; background:none; border:none; cursor:pointer; gap:16px; font-family:'Assistant',sans-serif; }
+    .faq-q { font-size:16px; font-weight:600; color:#1E2631; line-height:1.5; flex:1; }
+    .faq-icon { color:var(--sage); font-size:22px; font-weight:300; flex-shrink:0; transition:transform 0.3s; display:inline-block; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.7s cubic-bezier(0.25,1,0.5,1); }
+    .faq-item.open .faq-answer { max-height:1000px; }
+    .faq-answer p { padding:0 24px 24px; color:#2D3748; font-size:15px; line-height:1.7; margin:0; font-family:'Assistant',sans-serif; white-space:pre-line; }
+    /* WRITINGS */
+    .writings-bg { position:relative; overflow:hidden; padding:60px 40px 80px; }
+    .writings-photo-bg { position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('https://media.base44.com/images/public/6a098e797170ea9e67f23db4/0af3848d5_WhatsAppImage2026-05-04at112551.jpg'); background-size:cover; background-position:center 40%; filter:saturate(0.55) brightness(0.82) sepia(0.25) contrast(0.9); z-index:0; }
+    .writings-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg,rgba(246,244,240,0.72) 0%,rgba(243,240,233,0.78) 100%); z-index:1; }
+    .writings-content { position:relative; z-index:2; max-width:700px; margin:0 auto; }
+    .writings-nav { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:24px; }
+    .writings-nav-btn { background:none; border:1.5px solid var(--sage); border-radius:50%; width:36px; height:36px; cursor:pointer; color:var(--sage); font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
+    .writings-nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
+    .writings-counter { font-size:13px; color:var(--textLight); font-family:'Assistant',sans-serif; }
+    .writing-card { background:#FDFCFA; border-radius:16px; padding:48px 44px; box-shadow:0 2px 20px rgba(44,58,46,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .writing-mark { font-size:36px; color:var(--sage); opacity:0.4; margin-bottom:12px; font-family:Georgia,serif; line-height:1; }
+    .writing-text { font-size:16px; color:#1A2228; line-height:1.95; margin:0 0 20px; font-style:italic; font-family:'Assistant',sans-serif; white-space:pre-line; font-weight:500; }
+    .writing-author { font-size:13px; color:var(--sage); font-weight:600; margin:0; font-family:'Assistant',sans-serif; }
+    /* CONTACT */
+    .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; align-items:start; max-width:900px; margin:0 auto; }
+    .contact-card { background:var(--white); border-radius:16px; padding:36px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
+    .form-group { margin-bottom:18px; }
+    .form-label { display:block; font-size:13px; color:var(--textLight); margin-bottom:6px; font-weight:600; font-family:'Assistant',sans-serif; }
+    .form-input, .form-textarea { width:100%; padding:11px 14px; border-radius:8px; border:1.5px solid var(--border); font-size:15px; font-family:'Assistant',sans-serif; background:var(--white); color:var(--text); outline:none; transition:border-color 0.2s; box-sizing:border-box; }
+    .form-input:focus, .form-textarea:focus { border-color:var(--sage); }
+    .form-textarea { resize:vertical; }
+    .form-error { font-size:12px; color:#C0392B; margin-top:5px; font-family:'Assistant',sans-serif; display:none; }
+    .form-error.show { display:block; }
+    .btn-submit { background:var(--warm); color:var(--white); border:none; border-radius:10px; padding:14px 0; font-size:15px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; width:100%; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
+    .btn-submit:hover { opacity:0.9; }
+    .btn-submit:disabled { opacity:0.7; cursor:not-allowed; }
+    .success-box { text-align:center; padding:32px 0; display:none; }
+    .success-icon { width:56px; height:56px; background:#E8F5E9; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:24px; }
+    .success-box h3 { font-size:18px; color:var(--green); font-weight:600; margin:0 0 8px; font-family:'Assistant',sans-serif; }
+    .success-box p { font-size:14px; color:var(--textLight); margin:0; font-family:'Assistant',sans-serif; }
+    .contact-methods { display:flex; flex-direction:column; gap:10px; }
+    .contact-method-label { font-size:12px; font-weight:700; color:var(--textLight); margin:0 0 16px; letter-spacing:0.07em; text-transform:uppercase; font-family:'Assistant',sans-serif; }
+    .btn-calendly { background:var(--warm); color:var(--white); border-radius:10px; padding:14px 20px; font-size:15px; font-weight:600; text-decoration:none; font-family:'Assistant',sans-serif; text-align:center; display:block; box-shadow:0 4px 14px rgba(178,110,99,0.25); transition:all 0.4s; }
+    .btn-calendly:hover { opacity:0.9; }
+    .btn-wa { background:transparent; color:var(--green); border:2px solid var(--sage); border-radius:10px; padding:14px 20px; font-size:15px; font-weight:600; text-decoration:none; font-family:'Assistant',sans-serif; text-align:center; display:block; transition:all 0.4s; }
+    .btn-wa:hover { background:rgba(90,122,93,0.08); }
+    .location-label { font-size:12px; font-weight:700; color:var(--textLight); margin:0 0 10px; letter-spacing:0.07em; text-transform:uppercase; font-family:'Assistant',sans-serif; }
+    .location-text { font-size:15px; color:var(--textMid); line-height:1.7; margin:0 0 16px; font-family:'Assistant',sans-serif; }
+    .map-btns { display:flex; gap:10px; }
+    .btn-map { flex:1; border:none; border-radius:10px; padding:12px 8px; font-size:14px; font-weight:600; text-decoration:none; font-family:'Assistant',sans-serif; text-align:center; display:block; color:var(--white); transition:all 0.4s; }
+    .btn-waze { background:#0066CC; }
+    .btn-gmap { background:#0B81F5; }
+    /* ACCESSIBILITY */
+    .accessibility-box { margin-bottom:20px; }
+    .accessibility-h3 { font-size:17px; font-weight:700; color:#1E2631; margin:0 0 10px; font-family:'Assistant',sans-serif; }
+    .accessibility-p { font-size:15px; color:#232B32; line-height:1.55; margin:0 0 8px; font-family:'Assistant',sans-serif; }
+    .accessibility-special { background:#B26E63; border-radius:14px; padding:24px 28px; }
+    .accessibility-special p { font-size:15px; color:#F6F4F0; line-height:1.65; margin:0; font-family:'Assistant',sans-serif; }
+    /* ABOUT */
+    .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
+    /* HEADING */
+    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 32px; font-family:'Assistant',sans-serif; }
+    /* FOOTER */
+    footer { background:#2C3A2E; padding:28px 24px; text-align:center; }
+    footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
+    /* LTR helper */
+    .ltr { direction:ltr; text-align:left; }
+    .rtl { direction:rtl; text-align:right; }
+    /* RESPONSIVE */
+    @media(max-width:700px){
+      .nav-links,.lang-btn{display:none!important;}
+      .hamburger,.mobile-contact{display:flex!important;}
+      .section{padding:60px 24px;}
+      .hero-bg{padding:60px 24px 80px;}
+      .hero-grid{flex-direction:column;}
+      .hero-portrait{display:none;}
+      .hero-portrait-mobile{display:flex!important;}
+      .hero-btns{flex-direction:column;}
+      .hero-btn-full{width:100%;}
+      .hero-btns-row{width:100%;justify-content:center;}
+      .contact-grid{gap:24px;}
+      .writings-bg{padding:60px 24px 80px;}
+    }
+    @media(min-width:701px){
+      .mobile-contact,.hamburger{display:none!important;}
+      .hero-portrait-mobile{display:none!important;}
+    }
+    @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    .spin{animation:spin 0.8s linear infinite;}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-logo" id="navLogo"></button>
+    <div class="nav-links" id="navLinks"></div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"></button>
+    <div class="mobile-contact">
+      <button class="mobile-contact-btn" id="mobileContactBtn" onclick="showView(6)"></button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span id="hb1"></span><span id="hb2"></span><span id="hb3"></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- VIEW 0: HOME -->
+<div class="view active" id="view-0">
+  <div class="hero-bg">
+    <div class="hero-grid" id="heroGrid">
+      <div class="hero-text">
+        <div class="hero-subtitle" id="heroSubtitle"></div>
+        <div class="hero-poem" id="heroPoemWrap">
+          <p id="heroPoem"></p>
+          <p class="poem-author" id="heroPoemAuthor"></p>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-hero-main hero-btn-full" id="heroBtn1" onclick="showView(2)"></button>
+          <div class="hero-btns-row">
+            <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)"></button>
+            <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
+          </div>
+        </div>
+        <div class="hero-portrait-mobile">
+          <div class="hero-portrait-mobile-inner">
+            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" />
+          </div>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" />
+      </div>
+    </div>
+  </div>
+  <footer><p id="footerText0"></p></footer>
+</div>
+
+<!-- VIEW 1: APPROACH -->
+<div class="view" id="view-1">
+  <div class="section">
+    <div class="section-inner-md" id="approachInner"></div>
+  </div>
+  <footer><p id="footerText1"></p></footer>
+</div>
+
+<!-- VIEW 2: FOR WHO -->
+<div class="view" id="view-2">
+  <div class="section">
+    <div class="section-inner-md" id="forWhoInner"></div>
+  </div>
+  <footer><p id="footerText2"></p></footer>
+</div>
+
+<!-- VIEW 3: FAQ -->
+<div class="view" id="view-3">
+  <div class="section">
+    <div class="section-inner" id="faqInner"></div>
+  </div>
+  <footer><p id="footerText3"></p></footer>
+</div>
+
+<!-- VIEW 4: WRITINGS -->
+<div class="view" id="view-4">
+  <div class="writings-bg">
+    <div class="writings-photo-bg"></div>
+    <div class="writings-overlay"></div>
+    <div class="writings-content" id="writingsInner"></div>
+  </div>
+  <footer><p id="footerText4"></p></footer>
+</div>
+
+<!-- VIEW 5: ABOUT -->
+<div class="view" id="view-5">
+  <div class="section">
+    <div class="section-inner" id="aboutInner"></div>
+  </div>
+  <footer><p id="footerText5"></p></footer>
+</div>
+
+<!-- VIEW 6: CONTACT -->
+<div class="view" id="view-6">
+  <div class="section">
+    <div id="contactInner"></div>
+  </div>
+  <footer><p id="footerText6"></p></footer>
+</div>
+
+<!-- VIEW 7: ACCESSIBILITY -->
+<div class="view" id="view-7">
+  <div class="section">
+    <div class="section-inner" id="accessibilityInner"></div>
+  </div>
+  <footer><p id="footerText7"></p></footer>
+</div>
+
+<script>
+// ── CONTENT ──────────────────────────────────────────────────────────────────
+const writings = [
+  { text: `It's still possible to fully understand you have been always been the place where the miracle has happened:\n\nthat you have been since your birth, the bread given and the wine lifted, the change witnessed and the change itself,\nthat you have secretly been, all along, a goodness that can continue to be a goodness to itself.\nIt's still possible in the end\nto realize why you are here\nand why you have endured,\nand why you might have suffered so much, so that in the end, you could witness love, miraculously arriving from nowhere, crossing bravely as it does, out of darkness, from that great and spacious stillness inside you, to the simple, light-filled life of being said.`, author: 'David Whyte, Still Possible', rtl: false },
+  { text: `Stand still. The trees ahead and bushes beside you are not lost.\nWherever you are is called here,\nand you must treat it as a powerful stranger,\nmust ask permission to know it and be known.\nThe forest breathes. Listen.\nIt answers, I have made this place around you.\nIf you leave it, you may come back again, saying Here.\nNo two trees are the same to Raven.\nNo two branches are the same to Wren.\nIf what a tree or a bush does is lost on you,\nYou are surely lost. Stand still. The forest knows\nWhere you are. You must let it find you.`, author: 'David Wagoner, Traveling Light', rtl: false },
+  { text: `"If I'm forced to choose and very frequently I am, I'd rather be whole than be good"`, author: 'Carl Jung', rtl: false },
+  { text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`, author: 'David Whyte, Consolations', rtl: false },
+  { text: `ממש כאילו חייבת להיות בי\nכמות כזו של כאב\nאם לא בנפש הרי בגוף,\nאם לא ברגל הרי בצלע,\nאם לא מתחת ללב הרי בברכיים.\nהחולשה חיה בי בגבורה\nונאבקת על קיומה.\nאולי היא בררה שמעולם לא נוסתה,\nאופן אחר של חיים, שברוב יעילותנו\nהשחתנו והשלכנו הצידה,\nאורח קיום עדין, רגיש,\nאשר בוכה בתוכנו`, author: 'אווה קילפי (תרגום רמי סערי)', rtl: true },
+  { text: `למדי עכשיו, בין העצים והסלעים,\nאיך כל מה שהושלך נשזר למחסה,\nלמדי את הדרך שבה כל מה שהוסתר והושתק\nאט אט קורא בקול.\nמצאי את הסימטריה הפנימית\nאל מול התופעות החיצוניות, למדי את עצמך\nלהיות עצמך, התחילי לקבל בחזרה\nאת כל החלקים ששילחת לדרכם, היי בשורה חדשה,\nהפכי עצמך לדלת שדרכה\nכולם יתקבלו בברכה, אפילו הזרים שבתוכך.`, author: "בתים מתוך ׳מיטתו של קולמן׳ מאת דיוויד וייט", rtl: true },
+  { text: `זהו דבר מפחיד לאהוב,\nאת מה שהמוות יכול לקחת.\nלאהוב, לקוות, לחלום,\nוכן! לאבד.\n\nמדובר בדבר המיועד לטיפשים,\nלאהוב,\nאבל דבר קדוש הוא,\nלאהוב את מה שהמוות יכול לקחת.\n\nמשום שחייך נחיו בתוכי,\nהצחוק שלך רומם אותי,\nהמילה שלך הייתה מתנה עבורי.\n\nלזכור את זה מעורר שמחה כואבת.\nזהו דבר אנושי לאהוב,\nזהו דבר קדוש,\nלאהוב\nאת שהמוות יכול לקחת`, author: "מיוחס לרבי חיים שטרן בספרו ׳בקצה תהום הצער׳ של פרנסיס וולר, בתרגום רוני גרוס.", rtl: true },
+];
+
+const content = {
+  he: {
+    dir:'rtl', name:'דור זיו',
+    navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות'],
+    langToggle:'EN', footerText:'© 2025 דור זיו - פסיכותרפיה גופנית',
+    home:{ subtitle:'פסיכותרפיה גופנית · בית אורן · אונליין', poemLines:'ליבי כל כך קטן,\nהוא כמעט בלתי נראה.\nכיצד יכול אתה לאכסן בתוכו צער כה רב?\n״הבט״, הוא ענה,\n״עיניך קטנות אף יותר,\nובכל זאת - הן מכילות את העולם״', poemAuthor:'- ג׳לאל א-דין רומי', btn1:'למי מתאים הטיפול?', btn2:'אודותיי', btn3:'יצירת קשר' },
+    approach:{
+      title:'גישה שמחברת חיים',
+      intro:'גישת הביוסינתזה היא שיטת טיפול בינלאומית מעולם הפסיכותרפיה הגופנית, שנוסדה בשנות השבעים על ידי החוקר והתרפיסט דייוויד בואדלה. משמעות השם היא ״אינטגרציה של חיים״. נולדה מתוך תפיסה הומניסטית הרואה באדם שלם ומבקשת לחבר בין שלושת ממדי הקיום שלנו: הגופני, הרגשי והרוחני. הגישה זכתה להכרה רשמית מטעם האיגוד האירופי לפסיכותרפיה (EAP) ופועלת תחת הסטנדרטים של האיגוד האירופי לפסיכותרפיה גופנית (EABP). הבסיס של הביוסינתזה משלב ערוצי מחקר וטיפול קלאסיים ומודרניים. היא יונקת מפסיכותרפיית הגוף האנליטית ומשלבת עקרונות של פסיכולוגיית המעמקים, תיאוריית יחסי אובייקט ופסיכולוגיה טרנספרסונלית. בואדלה ביסס את השיטה על תהליכי ההתפתחות הראשוניים ברחם (אמבריולוגיה), מתוך הבנה שניתן לעבוד כמבוגרים על רישומים שהחלו כבר בשלבים מוקדמים אלו והתעצבו לאורך השנים. כיום, מחקרים עדכניים מראים כיצד הסומה (הגוף) משפיע ומושפע ישירות דרך נשימה, תנועה, מגע וקשר מבוסס אמון. ייחודה של הביוסינתזה בקליניקה טמון בהיותה ממוקדת במשאבים, בניית קשר מבוסס אמון ואיתור של הנתיב הפתוח עבור האדם ולא להתאימו אליה, מתוך כבוד וסקרנות למערכת שלו. אנו מניחים שמשברים ואירועי החיים הותירו בגוף דפוסים שהגנו ושמרו בעבר, אך כעת חוסמים את החיוניות והחיוּת. העבודה המשותפת מסייעת למערכת שלך לנוע מתוך המצוקה אל עבר כוחות טבעיים שבך. יחסים שיש בהם אמון וביטחון, המאפשרים לחוות חוויות מתקנות וחדשות מיטיבות, יכולים להביא לשינוי יציב ביומיום - מבלי לפרוץ הגנות באופן אגרסיבי, מבלי לנסות לתקן בצורה מכנית את מה שמרגיש שבור, ומבלי לפתוח פצעים בצורה מכאיבה או מציפה.',
+      streams:[
+        {title:'קרקע ותנועה',body:'ביסוס תחושת קרקע ויציבות גופנית כמקור ישיר לוויסות רגשי ותחושת ביטחון ומקום בעולם. ערוץ זה מתמקד בשחרור דפוסי מתח, נוקשות וקיפאון כרוניים בשרירים ובשלד, שהצטברו במערכת בעקבות דחק מתמשך או אירועי קיצון וטראומה.'},
+        {title:'רגש ונשימה',body:'חיבור למקצב הפנימי, ויסות והכלה של רגשות ותחושות אינטנסיביות באמצעות הנשימה. עבודה זו מעניקה תמיכה עמוקה למערכת העצבים, ומאפשרת מעבר ממצבי הצפה או אדישות אל מרכז פנימי יציב ומווסת.'},
+        {title:'מחשבות ותשומת לב',body:'פיתוח קשב סקרן, חקירה ובהירות מנטלית כלפי המורכבות של התודעה והקשרי העולם שלך. תרגום עדין של תחושות ורגשות למילים בהירות בעלות משמעות, כדי ליצור אינטגרציה שלמה.'},
+      ],
+      quote:{text:'כיצד נוכל לארוג יחד את שלושת הממדים היסודיים של הקיום האנושי: הקיום הגופני שלנו, החוויה הפסיכולוגית, והמהות הרוחנית?',author:'- דיוויד בואדלה, ״זרמי חיים״'}
+    },
+    forWho:{
+      title:'למי מתאימה פסיכותרפיה גופנית?',
+      intro1:'פסיכותרפיה גופנית מציעה חוויה בה מעבר לדיבור נתייחס לכל מה שמתרחש בגוף שמשמש כשותף מלא בתהליך של עיבוד, איזון וויסות. קשר שנבנה בו אמון, קשב למתרחש בגוף ובמרחב ולרצונות העמוקים והמהותיים שנובעים בו, תנועה בכיוונים הפתוחים מאפשרים להתקדם במקום שהמילים לבדן לפעמים אינן יכולות להגיע אליהם.',
+      intro2:'הטיפול מתאים לכל מי שמרגיש שתופעות רגשיות, מנטליות או פיזיות שונות מנהלות אותו בעקבות חוויות קשות ואירועי חיים. בין אם מדובר באירוע חד-פעמי חריף או בהתמודדות מתמשכת; בין אם זה קרה בשלב מוקדם או מאוחר בחיים; ובין אם הסיבה לתחושות האלו ידועה וברורה לך לחלוטין או שנותרה עמומה, מבלבלת ולא מוסברת.',
+      challengesTitle:'האתגרים שאנו פוגשים בקליניקה',
+      challengesSub:'אם הגוף או הנפש אותתו לך שהגיע הזמן לעצור ולברר או להעמיק, אלו האתגרים והנושאים המרכזיים להם ניתן לתת מענה:',
+      dailyLabel:'איך זה יכול להחוות ביום יום?*',
+      disclaimer:'* משתנה מאדם לאדם.',
+      notFound:'אם לא מצאת את הנושא שלך בכתוב מעלה, ניתן לכתוב בפנייה ונברר יחד.',
+      processTitle:'מבנה התהליך וציפיות',
+      process1:'אם זו הפעם הראשונה שבה הגעת למרחב של טיפול, חשוב לדעת שכל תהליך הוא ייחודי, מותאם אליך ואל הצרכים שלך באופן אישי. בהתאם לאתגר או לנושא, הטיפול יכול להיות קצר מועד (חצי שנה) או ארוך טווח.',
+      process2:'הגישה שמנחה אותי מבוססת על בניית קשר טיפולי שיש בו אמון, כבוד וסקרנות. יחד, ולעיתים באומץ, נפעל להשגת המטרות איתן הגעת. המפגש הראשון והבאים אחריו הם הזדמנות להיכרות ראשונית, לשאילת שאלות, ולבדיקה משותפת האם העבודה יחד מרגישה נכונה ומתאימה עבורך.',
+      quote:{text:'אולי זה לא סיפור שמח. אבל הוא אמיתי והוא שלי',author:'- מתוך הספר ירושה רגשית מאת גלית אטלס'},
+      ctaText:'לבחור בטיפול משמעו לעשות צעד לקראת קיום אנושי מלא ונוכח - מתוך הבנה שלהיות אדם בוגר בעולם זהו תהליך שלוקח זמן, הסכמה וחניכה.',
+      ctaBtn:'יצירת קשר',
+      challenges:[
+        {num:'1',title:'לחץ, חרדה ודריכות יתר',body:'כשהמערכת העצבית פועלת בעומס יתר ממושך או נושאת רישום של אירוע סוער מן העבר, החרדה והדריכות מפסיקות להיות רק "מחשבה" והופכות למצב קיומי קבוע המנהל את הגוף.',daily:'חוסר שקט פנימי כרוני, בהלה עוצמתית מרעשים או גירויים קטנים, כתפיים מורמות ונוקשות, נשימה קצרה או שטחית, דפיקות לב מואצות, תחושת איום, הצפה פתאומית או מועקה בבית החזה המקשים על היכולת להרפות, להירגע ולישון.'},
+        {num:'2',title:'דכדוך, נסיגה וחוסר חיוניות',body:'לעיתים, כדי להגן על עצמנו מכאב, פחד או מהצפה שהיו גדולים מכפי שהמערכת יכלה לשאת, הגוף והנפש נוקטים בצמצום ונסיגה, מה שמוביל תחושה של תקיעות והפחתת תחושת חיוניות טבעית.',daily:'תחושת ריקנות, כובד פיזי כהה בגפיים (כאילו נדרש מאמץ עצום רק כדי להזיז את הגוף), נטייה להתנתק מהסביבה או מהגוף ברגעי מתח (דיסוציאציה), קהות רגשית וחושית, חוסר חום פיזי, מבט או יציבה רופסים או עמומים.'},
+        {num:'3',title:'אבל ואובדן',body:'צער עמוק ואובדן של אדם קרוב, מערכת יחסים או שלב משמעותי בחיים, המתרחש בסביבה ובעולם, משנים את המערכת שחיים בה. לעיתים קשה לגעת בתכנים האלו והם מרגישים נפיצים או מסוכנים.',daily:'תחושת ריקנות, כובד פיזי בלב או בגפיים, שאלות קיומיות, חוסר משמעות או ערך, חוויה של זמן קופא בעוד העולם ממשיך לנוע כרגיל, קושי לבכות או להרגיש רגשות.'},
+        {num:'4',title:'קשיים במערכות יחסים, גבולות וקשר',body:'האופן שבו אנחנו מתקשרים עם העולם קשור ישירות לגבולות הגופניים והאנרגטיים שלנו. ליכולת להישאר בקשר עם עצמנו בזמן שבקשר עם אחר, במיוחד אם הגבולות הללו נפרצו או נפגעו בעבר.',daily:'תחושה של "היבלעות", דריכות גבוהה או תחושה של ׳אני נעלם׳ בתוך זוגיות או מול סמכות, קושי פיזי להגיד "לא" (הרגשה של מחנק או כיווץ בגרון), או לחלופין בניית חומות נוקשות ומשוריינות שמובילות לבדידות.'},
+        {num:'5',title:'תופעות רגשיות וגופניות',body:'פעמים רבות הגוף "מדבר" ומנציח תאונות, פציעות או חוויות רגשיות קשות מן העבר דרך סימפטומים, כאבים כרוניים או תחושות מצוקה משתנות, מבלי שיש להם פתרון או הסבר רפואי ברור.',daily:'כאבים שהוגדרו פסיכוסומטיים, תופעות גופניות שלא חולפות, שינוי משמעותי בתחושת העצמי, חוסר תחושה, חוויות של פלאשבקים.'},
+        {num:'6',title:'משברי חיים ומשברים רפואיים',body:'מפגש פתאומי עם חולי, פציעה, או שינוי דרמטי במצב הבריאותי, מייצר לעיתים טראומה רפואית המטלטלת את תחושת השליטה והביטחון הבסיסית בעולם ומציף שאלות קיומיות גדולות.',daily:'חוויה עמוקה של בגידת הגוף, פחד קיומי מהעתיד, חוסר אונים בתפקוד הגוף, קושי ומתח בהסתגלות למגבלות חדשות שנכפו על ידי תאונה, פציעה או מחלה.'},
+        {num:'7',title:'צמיחה, העמקה וחיבור לחיוּת',body:'פנייה לטיפול לא חייבת לנבוע רק מתוך שבר חריף. לעיתים הדחף להתחיל תהליך מגיע מתוך רצון פנימי עמוק להאט את הקצב האוטומטי של החיים, להכיר את עצמך ולחיות חיים מלאים יותר.',daily:'תחושה עמומה של תקיעות ביומיום, "אוטומט" קבוע ותחושת חוסר חיוניות, לצד דחף פנימי שקט המבקש להעמיק, לחקור, ללכת אחר דחף וסקרנות טבעיים. רצון לחיבור לסמכות פנימית ויציבות בעולם.'},
+      ]
+    },
+    faq:{
+      title:'שאלות נפוצות',
+      quote:{text:'ואם אוכל לנסות ולסכם מהי עמדה טיפולית, הרי שחלק ניכר ממנה הוא ללמד אותך להיות מאוד מכבד כלפי המורכבות של המיינד שלך; להבין שהוא לא בדיוק דבר שברור לך מאליו',author:'- תרגום לא מדויק של מילותיו של אלן דה בוטון, סביב השאלה למה בכלל להגיע לטיפול, מתוך ראיון בהשתתפותו'},
+      items:[
+        {q:'מה זה בכלל פסיכותרפיה גופנית?',a:'פסיכותרפיה גופנית (ובפרט גישת הביוסינתזה) יוצאת מנקודת הנחה שהגוף והנפש הם יחידה אחת. לדוגמה, כשמישהו עושה משהו שגורם לנו לכעוס, אנו נוטים לחשוב על כך שהוא מעצבן, לא מצליחים להתמקד בדבר אחר ובמקביל מרגישים חום ומתח גבוה מתפשטים בגוף.\n\nאירועי עבר והווה, משברים ומתחים אינם נשמרים רק כזיכרון מנטלי, אלא מותירים רישום במערכת העצבים, ברקמות השרירים ובדפוסי הנשימה. במפגשים, לצד השיחה והקשר הנבנה, אנו מפנים קשב למה שמתרחש מתחת למילים. דרך נשימה, דמיון, תנועה ולעיתים מגע, אנו מגלים את הנתיב שנגיש וזמין עבורך, ומגיעים למקומות שהדיבור לבדו אינו יכול להגיע אליהם.'},
+        {q:'האם הטיפול מחייב מגע?',a:'חד-משמעית לא. גישת הביוסינתזה מאפשרת שימוש במגע מושכל ומכבד ככלי לעבודה, אך זה אינו תנאי הכרחי להצלחת התהליך, כפי שניתן ללמוד גם מתהליכים טיפוליים שלמים שנעשו אונליין. כל עבודה הכוללת מגע נעשית אך ורק בהסכמה מלאה ומפורשת שלך, ותלויה לחלוטין בהעדפה האישית ובגבולות של שני הצדדים במפגש. אם קיימת רתיעה או העדפה לעבוד ללא מגע כלל, התהליך יתבצע באופן מלא דרך שיחה, קשב, נשימה ותנועה במרחב החדר.'},
+        {q:'איך נראה מפגש טיפולי בקליניקה באופן מעשי?',a:'למפגש אין פרוטוקול נוקשה. בשיח ובהקשבה אפשר לגשת לנושאים איתם הגעת באותו היום, או להמשיך ולהעמיק בנושא שנגענו בו לאורך זמן. מתוך השיח ודרך גישת הביוסינתזה – נברר, נחקור, נשאל, נבדוק, נתנסה ונגלה מה מבקש את תשומת הלב שלך.\n\nבהתאם לכך, נפגוש יחד שאלות פתוחות, פחדים עתיקים, גילויים מרגשים, דפוסים שמשתחזרים, כאבים שעוד כואבים וכאלו שהחלימו, לצד תנועות מעניינות וחדשות. אנו מתקדמים בקצב שמתאים למערכת שלך, מבלי לייצר הצפה או דחיפה מעבר לגבולות היכולת שלך. אנחנו לא פורצים הגנות.'},
+        {q:'כמה זמן נמשך הטיפול ומה ההבדל בין תהליך קצר לתהליך ארוך?',a:'משך התהליך נגזר ישירות מהבקשה ומהמטרות איתן הגעת, ואנו מתאמים ציפיות סביבו כבר במפגשים הראשונים:\n\nתהליך ממוקד וקצר מועד (עד חצי שנה): מתאים בדרך כלל סביב התמודדות עם משבר נקודתי, שינוי פתאומי או צומת חיים ספציפי. המיקוד הוא ברכישת כלים סומטיים מעשיים לוויסות, ביסוס עוגנים והחזרת תחושת קרקוע וביטחון.\n\nתהליך מעמיק וארוך טווח (שנה ומעלה): מתאים כאשר הבקשה נוגעת בדפוסים כרוניים מתמשכים, אירועים דרמטיים שהותירו חותם משמעותי, טראומה מורכבת, קשיים עמוקים במערכות יחסים, או רצון עמוק בחקירה עצמית.\n\nהתהליך מסתיים לבקשתך וכשיש תחושת מוכנות, ותמיד מתוך חשיבה ושיח משותפים.'},
+        {q:'מה קורה במפגש הראשון?',a:'המפגש הראשון מוקדש להיכרות ראשונית ולהתחלת בניית מרחב שמור. זוהי הזמנה עבורך להביא את הסיפור שלך, להעלות שאלות וחששות ולשתף באתגרים שהובילו אותך לפנות לטיפול. עבורי, זו הזדמנות להיחשף ולהקשיב לעולם שלך, להציע הצעות ולבחון יחד איתך האם הגישה הטיפולית שלי יכולה להתאים לך.\n\nאין שום מחויבות להמשך תהליך בעצם ההגעה למפגש זה, אך אני מציע שנתייחס לארבעת המפגשים הראשונים כמהלך המיועד ליצירת קשר, ביסוס אמון ובדיקה הדדית.'},
+        {q:'מהי גישת ביוסינתזה (Biosynthesis) והאם היא מוכרת מבחינה מקצועית?',a:'ביוסינתזה היא גישה ותיקה ומוכרת של פסיכותרפיה גופנית-אנליטית, שנוסדה לפני למעלה מ-45 שנים על ידי דייוויד בואדלה. משמעות השם היא אינטגרציה של חיים והיא מבוססת על יצירת חיבור מחודש ואיזון בין שלושת ממדי הקיום היסודיים שלנו: הקיום הגופני, החוויה הפסיכולוגית והמהות הרוחנית.\n\nהגישה נשענת על מחקרים מבוססי מדע בתחומי הנוירוביולוגיה והאמבריולוגיה (התפתחות העובר). היא מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) והאיגוד האירופי לפסיכותרפיה גופנית (EABP). למדתי בישראל בביה״ס לפסיכותרפיה בגישת הביוסינתזה, והתעודה שלי הוסמכה מטעם המכון הבינלאומי לביוסינתזה בשוויץ (IIBS). העבודה הקלינית שלי מתבצעת תחת הדרכה מקצועית קבועה.'},
+        {q:'ראיתי שאתה עוסק גם בטקסי אבל קהילתיים. איך זה קשור לקליניקה הפרטנית?',a:'אבל וצער אינם פתולוגיה, מחלה או בעיה שיש לתקן או להעלים. הם חלק בלתי נפרד מהיותנו בעולם כבני אנוש מתבגרים, צומחים ונחנכים.\n\nהזיקה שלי לעולמות האלו מרחיבה את המבט בתוך החדר: התהליך הטיפולי מחובר תמיד להקשרים הרחבים של החיים - מההיסטוריה המשפחתית, מהתרבות וממערכות היחסים שעיצבו אותך. החיבור בין הטכנולוגיה הטקסית לבין העבודה הסומטית מאפשר לנו להעניק לצער וכאב צורה בעולם, כפי שעשו בני אדם מאז ומתמיד.'},
+      ]
+    },
+    writings:{title:'השראה עונתית שנאספה או נכתבה'},
+    about:{
+      title:'אודותיי',
+      paragraphs:[
+        'שלום, אני דור. השם שבחרתי לקליניקה, להיות אדם, נולד מתוך התבוננות ארוכה על כך שלהיות אדם בוגר בעולם הזה הוא תהליך מתמשך, הלוקח זמן, דורש חניכה ומכיל בתוכו מגוון רחב של חוויות. המהלך המקצועי שלי בא לעולם מתוך מחקר ועיבוד אישי ומקצועי עמוק שהחל לפני כ-11 שנים, והוביל אותי לחקור דרכים בהן הגוף והנפש נפגשים וקשורים. לאחר שירות צבאי משמעותי יצאתי למסע חקירה, גילוי והתנסות.',
+        'מאז שנת 2017 אני מלווה בקליניקה מבוגרים בתהליכי שינוי, התמודדות וצמיחה מתוך משבר באופן פרטני, פנים אל פנים ואונליין. דרכי המקצועית החלה דרך עבודה עם יוגה טיפולית (בהמשך שימשתי גם כעוזר הוראה בהכשרת מטפלים ומורים בתחום). התמחיתי ועבדתי בשיקום פגיעות ופציעות, כאבים כרוניים, מחלות אוטואימוניות, וויסות רגשי וגופני.',
+        'החל משנת 2022 אני מטפל כפסיכותרפיסט גופני בגישת ביוסינתזה, מוסמך מטעם המכון הבינלאומי בשוויץ (IIBS). החיבור שלי לביוסינתזה נבע מכך שהיא מתאימה את עצמה לאדם, ולא להפך. היא מבוססת על יצירת איזון מחדש בין חלקים שונים בך, ומאפשרת לנוע מתוך מצוקה אל עבר משאבים טבעיים וחיוניוּת. כיום אני חלק מסגל ההוראה כעוזר הוראה בבית הספר לביוסינתזה בישראל ולאחרונה התחלתי את הכשרת המדריכים (Supervisors) בגישה. התהליך הטיפולי איתי בקליניקה הפרטית מתנהל תחת הדרכה מקצועית קבועה, במסגרת של תהליכים מעמיקים ארוכי טווח.',
+        'העבודה שלי בחדר הטיפולים מחוברת להקשרים הרחבים של החיים. בטיפול אנו לוקחים בחשבון את הסיפור האישי והקשרי חייך, מתוך הבנה שאנחנו תמיד קשורים לאנשים, לסיפורים ולמקומות שעיצבו אותנו, גם אם אנחנו או הם כבר לא שם. תפיסה זו מלווה אותי גם באופן אישי: בעשור האחרון אני חוקר ובונה את הסיפור המשפחתי של אבותיי שמגיע ממזרח אירופה באמצעות איתור מסמכים בארכיבים ובעבודה דרך קונסטלציה משפחתית.',
+        'המבט הרחב והזיקה הזו אל השורשים מהם צומחים אנשים הובילו אותי אל עולמות התוכן של טקסי אבל, חיים ומוות. הוסמכתי כמנחה בתוכנית אבל כשער לחיים בהשראת עבודתו של פרנסיס וולר (Francis Weller), ואני שואב השראה קבועה ממשנתם של סטיבן ג׳נקינסון (Stephen Jenkinson) ואלחנדרו חודורובסקי (Alejandro Jodorowski). כיום אני פועל כאיש צוות בטקסי אבל קהילתיים, מתוך הבנה שצער ואבל אינם פתולוגיה שיש לתקן, אלא חלק בלתי נפרד מתהליך של חניכה והבשלה אנושית. בעיניי, טקסים הם טכנולוגיות אנושיות הכרחיות לזמננו.',
+        'לאורך השנים יזמתי והקמתי מיזמים המשלבים גוף וקהילה: הקמתי את זוּזוּ – מרחב לאירועי תנועה אלטרנטיביים המאפשר ביטוי אישי חופשי, והייתי מייסד-שותף של Bodyfulness (מיזם Wellness לארגונים).',
+        'מחוץ לקליניקה, החקירה העצמית שלי מלווה בחיבור יומיומי לאדמה וליצירה: אני לומד על חיבור לאדמה דרך לימודי חקלאות יצרנית בקנה מידה קטן, מתסיס ירקות ומשמר מזון, חוקר תנועה ממוקדת ברקמת הפאשיה ומוצא עוגן והשראה במוזיקה, שירה ובשפת האחרוּת המופלאה - בה ולידה אנחנו חיים.',
+        'אל המפגשים הטיפוליים אני מביא איתי איכויות של הקשבה עמוקה, נוכחות, סקרנות, הבחנה והומור. הכוונה המרכזית שמנחה אותי היא לבנות יחד איתך יחסים טיפוליים שיש בהם מפגש אנושי בגובה העיניים, אמון הדדי, כבוד, וקצב מדויק שמתאים לך ולהקשרים הייחודיים של חייך.',
+      ],
+      quote:{text:'חשבתי שאני רוצה להיות משורר, אבל בעומק ליבי - רציתי פשוט להיות שיר.',author:'- חיימה גיל דה בידמה'}
+    },
+    contact:{
+      title:'דרכים ליצירת קשר',
+      nameLbl:'שם',namePh:'השם שלך',
+      phoneLbl:'טלפון',phonePh:'מספר הטלפון שלך',
+      emailLbl:'אימייל',emailPh:'כתובת המייל שלך',
+      msgLbl:'הודעה',msgPh:'במה אוכל לעזור?',
+      sending:'שולח...',send:'שליחה',
+      successTitle:'ההודעה נשלחה, תודה!',successSub:'אחזור אליך בהקדם.',
+      errRequired:'שדה חובה',errPhone:'מספר טלפון לא תקין',errEmail:'כתובת אימייל לא תקינה',
+      contactMethodsLabel:'דרכים נוספות לקשר',
+      calendlyBtn:'📅 לבחירת מועד ביומן הדיגיטלי',
+      waBtn:'💬 לשליחת הודעה בווטסאפ',
+      locationLabel:'פרטי מיקום',
+      locationText:'הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.',
+    },
+    accessibility:{
+      title:'נגישות במרחב הטיפולי',
+      s1Title:'גישה פיזית',
+      s1p1:'מיקום וגישה: הקליניקה בבית אורן ממוקמת בקומת קרקע, עם גישה ישירה וללא מדרגות. המרחב נגיש ומותאם למשתמשים בכיסאות גלגלים.',
+      s1p2:'חניה: בקרבת כניסת המבנה (60-70 מ) קיימת חניה ייעודית לאנשים עם מוגבלות.',
+      s1p3:'אם יש לך צורך בהסדרת הנגשה פיזית ספציפית או בליווי בעת ההגעה, אבקש ליצור איתי קשר מראש.',
+      s3TitleMain:'אפשרות למפגשים מרחוק',s3TitleSub:'(תנאים נדרשים)',
+      s3p1:'עבור אנשים המתמודדים עם מגבלות ניידות, קשיי נסיעה, או עבור מי שמתגוררים במרחק - ניתן לקיים את התהליך הטיפולי באופן מלא באונליין.',
+      s3p2:'כדי לאפשר את העבודה, יש צורך במחשב עם מצלמה וחיבור אינטרנט תקין ויציב, לצד סביבה שקטה, נעימה ובטוחה.',
+      specialNeedsText:'אם קיימות מוגבלויות ראייה, שמיעה, סנסוריות או צרכים מיוחדים אחרים שלא צוינו כאן, נא לכתוב זאת בפנייה על מנת שנוכל להתאים את אופי המפגש והמרחב עבורך.',
+    }
+  },
+  en: {
+    dir:'ltr', name:'Dor Ziv',
+    navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility'],
+    langToggle:'עב', footerText:'© 2025 Dor Ziv - Somatic Psychotherapy',
+    home:{ subtitle:'Somatic Psychotherapy · Beit Oren · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
+    approach:{
+      title:'A Perspective That Connects Life',
+      intro:'Biosynthesis is an internationally recognized somatic psychotherapy method, founded in the 1970s by researcher and therapist David Boadella. The name means integration of life. It emerged from a humanistic vision of the human being as whole, seeking to reconnect the three dimensions of our existence: the physical, the emotional, and the spiritual. The approach has been officially recognized by the European Association for Psychotherapy (EAP) and operates under the standards of the European Association for Body Psychotherapy (EABP). The foundations of Biosynthesis draw on both classical and current streams of research and practice. It is rooted in analytic body psychotherapy and integrates principles from depth psychology, object relations theory, and transpersonal psychology. Boadella grounded the method in early developmental processes in the womb (embryology), from the understanding that as adults we can work with imprints that began in these early stages and shaped us across the years. Today, current research shows how the soma (the body) influences and is influenced directly through breath, movement, touch, and trust-based relationship. What makes Biosynthesis distinctive in clinical practice is its resource-focused orientation: building a trust-based relationship and finding the open pathway for the person - rather than fitting them to the method - with respect and curiosity toward their system. We hold that crises and life events have left patterns in the body that once protected and preserved, but now block vitality and aliveness. The shared work helps your system move from distress toward the natural strengths within you. Relationships that hold trust and safety, enabling new and corrective experiences, can bring about stable change in daily life - without breaking through defenses aggressively, without trying to mechanically fix what feels broken, and without opening wounds in a painful or overwhelming way.',
+      streams:[
+        {title:'Ground & Movement',body:'Establishing a sense of physical grounding and stability as a direct source of emotional regulation and a felt sense of safety in the world. This channel focuses on releasing chronic patterns of tension, rigidity, and freeze held in the muscles and skeleton - accumulated through prolonged stress or extreme events and trauma - and restoring the body\'s natural freedom of movement and vitality.'},
+        {title:'Emotion & Breath',body:'Connecting with the internal rhythm, regulating and containing intense emotions and sensations through the breath. This work offers deep support to the nervous system, enabling a transition from states of flooding or numbness toward a stable, regulated inner center.'},
+        {title:'Thought & Attention',body:'Developing curious attention, inquiry, and mental clarity toward the complexity of consciousness and your relational world. A gentle translation of sensations and emotions into clear, meaningful words - to create wholeness, to bridge head and body, and to allow access to your authentic, unique essence.'},
+      ],
+      quote:{text:'How can we weave together the three fundamental dimensions of human existence: our physical being, psychological experience, and spiritual essence?',author:'- David Boadella, Lifestreams'}
+    },
+    forWho:{
+      title:'Who Is Somatic Psychotherapy For?',
+      intro1:'Somatic psychotherapy offers an experience in which, beyond words, we attend to everything arising in the body - as a full partner in the process of processing, balancing, and regulating.',
+      intro2:'Therapy is suited to anyone who feels that various emotional, mental, or physical phenomena are running their life in the wake of difficult experiences and life events.',
+      challengesTitle:'Challenges We Meet in the Clinic',
+      challengesSub:'If your body or mind have signaled that it is time to pause and explore - these are the main challenges we can address:',
+      dailyLabel:'How can this be experienced day to day?*',
+      disclaimer:'* Varies from person to person.',
+      notFound:'If you did not find your topic above, feel free to write and we can explore it together.',
+      processTitle:'Process Structure & Expectations',
+      process1:'If this is your first time entering the space of therapy, it is important to know that every process is unique and personally tailored to you and your needs.',
+      process2:'The approach that guides me is built on creating a therapeutic relationship characterized by trust, respect, and curiosity.',
+      quote:{text:'Maybe it\'s not a happy story. But it\'s real and it\'s mine.',author:'- from Emotional Inheritance by Galit Atlas'},
+      ctaText:'Choosing therapy means taking a step toward a full and present human existence.',
+      ctaBtn:'Get in Touch',
+      challenges:[
+        {num:'1',title:'Stress, Anxiety & Hypervigilance',body:'When the nervous system operates under prolonged overload or carries the imprint of a turbulent past event, anxiety stops being merely a "thought" and becomes a permanent existential state.',daily:'Chronic inner restlessness, intense startle responses, raised and rigid shoulders, short or shallow breath, racing heartbeat, sudden flooding that makes it hard to relax or sleep.'},
+        {num:'2',title:'Sadness, Withdrawal & Loss of Vitality',body:'Sometimes, to protect ourselves from pain or flooding that was more than the system could bear, body and mind contract and withdraw - leading to a sense of being stuck.',daily:'A feeling of emptiness, dark physical heaviness in the limbs, a tendency to disconnect from surroundings under stress (dissociation), emotional and sensory numbness.'},
+        {num:'3',title:'Grief & Loss',body:'Deep grief and the loss of a loved one, a relationship, or a meaningful life phase alters the system we live within. Sometimes it is difficult to touch these contents.',daily:'A sense of emptiness, physical heaviness in the chest or limbs, existential questions, difficulty crying or feeling emotions.'},
+        {num:'4',title:'Relational Difficulties, Boundaries & Connection',body:'The way we connect with the world is directly tied to our physical and energetic boundaries - our capacity to remain in contact with ourselves while in contact with another.',daily:'A feeling of being "swallowed," high vigilance in relationships, physical difficulty saying "no," or building rigid walls that lead to isolation.'},
+        {num:'5',title:'Emotional & Physical Symptoms',body:'The body often "speaks," perpetuating difficult experiences from the past through symptoms, chronic pain, or shifting sensations of distress - without a clear medical explanation.',daily:'Pains labeled psychosomatic, persistent physical symptoms, a significant shift in self-perception, numbness, flashback experiences.'},
+        {num:'6',title:'Life Crises & Medical Crises',body:'A sudden encounter with illness, injury, or a dramatic change in health status can create a medical trauma that shakes the basic sense of control and safety in the world.',daily:'A deep experience of bodily betrayal, existential fear about the future, difficulty adjusting to new limitations imposed by accident, injury, or illness.'},
+        {num:'7',title:'Growth, Depth & Connection to Aliveness',body:'Seeking therapy does not have to arise only from acute crisis. Sometimes the impulse comes from a deep inner desire to slow the automatic pace of life and live more fully.',daily:'A vague sense of being stuck in daily life, a constant "autopilot," alongside a quiet inner drive seeking to deepen and explore.'},
+      ]
+    },
+    faq:{
+      title:'Frequently Asked Questions',
+      quote:{text:'If I were to try to summarize what a therapeutic stance is, a large part of it is teaching you to be deeply respectful of the complexity of your own mind; to understand that it is not exactly something that is obvious to you.',author:'- paraphrased from Alain de Botton, on why one might seek therapy, from an interview'},
+      items:[
+        {q:'What exactly is somatic psychotherapy?',a:'Somatic psychotherapy (and in particular the Biosynthesis approach) begins from the premise that body and mind are one. For example, when someone does something that makes us angry, we tend to think about how irritating they are, find it hard to focus on anything else, and simultaneously feel heat and high tension spreading through the body.\n\nPast and present events, crises, and tensions are not stored only as mental memory - they leave an imprint on the nervous system, in muscle tissue, and in breathing patterns. In sessions, alongside conversation and the relationship that builds, we turn attention toward what is happening beneath the words. Through breath, imagination, movement, and sometimes touch, we discover the pathway that is accessible and available for you, reaching places that speech alone cannot.'},
+        {q:'Does therapy require touch?',a:'Absolutely not. The Biosynthesis approach allows for the use of conscious and respectful touch as a working tool, but this is not a necessary condition for a successful process - as can be seen from complete therapeutic processes conducted entirely online. Any work involving touch takes place only with your full and explicit consent, and depends entirely on personal preference and the boundaries of both parties in the encounter. If there is reluctance or a preference to work without touch at all, the process will unfold fully through conversation, attentiveness, breath, and movement in the room.'},
+        {q:'What does a therapy session look like in practice?',a:'Sessions have no rigid protocol. Through dialogue and deep listening, we can approach the topics you arrived with that day, or continue deepening a theme we have been exploring over time. Through the Biosynthesis approach, we will clarify, inquire, question, check, experiment, and discover what is calling for attention.\n\nAccordingly, we will meet together with open questions, ancient fears, moving revelations, recurring patterns, pains that still hurt and those that have healed - alongside interesting and new movements. We move at the pace that suits your system, without creating overwhelm or pushing beyond your capacity. We do not break through defenses.'},
+        {q:'How long does therapy last, and what is the difference between a short and long process?',a:'The duration of the process flows directly from the request and the goals you arrived with, and we align expectations around this from the very first sessions:\n\nFocused, short-term process (up to six months): Generally suited to navigating a specific crisis, a sudden change, or a particular life crossroads. The focus is on acquiring practical somatic tools for regulation, establishing anchors, and restoring a sense of groundedness and safety.\n\nIn-depth, long-term process (one year or more): Suited when the request touches on chronic ongoing patterns, dramatic events that left a significant mark, complex trauma, deep difficulties in relationships, or a profound desire for self-inquiry.\n\nThe process ends at your request and when there is a sense of readiness - always through shared reflection and conversation.'},
+        {q:'What happens in the first session?',a:'The first session is devoted to initial acquaintance and beginning to build a safe space. It is an invitation for you to bring your story, raise questions and concerns, and share the challenges that led you to seek therapy. For me, it is an opportunity to be present and listen to your world, offer reflections, and explore together whether my therapeutic approach might suit you.\n\nThere is no commitment to continuing beyond this session simply by attending, but I suggest we regard the first four sessions as a phase designed for making contact, building trust, and mutual exploration.'},
+        {q:'What is Biosynthesis and is it professionally recognized?',a:'Biosynthesis is a well-established and recognized approach to somatic-analytic psychotherapy, founded over 45 years ago by David Boadella. The name means integration of life, and it is grounded in creating renewed connection and balance among the three fundamental dimensions of our existence: physical being, psychological experience, and spiritual essence.\n\nThe approach is based on scientifically grounded research in neurobiology and embryology. It is officially recognized by the European Association for Psychotherapy (EAP) and the European Association for Body Psychotherapy (EABP). I trained in Israel at the School for Psychotherapy in the Biosynthesis Approach, and my certification was accredited by the International Institute for Biosynthesis in Switzerland (IIBS). My clinical work is conducted under ongoing professional supervision.'},
+        {q:'I noticed you also work with community grief rituals. How does that connect to individual therapy?',a:'Grief and sorrow are not pathology, illness, or a problem to be fixed or erased. They are an inseparable part of being in the world as maturing, growing, initiated human beings.\n\nMy connection to these worlds expands the lens inside the room: the therapeutic process is always connected to the broader contexts of life - from family history, culture, and the relationships that shaped you. The connection between ritual technology and somatic work allows us to give grief and pain a form in the world, as humans have always done.'},
+      ]
+    },
+    writings:{title:'Seasonal Inspiration - Gathered or Written'},
+    about:{
+      title:'About Me',
+      paragraphs:[
+        'Hello, I am Dor. The name I chose for the clinic, To Be Human, was born from a long contemplation of the fact that being a grown adult in this world is an ongoing process - one that takes time, requires initiation, and contains within it a wide range of experiences. My professional path came into being through deep personal and professional inquiry and processing that began about 11 years ago, and led me to explore the ways in which body and mind meet and are interconnected. Following meaningful military service, I set out on a journey of exploration, discovery, and experience.',
+        'Since 2017, I have been accompanying adults in the clinic through processes of change, coping, and growth from crisis - individually, face to face, and online. My professional path began through work with therapeutic yoga (I later also served as a teaching assistant in practitioner and teacher training in this field). I specialized in and worked with rehabilitation from injuries and trauma, chronic pain, autoimmune conditions, and emotional and somatic regulation.',
+        'From 2022, I have been working as a somatic psychotherapist in the Biosynthesis approach, certified by the International Institute in Switzerland (IIBS). My connection to Biosynthesis arose from the fact that it adapts itself to the person, not the other way around. It is grounded in re-establishing balance among different parts of you, and allows movement from distress toward natural resources and vitality. I am currently part of the teaching faculty as a teaching assistant at the School for Biosynthesis in Israel, and have recently begun training as a Supervisor within the approach. My therapeutic process in the private clinic is conducted under ongoing professional supervision, within the frame of deep, long-term processes.',
+        'My work in the therapy room is connected to the broader contexts of life. In therapy we take into account your personal story and the relational contexts of your life, from the understanding that we are always connected to the people, stories, and places that shaped us - even if we, or they, are no longer there. This understanding also accompanies me personally: over the past decade I have been researching and reconstructing the family story of my ancestors, who came from Eastern Europe, through locating documents in archives and working with family constellation.',
+        'The wide-angle view and this kinship with the roots from which people grow led me into the world of grief rituals, life, and death. I was ordained as a facilitator in the Grief as Gateway to Life program, inspired by the work of Francis Weller, and I draw ongoing inspiration from the teachings of Stephen Jenkinson and Alejandro Jodorowsky. I currently serve as a team member in community grief rituals, from the understanding that grief and sorrow are not pathology to be fixed, but an inseparable part of the process of human initiation and maturation. In my view, rituals are necessary human technologies for our time.',
+        'Over the years I have initiated and built projects that integrate body and community: I established Zuzu - a space for alternative movement events that allows free personal expression - and was a co-founder of Bodyfulness (a wellness initiative for organizations).',
+        'Outside the clinic, my own inquiry is accompanied by daily connection to the earth and to creation: I am learning about connection to the land through small-scale productive agriculture, fermenting vegetables and preserving food, exploring movement focused on fascial tissue, and finding anchor and inspiration in music, song, and the wonderful language of otherness - in which and through which we live.',
+        'To our therapeutic encounters I bring qualities of deep listening, presence, curiosity, discernment, and humor. The central intention that guides me is to build together with you a therapeutic relationship that holds human meeting at eye level, mutual trust, respect, and a precise pace that fits you and the unique contexts of your life.',
+      ],
+      quote:{text:'I thought I wanted to be a poet, but deep in my heart - I simply wanted to be a poem.',author:'- Jaime Gil de Biedma'}
+    },
+    contact:{
+      title:'Ways to Get in Touch',
+      nameLbl:'Name',namePh:'Your name',
+      phoneLbl:'Phone',phonePh:'Your phone number',
+      emailLbl:'Email',emailPh:'Your email address',
+      msgLbl:'Message',msgPh:'How can I help?',
+      sending:'Sending...',send:'Send',
+      successTitle:'Message sent, thank you!',successSub:'I will get back to you soon.',
+      errRequired:'This field is required',errPhone:'Invalid phone number',errEmail:'Invalid email address',
+      contactMethodsLabel:'Other ways to connect',
+      calendlyBtn:'📅 Schedule a time in my digital calendar',
+      waBtn:'💬 Send a WhatsApp message',
+      locationLabel:'Location',
+      locationText:'The clinic is located in Beit Oren. Upon arrival for the first session, I will guide you on where to park and exactly where we meet.',
+    },
+    accessibility:{
+      title:'Accessibility in the Therapeutic Space',
+      s1Title:'Physical Access',
+      s1p1:'Location & Access: The clinic in Beit Oren is located on the ground floor, with direct access and no stairs. The space is accessible and adapted for wheelchair users.',
+      s1p2:'Parking: Close to the building entrance (60–70 m) there is a dedicated parking space for people with disabilities.',
+      s1p3:'If you need to arrange specific physical accessibility or accompanying support upon arrival, please contact me in advance.',
+      s3TitleMain:'Remote Sessions',s3TitleSub:'(Required Conditions)',
+      s3p1:'For people dealing with mobility limitations, difficulty traveling, or those who live at a distance - the therapeutic process can be conducted fully online.',
+      s3p2:'To enable the work, you will need a computer with a camera and a reliable internet connection, as well as a quiet, comfortable, and safe environment.',
+      specialNeedsText:'If you have visual or hearing impairments, sensory sensitivities, or other special needs not listed here, please mention this in your inquiry so that we can adapt our sessions to suit you.',
+    }
+  }
+};
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let currentView = 0;
+let lang = 'he';
+let writingIndex = 0;
+let menuOpen = false;
+let formErrors = {};
+let formTouched = {};
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function t() { return content[lang]; }
+function isRtl() { return t().dir === 'rtl'; }
+
+function el(id) { return document.getElementById(id); }
+
+function makeQuote(text, author, dir) {
+  const d = dir || t().dir;
+  return `<div class="quote-block">
+    <div class="quote-mark">"</div>
+    <p class="quote-text" style="direction:${d}">${text}</p>
+    ${author ? `<p class="quote-author">${author}</p>` : ''}
+  </div>`;
+}
+
+// ── NAV ──────────────────────────────────────────────────────────────────────
+function renderNav() {
+  const T = t();
+  document.documentElement.lang = lang;
+  document.documentElement.dir = T.dir;
+
+  el('navLogo').textContent = T.name;
+  el('langBtn').textContent = T.langToggle;
+  el('mobileContactBtn').textContent = T.navItems[6];
+
+  // desktop links
+  el('navLinks').innerHTML = T.navItems.map((v,i) => {
+    const isContact = i === 6;
+    const active = currentView === i;
+    return `<button class="nav-btn${active?' active':''}${isContact?' contact-btn':''}" onclick="showView(${i})">${v}</button>`;
+  }).join('');
+
+  // mobile menu
+  el('mobileMenu').innerHTML = T.navItems.map((v,i) => {
+    const isContact = i === 6;
+    const active = currentView === i;
+    return `<button class="mobile-btn${active?' active':''}${isContact?' contact-btn':''}" onclick="showView(${i})">${v}</button>`;
+  }).join('') +
+  `<button class="mobile-lang-btn" onclick="toggleLang()">${T.langToggle} - ${lang==='he'?'Switch to English':'עבור לעברית'}</button>`;
+
+  // footer texts
+  for(let i=0;i<8;i++) { const f=el(`footerText${i}`); if(f) f.textContent = T.footerText; }
+}
+
+// ── VIEWS ────────────────────────────────────────────────────────────────────
+function renderHome() {
+  const h = t().home;
+  el('heroGrid').dir = t().dir;
+  el('heroSubtitle').textContent = h.subtitle;
+  const poemEl = el('heroPoem');
+  poemEl.style.direction = t().dir;
+  poemEl.style.textAlign = isRtl() ? 'right' : 'left';
+  poemEl.textContent = h.poemLines;
+  el('heroPoemAuthor').textContent = h.poemAuthor;
+  el('heroBtn1').textContent = h.btn1;
+  el('heroBtn2').textContent = h.btn2;
+  el('heroBtn3').textContent = h.btn3;
+  el('heroPoemWrap').style[isRtl()?'borderRight':'borderLeft'] = '3px solid var(--sage)';
+  el('heroPoemWrap').style[isRtl()?'borderLeft':'borderRight'] = 'none';
+  el('heroPoemWrap').style[isRtl()?'paddingRight':'paddingLeft'] = '18px';
+  el('heroPoemWrap').style[isRtl()?'paddingLeft':'paddingRight'] = '0';
+}
+
+function renderApproach() {
+  const a = t().approach;
+  el('approachInner').innerHTML = `
+    <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${a.title}</h2>
+    <p style="font-size:15px;color:var(--textMid);line-height:1.9;margin:0 0 48px;font-family:'Assistant',sans-serif;white-space:pre-line;text-align:justify">${a.intro}</p>
+    <div class="stream-grid">${a.streams.map(s=>`<div class="stream-card"><h3>${s.title}</h3><p>${s.body}</p></div>`).join('')}</div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:32px;margin:48px auto 0;flex-wrap:wrap">
+      <div class="logo-box"><img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/75279c92f_logo-eap.png" alt="EAP"/></div>
+      <div class="logo-box"><img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/7cf2b25bb_----e1718642093662.png" alt="IFB"/></div>
+    </div>
+    ${makeQuote(a.quote.text, a.quote.author)}
+  `;
+  el('approachInner').dir = t().dir;
+}
+
+function renderForWho() {
+  const fw = t().forWho;
+  const pStyle = `font-size:15px;color:var(--text);line-height:1.9;margin:0;font-family:'Assistant',sans-serif;text-align:justify`;
+  el('forWhoInner').dir = t().dir;
+  el('forWhoInner').innerHTML = `
+    <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${fw.title}</h2>
+    <p style="${pStyle};margin-bottom:16px">${fw.intro1}</p>
+    <p style="${pStyle};margin-bottom:40px">${fw.intro2}</p>
+    <h3 style="font-size:18px;font-weight:700;color:var(--green);margin:0 0 8px;text-align:center;font-family:'Assistant',sans-serif">${fw.challengesTitle}</h3>
+    <p style="font-size:15px;font-weight:700;color:#1E2631;margin-bottom:24px;text-align:center;font-family:'Assistant',sans-serif">${fw.challengesSub}</p>
+    ${fw.challenges.map(c=>`
+      <div class="challenge-card">
+        <div class="challenge-header">
+          <span class="challenge-num">${c.num}</span>
+          <div style="flex:1">
+            <h4 class="challenge-title" style="text-align:${isRtl()?'right':'left'}">${c.title}</h4>
+            <p class="challenge-body" style="text-align:justify">${c.body}</p>
+            <p class="challenge-daily-label">${fw.dailyLabel}</p>
+            <p class="challenge-daily" style="text-align:justify">${c.daily}</p>
+          </div>
+        </div>
+      </div>`).join('')}
+    <p style="font-size:13px;color:#5A6573;font-style:italic;margin:6px 0 20px;text-align:center;font-family:'Assistant',sans-serif">${fw.disclaimer}</p>
+    <div style="background:var(--white);border-radius:14px;padding:20px 28px;border:1px solid rgba(22,34,47,0.08);text-align:center">
+      <p style="font-size:15px;font-weight:700;color:#1E2631;margin:0;font-family:'Assistant',sans-serif">${fw.notFound}</p>
+    </div>
+    <div style="background:var(--white);border-radius:14px;padding:28px;border:1px solid rgba(22,34,47,0.08);margin-top:32px">
+      <h3 style="font-size:17px;font-weight:700;color:var(--green);margin:0 0 14px;text-align:center;font-family:'Assistant',sans-serif">${fw.processTitle}</h3>
+      <p style="${pStyle};margin-bottom:12px">${fw.process1}</p>
+      <p style="${pStyle}">${fw.process2}</p>
+    </div>
+    ${makeQuote(fw.quote.text, fw.quote.author)}
+    <div class="cta-box">
+      <p>${fw.ctaText}</p>
+      <button class="btn-cta" onclick="showView(6)">${fw.ctaBtn}</button>
+    </div>
+  `;
+}
+
+function renderFAQ() {
+  const f = t().faq;
+  el('faqInner').dir = t().dir;
+  el('faqInner').innerHTML = `
+    <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${f.title}</h2>
+    ${f.items.map((item,i)=>`
+      <div class="faq-item" id="faq-${i}">
+        <button class="faq-btn" onclick="toggleFaq(${i})" style="text-align:${isRtl()?'right':'left'}">
+          <span class="faq-q">${item.q}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p style="text-align:justify">${item.a}</p></div>
+      </div>`).join('')}
+    ${makeQuote(f.quote.text, f.quote.author)}
+  `;
+}
+
+function renderWritings() {
+  const w = t().writings;
+  const total = writings.length;
+  const cur = writings[writingIndex];
+  el('writingsInner').innerHTML = `
+    <h2 style="font-size:clamp(26px,5vw,40px);font-weight:400;color:var(--green);text-align:${isRtl()?'right':'left'};margin:0 0 32px;font-family:'Assistant',sans-serif">${w.title}</h2>
+    <div class="writings-nav">
+      <button class="writings-nav-btn" onclick="prevWriting()" ${writingIndex===0?'disabled':''}>&#8249;</button>
+      <span class="writings-counter">${writingIndex+1} / ${total}</span>
+      <button class="writings-nav-btn" onclick="nextWriting()" ${writingIndex===total-1?'disabled':''}>&#8250;</button>
+    </div>
+    <div class="writing-card">
+      <div>
+        <div class="writing-mark" style="text-align:${cur.rtl?'right':'left'}">"</div>
+        <p class="writing-text" style="direction:${cur.rtl?'rtl':'ltr'};text-align:${cur.rtl?'right':'left'}">${cur.text}</p>
+      </div>
+      <p class="writing-author" style="direction:${cur.rtl?'rtl':'ltr'};text-align:${cur.rtl?'right':'left'}">- ${cur.author}</p>
+    </div>
+  `;
+}
+
+function renderAbout() {
+  const a = t().about;
+  el('aboutInner').dir = t().dir;
+  el('aboutInner').innerHTML = `
+    <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${a.title}</h2>
+    ${a.paragraphs.map(p=>`<p class="about-p" style="text-align:justify">${p}</p>`).join('')}
+    ${makeQuote(a.quote.text, a.quote.author)}
+  `;
+}
+
+function renderContact() {
+  const c = t().contact;
+  el('contactInner').dir = t().dir;
+  el('contactInner').innerHTML = `
+    <div style="max-width:900px;margin:0 auto">
+      <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${c.title}</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-group">
+              <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.nameLbl} <span style="color:var(--warm)">*</span></label>
+              <input class="form-input" type="text" name="name" placeholder="${c.namePh}" id="inp-name" oninput="validateField('name')" onblur="touchField('name')" />
+              <p class="form-error" id="err-name"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.phoneLbl} <span style="color:var(--warm)">*</span></label>
+              <input class="form-input" type="tel" name="phone" placeholder="${c.phonePh}" id="inp-phone" style="direction:rtl" oninput="validateField('phone')" onblur="touchField('phone')" />
+              <p class="form-error" id="err-phone"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.emailLbl}</label>
+              <input class="form-input" type="email" name="email" placeholder="${c.emailPh}" id="inp-email" oninput="validateField('email')" onblur="touchField('email')" />
+              <p class="form-error" id="err-email"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.msgLbl}</label>
+              <textarea class="form-input form-textarea" name="message" placeholder="${c.msgPh}" id="inp-message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">${c.send}</button>
+            <p id="sendError" style="color:#C0392B;font-size:13px;text-align:center;font-family:'Assistant',sans-serif;margin:8px 0 0;display:none"></p>
+          </form>
+          <div class="success-box" id="successBox">
+            <div class="success-icon">✓</div>
+            <h3>${c.successTitle}</h3>
+            <p>${c.successSub}</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="contact-card">
+            <p class="contact-method-label">${c.contactMethodsLabel}</p>
+            <div class="contact-methods">
+              <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" class="btn-calendly">${c.calendlyBtn}</a>
+              <a href="https://wa.me/972508451920?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%93%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C" target="_blank" rel="noopener noreferrer" class="btn-wa">${c.waBtn}</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <p class="location-label">${c.locationLabel}</p>
+            <p class="location-text" style="text-align:${isRtl()?'right':'left'}">${c.locationText}</p>
+            <div class="map-btns">
+              <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer" class="btn-map btn-waze">🧭 Waze</a>
+              <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer" class="btn-map btn-gmap">📍 Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAccessibility() {
+  const a = t().accessibility;
+  el('accessibilityInner').dir = t().dir;
+  el('accessibilityInner').innerHTML = `
+    <h1 style="font-size:clamp(26px,5vw,40px);font-weight:700;color:#1E2631;text-align:${isRtl()?'right':'left'};margin:0 0 20px;font-family:'Assistant',sans-serif">${a.title}</h1>
+    <div class="accessibility-box">
+      <h3 class="accessibility-h3" style="text-align:${isRtl()?'right':'left'}">${a.s1Title}</h3>
+      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p1}</p>
+      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p2}</p>
+      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p3}</p>
+    </div>
+    <div class="accessibility-box">
+      <h3 class="accessibility-h3" style="text-align:${isRtl()?'right':'left'}">${a.s3TitleMain} <span style="text-decoration:underline">${a.s3TitleSub}</span></h3>
+      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s3p1}</p>
+      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s3p2}</p>
+    </div>
+    <div class="accessibility-special">
+      <p style="text-align:${isRtl()?'right':'left'}">${a.specialNeedsText}</p>
+    </div>
+  `;
+}
+
+function renderAll() {
+  renderNav();
+  renderHome();
+  renderApproach();
+  renderForWho();
+  renderFAQ();
+  renderWritings();
+  renderAbout();
+  renderContact();
+  renderAccessibility();
+}
+
+// ── INTERACTIONS ──────────────────────────────────────────────────────────────
+function showView(index) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  el('view-' + index).classList.add('active');
+  currentView = index;
+  menuOpen = false;
+  el('mobileMenu').classList.remove('open');
+  window.scrollTo(0, 0);
+  renderNav();
+}
+
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  el('mobileMenu').classList.toggle('open', menuOpen);
+}
+
+function toggleLang() {
+  lang = lang === 'he' ? 'en' : 'he';
+  writingIndex = 0;
+  formErrors = {}; formTouched = {};
+  renderAll();
+  document.documentElement.dir = t().dir;
+}
+
+function toggleFaq(i) {
+  const item = el('faq-' + i);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function prevWriting() { if (writingIndex > 0) { writingIndex--; renderWritings(); } }
+function nextWriting() { if (writingIndex < writings.length - 1) { writingIndex++; renderWritings(); } }
+
+// ── FORM ─────────────────────────────────────────────────────────────────────
+function validateField(key) {
+  if (!formTouched[key]) return;
+  const c = t().contact;
+  const val = (el('inp-' + key) || {}).value || '';
+  let err = '';
+  if (key === 'name' && !val.trim()) err = c.errRequired;
+  if (key === 'phone') {
+    const clean = val.replace(/[\s\-\(\)]/g, '');
+    if (!clean) err = c.errRequired;
+    else if (!/^[\+]?[0-9]{7,15}$/.test(clean)) err = c.errPhone;
+  }
+  if (key === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) err = c.errEmail;
+  formErrors[key] = err;
+  const errEl = el('err-' + key);
+  if (errEl) { errEl.textContent = err; errEl.classList.toggle('show', !!err); }
+  const inp = el('inp-' + key);
+  if (inp) inp.style.borderColor = err ? '#C0392B' : 'var(--border)';
+}
+
+function touchField(key) { formTouched[key] = true; validateField(key); }
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  ['name','phone','email'].forEach(k => { formTouched[k] = true; validateField(k); });
+  if (Object.values(formErrors).some(v => v)) return;
+  const btn = el('submitBtn');
+  const c = t().contact;
+  btn.textContent = c.sending;
+  btn.disabled = true;
+  const data = new FormData(e.target);
+  try {
+    const res = await fetch('https://formspree.io/f/xeedzrpk', { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (res.ok) {
+      el('contactForm').style.display = 'none';
+      el('successBox').style.display = 'block';
+    } else {
+      btn.textContent = c.send; btn.disabled = false;
+      const errEl = el('sendError');
+      if (errEl) { errEl.textContent = 'שגיאה בשליחה, נסה שוב'; errEl.style.display = 'block'; }
+    }
+  } catch {
+    btn.textContent = c.send; btn.disabled = false;
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderAll();
+</script>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/972508451920?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%93%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C" target="_blank" rel="noopener noreferrer"
+   style="position:fixed;bottom:24px;left:24px;z-index:200;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;"
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
 </html>
