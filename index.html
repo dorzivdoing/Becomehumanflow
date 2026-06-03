@@ -106,6 +106,8 @@
     .writings-nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
     .writings-counter { font-size:13px; color:var(--textLight); font-family:'Assistant',sans-serif; }
     .writing-card { background:#FDFCFA; border-radius:16px; padding:48px 44px; box-shadow:0 2px 20px rgba(44,58,46,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .writing-card.scrollable { max-height:520px; overflow-y:auto; }
+    .writing-card.scrollable .writing-text { max-height:none; }
     .writing-mark { font-size:36px; color:var(--sage); opacity:0.4; margin-bottom:12px; font-family:Georgia,serif; line-height:1; }
     .writing-text { font-size:16px; color:#1A2228; line-height:1.95; margin:0 0 20px; font-style:italic; font-family:'Assistant',sans-serif; white-space:pre-line; font-weight:500; }
     .writing-author { font-size:13px; color:var(--sage); font-weight:600; margin:0; font-family:'Assistant',sans-serif; }
@@ -303,6 +305,58 @@ const writings = [
   { text: `ממש כאילו חייבת להיות בי\nכמות כזו של כאב\nאם לא בנפש הרי בגוף,\nאם לא ברגל הרי בצלע,\nאם לא מתחת ללב הרי בברכיים.\nהחולשה חיה בי בגבורה\nונאבקת על קיומה.\nאולי היא בררה שמעולם לא נוסתה,\nאופן אחר של חיים, שברוב יעילותנו\nהשחתנו והשלכנו הצידה,\nאורח קיום עדין, רגיש,\nאשר בוכה בתוכנו`, author: 'אווה קילפי (תרגום רמי סערי)', rtl: true },
   { text: `למדי עכשיו, בין העצים והסלעים,\nאיך כל מה שהושלך נשזר למחסה,\nלמדי את הדרך שבה כל מה שהוסתר והושתק\nאט אט קורא בקול.\nמצאי את הסימטריה הפנימית\nאל מול התופעות החיצוניות, למדי את עצמך\nלהיות עצמך, התחילי לקבל בחזרה\nאת כל החלקים ששילחת לדרכם, היי בשורה חדשה,\nהפכי עצמך לדלת שדרכה\nכולם יתקבלו בברכה, אפילו הזרים שבתוכך.`, author: "בתים מתוך ׳מיטתו של קולמן׳ מאת דיוויד וייט", rtl: true },
   { text: `זהו דבר מפחיד לאהוב,\nאת מה שהמוות יכול לקחת.\nלאהוב, לקוות, לחלום,\nוכן! לאבד.\n\nמדובר בדבר המיועד לטיפשים,\nלאהוב,\nאבל דבר קדוש הוא,\nלאהוב את מה שהמוות יכול לקחת.\n\nמשום שחייך נחיו בתוכי,\nהצחוק שלך רומם אותי,\nהמילה שלך הייתה מתנה עבורי.\n\nלזכור את זה מעורר שמחה כואבת.\nזהו דבר אנושי לאהוב,\nזהו דבר קדוש,\nלאהוב\nאת שהמוות יכול לקחת`, author: "מיוחס לרבי חיים שטרן בספרו ׳בקצה תהום הצער׳ של פרנסיס וולר, בתרגום רוני גרוס.", rtl: true },
+  {
+    text: `מאת ליאת ארד ודור זיו
+
+בהמשך ללימודינו על אבל ואובדן עם פרנסיס וולר (Francis Weller) באוקטובר 2023, בסמוך לתחילת הלחימה בעזה, ובעקבות התנסות בטקס אבל קהילתי שהתגלה כמיכל של חסד ורפואה, רצינו לשתף את קהילת הביוסינתזה בידע ובחוויות שצברנו. בעת הכתיבה התקשינו להחליט מהי המהות שנרצה לזקק מתוך המכלול של עבודת האבל. בסופו של יום הכתיבה נבעה מקריאה פנימית ותוך שיתוף הדדי. בחלקו הראשון של המאמר דור מתאר טקס האבל האפריקאי מתוך חווייתו האישית. בחלקו השני ליאת מעלה בדמיון מפגש אפשרי בין דיוויד בואדלה ופרנסיס וולר, על הקרקע המשותפת של עבודת נשמה.
+
+─────────────────────────────────────────
+
+כשהכפר כולו מתאבל איתך
+
+בחיי היום יום של שבט הדגארה (Dagara) בבורקינה פאסו שבמערב אפריקה, מספרת סובונפו סומה (Sobonfu Somé), כולם ״חייבים״ זה לזה את הרגשות שלהם. לטענתה, חוסר נכונות לשתף את הזולת באבל, באובדן או בצער שאדם חווה ייחשב קרוב לעלבון, בדומה לאופן שבו אנחנו מצפים מקרובינו לחלוק איתנו את סיפורי ההצלחה, רגעי השמחה, משאלות הלב והחלומות הכמוסים שלנו.
+
+את טקסי האבל הללו החלו לייצא מחוץ לשבט בני הזוג סובונפו ומלידומה פטריס סומה (Malidoma Patrice Somé) בשלהי המאה שעברה. יחד עם פרנסיס וולר, הם התאימו את הטקסים לתפיסת החיים בחברה מערבית קפיטליסטית ואינדיבידואליסטית, שנוטה לזהות את האבל כעניין פרטי. הטקס מתחיל בהקמת כפר זמני. יושביו מתחממים באמצעות שאלות מכוונות, כתיבה ותרגולים אישיים ומשותפים, המתבססים על חמשת שערי האבל שהנגיש וולר בספרו "על סף תהום הצער: חיים לצד אבל וטקסים של התחדשות" (הוצאת חדקרן, 2025. תרגום: רוני גרוס).
+
+בתום המעבר והסברים על מהלך הטקס, ניגשים כל המשתתפים לבנות שלושה אלטרים. האלטר הראשון, שבו מתאבלים, יוקם מול אנשי הכפר שיעמדו במרכז. אליו יישלחו הדמעות, הזעקות והצער, ואליו יפנה הכפר לאורך הטקס. בצידי הכפר ייבנו שני אלטרים נוספים: האחד עבור האבות והאמהות שלנו שעברו מהעולם, כמו גם מורים, מנחים וזקני השבט. האלטר השני נועד לחבר אותנו למשאבים של הודיה, צמיחה ושמחה.
+
+לטקס הראשון שבו השתתפתי, שהתקיים בחווה בגלבוע ונמשך יומיים, במרץ 2024, הבאתי איתי תמונה של אדם שביקשתי להתאבל על מערכת היחסים שלנו. כאשר הקמת הכפר הזמני הושלמה, הפכנו כל יושביו לרקמה אחת חיה, מוחזקת ומופעלת על ידי הטקס, ולא בודדים שהתקבצו בו כדי לשתף ולהתאבל ביחד.
+
+המתופפים החלו להלום בתופים, והקצב שלהם ליווה את השיר ששרנו כולנו לאורך הטקס. מי שמתעורר בתוכה גל של אבל, מוזמנת לגשת אל האלטר, להתיישב על כרית ולבכות כשמאחוריה בן כפר נוסף לתמיכה. לאורך הטקס ניתן לגשת אל האלטר ללא הגבלה, בהתאם לתנועה הפנימית. לתחושתי, חלק ניכר ממקור עוצמתו של הטקס טמונה באיכות המסתורית שאופפת אותו ומאפשרת למשתתפיו להתמסר לתנועה החופשית של הגלים.
+
+הופתעתי לפגוש את המשמעות החיה של רקמה אנושית אחת, ועוד יותר לחוש שהשלתי מעליי ארבע טונות של אבל וצער, מבלי שעיבדתי אותם באופן שהכרתי עד כה.
+
+─────────────────────────────────────────
+
+מפגש בקרחת היער, כששתי דרכים מצטלבות
+
+בעודנו חולקים את החותם שנרשם בנו מהלימוד ומטקס האבל עולה בעיני רוחי תמונה מרגשת. אני רואה את פרנסיס וולר ודיוויד בואדלה - הראשון פסיכותרפיסט מומחה בתחום האבל ואקטיביסט של הנשמה, והשני חלוץ בזרם הפסיכותרפיה הגופנית, מייסד הביוסינתזה - נפגשים. שניהם גדולי רוח, הגות ופואטיקה, יוצרים ומתווים דרך בעולמות הטיפול והריפוי.
+
+"טקסים מציעים לנו שני דברים שלהם אנו זקוקים כדי לשחרר לחלוטין את האבל שאנו נושאים: הכלה ושחרור," כותב פרנסיס בספרו "על סף תהום הצער". "הכלה מהווה מרחב של החזקה עבור המתאבלים. היא מספקת מקום בטוח ליפול בתוכו, לרדת אל מעמקי השכבות המוכרות והבלתי מוכרות של הצער".
+
+החיבור לדרכים של פריקת הרגש דרך הגוף, ובאותו הזמן להכלה של הרגשות העזים דרך תנועה, קול, מגע וקשר, מופיעה בגישת הביוסינתזה כעיקרון טיפולי.
+
+כאשר אנו נפגשים ממהות אל מהות בצערנו ובחדוות קיומנו, המטפל והמטופל, היחיד והקהילה, האדם והטבע, האור והאדמה, אנו חולקים שותפות עמוקה, מרגשת ופלאית המשנה את חיינו ואת טעמם.
+
+─────────────────────────────────────────
+
+<span style="display:block;direction:ltr;text-align:left">I carry a dove on my hand
+as i travel from land to land
+between earth and sky
+to remind you before you die
+to listen to your heart
+in the silence of the dark
+and I bring you a rose
+to plant in your soul so it grows and grows
+I remind you, in the orange light of the dawning
+to remember to smile at the end of your grief
+and mourning</span>
+
+* דיוויד בואדלה, מתוך נאומו המרכזי בקונגרס הביוסינתזה הבינלאומי הרביעי`,
+    author: 'ליאת ארד ודור זיו | כשהכפר כולו מתאבל איתך',
+    rtl: true,
+    scrollable: true,
+  }
 ];
 
 const content = {
@@ -319,6 +373,8 @@ const content = {
         {title:'רגש ונשימה',body:'חיבור למקצב הפנימי, ויסות והכלה של רגשות ותחושות אינטנסיביות באמצעות הנשימה. עבודה זו מעניקה תמיכה עמוקה למערכת העצבים, ומאפשרת מעבר ממצבי הצפה או אדישות אל מרכז פנימי יציב ומווסת.'},
         {title:'מחשבות ותשומת לב',body:'פיתוח קשב סקרן, חקירה ובהירות מנטלית כלפי המורכבות של התודעה והקשרי העולם שלך. תרגום עדין של תחושות ורגשות למילים בהירות בעלות משמעות, כדי ליצור אינטגרציה שלמה.'},
       ],
+      podcastText:'לאוהבי האזנה - בפרק ׳מהראש לגוף ובחזרה׳ בפודקאסט ׳מאוזנת׳ של נעה זילברמן, מתראיינת עדי ויניצה, חברת סגל ההוראה ופסיכותרפיסטית בגישה.',
+      podcastTextEn:'For listeners - episode From Head to Body and Back in the Meuzenet podcast by Noa Zilberman, featuring Adi Weinitza, faculty member and psychotherapist in the approach.',
       quote:{text:'כיצד נוכל לארוג יחד את שלושת הממדים היסודיים של הקיום האנושי: הקיום הגופני שלנו, החוויה הפסיכולוגית, והמהות הרוחנית?',author:'- דיוויד בואדלה, ״זרמי חיים״'}
     },
     forWho:{
@@ -356,7 +412,7 @@ const content = {
         {q:'כמה זמן נמשך הטיפול ומה ההבדל בין תהליך קצר לתהליך ארוך?',a:'משך התהליך נגזר ישירות מהבקשה ומהמטרות איתן הגעת, ואנו מתאמים ציפיות סביבו כבר במפגשים הראשונים:\n\nתהליך ממוקד וקצר מועד (עד חצי שנה): מתאים בדרך כלל סביב התמודדות עם משבר נקודתי, שינוי פתאומי או צומת חיים ספציפי. המיקוד הוא ברכישת כלים סומטיים מעשיים לוויסות, ביסוס עוגנים והחזרת תחושת קרקוע וביטחון.\n\nתהליך מעמיק וארוך טווח (שנה ומעלה): מתאים כאשר הבקשה נוגעת בדפוסים כרוניים מתמשכים, אירועים דרמטיים שהותירו חותם משמעותי, טראומה מורכבת, קשיים עמוקים במערכות יחסים, או רצון עמוק בחקירה עצמית.\n\nהתהליך מסתיים לבקשתך וכשיש תחושת מוכנות, ותמיד מתוך חשיבה ושיח משותפים.'},
         {q:'מה קורה במפגש הראשון?',a:'המפגש הראשון מוקדש להיכרות ראשונית ולהתחלת בניית מרחב שמור. זוהי הזמנה עבורך להביא את הסיפור שלך, להעלות שאלות וחששות ולשתף באתגרים שהובילו אותך לפנות לטיפול. עבורי, זו הזדמנות להיחשף ולהקשיב לעולם שלך, להציע הצעות ולבחון יחד איתך האם הגישה הטיפולית שלי יכולה להתאים לך.\n\nאין שום מחויבות להמשך תהליך בעצם ההגעה למפגש זה, אך אני מציע שנתייחס לארבעת המפגשים הראשונים כמהלך המיועד ליצירת קשר, ביסוס אמון ובדיקה הדדית.'},
         {q:'מהי גישת ביוסינתזה (Biosynthesis) והאם היא מוכרת מבחינה מקצועית?',a:'ביוסינתזה היא גישה ותיקה ומוכרת של פסיכותרפיה גופנית-אנליטית, שנוסדה לפני למעלה מ-45 שנים על ידי דייוויד בואדלה. משמעות השם היא אינטגרציה של חיים והיא מבוססת על יצירת חיבור מחודש ואיזון בין שלושת ממדי הקיום היסודיים שלנו: הקיום הגופני, החוויה הפסיכולוגית והמהות הרוחנית.\n\nהגישה נשענת על מחקרים מבוססי מדע בתחומי הנוירוביולוגיה והאמבריולוגיה (התפתחות העובר). היא מוכרת באופן רשמי על ידי האיגוד האירופי לפסיכותרפיה (EAP) והאיגוד האירופי לפסיכותרפיה גופנית (EABP). למדתי בישראל בביה״ס לפסיכותרפיה בגישת הביוסינתזה, והתעודה שלי הוסמכה מטעם המכון הבינלאומי לביוסינתזה בשוויץ (IIBS). העבודה הקלינית שלי מתבצעת תחת הדרכה מקצועית קבועה.'},
-        {q:'ראיתי שאתה עוסק גם בטקסי אבל קהילתיים. איך זה קשור לקליניקה הפרטנית?',a:'אבל וצער אינם פתולוגיה, מחלה או בעיה שיש לתקן או להעלים. הם חלק בלתי נפרד מהיותנו בעולם כבני אנוש מתבגרים, צומחים ונחנכים. הזיקה שלי לעולמות האלו מרחיבה את המבט בתוך החדר: התהליך הטיפולי מחובר תמיד להקשרים הרחבים של החיים - מההיסטוריה המשפחתית, מהתרבות וממערכות היחסים שעיצבו אותך. החיבור בין העבודה עם הגוף, לבין טקס, נותן אפשרות להעניק לצער וכאב צורה בעולם, כפי שעשו בני אדם מאז ומתמיד.'},
+        {q:'ראיתי שאתה עוסק גם בטקסי אבל קהילתיים. איך זה קשור לקליניקה הפרטנית?',a:'אבל וצער אינם פתולוגיה, מחלה או בעיה שיש לתקן או להעלים. הם חלק בלתי נפרד מהיותנו בעולם כבני אנוש מתבגרים, צומחים ונחנכים. הזיקה שלי לעולמות האלו מרחיבה את המבט בתוך החדר: התהליך הטיפולי מחובר תמיד להקשרים הרחבים של החיים - מההיסטוריה המשפחתית, מהתרבות וממערכות היחסים שעיצבו אותך. החיבור בין העבודה עם הגוף, לבין טקס, נותן אפשרות להעניק לצער וכאב צורה בעולם, כפי שעשו בני אדם מאז ומתמיד. <br><br><a href="https://biosynthesis.co.il/blog/%d7%91%d7%9e%d7%a7%d7%95%d7%9d-%d7%a9%d7%91%d7%95-%d7%94%d7%a6%d7%a2%d7%a8-%d7%95%d7%a0%d7%a9%d7%99%d7%9e%d7%aa-%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%a0%d7%a4%d7%92%d7%a9%d7%99%d7%9d-%d7%9e%d7%aa%d7%97/" target="_blank" rel="noopener noreferrer" style="color:var(--sage);font-weight:600;text-decoration:underline">לקריאת מאמר שנכתב על טקס אבל והקישור לביוסינתזה</a>'},
       ]
     },
     writings:{title:'השראה עונתית שנאספה או נכתבה'},
@@ -487,14 +543,14 @@ const content = {
     about:{
       title:'About Me',
       paragraphs:[
-        'Hello, I am Dor. The name I chose for the clinic, To Be Human, was born from a long contemplation of the fact that being a grown adult in this world is an ongoing process - one that takes time, requires initiation, and contains within it a wide range of experiences. My professional path came into being through deep personal and professional inquiry and processing that began about 11 years ago, and led me to explore the ways in which body and mind meet and are interconnected. Following meaningful military service, I set out on a journey of exploration, discovery, and experience.',
-        'Since 2017, I have been accompanying adults in the clinic through processes of change, coping, and growth from crisis - individually, face to face, and online. My professional path began through work with therapeutic yoga (I later also served as a teaching assistant in practitioner and teacher training in this field). I specialized in and worked with rehabilitation from injuries and trauma, chronic pain, autoimmune conditions, and emotional and somatic regulation.',
-        'From 2022, I have been working as a somatic psychotherapist in the Biosynthesis approach, certified by the International Institute in Switzerland (IIBS). My connection to Biosynthesis arose from the fact that it adapts itself to the person, not the other way around. It is grounded in re-establishing balance among different parts of you, and allows movement from distress toward natural resources and vitality. I am currently part of the teaching faculty as a teaching assistant at the School for Biosynthesis in Israel, and have recently begun training as a Supervisor within the approach. My therapeutic process in the private clinic is conducted under ongoing professional supervision, within the frame of deep, long-term processes.',
+        'Hello, I am Dor. The name I chose for the clinic, Become Human, was born from a contemplation of the fact that being a grown adult in this world is an ongoing process - one that takes time, requires initiation, and contains within it a wide range of experiences. My professional path came into being through deep personal and professional inquiry and processing that began about 11 years ago, and led me to explore the ways in which body and mind meet and are interconnected. Following meaningful military service, I set out on a journey of exploration, discovery, and experience.',
+        'Since 2017, I have been accompanying adults in the clinic through processes of change, coping, and growth from crisis - individually, face to face, and online. My professional path began through work with Yoga Therapy (I later also served as a teaching assistant in practitioner and teacher training in this field). I specialized in and worked with rehabilitation from injuries and trauma, chronic pain, autoimmune conditions, and emotional and somatic regulation.',
+        'From 2022, I have been working as a Body psychotherapist in the Biosynthesis approach, certified by the International Institute in Switzerland (IIBS). My connection to Biosynthesis arose from the fact that it adapts itself to the person, not the other way around. It is grounded in re-establishing balance among different parts of you, and allows movement from distress toward natural resources and vitality. I am currently part of the teaching faculty as a teaching assistant at the School for Biosynthesis in Israel, and have recently begun training as a Supervisor within the approach. My therapeutic process in the private clinic is conducted under ongoing professional supervision, within the frame of deep, long-term processes.',
         'My work in the therapy room is connected to the broader contexts of life. In therapy we take into account your personal story and the relational contexts of your life, from the understanding that we are always connected to the people, stories, and places that shaped us - even if we, or they, are no longer there. This understanding also accompanies me personally: over the past decade I have been researching and reconstructing the family story of my ancestors, who came from Eastern Europe, through locating documents in archives and working with family constellation.',
-        'The wide-angle view and this kinship with the roots from which people grow led me into the world of grief rituals, life, and death. I was ordained as a facilitator in the Grief as Gateway to Life program, inspired by the work of Francis Weller, and I draw ongoing inspiration from the teachings of Stephen Jenkinson and Alejandro Jodorowsky. I currently serve as a team member in community grief rituals, from the understanding that grief and sorrow are not pathology to be fixed, but an inseparable part of the process of human initiation and maturation. In my view, rituals are necessary human technologies for our time.',
-        'Over the years I have initiated and built projects that integrate body and community: I established Zuzu - a space for alternative movement events that allows free personal expression - and was a co-founder of Bodyfulness (a wellness initiative for organizations).',
-        'Outside the clinic, my own inquiry is accompanied by daily connection to the earth and to creation: I am learning about connection to the land through small-scale productive agriculture, fermenting vegetables and preserving food, exploring movement focused on fascial tissue, and finding anchor and inspiration in music, song, and the wonderful language of otherness - in which and through which we live.',
-        'To our therapeutic encounters I bring qualities of deep listening, presence, curiosity, discernment, and humor. The central intention that guides me is to build together with you a therapeutic relationship that holds human meeting at eye level, mutual trust, respect, and a precise pace that fits you and the unique contexts of your life.',
+        'The wide-angle view and this kinship with the roots from which people grow led me into the world of grief rituals, life, and death. I was trained as a facilitator for Grief rituals in the Grief as Gateway to Life program with Francis Weller, and I draw ongoing inspiration from the teachings of Stephen Jenkinson and Alejandro Jodorowsky. I currently serve as a team member in community grief rituals, from the understanding that grief and sorrow are not pathology to be fixed, but an inseparable part of the process of human initiation and maturation. In my view, rituals are necessary human technologies for our time.',
+        'Over the years I have initiated and built projects that integrate body and community: I established ZUZU - a space for alternative movement events that allows free personal expression - and was a co-founder of Bodyfulness (a wellness initiative for organizations).',
+        'Outside the clinic, my own inquiry is accompanied by daily connection to the earth and to creation: I am learning about connection to the land through small-scale agriculture, fermenting vegetables and preserving food, exploring movement focused on fascial tissue, and finding anchor and inspiration in music, song, and the wonderful language of otherness - in which and through which we live.',
+        'To our encounters I bring qualities of deep listening, presence, curiosity, discernment, and humor. The central intention that guides me is to build together with you a therapeutic relationship that holds human meeting at eye level, mutual trust, respect, and a precise pace that fits you and the unique contexts of your life.',
       ],
       quote:{text:'I thought I wanted to be a poet, but deep in my heart - I simply wanted to be a poem.',author:'- Jaime Gil de Biedma'}
     },
@@ -646,6 +702,13 @@ function renderApproach() {
       <div class="logo-box" style="width:160px;height:80px"><img src="https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/logo-pba.jpg" alt="PBA" style="width:100%;height:100%;object-fit:contain;padding:8px;opacity:0.85"/></div>
     </div>
     ${makeQuote(a.quote.text, a.quote.author)}
+    <div style="max-width:640px;margin:32px auto 0;text-align:center;padding:0 32px">
+      <a href="https://open.spotify.com/episode/7DZFlsJ9LGz3gmzYm53Iv0?si=1fd10509a6c647df" target="_blank" rel="noopener noreferrer"
+        style="display:inline-flex;align-items:center;gap:10px;background:#1DB954;color:white;border-radius:50px;padding:12px 24px;text-decoration:none;font-family:'Assistant',sans-serif;font-size:14px;font-weight:600;box-shadow:0 4px 14px rgba(29,185,84,0.3);transition:all 0.3s">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        ${isRtl() ? a.podcastText : a.podcastTextEn}
+      </a>
+    </div>
   `;
   el('approachInner').dir = t().dir;
 }
@@ -717,7 +780,7 @@ function renderWritings() {
       <span class="writings-counter">${writingIndex+1} / ${total}</span>
       <button class="writings-nav-btn" onclick="nextWriting()" aria-label="Next" ${writingIndex===total-1?'disabled':''}>&#8250;</button>
     </div>
-    <div class="writing-card">
+    <div class="writing-card${writings[writingIndex].scrollable ? ' scrollable' : ''}">
       <div>
         <div class="writing-mark" style="text-align:${cur.rtl?'right':'left'}">"</div>
         <p class="writing-text" style="direction:${cur.rtl?'rtl':'ltr'};text-align:${cur.rtl?'right':'left'}">${cur.text}</p>
