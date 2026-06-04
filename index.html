@@ -646,6 +646,7 @@ function renderNav() {
   document.documentElement.dir = T.dir;
 
   el('navLogo').textContent = T.name;
+  el('navLogo').onclick = () => showView(0);
   el('langBtn').textContent = T.langToggle;
   el('mobileContactBtn').textContent = T.navItems[6];
 
