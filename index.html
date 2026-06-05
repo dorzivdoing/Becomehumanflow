@@ -167,7 +167,8 @@
       .hero-portrait-mobile{display:flex!important;}
       .hero-btns{flex-direction:column;}
       .hero-btn-full{width:100%;}
-      .hero-btns-row{width:100%;justify-content:center;}
+      .hero-btns-row{display:none!important;}
+      .hero-btn-contact-mobile{display:block!important;}
       .contact-grid{gap:24px;}
       .writings-bg{padding:60px 24px 80px;}
     }
@@ -215,6 +216,7 @@
             <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
           </div>
         </div>
+        <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%" onclick="showView(6)"></button>
         <div class="hero-portrait-mobile">
           <div class="hero-portrait-mobile-inner">
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" />
@@ -363,7 +365,7 @@ const content = {
   he: {
     dir:'rtl', name:'דור זיו',
     navItems:['בית','הגישה','למי מתאים הטיפול?','שאלות נפוצות','מן השדה','אודותיי','קשר','נגישות'],
-    langToggle:'EN', footerText:'© 2025 דור זיו - פסיכותרפיה גופנית', legalLinkText:'תקנון ופרטיות',
+    langToggle:'EN', footerText:'© 2026 דור זיו - פסיכותרפיה גופנית', legalLinkText:'תקנון ופרטיות',
     home:{ subtitle:'פסיכותרפיה גופנית · בית אורן · אונליין', poemLines:'ליבי כל כך קטן,\nהוא כמעט בלתי נראה.\nכיצד יכול אתה לאכסן בתוכו צער כה רב?\n״הבט״, הוא ענה,\n״עיניך קטנות אף יותר,\nובכל זאת - הן מכילות את העולם״', poemAuthor:'- ג׳לאל א-דין רומי', btn1:'למי מתאים הטיפול?', btn2:'אודותיי', btn3:'יצירת קשר' },
     approach:{
       title:'גישה שמחברת חיים',
@@ -489,7 +491,7 @@ const content = {
   en: {
     dir:'ltr', name:'Dor Ziv',
     navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility'],
-    langToggle:'עב', footerText:'© 2025 Dor Ziv - Somatic Psychotherapy', legalLinkText:'Terms & Privacy',
+    langToggle:'עב', footerText:'© 2026 Dor Ziv - Somatic Psychotherapy', legalLinkText:'Terms & Privacy',
     home:{ subtitle:'Somatic Psychotherapy · Beit Oren · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
     approach:{
       title:'A Perspective That Connects Life',
@@ -536,7 +538,7 @@ const content = {
         {q:'How long does therapy last, and what is the difference between a short and long process?',a:'The duration of the process flows directly from the request and the goals you arrived with, and we align expectations around this from the very first sessions:\n\nFocused, short-term process (up to six months): Generally suited to navigating a specific crisis, a sudden change, or a particular life crossroads. The focus is on acquiring practical somatic tools for regulation, establishing anchors, and restoring a sense of groundedness and safety.\n\nIn-depth, long-term process (one year or more): Suited when the request touches on chronic ongoing patterns, dramatic events that left a significant mark, complex trauma, deep difficulties in relationships, or a profound desire for self-inquiry.\n\nThe process ends at your request and when there is a sense of readiness - always through shared reflection and conversation.'},
         {q:'What happens in the first session?',a:'The first session is devoted to initial acquaintance and beginning to build a safe space. It is an invitation for you to bring your story, raise questions and concerns, and share the challenges that led you to seek therapy. For me, it is an opportunity to be present and listen to your world, offer reflections, and explore together whether my therapeutic approach might suit you.\n\nThere is no commitment to continuing beyond this session simply by attending, but I suggest we regard the first four sessions as a phase designed for making contact, building trust, and mutual exploration.'},
         {q:'What is Biosynthesis and is it professionally recognized?',a:'Biosynthesis is a well-established and recognized approach to somatic-analytic psychotherapy, founded over 45 years ago by David Boadella. The name means integration of life, and it is grounded in creating renewed connection and balance among the three fundamental dimensions of our existence: physical being, psychological experience, and spiritual essence.\n\nThe approach is based on scientifically grounded research in neurobiology and embryology. It is officially recognized by the European Association for Psychotherapy (EAP) and the European Association for Body Psychotherapy (EABP). I trained in Israel at the School for Psychotherapy in the Biosynthesis Approach, and my certification was accredited by the International Institute for Biosynthesis in Switzerland (IIBS). My clinical work is conducted under ongoing professional supervision.'},
-        {q:'I noticed you also work with community grief rituals. How does that connect to individual therapy?',a:'Grief and sorrow are not pathology, illness, or a problem to be fixed or erased. They are an inseparable part of being in the world as maturing, growing, initiated human beings.\n\nMy connection to these worlds expands the lens inside the room: the therapeutic process is always connected to the broader contexts of life - from family history, culture, and the relationships that shaped you. The connection between ritual technology and somatic work allows us to give grief and pain a form in the world, as humans have always done.'},
+        {q:'I noticed you also work with community grief rituals. How does that connect to individual therapy?',a:'Grief and sorrow are not pathology, illness, or a problem to be fixed or erased. They are an inseparable part of being in the world as maturing, growing, initiated human beings.\n\nMy connection to these worlds expands the lens inside the room: the therapeutic process is always connected to the broader contexts of life - from family history, culture, and the relationships that shaped you. The connection between ritual technology and somatic work allows us to give grief and pain a form in the world, as humans have always done. <br><br><a href=\"https://biosynthesis.co.il/blog/%d7%91%d7%9e%d7%a7%d7%95%d7%9d-%d7%a9%d7%91%d7%95-%d7%94%d7%a6%d7%a2%d7%a8-%d7%95%d7%a0%d7%a9%d7%99%d7%9e%d7%aa-%d7%94%d7%97%d7%99%d7%99%d7%9d-%d7%a0%d7%a4%d7%92%d7%a9%d7%99%d7%9d-%d7%9e%d7%aa%d7%97/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--sage);font-weight:600;text-decoration:underline\">Read article on grief ritual and its connection to Biosynthesis</a>'},
       ]
     },
     writings:{title:'Seasonal Inspiration - Gathered or Written'},
@@ -685,6 +687,7 @@ function renderHome() {
   el('heroBtn1').textContent = h.btn1;
   el('heroBtn2').textContent = h.btn2;
   el('heroBtn3').textContent = h.btn3;
+  const mb = el('heroBtn3Mobile'); if(mb) mb.textContent = h.btn3;
   el('heroPoemWrap').style[isRtl()?'borderRight':'borderLeft'] = '3px solid var(--sage)';
   el('heroPoemWrap').style[isRtl()?'borderLeft':'borderRight'] = 'none';
   el('heroPoemWrap').style[isRtl()?'paddingRight':'paddingLeft'] = '18px';
