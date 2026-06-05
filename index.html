@@ -8,10 +8,10 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --bg:#EDE8DF; --white:#FAF7F2; --green:#1E2631;
-      --sage:#5A7A5D; --text:#1E2631; --textMid:#232B32;
-      --textLight:#5A6B5C; --border:rgba(22,34,47,0.12);
-      --warm:#B26E63; --navy:#16222F;
+      --bg:#F4F1EA; --white:#FAF8F5; --green:#1C251F;
+      --sage:#536B5C; --text:#1C251F; --textMid:#3D4A3E;
+      --textLight:#5A6B5C; --border:rgba(28,37,31,0.08);
+      --warm:#A66353; --navy:#1C251F;
     }
     body { font-family:'Assistant',sans-serif; background:var(--bg); color:var(--green); }
     /* NAV */
@@ -383,8 +383,8 @@ const content = {
       title:'למי מתאימה פסיכותרפיה גופנית?',
       intro1:'פסיכותרפיה גופנית מציעה חוויה בה מעבר לדיבור נתייחס לכל מה שמתרחש בגוף שמשמש כשותף מלא בתהליך של עיבוד, איזון וויסות. קשר שנבנה בו אמון, קשב למתרחש בגוף ובמרחב ולרצונות העמוקים והמהותיים שנובעים בו, תנועה בכיוונים הפתוחים מאפשרים להתקדם במקום שהמילים לבדן לפעמים אינן יכולות להגיע אליהם.',
       intro2:'הטיפול מתאים לכל מי שמרגיש שתופעות רגשיות, מנטליות או פיזיות שונות מנהלות אותו בעקבות חוויות קשות ואירועי חיים. בין אם מדובר באירוע חד-פעמי חריף או בהתמודדות מתמשכת; בין אם זה קרה בשלב מוקדם או מאוחר בחיים; ובין אם הסיבה לתחושות האלו ידועה וברורה לך לחלוטין או שנותרה עמומה, מבלבלת ולא מוסברת.',
-      challengesTitle:'האתגרים שאנו פוגשים בקליניקה',
-      challengesSub:'אם הגוף או הנפש אותתו לך שהגיע הזמן לעצור ולברר או להעמיק, אלו האתגרים והנושאים המרכזיים להם ניתן לתת מענה:',
+      challengesTitle:'',
+      challengesSub:'אתגרים ונושאים להם ניתן לתת מענה בתהליך:',
       dailyLabel:'איך זה יכול להחוות ביום יום?*',
       disclaimer:'* משתנה מאדם לאדם.',
       notFound:'אם לא מצאת את הנושא שלך בכתוב מעלה, ניתן לכתוב בפנייה ונברר יחד.',
@@ -650,6 +650,7 @@ function renderNav() {
   el('navLogo').textContent = T.name;
   el('navLogo').onclick = () => showView(0);
   el('langBtn').textContent = T.langToggle;
+  el('langBtn').setAttribute('aria-label', lang === 'he' ? 'Switch to English' : 'החלף לעברית');
   el('mobileContactBtn').textContent = T.navItems[6];
 
   // desktop links
@@ -921,6 +922,8 @@ function showView(index) {
   currentView = index;
   menuOpen = false;
   el('mobileMenu').classList.remove('open');
+  const hb = document.querySelector('.hamburger');
+  if (hb) { hb.setAttribute('aria-expanded', false); hb.classList.remove('open'); }
   window.scrollTo(0, 0);
   renderNav();
 }
@@ -928,6 +931,11 @@ function showView(index) {
 function toggleMenu() {
   menuOpen = !menuOpen;
   el('mobileMenu').classList.toggle('open', menuOpen);
+  const hb = document.querySelector('.hamburger');
+  if (hb) {
+    hb.setAttribute('aria-expanded', menuOpen);
+    hb.classList.toggle('open', menuOpen);
+  }
 }
 
 function toggleLang() {
