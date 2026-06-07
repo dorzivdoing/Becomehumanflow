@@ -8,12 +8,23 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --bg:#F4F1EA; --white:#FAF8F5; --green:#1C251F;
-      --sage:#536B5C; --text:#1C251F; --textMid:#3D4A3E;
-      --textLight:#5A6B5C; --border:rgba(28,37,31,0.08);
-      --warm:#A66353; --navy:#1C251F;
+      --bg: #F1EFE9;
+      --white: #FAF8F5;
+      --green: #2B2A27;
+      --sage: #536B5C;
+      --text: #2B2A27;
+      --textMid: #3D3C39;
+      --textLight: #6B6860;
+      --border: rgba(43,42,39,0.1);
+      --warm: #B26E63;
+      --navy: #2B2A27;
+      --bg-color: #F1EFE9;
+      --text-color: #2B2A27;
+      --accent-color: #B26E63;
+      --font-serif: 'Playfair Display', 'Georgia', serif;
+      --font-sans: 'Assistant', 'Inter', sans-serif;
     }
-    body { font-family:'Assistant',sans-serif; background:var(--bg); color:var(--green); }
+    body { font-family:var(--font-sans); background:var(--bg); color:var(--text); }
     /* NAV */
     nav { position:fixed; top:0; right:0; left:0; z-index:100; background:rgba(244,241,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:64px; }
     .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between; }
@@ -64,7 +75,8 @@
     .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:1px solid var(--border); }
     .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
     .hero-portrait-mobile { display:none; justify-content:center; margin-top:36px; }
-    .hero-portrait-mobile-inner { width:180px; height:230px; border-radius:14px; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:1px solid var(--border); }
+    .hero-portrait-mobile-inner { width:200px; height:240px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:2px solid var(--sage); }
+    .hero-portrait-mobile-inner img { width:100%; height:100%; object-fit:cover; object-position:center 25%; display:block; }
     /* CARDS */
     .stream-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:48px; }
     .stream-card { background:var(--white); border-radius:14px; padding:32px 28px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
@@ -105,7 +117,7 @@
     .writings-nav-btn { background:none; border:1.5px solid var(--sage); border-radius:50%; width:36px; height:36px; cursor:pointer; color:var(--sage); font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
     .writings-nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
     .writings-counter { font-size:13px; color:var(--textLight); font-family:'Assistant',sans-serif; }
-    .writing-card { background:#FDFCFA; border-radius:16px; padding:48px 44px; box-shadow:0 2px 20px rgba(44,58,46,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .writing-card { background:var(--white); border-radius:4px; padding:48px 44px; box-shadow:0 2px 20px rgba(44,58,46,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
     .writing-card.scrollable { max-height:520px; overflow-y:auto; }
     .writing-card.scrollable .writing-text { max-height:none; }
     .writing-mark { font-size:36px; color:var(--sage); opacity:0.4; margin-bottom:12px; font-family:Georgia,serif; line-height:1; }
@@ -219,7 +231,7 @@
         <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%" onclick="showView(6)"></button>
         <div class="hero-portrait-mobile">
           <div class="hero-portrait-mobile-inner">
-            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" />
+            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block" />
           </div>
         </div>
       </div>
