@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import { content } from "./homeContent";
 
 const C = {
-  bg: '#EDE8DF',
+  bg: '#B8935A',
   green: '#1E2631',
   sage: '#5A7A5D',
   text: '#1E2631',
