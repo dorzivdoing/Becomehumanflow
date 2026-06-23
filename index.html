@@ -141,7 +141,7 @@
     .success-box h3 { font-size:18px; color:var(--green); font-weight:600; margin:0 0 8px; font-family:'Assistant',sans-serif; }
     .success-box p { font-size:14px; color:var(--textLight); margin:0; font-family:'Assistant',sans-serif; }
     .contact-methods { display:flex; flex-direction:column; gap:10px; }
-    .contact-method-label { font-size:12px; font-weight:700; color:var(--textLight); margin:0 0 16px; letter-spacing:0.07em; text-transform:uppercase; font-family:'Assistant',sans-serif; }
+    .contact-method-label { font-size:14px; font-weight:700; color:var(--green); margin:0 0 16px; font-family:'Assistant',sans-serif; text-align:center; display:block; }
     .btn-calendly { background:var(--warm); color:var(--white); border-radius:10px; padding:14px 20px; font-size:15px; font-weight:600; text-decoration:none; font-family:'Assistant',sans-serif; text-align:center; display:block; box-shadow:0 4px 14px rgba(178,110,99,0.25); transition:all 0.4s; }
     .btn-calendly:hover { opacity:0.9; }
     .btn-wa { background:transparent; color:var(--green); border:2px solid var(--sage); border-radius:10px; padding:14px 20px; font-size:15px; font-weight:600; text-decoration:none; font-family:'Assistant',sans-serif; text-align:center; display:block; transition:all 0.4s; }
@@ -177,7 +177,7 @@
       .hero-grid{flex-direction:column;}
       .hero-portrait{display:none;}
       .hero-portrait-mobile{display:flex!important;}
-      .hero-btns{flex-direction:column;}
+      .hero-btns{flex-direction:column;gap:20px;}
       .hero-btn-full{width:100%;}
       .hero-btns-row{display:none!important;}
       .hero-btn-contact-mobile{display:block!important;}
@@ -228,7 +228,7 @@
             <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
           </div>
         </div>
-        <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%" onclick="showView(6)"></button>
+        <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%;margin-top:20px" onclick="showView(6)"></button>
         <div class="hero-portrait-mobile">
           <div class="hero-portrait-mobile-inner">
             <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block" />
@@ -498,9 +498,15 @@ const content = {
       sending:'שולח...',send:'שליחה',
       successTitle:'ההודעה נשלחה, תודה!',successSub:'אחזור אליך בהקדם.',
       errRequired:'שדה חובה',errPhone:'מספר טלפון לא תקין',errEmail:'כתובת אימייל לא תקינה',
+      formTitle:'השארת פרטים',
+      calendlyTitle:'מועד לשיחה טלפונית',
+      waTitle:'משלוח הודעת ווטסאפ',
       contactMethodsLabel:'דרכים נוספות לקשר',
-      calendlyBtn:'📅 לבחירת מועד ביומן הדיגיטלי',
-      waBtn:'💬 לשליחת הודעה בווטסאפ',
+      calendlyBtn:'לשריין זמן ביומן',
+      waBtn:'לחץ כאן',
+      phoneLabel:'קשר טלפוני',
+      phoneBtn:'התקשרו',
+      phoneNumber:'050-845-1920',
       locationLabel:'פרטי מיקום',
       consentLbl:'אני מסכים/ה למדיניות הפרטיות ומאשר/ת קבלת עדכונים מקצועיים.',
       consentLink:'קרא/י תקנון',
@@ -629,8 +635,11 @@ const content = {
       successTitle:'Message sent, thank you!',successSub:'I will get back to you soon.',
       errRequired:'This field is required',errPhone:'Invalid phone number',errEmail:'Invalid email address',
       contactMethodsLabel:'Other ways to connect',
-      calendlyBtn:'📅 Schedule a time in my digital calendar',
-      waBtn:'💬 Send a WhatsApp message',
+      calendlyBtn:'Book a time',
+      waBtn:'Click here',
+      phoneLabel:'Phone Call',
+      phoneBtn:'Call',
+      phoneNumber:'050-845-1920',
       locationLabel:'Location',
       consentLbl:'I agree to the privacy policy and consent to receive professional updates.',
       consentLink:'Read Terms',
@@ -845,6 +854,7 @@ function renderContact() {
       <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${c.title}</h2>
       <div class="contact-grid">
         <div class="contact-card">
+            <p class="contact-method-label">${c.formTitle}</p>
           <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
             <div class="form-group">
               <label class="form-label" style="text-align:${isRtl()?'right':'left'}">${c.nameLbl} <span style="color:var(--warm)">*</span></label>
@@ -882,11 +892,17 @@ function renderContact() {
         </div>
         <div style="display:flex;flex-direction:column;gap:20px">
           <div class="contact-card">
-            <p class="contact-method-label">${c.contactMethodsLabel}</p>
-            <div class="contact-methods">
-              <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" class="btn-calendly">${c.calendlyBtn}</a>
-              <a href="https://wa.me/972508451920?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%93%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C" target="_blank" rel="noopener noreferrer" class="btn-wa">${c.waBtn}</a>
-            </div>
+            <p class="contact-method-label">${c.calendlyTitle}</p>
+            <a href="https://calendly.com/dorziv/checkin" target="_blank" rel="noopener noreferrer" class="btn-calendly">${c.calendlyBtn}</a>
+          </div>
+          <div class="contact-card">
+            <p class="contact-method-label">${c.waTitle}</p>
+            <a href="https://wa.me/972508451920?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%93%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C" target="_blank" rel="noopener noreferrer" class="btn-wa">${c.waBtn}</a>
+          </div>
+          <div class="contact-card" style="padding:20px 32px">
+            <p class="contact-method-label">${c.phoneLabel}</p>
+            <p style="font-size:20px;font-weight:700;color:var(--green);margin:0 0 16px;direction:ltr;text-align:center;font-family:'Assistant',sans-serif">${c.phoneNumber}</p>
+            <a href="tel:+972508451920" class="btn-map" style="display:inline-block">${c.phoneBtn}</a>
           </div>
           <div class="contact-card">
             <p class="location-label">${c.locationLabel}</p>
