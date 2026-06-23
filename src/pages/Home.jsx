@@ -131,7 +131,8 @@ function ViewAbout({ t }) {
   const a = t.about;
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -152,7 +153,8 @@ function ViewApproach({ t }) {
   const a = t.approach;
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -327,7 +329,8 @@ function ViewFAQ({ setView, t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             {f.title}
@@ -358,7 +361,8 @@ function ViewForWho({ setView, t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {fw.title}
@@ -501,8 +505,9 @@ function ViewContact({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, margin: '0 0 40px', textAlign: isRtl ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
             {c.title}
           </h2>
@@ -619,7 +624,8 @@ function ViewAccessibility({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ ...noiseBg(C.bg), padding: '60px 40px 80px', direction: t.dir }}>
+      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+        <GrainOverlay opacity={0.14} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h1 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: '#1E2631', textAlign: isRtl ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -677,7 +683,8 @@ export default function Home() {
   ];
 
   return (
-    <div     style={{ fontFamily: "'Assistant', sans-serif", ...noiseBg(C.bg), minHeight: '100vh' }}>
+    <div style={{ fontFamily: "'Assistant', sans-serif", backgroundColor: C.bg, minHeight: '100vh', position: 'relative' }}>
+      <GrainOverlay opacity={0.1} />
       <Navbar view={view} setView={setView} lang={lang} setLang={setLang} t={t} />
       <div style={{ paddingTop: '64px' }}>
         {viewComponents[view]}

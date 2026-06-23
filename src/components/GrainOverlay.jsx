@@ -1,39 +1,44 @@
-import { useEffect, useRef } from "react";
+import { useMemo } from "react";
 
-export default function GrainOverlay({ opacity = 0.12 }) {
-  const canvasRef = useRef(null);
+function makeGrainUrl() {
+  const sz = 150;
+  const c = document.createElement("canvas");
+  c.width = sz;
+  c.height = sz;
+  const ctx = c.getContext("2d");
+  const d = ctx.createImageData(sz, sz);
+  for (let i = 0; i < d.data.length; i += 4) {
+    const v = (Math.random() * 255) | 0;
+    d.data[i] = v;
+    d.data[i + 1] = v;
+    d.data[i + 2] = v;
+    d.data[i + 3] = 255;
+  }
+  ctx.putImageData(d, 0, 0);
+  return c.toDataURL("image/png");
+}
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const sz = 200;
-    canvas.width = sz;
-    canvas.height = sz;
-    const ctx = canvas.getContext("2d");
-    const d = ctx.createImageData(sz, sz);
-    for (let i = 0; i < d.data.length; i += 4) {
-      const v = (Math.random() * 255) | 0;
-      d.data[i] = v;
-      d.data[i + 1] = v;
-      d.data[i + 2] = v;
-      d.data[i + 3] = 255;
-    }
-    ctx.putImageData(d, 0, 0);
-  }, []);
+let _cached = null;
+function getGrainUrl() {
+  if (!_cached) _cached = makeGrainUrl();
+  return _cached;
+}
+
+export default function GrainOverlay({ opacity = 0.13 }) {
+  const url = useMemo(() => getGrainUrl(), []);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
       style={{
         position: "absolute",
         inset: 0,
-        width: "100%",
-        height: "100%",
         pointerEvents: "none",
         zIndex: 0,
         opacity,
-        mixBlendMode: "soft-light",
-        imageRendering: "pixelated",
+        mixBlendMode: "overlay",
+        backgroundImage: `url("${url}")`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "150px 150px",
       }}
     />
   );
