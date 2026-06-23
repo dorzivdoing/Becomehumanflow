@@ -965,15 +965,30 @@ function renderAll() {
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────────────
 function showView(index) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  el('view-' + index).classList.add('active');
-  currentView = index;
+  const views = document.querySelectorAll('.view');
+  // Fade out current view
+  views.forEach(v => {
+    if (v.classList.contains('active')) {
+      v.style.opacity = '0';
+      v.style.transform = 'translateY(8px)';
+    }
+  });
+  setTimeout(() => {
+    views.forEach(v => v.classList.remove('active'));
+    const next = el('view-' + index);
+    if (next) {
+      next.classList.add('active');
+      next.style.opacity = '';
+      next.style.transform = '';
+    }
+    currentView = index;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    renderNav();
+  }, 220);
   menuOpen = false;
   el('mobileMenu').classList.remove('open');
   const hb = document.querySelector('.hamburger');
   if (hb) { hb.setAttribute('aria-expanded', false); hb.classList.remove('open'); }
-  window.scrollTo(0, 0);
-  renderNav();
 }
 
 function toggleMenu() {
