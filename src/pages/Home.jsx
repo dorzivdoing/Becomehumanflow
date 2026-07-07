@@ -40,7 +40,7 @@ function ViewHome({ setView, t }) {
   const isRtl = t.dir === 'rtl';
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ background: 'linear-gradient(160deg, #C4A97A 0%, #B89660 40%, #AA8A55 100%)', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+      <div style={{ backgroundImage: `linear-gradient(160deg, rgba(196,169,122,0.5) 0%, rgba(184,150,96,0.5) 40%, rgba(170,138,85,0.5) 100%), url("${PAPER_URL}")`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div className="home-flex" style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: t.dir }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <div style={{ fontSize: '15px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '16px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>
