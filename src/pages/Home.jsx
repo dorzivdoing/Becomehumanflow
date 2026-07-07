@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { content } from "./homeContent";
-import GrainOverlay from "@/components/GrainOverlay";
+
 
 const C = {
   bg: '#AA8048',
@@ -21,35 +21,7 @@ const C = {
 
 const tx = { transition: 'all 0.4s ease' };
 
-// Vintage noise background helper
-// Uses a subtle repeating grain pattern via CSS filter trick on a pseudo-element approach
-// Since external PNGs have CORS issues, we use a canvas-rendered data URI stored once
-let _grainDataUrl = null;
-function getGrainDataUrl() {
-  if (_grainDataUrl) return _grainDataUrl;
-  try {
-    const sz = 200;
-    const c = document.createElement('canvas');
-    c.width = sz; c.height = sz;
-    const ctx = c.getContext('2d');
-    const d = ctx.createImageData(sz, sz);
-    for (let i = 0; i < d.data.length; i += 4) {
-      const v = (Math.random() * 255) | 0;
-      d.data[i] = v; d.data[i+1] = v; d.data[i+2] = v; d.data[i+3] = 255;
-    }
-    ctx.putImageData(d, 0, 0);
-    _grainDataUrl = c.toDataURL('image/png');
-  } catch(e) { _grainDataUrl = ''; }
-  return _grainDataUrl;
-}
-
-const noiseBg = (color) => ({
-  backgroundColor: color,
-  backgroundImage: `url("${getGrainDataUrl()}")`,
-  backgroundRepeat: 'repeat',
-  backgroundBlendMode: 'soft-light',
-  backgroundSize: '150px 150px',
-});
+const PAPER_URL = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/79a37c1ec_generated_image.png';
 
 function QuoteBlock({ text, author, dir = 'rtl' }) {
   return (
@@ -69,7 +41,6 @@ function ViewHome({ setView, t }) {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <div style={{ background: 'linear-gradient(160deg, #C4A97A 0%, #B89660 40%, #AA8A55 100%)', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.15} />
         <div className="home-flex" style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: t.dir }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <div style={{ fontSize: '15px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '16px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>
@@ -131,8 +102,7 @@ function ViewAbout({ t }) {
   const a = t.about;
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -153,8 +123,7 @@ function ViewApproach({ t }) {
   const a = t.approach;
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -329,8 +298,7 @@ function ViewFAQ({ setView, t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 32px', fontFamily: "'Assistant', sans-serif" }}>
             {f.title}
@@ -361,8 +329,7 @@ function ViewForWho({ setView, t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, textAlign: t.dir === 'rtl' ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {fw.title}
@@ -505,8 +472,7 @@ function ViewContact({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <h2 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 400, color: C.green, margin: '0 0 40px', textAlign: isRtl ? 'right' : 'left', fontFamily: "'Assistant', sans-serif" }}>
             {c.title}
@@ -624,8 +590,7 @@ function ViewAccessibility({ t }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundColor: C.bg, padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
-        <GrainOverlay opacity={0.14} />
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <h1 style={{ fontSize: 'clamp(26px,5vw,40px)', fontWeight: 700, color: '#1E2631', textAlign: isRtl ? 'right' : 'left', margin: '0 0 20px', fontFamily: "'Assistant', sans-serif" }}>
             {a.title}
@@ -683,8 +648,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Assistant', sans-serif", backgroundColor: C.bg, minHeight: '100vh', position: 'relative' }}>
-      <GrainOverlay opacity={0.1} />
+    <div style={{ fontFamily: "'Assistant', sans-serif", backgroundImage: `url("${PAPER_URL}")`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', minHeight: '100vh', position: 'relative' }}>
       <Navbar view={view} setView={setView} lang={lang} setLang={setLang} t={t} />
       <div style={{ paddingTop: '64px' }}>
         {viewComponents[view]}
