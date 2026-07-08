@@ -21,7 +21,7 @@ const C = {
 
 const tx = { transition: 'all 0.4s ease' };
 
-const PAPER_URL = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/79a37c1ec_generated_image.png';
+const PAPER_URL = 'https://media.base44.com/images/public/6a098e797170ea9e67f23db4/d80511488_Gemini_Generated_Image_qmrymcqmrymcqmry.png';
 
 function QuoteBlock({ text, author, dir = 'rtl' }) {
   return (
@@ -40,7 +40,7 @@ function ViewHome({ setView, t }) {
   const isRtl = t.dir === 'rtl';
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div style={{ backgroundImage: `linear-gradient(160deg, rgba(196,169,122,0.12) 0%, rgba(184,150,96,0.12) 40%, rgba(170,138,85,0.12) 100%), url("${PAPER_URL}")`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
+      <div style={{ padding: '60px 40px 80px', direction: t.dir, position: 'relative', overflow: 'hidden' }}>
         <div className="home-flex" style={{ position: 'relative', zIndex: 1, maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', direction: t.dir }}>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <div style={{ fontSize: '15px', color: C.warm, fontWeight: 500, letterSpacing: '0.08em', marginBottom: '16px', fontFamily: "'Assistant', sans-serif", textAlign: 'center' }}>
