@@ -24,7 +24,7 @@
       --font-serif: 'Playfair Display', 'Georgia', serif;
       --font-sans: 'Assistant', 'Inter', sans-serif;
     }
-    body { font-family:var(--font-sans); background:var(--bg) url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') repeat; background-size:auto; color:var(--text); }
+    body { font-family:var(--font-sans); background-color:var(--bg); background-image:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png'); background-repeat:repeat; background-attachment:fixed; background-size:cover; color:var(--text); }
     /* NAV */
     nav { position:fixed; top:0; right:0; left:0; z-index:100; background:rgba(244,241,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:64px; }
     .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between; }
@@ -59,7 +59,7 @@
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
     /* HOME */
-    .hero-bg { background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
+    .hero-bg { background:transparent !important; background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
     .hero-grid { position:relative; z-index:1; max-width:900px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
     .hero-text { flex:1; min-width:260px; }
     .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
