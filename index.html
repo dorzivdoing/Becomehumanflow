@@ -11,11 +11,11 @@
       --bg: #F1EFE9;
       --white: #FAF8F5;
       --green: #2B2A27;
-      --sage: #536B5C;
+      --sage: #7A6A52;
       --text: #2B2A27;
       --textMid: #3D3C39;
       --textLight: #6B6860;
-      --border: rgba(43,42,39,0.1);
+      --border: rgba(122,106,82,0.15);
       --warm: #B26E63;
       --navy: #2B2A27;
       --bg-color: #F1EFE9;
@@ -59,7 +59,7 @@
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
     /* HOME */
-    .hero-bg { background:transparent !important; background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
+    .hero-bg { position:relative; overflow:hidden; background:transparent !important; background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
     .hero-grid { position:relative; z-index:1; max-width:900px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
     .hero-text { flex:1; min-width:260px; }
     .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
@@ -71,23 +71,23 @@
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
     .btn-hero-outline { background:transparent; color:var(--navy); border:2px solid var(--navy); border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
-    .btn-hero-outline:hover { background:rgba(22,34,47,0.06); }
-    .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:1px solid var(--border); }
+    .btn-hero-outline:hover { background:rgba(43,42,39,0.06); }
+    .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:1px solid var(--border); }
     .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
     .hero-portrait-mobile { display:none; justify-content:center; margin-top:36px; }
-    .hero-portrait-mobile-inner { width:200px; height:240px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(44,58,46,0.13); border:2px solid var(--sage); }
+    .hero-portrait-mobile-inner { width:200px; height:240px; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:2px solid var(--sage); }
     .hero-portrait-mobile-inner img { width:100%; height:100%; object-fit:cover; object-position:center 25%; display:block; }
     /* CARDS */
     .stream-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:48px; }
-    .stream-card { background:var(--white); border-radius:14px; padding:32px 28px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
+    .stream-card { background:var(--white); border-radius:14px; padding:32px 28px; box-shadow:0 2px 16px rgba(43,42,39,0.07); border-bottom:3px solid var(--sage); }
     .stream-card h3 { font-size:17px; font-weight:600; color:var(--green); margin:0 0 14px; font-family:'Assistant',sans-serif; text-align:center; }
     .stream-card p { font-size:14px; color:var(--textMid); line-height:1.85; margin:0; font-family:'Assistant',sans-serif; text-align:justify; }
     /* LOGOS */
     .logos-row { display:flex; justify-content:center; align-items:center; gap:32px; margin:48px auto 0; flex-wrap:wrap; }
-    .logo-box { width:120px; height:80px; background:var(--white); border-radius:8px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 8px rgba(44,58,46,0.06); }
+    .logo-box { width:120px; height:80px; background:var(--white); border-radius:8px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 8px rgba(43,42,39,0.06); }
     .logo-box img { width:100%; height:100%; object-fit:contain; padding:8px; opacity:0.85; }
     /* FOR WHO CARDS */
-    .challenge-card { background:var(--white); border-radius:14px; padding:24px 28px; border:1px solid rgba(22,34,47,0.08); margin-bottom:16px; }
+    .challenge-card { background:var(--white); border-radius:14px; padding:24px 28px; border:1px solid rgba(43,42,39,0.08); margin-bottom:16px; }
     .challenge-header { display:flex; gap:12px; align-items:flex-start; }
     .challenge-num { background:var(--sage); color:var(--white); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; font-family:'Assistant',sans-serif; }
     .challenge-title { font-size:16px; font-weight:700; color:var(--green); margin:0 0 8px; font-family:'Assistant',sans-serif; }
@@ -95,14 +95,14 @@
     .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:12px 0 4px; font-family:'Assistant',sans-serif; text-align:center; }
     .challenge-daily { font-size:15px; color:var(--text); line-height:1.9; font-family:'Assistant',sans-serif; }
     /* CTA BOX */
-    .cta-box { background:var(--white); border-radius:16px; padding:36px 28px; text-align:center; margin-top:32px; border:1px solid rgba(22,34,47,0.08); }
+    .cta-box { background:var(--white); border-radius:16px; padding:36px 28px; text-align:center; margin-top:32px; border:1px solid rgba(43,42,39,0.08); }
     .cta-box p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 24px; font-family:'Assistant',sans-serif; }
     .btn-cta { background:var(--sage); color:var(--white); border:none; border-radius:10px; padding:14px 36px; font-size:16px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
     .btn-cta:hover { opacity:0.9; transform:translateY(-1px); }
     /* FAQ */
-    .faq-item { background:var(--white); border-radius:12px; border-bottom:1px solid rgba(22,34,47,0.08); margin-bottom:12px; overflow:hidden; transition:all 0.4s; }
+    .faq-item { background:var(--white); border-radius:12px; border-bottom:1px solid rgba(43,42,39,0.08); margin-bottom:12px; overflow:hidden; transition:all 0.4s; }
     .faq-btn { width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 24px; background:none; border:none; cursor:pointer; gap:16px; font-family:'Assistant',sans-serif; }
-    .faq-q { font-size:16px; font-weight:600; color:#1E2631; line-height:1.5; flex:1; }
+    .faq-q { font-size:16px; font-weight:600; color:#2B2A27; line-height:1.5; flex:1; }
     .faq-icon { color:var(--sage); font-size:22px; font-weight:300; flex-shrink:0; transition:transform 0.3s; display:inline-block; }
     .faq-item.open .faq-icon { transform:rotate(45deg); }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.7s cubic-bezier(0.25,1,0.5,1); }
@@ -117,7 +117,7 @@
     .writings-nav-btn { background:none; border:1.5px solid var(--sage); border-radius:50%; width:36px; height:36px; cursor:pointer; color:var(--sage); font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
     .writings-nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
     .writings-counter { font-size:13px; color:var(--textLight); font-family:'Assistant',sans-serif; }
-    .writing-card { background:var(--white); border-radius:4px; padding:48px 44px; box-shadow:0 2px 20px rgba(44,58,46,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .writing-card { background:var(--white); border-radius:4px; padding:48px 44px; box-shadow:0 2px 20px rgba(43,42,39,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
     .writing-card.scrollable { max-height:520px; overflow-y:auto; }
     .writing-card.scrollable .writing-text { max-height:none; }
     .writing-mark { font-size:36px; color:var(--sage); opacity:0.4; margin-bottom:12px; font-family:Georgia,serif; line-height:1; }
@@ -125,7 +125,7 @@
     .writing-author { font-size:13px; color:var(--sage); font-weight:600; margin:0; font-family:'Assistant',sans-serif; }
     /* CONTACT */
     .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; align-items:start; max-width:900px; margin:0 auto; }
-    .contact-card { background:var(--white); border-radius:16px; padding:36px; box-shadow:0 2px 16px rgba(44,58,46,0.07); border-bottom:3px solid var(--sage); }
+    .contact-card { background:var(--white); border-radius:16px; padding:36px; box-shadow:0 2px 16px rgba(43,42,39,0.07); border-bottom:3px solid var(--sage); }
     .form-group { margin-bottom:18px; }
     .form-label { display:block; font-size:13px; color:var(--textLight); margin-bottom:6px; font-weight:600; font-family:'Assistant',sans-serif; }
     .form-input, .form-textarea { width:100%; padding:11px 14px; border-radius:8px; border:1.5px solid var(--border); font-size:15px; font-family:'Assistant',sans-serif; background:var(--white); color:var(--text); outline:none; transition:border-color 0.2s; box-sizing:border-box; }
@@ -154,7 +154,7 @@
     .btn-gmap { background:#0B81F5; }
     /* ACCESSIBILITY */
     .accessibility-box { margin-bottom:20px; }
-    .accessibility-h3 { font-size:17px; font-weight:700; color:#1E2631; margin:0 0 10px; font-family:'Assistant',sans-serif; }
+    .accessibility-h3 { font-size:17px; font-weight:700; color:#2B2A27; margin:0 0 10px; font-family:'Assistant',sans-serif; }
     .accessibility-p { font-size:15px; color:#232B32; line-height:1.55; margin:0 0 8px; font-family:'Assistant',sans-serif; }
     .accessibility-special { background:#B26E63; border-radius:14px; padding:24px 28px; }
     .accessibility-special p { font-size:15px; color:#F6F4F0; line-height:1.65; margin:0; font-family:'Assistant',sans-serif; }
@@ -163,7 +163,7 @@
     /* HEADING */
     .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 32px; font-family:'Assistant',sans-serif; }
     /* FOOTER */
-    footer { background:#2C3A2E; padding:28px 24px; text-align:center; }
+    footer { background:rgba(43,42,39,0.75); backdrop-filter:blur(8px); padding:28px 24px; text-align:center; }
     footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
     /* LTR helper */
     .ltr { direction:ltr; text-align:left; }
@@ -214,33 +214,28 @@
 <!-- VIEW 0: HOME -->
 <div class="view active" id="view-0">
   <div class="hero-bg">
-    <div class="hero-grid" id="heroGrid">
-      <div class="hero-text">
+    <div class="hero-centered" id="heroGrid">
+      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center">
         <div class="hero-subtitle" id="heroSubtitle"></div>
-        <div class="hero-poem" id="heroPoemWrap">
+        <div class="hero-poem" id="heroPoemWrap" style="margin:0 auto 32px">
           <p id="heroPoem"></p>
           <p class="poem-author" id="heroPoemAuthor"></p>
         </div>
-        <div class="hero-btns">
+        <div class="hero-btns" style="justify-content:center">
           <button class="btn-hero-main hero-btn-full" id="heroBtn1" onclick="showView(2)"></button>
-          <div class="hero-btns-row">
+          <div class="hero-btns-row" style="justify-content:center">
             <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)"></button>
             <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
           </div>
         </div>
         <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%;margin-top:20px" onclick="showView(6)"></button>
-        <div class="hero-portrait-mobile">
-          <div class="hero-portrait-mobile-inner">
-            <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block" />
-          </div>
-        </div>
-      </div>
-      <div class="hero-portrait">
-        <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor" />
       </div>
     </div>
+    <div class="hero-bg-art">
+      <img src="https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png" alt="" aria-hidden="true" />
+    </div>
   </div>
-  <footer><p id="footerText0"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink0"></button></footer>
+  <footer style="position:relative;z-index:1"><p id="footerText0"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink0"></button></footer>
 </div>
 
 <!-- VIEW 1: APPROACH -->
@@ -248,7 +243,7 @@
   <div class="section">
     <div class="section-inner-md" id="approachInner"></div>
   </div>
-  <footer><p id="footerText1"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink1"></button></footer>
+  <footer><p id="footerText1"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink1"></button></footer>
 </div>
 
 <!-- VIEW 2: FOR WHO -->
@@ -256,7 +251,7 @@
   <div class="section">
     <div class="section-inner-md" id="forWhoInner"></div>
   </div>
-  <footer><p id="footerText2"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink2"></button></footer>
+  <footer><p id="footerText2"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink2"></button></footer>
 </div>
 
 <!-- VIEW 3: FAQ -->
@@ -264,7 +259,7 @@
   <div class="section">
     <div class="section-inner" id="faqInner"></div>
   </div>
-  <footer><p id="footerText3"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink3"></button></footer>
+  <footer><p id="footerText3"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink3"></button></footer>
 </div>
 
 <!-- VIEW 4: WRITINGS -->
@@ -274,7 +269,7 @@
     <div class="writings-overlay"></div>
     <div class="writings-content" id="writingsInner"></div>
   </div>
-  <footer><p id="footerText4"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink4"></button></footer>
+  <footer><p id="footerText4"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink4"></button></footer>
 </div>
 
 <!-- VIEW 5: ABOUT -->
@@ -282,7 +277,7 @@
   <div class="section">
     <div class="section-inner" id="aboutInner"></div>
   </div>
-  <footer><p id="footerText5"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink5"></button></footer>
+  <footer><p id="footerText5"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink5"></button></footer>
 </div>
 
 <!-- VIEW 6: CONTACT -->
@@ -290,7 +285,7 @@
   <div class="section">
     <div id="contactInner"></div>
   </div>
-  <footer><p id="footerText6"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink6"></button></footer>
+  <footer><p id="footerText6"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink6"></button></footer>
 </div>
 
 <!-- VIEW 7: ACCESSIBILITY -->
@@ -298,7 +293,7 @@
   <div class="section">
     <div class="section-inner" id="accessibilityInner"></div>
   </div>
-  <footer><p id="footerText7"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink7"></button></footer>
+  <footer><p id="footerText7"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink7"></button></footer>
 </div>
 
 <!-- VIEW 8: LEGAL -->
@@ -306,7 +301,7 @@
   <div class="section">
     <div class="section-inner" id="legalInner" style="max-width:760px;margin:0 auto"></div>
   </div>
-  <footer><p id="footerText8"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(244,241,236,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink8"></button></footer>
+  <footer><p id="footerText8"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink8"></button></footer>
 </div>
 
 <script>
@@ -768,7 +763,7 @@ function renderForWho() {
     <p style="${pStyle};margin-bottom:16px">${fw.intro1}</p>
     <p style="${pStyle};margin-bottom:40px">${fw.intro2}</p>
     <h3 style="font-size:18px;font-weight:700;color:var(--green);margin:0 0 8px;text-align:center;font-family:'Assistant',sans-serif">${fw.challengesTitle}</h3>
-    <p style="font-size:15px;font-weight:700;color:#1E2631;margin-bottom:24px;text-align:center;font-family:'Assistant',sans-serif">${fw.challengesSub}</p>
+    <p style="font-size:15px;font-weight:700;color:#2B2A27;margin-bottom:24px;text-align:center;font-family:'Assistant',sans-serif">${fw.challengesSub}</p>
     ${fw.challenges.map(c=>`
       <div class="challenge-card">
         <div class="challenge-header">
@@ -782,10 +777,10 @@ function renderForWho() {
         </div>
       </div>`).join('')}
     <p style="font-size:13px;color:#5A6573;font-style:italic;margin:6px 0 20px;text-align:center;font-family:'Assistant',sans-serif">${fw.disclaimer}</p>
-    <div style="background:var(--white);border-radius:14px;padding:20px 28px;border:1px solid rgba(22,34,47,0.08);text-align:center">
-      <p style="font-size:15px;font-weight:700;color:#1E2631;margin:0;font-family:'Assistant',sans-serif">${fw.notFound}</p>
+    <div style="background:var(--white);border-radius:14px;padding:20px 28px;border:1px solid rgba(43,42,39,0.08);text-align:center">
+      <p style="font-size:15px;font-weight:700;color:#2B2A27;margin:0;font-family:'Assistant',sans-serif">${fw.notFound}</p>
     </div>
-    <div style="background:var(--white);border-radius:14px;padding:28px;border:1px solid rgba(22,34,47,0.08);margin-top:32px">
+    <div style="background:var(--white);border-radius:14px;padding:28px;border:1px solid rgba(43,42,39,0.08);margin-top:32px">
       <h3 style="font-size:17px;font-weight:700;color:var(--green);margin:0 0 14px;text-align:center;font-family:'Assistant',sans-serif">${fw.processTitle}</h3>
       <p style="${pStyle};margin-bottom:12px">${fw.process1}</p>
       <p style="${pStyle}">${fw.process2}</p>
@@ -840,6 +835,11 @@ function renderAbout() {
   const a = t().about;
   el('aboutInner').dir = t().dir;
   el('aboutInner').innerHTML = `
+    <div style="display:flex;justify-content:center;margin-bottom:36px">
+      <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:3px solid var(--sage);box-shadow:0 8px 32px rgba(43,42,39,0.13)">
+        <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor Ziv" style="width:100%;height:100%;object-fit:cover;object-position:center 25%" />
+      </div>
+    </div>
     <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${a.title}</h2>
     ${a.paragraphs.map(p=>`<p class="about-p" style="text-align:justify">${p}</p>`).join('')}
     ${makeQuote(a.quote.text, a.quote.author)}
