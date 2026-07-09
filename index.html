@@ -16,11 +16,11 @@
       --textMid: #4A4740;
       --textLight: #7A7468;
       --border: rgba(107,123,94,0.2);
-      --warm: #8B6B3D;
+      --warm: #4A6E7A;
       --navy: #2C2B28;
       --bg-color: #F0EDE6;
       --text-color: #2C2B28;
-      --accent-color: #8B6B3D;
+      --accent-color: #4A6E7A;
       --font-serif: 'Playfair Display', 'Georgia', serif;
       --font-sans: 'Assistant', 'Inter', sans-serif;
     }
@@ -67,10 +67,10 @@
     .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
     .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
     .hero-btns { display:flex; gap:12px; flex-wrap:wrap; align-items:stretch; }
-    .btn-hero-main { background:#8B6B3D; color:#FAF8F4; border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
+    .btn-hero-main { background:#4A6E7A; color:#FAF8F4; border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
-    .btn-hero-outline { background:rgba(240,237,230,0.85); color:#3D4F5C; border:2px solid #5C7A8A; border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
+    .btn-hero-outline { background:rgba(240,237,230,0.85); color:#5C4A2A; border:2px solid #8B7355; border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
     .btn-hero-outline:hover { background:rgba(43,42,39,0.06); }
     .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:1px solid var(--border); }
     .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
@@ -180,7 +180,7 @@
       .hero-btns{flex-direction:column;gap:20px;}
       .hero-btn-full{width:100%;}
       .hero-btns-row{display:none!important;}
-      .hero-btn-contact-mobile{display:block!important;}
+      .hero-btn-contact-mobile{display:block!important;font-size:15px;padding:14px 28px;border-radius:8px;}
       .contact-grid{gap:24px;}
       .writings-bg{padding:60px 24px 80px;}
     }
@@ -214,7 +214,7 @@
 <!-- VIEW 0: HOME -->
 <div class="view active" id="view-0">
   <div class="hero-bg">
-    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:20px">
+    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:8px">
       <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
         <div id="heroSubtitle" class="hero-subtitle" style="background:rgba(168,107,84,0.12);border-radius:50px;padding:4px 18px;font-size:13px"></div>
         <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.45);backdrop-filter:blur(4px);border-radius:12px;padding:28px 36px;display:inline-block">
@@ -228,7 +228,7 @@
             <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
           </div>
         </div>
-        <button class="btn-hero-outline hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%;margin-top:20px" onclick="showView(6)"></button>
+        <button class="btn-hero-main hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%;margin-top:20px" onclick="showView(6)"></button>
       </div>
     </div>
   </div>
