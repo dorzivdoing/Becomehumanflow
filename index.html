@@ -67,7 +67,7 @@
     .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
     .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
     .hero-btns { display:flex; gap:12px; flex-wrap:wrap; align-items:stretch; }
-    .btn-hero-main { background:rgba(178,110,99,0.95); color:var(--white); border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
+    .btn-hero-main { background:var(--warm); color:var(--white); border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
     .btn-hero-outline { background:transparent; color:var(--navy); border:2px solid var(--navy); border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
@@ -117,7 +117,7 @@
     .writings-nav-btn { background:none; border:1.5px solid var(--sage); border-radius:50%; width:36px; height:36px; cursor:pointer; color:var(--sage); font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
     .writings-nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
     .writings-counter { font-size:13px; color:var(--textLight); font-family:'Assistant',sans-serif; }
-    .writing-card { background:var(--white); border-radius:4px; padding:48px 44px; box-shadow:0 2px 20px rgba(43,42,39,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .writing-card { background:rgba(250,248,245,0.85); border-radius:4px; padding:48px 44px; box-shadow:0 2px 20px rgba(43,42,39,0.08); border-right:4px solid #B26E63; border-top:1px solid #7A8B84; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
     .writing-card.scrollable { max-height:520px; overflow-y:auto; }
     .writing-card.scrollable .writing-text { max-height:none; }
     .writing-mark { font-size:36px; color:var(--sage); opacity:0.4; margin-bottom:12px; font-family:Georgia,serif; line-height:1; }
@@ -125,7 +125,7 @@
     .writing-author { font-size:13px; color:var(--sage); font-weight:600; margin:0; font-family:'Assistant',sans-serif; }
     /* CONTACT */
     .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; align-items:start; max-width:900px; margin:0 auto; }
-    .contact-card { background:var(--white); border-radius:16px; padding:36px; box-shadow:0 2px 16px rgba(43,42,39,0.07); border-bottom:3px solid var(--sage); }
+    .contact-card { background:rgba(250,248,245,0.85); border-radius:16px; padding:36px; box-shadow:0 2px 16px rgba(43,42,39,0.07); border-bottom:3px solid var(--sage); }
     .form-group { margin-bottom:18px; }
     .form-label { display:block; font-size:13px; color:var(--textLight); margin-bottom:6px; font-weight:600; font-family:'Assistant',sans-serif; }
     .form-input, .form-textarea { width:100%; padding:11px 14px; border-radius:8px; border:1.5px solid var(--border); font-size:15px; font-family:'Assistant',sans-serif; background:var(--white); color:var(--text); outline:none; transition:border-color 0.2s; box-sizing:border-box; }
@@ -215,9 +215,9 @@
 <div class="view active" id="view-0">
   <div class="hero-bg">
     <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:60px">
-      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center">
-        <div id="heroSubtitle" class="hero-subtitle" style="margin-bottom:16px"></div>
-        <div class="hero-poem" id="heroPoemWrap" style="margin:0 auto 32px;background:rgba(241,239,233,0.88);backdrop-filter:blur(8px);border-radius:12px;padding:28px 36px;display:inline-block">
+      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px">
+        <div id="heroSubtitle" class="hero-subtitle"></div>
+        <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.88);backdrop-filter:blur(8px);border-radius:12px;padding:28px 36px;display:inline-block">
           <p id="heroPoem"></p>
           <p class="poem-author" id="heroPoemAuthor"></p>
         </div>
