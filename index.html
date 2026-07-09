@@ -70,7 +70,7 @@
     .btn-hero-main { background:var(--warm); color:var(--white); border:none; border-radius:8px; padding:14px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; box-shadow:0 4px 14px rgba(178,110,99,0.3); transition:all 0.4s; }
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
-    .btn-hero-outline { background:transparent; color:var(--navy); border:2px solid var(--navy); border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
+    .btn-hero-outline { background:rgba(241,239,233,0.92); color:var(--green); border:2px solid var(--green); border-radius:50px; padding:12px 24px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.4s; }
     .btn-hero-outline:hover { background:rgba(43,42,39,0.06); }
     .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:1px solid var(--border); }
     .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
@@ -215,8 +215,8 @@
 <div class="view active" id="view-0">
   <div class="hero-bg">
     <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:60px">
-      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px">
-        <div id="heroSubtitle" class="hero-subtitle"></div>
+      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div id="heroSubtitle" class="hero-subtitle" style="background:rgba(178,110,99,0.15);border-radius:50px;padding:4px 18px;font-size:13px"></div>
         <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.88);backdrop-filter:blur(8px);border-radius:12px;padding:28px 36px;display:inline-block">
           <p id="heroPoem"></p>
           <p class="poem-author" id="heroPoemAuthor"></p>
