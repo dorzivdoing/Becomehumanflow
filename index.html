@@ -62,7 +62,7 @@
     .hero-bg { position:relative; overflow:visible; background:transparent !important; background:linear-gradient(160deg,#E8E2D8 0%,#DDD7CC 40%,#D5CFC4 100%); padding:60px 40px 80px; position:relative; overflow:hidden; }
     .hero-grid { position:relative; z-index:1; max-width:900px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
     .hero-text { flex:1; min-width:260px; }
-    .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
+    .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; display:block; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
     .hero-poem { margin:0 0 32px; }
     .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
     .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
@@ -212,9 +212,9 @@
 
 <main id="mainContent">
 <!-- VIEW 0: HOME -->
-<div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') right bottom / 55% no-repeat; background-color:var(--bg);">
+<div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover no-repeat; background-color:var(--bg);">
   <div class="hero-bg">
-    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1">
+    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:60px">
       <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center">
         <div class="hero-subtitle" id="heroSubtitle" style="background:rgba(241,239,233,0.75);backdrop-filter:blur(4px);border-radius:8px;padding:6px 16px;display:inline-block;margin-bottom:20px"></div>
         <div class="hero-poem" id="heroPoemWrap" style="margin:0 auto 32px;background:rgba(241,239,233,0.82);backdrop-filter:blur(6px);border-radius:12px;padding:24px 32px;display:inline-block">
