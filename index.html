@@ -29,7 +29,7 @@
     nav { position:fixed; top:0; right:0; left:0; z-index:100; background:rgba(244,241,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:64px; }
     .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between; }
     .nav-logo { font-weight:700; font-size:20px; color:var(--green); background:none; border:none; cursor:pointer; font-family:'Assistant',sans-serif; }
-    .nav-links { display:flex; align-items:center; gap:4px; flex:1; margin:0 16px; flex-wrap:nowrap; overflow:hidden; }
+    .nav-links { display:flex; align-items:center; gap:0; flex:1; margin:0 16px; justify-content:space-between; flex-wrap:nowrap; overflow:hidden; }
     .nav-btn { font-size:13px; font-weight:400; color:var(--textLight); background:transparent; border:none; border-radius:8px; padding:6px 8px; cursor:pointer; transition:all 0.3s; font-family:'Assistant',sans-serif; white-space:nowrap; }
     .nav-btn.active { font-weight:600; color:var(--white); background:var(--sage); }
     .nav-btn.contact-btn { border:2px solid var(--sage); border-radius:50px; padding:6px 14px; color:var(--navy); }
@@ -214,17 +214,21 @@
 <!-- VIEW 0: HOME -->
 <div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover no-repeat; min-height:100vh; display:flex; flex-direction:column;">
   <div class="hero-bg">
-    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:8px">
-      <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+    <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;padding-top:8px;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:48px">
+      <!-- Subtitle + Poem (left side on RTL = right visually) -->
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;max-width:380px">
         <div id="heroSubtitle" class="hero-subtitle" style="background:rgba(168,107,84,0.12);border-radius:50px;padding:4px 18px;font-size:13px"></div>
-        <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.45);backdrop-filter:blur(4px);border-radius:12px;padding:28px 36px;display:inline-block">
+        <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.45);backdrop-filter:blur(4px);border-radius:12px;padding:28px 36px">
           <p id="heroPoem"></p>
           <p class="poem-author" id="heroPoemAuthor"></p>
         </div>
-        <div class="hero-btns" style="display:flex;flex-direction:row;justify-content:center;gap:16px;flex-wrap:wrap">
+      </div>
+      <!-- Buttons (right side on RTL = left visually) -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+        <div class="hero-btns" style="display:flex;flex-direction:column;gap:16px;align-items:center">
           <button class="btn-hero-main" id="heroBtn1" onclick="showView(2)"></button>
-            <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)" style="display:none"></button>
-            <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
+          <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)" style="display:none"></button>
+          <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
         </div>
         <button class="btn-hero-main hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;margin-top:0" onclick="showView(6)"></button>
       </div>
