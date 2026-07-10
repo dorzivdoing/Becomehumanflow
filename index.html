@@ -24,7 +24,7 @@
       --font-serif: 'Playfair Display', 'Georgia', serif;
       --font-sans: 'Assistant', 'Inter', sans-serif;
     }
-    body { font-family:var(--font-sans); background:var(--bg) url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover fixed no-repeat; color:var(--text); }
+    body { font-family:var(--font-sans); background:var(--bg); color:var(--text); }
     /* NAV */
     nav { position:fixed; top:0; right:0; left:0; z-index:100; background:rgba(244,241,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:64px; }
     .nav-inner { max-width:1100px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between; }
@@ -59,7 +59,7 @@
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
     /* HOME */
-    .hero-bg { background:transparent !important; position:relative; overflow:hidden; padding:8px 40px 80px; }
+    .hero-bg { background:transparent !important; position:relative; overflow:hidden; padding:8px 40px 80px; flex:1; }
     .hero-grid { position:relative; z-index:1; max-width:900px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
     .hero-text { flex:1; min-width:260px; }
     .hero-subtitle { font-size:15px; color:var(--warm); font-weight:500; letter-spacing:0.08em; display:block; margin-bottom:16px; font-family:'Assistant',sans-serif; text-align:center; }
@@ -70,7 +70,7 @@
     .btn-hero-main { background:rgba(74,110,122,0.75); color:#FAF8F4; backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
-    .btn-hero-outline { background:rgba(240,237,230,0.65); color:#5C4A2A; border:2px solid #8B7355; backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
+    .btn-hero-outline { background:rgba(74,110,122,0.65); color:#FAF8F4; border:2px solid rgba(74,110,122,0.8); backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
     .btn-hero-outline:hover { background:rgba(43,42,39,0.06); }
     .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:1px solid var(--border); }
     .hero-portrait img { width:100%; height:100%; object-fit:cover; object-position:center; }
@@ -177,10 +177,10 @@
       .hero-grid{flex-direction:column;}
       .hero-portrait{display:none;}
       .hero-portrait-mobile{display:flex!important;}
-      .hero-btns{flex-direction:column;gap:16px;align-items:center;}
+      .hero-btns{flex-direction:column;gap:16px;align-items:center;} #heroBtn1{width:auto;}
       .hero-btn-full{}
       #heroBtn2{display:none!important;} #heroBtn3{display:none!important;}
-      .hero-btn-contact-mobile{display:block!important;font-size:15px;padding:14px 28px;border-radius:8px;}
+      .hero-btn-contact-mobile{display:block!important;}
       .contact-grid{gap:24px;}
       .writings-bg{padding:60px 24px 80px;}
     }
@@ -212,7 +212,7 @@
 
 <main id="mainContent">
 <!-- VIEW 0: HOME -->
-<div class="view active" id="view-0">
+<div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover no-repeat; min-height:100vh; display:flex; flex-direction:column;">
   <div class="hero-bg">
     <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;align-items:flex-start;padding-top:8px">
       <div class="hero-text" style="max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
@@ -223,10 +223,10 @@
         </div>
         <div class="hero-btns" style="display:flex;flex-direction:row;justify-content:center;gap:16px;flex-wrap:wrap">
           <button class="btn-hero-main" id="heroBtn1" onclick="showView(2)"></button>
-            <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)"></button>
+            <button class="btn-hero-outline" id="heroBtn2" onclick="showView(5)" style="display:none"></button>
             <button class="btn-hero-outline" id="heroBtn3" onclick="showView(6)"></button>
         </div>
-        <button class="btn-hero-main hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;width:100%;margin-top:20px" onclick="showView(6)"></button>
+        <button class="btn-hero-main hero-btn-contact-mobile" id="heroBtn3Mobile" style="display:none;margin-top:0" onclick="showView(6)"></button>
       </div>
     </div>
   </div>
