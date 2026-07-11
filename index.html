@@ -54,7 +54,7 @@
     .quote-text { font-size:16px; color:var(--text); line-height:1.9; font-style:italic; font-weight:600; letter-spacing:0.02em; margin:0 0 14px; font-family:'Assistant',sans-serif; }
     .quote-author { font-size:13px; color:var(--sage); font-weight:600; letter-spacing:0.04em; font-family:'Assistant',sans-serif; }
     /* SECTIONS */
-    .section { padding:60px 40px 80px; background:var(--bg); }
+    .section { padding:16px 40px 60px; background:rgba(241,239,233,0.75); }
     .section-inner { max-width:700px; margin:0 auto; }
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
@@ -161,7 +161,7 @@
     /* ABOUT */
     .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
     /* HEADING */
-    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 32px; font-family:'Assistant',sans-serif; }
+    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; font-family:'Assistant',sans-serif; }
     /* FOOTER */
     footer { background:rgba(43,42,39,0.75); backdrop-filter:blur(8px); padding:28px 24px; text-align:center; }
     footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
@@ -172,7 +172,7 @@
     @media(max-width:700px){
       .nav-links,.lang-btn{display:none!important;}
       .hamburger,.mobile-contact{display:flex!important;}
-      .section{padding:60px 24px;}
+      .section{padding:16px 24px 60px;}
       .hero-bg{padding:60px 24px 80px;}
       .hero-grid{flex-direction:column;}
       .hero-portrait{display:none;}
@@ -218,7 +218,7 @@
       <!-- Subtitle top -->
       <div id="heroSubtitle" class="hero-subtitle" style="margin-bottom:16px"></div>
       <!-- Poem centered over bowl -->
-      <div style="display:flex;flex-direction:row;align-items:flex-end;justify-content:center;width:100%;gap:60px;padding:0 60px;min-height:420px">
+      <div style="display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;width:100%;gap:40px;padding:0 60px;min-height:380px">
         <!-- Poem top right -->
         <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.45);backdrop-filter:blur(4px);border-radius:12px;padding:24px 32px;flex:0 0 auto;max-width:340px;align-self:flex-start">
           <p id="heroPoem"></p>
