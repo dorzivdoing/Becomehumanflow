@@ -70,6 +70,7 @@
     .btn-hero-
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
+    .btn-hero-
     .btn-hero-outline { background:rgba(74,110,122,0.65); color:#FAF8F4; border:2px solid rgba(74,110,122,0.8); backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
     .btn-hero-outline:hover { background:rgba(43,42,39,0.06); }
     .hero-portrait { width:220px; height:280px; border-radius:14px; flex-shrink:0; overflow:hidden; box-shadow:0 8px 32px rgba(43,42,39,0.13); border:1px solid var(--border); }
@@ -91,7 +92,7 @@
     .challenge-header { display:flex; gap:12px; align-items:flex-start; }
     .challenge-num { background:var(--sage); color:var(--white); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; font-family:'Assistant',sans-serif; }
     .challenge-title { font-size:16px; font-weight:700; color:var(--green); margin:0 0 8px; font-family:'Assistant',sans-serif; }
-    .challenge-body { font-size:15px; color:var(--text); line-height:1.9; margin:0 0 10px; font-family:'Assistant',sans-serif; }
+    .challenge-
     .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:12px 0 4px; font-family:'Assistant',sans-serif; text-align:center; }
     .challenge-daily { font-size:15px; color:var(--text); line-height:1.9; font-family:'Assistant',sans-serif; }
     /* CTA BOX */
@@ -304,6 +305,7 @@
   </div>
   <footer><p id="footerText8"></p><button onclick="showView(8)" style="background:none;border:none;color:rgba(250,248,245,0.4);font-size:13px;cursor:pointer;font-family:'Assistant',sans-serif;text-decoration:underline;margin-right:16px;padding:0" id="legalLink8"></button></footer>
 </div>
+</main>
 
 <script>
 // ── CONTENT ──────────────────────────────────────────────────────────────────
@@ -1055,6 +1057,10 @@ async function handleSubmit(e) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 renderAll();
+console.log('Site loaded, currentView:', currentView, 'views:', document.querySelectorAll('.view.active').length);
+document.querySelectorAll('.nav-btn').forEach((btn,i) => {
+  console.log('nav-btn', i, btn.textContent, btn.onclick);
+});
 </script>
 
 <!-- Floating WhatsApp Button -->
