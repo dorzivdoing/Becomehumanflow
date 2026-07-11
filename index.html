@@ -46,7 +46,7 @@
     .mobile-btn.contact-btn { border:2px solid var(--sage); border-radius:50px; }
     .mobile-lang-btn { margin-top:8px; background:transparent; color:var(--sage); border:1.5px solid var(--sage); border-radius:8px; padding:12px 24px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; width:100%; min-height:48px; }
     /* VIEWS */
-    .view { display:none; padding-top:64px; }
+    .view { display:none; padding-top:64px; margin-top:0; }
     .view.active { display:block; }
     /* QUOTE */
     .quote-block { max-width:640px; margin:56px auto 0; text-align:center; padding:40px 32px; }
@@ -54,8 +54,8 @@
     .quote-text { font-size:16px; color:var(--text); line-height:1.9; font-style:italic; font-weight:600; letter-spacing:0.02em; margin:0 0 14px; font-family:'Assistant',sans-serif; }
     .quote-author { font-size:13px; color:var(--sage); font-weight:600; letter-spacing:0.04em; font-family:'Assistant',sans-serif; }
     /* SECTIONS */
-    .section { padding:16px 40px 60px; background:rgba(241,239,233,0.75); }
-    .section-inner { max-width:700px; margin:0 auto; }
+    .section { padding:0px 40px 60px; background:rgba(241,239,233,0.75); }
+    .section-inner { max-width:700px; margin:0 auto; padding-top:0; }
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
     /* HOME */
@@ -67,7 +67,7 @@
     .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
     .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
     .hero-btns { display:flex; flex-direction:row; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; }
-    .btn-hero-main { background:rgba(74,110,122,0.75); color:#FAF8F4; backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
+    .btn-hero-
     .btn-hero-main:hover { opacity:0.9; transform:translateY(-1px); }
     .hero-btns-row { display:flex; gap:12px; }
     .btn-hero-outline { background:rgba(74,110,122,0.65); color:#FAF8F4; border:2px solid rgba(74,110,122,0.8); backdrop-filter:blur(4px); min-width:180px; padding:14px 28px; font-size:15px; font-weight:600; border-radius:50px; cursor:pointer; font-family:'Assistant',sans-serif; transition:all 0.3s; }
@@ -161,7 +161,7 @@
     /* ABOUT */
     .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
     /* HEADING */
-    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; font-family:'Assistant',sans-serif; }
+    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; padding-top:24px; font-family:'Assistant',sans-serif; }
     /* FOOTER */
     footer { background:rgba(43,42,39,0.75); backdrop-filter:blur(8px); padding:28px 24px; text-align:center; }
     footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
@@ -172,7 +172,7 @@
     @media(max-width:700px){
       .nav-links,.lang-btn{display:none!important;}
       .hamburger,.mobile-contact{display:flex!important;}
-      .section{padding:16px 24px 60px;}
+      .section{padding:0px 24px 60px;}
       .hero-bg{padding:60px 24px 80px;}
       .hero-grid{flex-direction:column;}
       .hero-portrait{display:none;}
@@ -836,7 +836,7 @@ function renderAbout() {
   const a = t().about;
   el('aboutInner').dir = t().dir;
   el('aboutInner').innerHTML = `
-    <div style="display:flex;justify-content:center;margin-bottom:36px">
+    <div style="display:flex;justify-content:center;margin:0 0 24px">
       <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;border:3px solid var(--sage);box-shadow:0 8px 32px rgba(43,42,39,0.13)">
         <img src="https://media.base44.com/images/public/6a098e797170ea9e67f23db4/c9487d0c4_WhatsAppImage2024-03-10at212726.jpeg" alt="Dor Ziv" style="width:100%;height:100%;object-fit:cover;object-position:center 25%" />
       </div>
@@ -966,26 +966,12 @@ function renderAll() {
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────────────
 function showView(index) {
-  const views = document.querySelectorAll('.view');
-  // Fade out current view
-  views.forEach(v => {
-    if (v.classList.contains('active')) {
-      v.style.opacity = '0';
-      v.style.transform = 'translateY(8px)';
-    }
-  });
-  setTimeout(() => {
-    views.forEach(v => v.classList.remove('active'));
-    const next = el('view-' + index);
-    if (next) {
-      next.classList.add('active');
-      next.style.opacity = '';
-      next.style.transform = '';
-    }
-    currentView = index;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    renderNav();
-  }, 220);
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const next = el('view-' + index);
+  if (next) next.classList.add('active');
+  currentView = index;
+  window.scrollTo(0, 0);
+  renderNav();
   menuOpen = false;
   el('mobileMenu').classList.remove('open');
   const hb = document.querySelector('.hamburger');
