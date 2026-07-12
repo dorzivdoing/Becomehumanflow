@@ -112,7 +112,7 @@
     .faq-item.open .faq-answer { max-height:1000px; }
     .faq-answer p { padding:0 24px 24px; color:#2D3748; font-size:15px; line-height:1.7; margin:0; font-family:'Assistant',sans-serif; white-space:pre-line; }
     /* WRITINGS */
-    .writings-bg { position:relative; overflow:hidden; padding:60px 40px 80px; }
+    .writings-bg { position:relative; overflow:hidden; padding:24px 40px 80px; }
     .writings-photo-bg { position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('https://media.base44.com/images/public/6a098e797170ea9e67f23db4/0af3848d5_WhatsAppImage2026-05-04at112551.jpg'); background-size:cover; background-position:center 40%; filter:saturate(0.55) brightness(0.82) sepia(0.25) contrast(0.9); z-index:0; }
     .writings-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg,rgba(246,244,240,0.72) 0%,rgba(243,240,233,0.78) 100%); z-index:1; }
     .writings-content { position:relative; z-index:2; max-width:700px; margin:0 auto; }
@@ -164,7 +164,7 @@
     /* ABOUT */
     .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
     /* HEADING */
-    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; padding-top:0; font-family:'Assistant',sans-serif; }
+    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; font-family:'Assistant',sans-serif; }
     /* FOOTER */
     footer { background:rgba(43,42,39,0.75); backdrop-filter:blur(8px); padding:28px 24px; text-align:center; }
     footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
@@ -175,17 +175,22 @@
     @media(max-width:700px){
       .nav-links,.lang-btn{display:none!important;}
       .hamburger,.mobile-contact{display:flex!important;}
-      .section{padding:40px 24px 60px;}
-      .hero-bg{padding:60px 24px 80px;}
+      .section{padding:24px 20px 48px;}
+      .hero-bg{padding:8px 20px 24px;}
       .hero-grid{flex-direction:column;}
       .hero-portrait{display:none;}
       .hero-portrait-mobile{display:flex!important;}
-      .hero-btns{flex-direction:column;gap:16px;align-items:center;}
+      .hero-btns{flex-direction:column;gap:12px;align-items:center;}
       .hero-btn-full{}
       #heroBtn2{display:none!important;} #heroBtn3{display:none!important;}
       .hero-btn-contact-mobile{display:block!important;}
       .contact-grid{gap:24px;}
-      .writings-bg{padding:60px 24px 80px;}
+      .writings-bg{padding:24px 20px 48px;}
+      /* Mobile hero layout */
+      .hero-centered{flex-direction:column !important;align-items:center !important;padding-top:8px !important;gap:16px !important;}
+      .hero-centered > div:first-child{align-items:center !important;text-align:center !important;}
+      .hero-centered > div:last-child{align-self:center !important;padding-bottom:0 !important;}
+      #heroSubtitle{margin-bottom:8px !important;}
     }
     @media(min-width:701px){
       .mobile-contact,.hamburger{display:none!important;}
@@ -215,7 +220,7 @@
 
 <main id="mainContent">
 <!-- VIEW 0: HOME | updated 2026-07-12 15:25 -->
-<div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover no-repeat; display:flex; flex-direction:column; min-height:100vh;">
+<div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center bottom / cover no-repeat; display:flex; flex-direction:column; min-height:100vh;">
   <div class="hero-bg">
     <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;padding-top:16px;display:flex;flex-direction:column;align-items:center;width:100%">
       <!-- Subtitle top -->
