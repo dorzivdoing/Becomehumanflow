@@ -94,8 +94,9 @@
     .challenge-num { background:var(--sage); color:var(--white); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; font-family:'Assistant',sans-serif; }
     .challenge-title { font-size:16px; font-weight:700; color:var(--green); margin:0 0 8px; font-family:'Assistant',sans-serif; }
     .challenge-
-    .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:14px 0 2px; font-family:'Assistant',sans-serif; text-align:center; }
-    .challenge-daily { font-size:15px; color:var(--text); line-height:1.9; font-family:'Assistant',sans-serif; margin-top:0; }
+    .challenge-body { font-size:15px; color:var(--text); line-height:1.75; margin:0; font-family:'Assistant',sans-serif; }
+    .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:12px 0 2px; font-family:'Assistant',sans-serif; text-align:center; }
+    .challenge-daily { font-size:15px; color:var(--text); line-height:1.75; font-family:'Assistant',sans-serif; margin:0; }
     /* CTA BOX */
     .cta-box { background:var(--white); border-radius:16px; padding:36px 28px; text-align:center; margin-top:32px; border:1px solid rgba(43,42,39,0.08); }
     .cta-box p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 24px; font-family:'Assistant',sans-serif; }
@@ -819,7 +820,7 @@ function renderForWho() {
             <h4 class="challenge-title" style="text-align:${isRtl()?'right':'left'}">${c.title}</h4>
             <p class="challenge-body" style="text-align:justify">${c.body}</p>
             <p class="challenge-daily-label">${fw.dailyLabel}</p>
-            <p class="challenge-daily" style="text-align:justify">${c.daily}</p>
+            <p class="challenge-daily" style="text-align:justify;margin:0;line-height:1.7;white-space:normal">${c.daily}</p>
           </div>
         </div>
       </div>`).join('')}
