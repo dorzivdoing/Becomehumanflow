@@ -47,14 +47,14 @@
     .mobile-lang-btn { margin-top:8px; background:transparent; color:var(--sage); border:1.5px solid var(--sage); border-radius:8px; padding:12px 24px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Assistant',sans-serif; width:100%; min-height:48px; }
     /* VIEWS */
     .view { display:none !important; padding-top:64px; }
-    .view.active { display:block !important; }
+    .view.active { display:flex !important; flex-direction:column; min-height:100vh; }
     /* QUOTE */
     .quote-block { max-width:640px; margin:56px auto 0; text-align:center; padding:40px 32px; }
     .quote-mark { font-size:36px; color:var(--sage); opacity:0.6; margin-bottom:12px; font-family:Georgia,serif; }
     .quote-text { font-size:16px; color:var(--text); line-height:1.9; font-style:italic; font-weight:600; letter-spacing:0.02em; margin:0 0 14px; font-family:'Assistant',sans-serif; }
     .quote-author { font-size:13px; color:var(--sage); font-weight:600; letter-spacing:0.04em; font-family:'Assistant',sans-serif; }
     /* SECTIONS */
-    .section { padding:40px 40px 60px; background:rgba(241,239,233,0.75); }
+    .section { padding:40px 40px 60px; background:rgba(241,239,233,0.75); flex:1; }
     .section-inner { max-width:700px; margin:0 auto; padding-top:0; }
     .section-inner-md { max-width:800px; margin:0 auto; }
     .section-inner-lg { max-width:1000px; margin:0 auto; }
@@ -164,7 +164,7 @@
     /* ABOUT */
     .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
     /* HEADING */
-    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; padding-top:24px; font-family:'Assistant',sans-serif; }
+    .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; padding-top:0; font-family:'Assistant',sans-serif; }
     /* FOOTER */
     footer { background:rgba(43,42,39,0.75); backdrop-filter:blur(8px); padding:28px 24px; text-align:center; }
     footer p { color:rgba(244,241,236,0.45); font-size:13px; font-weight:300; margin:0; font-family:'Assistant',sans-serif; }
