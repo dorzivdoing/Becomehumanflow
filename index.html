@@ -187,10 +187,11 @@
       .contact-grid{gap:24px;}
       .writings-bg{padding:24px 20px 48px;}
       /* Mobile hero layout */
-      .hero-centered{flex-direction:column !important;align-items:center !important;padding-top:8px !important;gap:16px !important;}
-      .hero-centered > div:first-child{align-items:center !important;text-align:center !important;}
-      .hero-centered > div:last-child{align-self:center !important;padding-bottom:0 !important;}
-      #heroSubtitle{margin-bottom:8px !important;}
+      .hero-inner-row{flex-direction:column !important;align-items:center !important;padding:0 16px !important;min-height:auto !important;gap:16px !important;}
+      #heroPoemWrap{max-width:100% !important;width:100%;box-sizing:border-box;}
+      .hero-centered > div:first-child{align-items:center !important;}
+      #heroSubtitle{margin-bottom:4px !important;text-align:center;}
+      .hero-centered{padding-top:8px !important;}
     }
     @media(min-width:701px){
       .mobile-contact,.hamburger{display:none!important;}
@@ -226,7 +227,7 @@
       <!-- Subtitle top -->
       <div id="heroSubtitle" class="hero-subtitle" style="margin-bottom:16px"></div>
       <!-- Poem centered over bowl -->
-      <div style="display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;width:100%;gap:40px;padding:0 160px 0 20px;min-height:400px">
+      <div class="hero-inner-row" style="display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;width:100%;gap:40px;padding:0 160px 0 20px;min-height:400px">
         <!-- Poem top right -->
         <div class="hero-poem" id="heroPoemWrap" style="background:rgba(241,239,233,0.45);backdrop-filter:blur(4px);border-radius:12px;padding:24px 32px;flex:0 0 auto;max-width:340px;align-self:flex-start">
           <p id="heroPoem"></p>
