@@ -67,9 +67,7 @@
     .hero-poem p { font-size:clamp(14px,1.8vw,16px); color:var(--textMid); line-height:1.95; font-family:'Assistant',sans-serif; margin:0 0 10px; font-style:italic; white-space:pre-line; }
     .hero-poem .poem-author { font-size:12px; color:var(--sage); font-weight:600; margin:0; letter-spacing:0.04em; }
     .hero-btns { display:flex; flex-direction:row; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; }
-    .btn-hero-
     .hero-btns-row { display:flex; gap:12px; }
-    .btn-hero-
 
     .btn-hero-main:hover, .btn-hero-outline:hover { background:rgba(74,110,122,0.45) !important; color:#FAF8F4 !important; }
     .btn-hero-main { background:rgba(74,110,122,0.85) !important; color:#FAF8F4 !important; border:none; border-radius:12px; padding:12px 28px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Assistant',sans-serif; backdrop-filter:blur(4px); transition:background 0.25s ease; min-height:44px; }
@@ -93,7 +91,6 @@
     .challenge-header { display:flex; gap:12px; align-items:flex-start; }
     .challenge-num { background:var(--sage); color:var(--white); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; font-family:'Assistant',sans-serif; }
     .challenge-title { font-size:16px; font-weight:700; color:var(--green); margin:0 0 8px; font-family:'Assistant',sans-serif; }
-    .challenge-
     .challenge-body { font-size:15px; color:var(--text); line-height:1.75; margin:0; font-family:'Assistant',sans-serif; }
     .challenge-daily-label { font-size:14px; font-weight:700; color:var(--sage); margin:12px 0 2px; font-family:'Assistant',sans-serif; text-align:center; }
     .challenge-daily { font-size:15px; color:var(--text); line-height:1.75; font-family:'Assistant',sans-serif; margin:0; }
@@ -162,7 +159,7 @@
     .accessibility-special { background:#B26E63; border-radius:14px; padding:24px 28px; }
     .accessibility-special p { font-size:15px; color:#F6F4F0; line-height:1.65; margin:0; font-family:'Assistant',sans-serif; }
     /* ABOUT */
-    .about-p { font-size:15px; color:var(--textMid); line-height:1.9; margin:0 0 20px; font-family:'Assistant',sans-serif; }
+    .about-p { font-size:15px; color:var(--textMid); line-height:1.8; margin:0 0 10px; font-family:'Assistant',sans-serif; }
     /* HEADING */
     .sec-h2 { font-size:clamp(26px,5vw,40px); font-weight:400; color:var(--green); margin:0 0 28px; font-family:'Assistant',sans-serif; }
     /* FOOTER */
@@ -220,7 +217,7 @@
 <div class="mobile-menu" id="mobileMenu"></div>
 
 <main id="mainContent">
-<!-- VIEW 0: HOME | updated 2026-07-12 15:25 -->
+<!-- VIEW 0: HOME | updated 2026-11-26 11:50 -->
 <div class="view active" id="view-0" style="background:url('https://raw.githubusercontent.com/dorzivdoing/Becomehumanflow/main/background1.png') center center / cover no-repeat; display:flex; flex-direction:column; min-height:100vh;">
   <div class="hero-bg">
     <div class="hero-centered" id="heroGrid" style="position:relative;z-index:1;padding-top:16px;display:flex;flex-direction:column;align-items:center;width:100%">
@@ -322,6 +319,8 @@ const writings = [
   { text: `Stand still. The trees ahead and bushes beside you are not lost.\nWherever you are is called here,\nand you must treat it as a powerful stranger,\nmust ask permission to know it and be known.\nThe forest breathes. Listen.\nIt answers, I have made this place around you.\nIf you leave it, you may come back again, saying Here.\nNo two trees are the same to Raven.\nNo two branches are the same to Wren.\nIf what a tree or a bush does is lost on you,\nYou are surely lost. Stand still. The forest knows\nWhere you are. You must let it find you.`, author: 'David Wagoner, Traveling Light', rtl: false },
   { text: `"If I'm forced to choose and very frequently I am, I'd rather be whole than be good"`, author: 'Carl Jung', rtl: false },
   { text: `"Heartbreak is the beautifully helpless side of love and affection and is just as much an essence and emblem of care as the spiritual athlete's quick but abstract ability to let go. Heartbreak has its own way of inhabiting time and its own beautiful and trying patience in coming and going...Heartbreak is how we mature;..."`, author: 'David Whyte, Consolations', rtl: false },
+  { text: `Those who will not slip beneath\nthe still surface on the well of grief\n\nturning down through its black water \nto the place we cannot breathe\n\nwill never know \nthe source from which we drink,\nthe secret water, cold and clear\n\nnor find in the darkness glimmering,\nthe small round coins,\nthrown by those who wished for something else.`, author: 'David Whyte, The Well of Grief', rtl: false },
+  { text: `Finally on my way to yes\nI bump into\nall the places\nwhere I said no\nto my life\nall the untended wounds\nthe red and purple scars\nthose hieroglyphs of pain\ncarved into my skin, my bones,\nthose coded messages\nthat send me down\nthe wrong street\nagain and again\nwhere I find them\nthe old wounds\nthe old misdirections\nand I lift them\none by one\nclose to my heart\nand I say\nholy holy`, author: 'Pesha Gertler', rtl: false },
   { text: `ממש כאילו חייבת להיות בי\nכמות כזו של כאב\nאם לא בנפש הרי בגוף,\nאם לא ברגל הרי בצלע,\nאם לא מתחת ללב הרי בברכיים.\nהחולשה חיה בי בגבורה\nונאבקת על קיומה.\nאולי היא בררה שמעולם לא נוסתה,\nאופן אחר של חיים, שברוב יעילותנו\nהשחתנו והשלכנו הצידה,\nאורח קיום עדין, רגיש,\nאשר בוכה בתוכנו`, author: 'אווה קילפי (תרגום רמי סערי)', rtl: true },
   { text: `למדי עכשיו, בין העצים והסלעים,\nאיך כל מה שהושלך נשזר למחסה,\nלמדי את הדרך שבה כל מה שהוסתר והושתק\nאט אט קורא בקול.\nמצאי את הסימטריה הפנימית\nאל מול התופעות החיצוניות, למדי את עצמך\nלהיות עצמך, התחילי לקבל בחזרה\nאת כל החלקים ששילחת לדרכם, היי בשורה חדשה,\nהפכי עצמך לדלת שדרכה\nכולם יתקבלו בברכה, אפילו הזרים שבתוכך.`, author: "בתים מתוך ׳מיטתו של קולמן׳ מאת דיוויד וייט", rtl: true },
   { text: `זהו דבר מפחיד לאהוב,\nאת מה שהמוות יכול לקחת.\nלאהוב, לקוות, לחלום,\nוכן! לאבד.\n\nמדובר בדבר המיועד לטיפשים,\nלאהוב,\nאבל דבר קדוש הוא,\nלאהוב את מה שהמוות יכול לקחת.\n\nמשום שחייך נחיו בתוכי,\nהצחוק שלך רומם אותי,\nהמילה שלך הייתה מתנה עבורי.\n\nלזכור את זה מעורר שמחה כואבת.\nזהו דבר אנושי לאהוב,\nזהו דבר קדוש,\nלאהוב\nאת שהמוות יכול לקחת`, author: "מיוחס לרבי חיים שטרן בספרו ׳בקצה תהום הצער׳ של פרנסיס וולר, בתרגום רוני גרוס.", rtl: true },
@@ -376,22 +375,6 @@ and mourning</span>
     author: 'ליאת ארד ודור זיו | כשהכפר כולו מתאבל איתך',
     rtl: true,
     scrollable: true,
-  },
-  {
-    text: `Stand still. The trees ahead and bushes beside you
-Are not lost. Wherever you are is called Here,
-And you must treat it as a powerful stranger,
-Must ask permission to know it and be known.
-The forest breathes. Listen. It answers,
-I have made this place around you.
-If you leave it, you may come back again, saying Here.
-No two trees are the same to Raven.
-No two branches are the same to Wren.
-If what a tree or a bush does is lost on you,
-You are surely lost. Stand still. The forest knows
-Where you are. You must let it find you.`,
-    author: '- David Wagoner',
-    rtl: false,
   },
   {
     text: `כשאתה חיוור מצער
@@ -496,18 +479,18 @@ const content = {
     },
     writings:{title:'השראה עונתית שנאספה או נכתבה'},
     about:{
-      title:'אודותיי',
+      title:'מעט עליי',
       paragraphs:[
-        'שלום, אני דור. השם שבחרתי לקליניקה בעונה זו הוא להיות אדם. הוא נולד מתוך התבוננות על כך שלהיות אדם בוגר בעולם הזה הוא תהליך מתמשך, הלוקח זמן, דורש חניכה ומכיל בתוכו מגוון רחב של חוויות.',
-        'הבחירה לעסוק בתחום הגיעה לעולם מתוך מחקר ועיבוד אישי ומקצועי עמוק שהחל לפני כ-11 שנים, והוביל אותי לחקור דרכים בהן הגוף והנפש נפגשים וקשורים. לאחר שירות צבאי משמעותי יצאתי למסע חקירה, התנסות וגילוי.',
-        'מאז שנת 2017 אני מלווה בקליניקה מבוגרים בתהליכי שינוי, התמודדות וצמיחה מתוך משבר באופן פרטני, פנים אל פנים ואונליין. דרכי המקצועית החלה דרך עבודה עם יוגה טיפולית (בהמשך שימשתי גם כעוזר הוראה בהכשרת מטפלים ומורים בתחום). התמחיתי וליווי אנשים בשיקום פגיעות ופציעות, כאבים כרוניים, מחלות אוטואימוניות, וויסות רגשי וגופני.',
-        'החל משנת 2022 אני מטפל כפסיכותרפיסט בגישת ביוסינתזה, מוסמך מטעם המכון הבינלאומי בשוויץ (IIBS). החיבור שלי לביוסינתזה נבע מכך שהיא מתאימה את עצמה לאדם, ולא להפך. היא מבוססת על יצירת איזון, חיבור וקישור בין חלקים שונים בך, ומאפשרת לנוע מתוך מצוקה אל עבר משאבים טבעיים וחיוניוּת.',
-        'כיום אני חלק מסגל ההוראה כעוזר הוראה בבית הספר לביוסינתזה בישראל ולאחרונה התחלתי את הכשרת המדריכים (Supervisors) בגישה. התהליך הטיפולי איתי בקליניקה הפרטית מתנהל תחת הדרכה מקצועית קבועה, במסגרת של תהליכים קצרי מועד ממוקדים ומעמיקים ארוכי טווח.',
-        'העבודה שלי בחדר הטיפולים מחוברת להקשרים הרחבים של החיים. בטיפול אני לוקח בחשבון את הסיפור האישי והקשרי חייך, מתוך הבנה שאנחנו תמיד קשורים לאנשים, לסיפורים ולמקומות שעיצבו אותנו, גם אם אנחנו או הם כבר לא שם. תפיסה זו מלווה אותי גם באופן אישי: בעשור האחרון אני חוקר ובונה את הסיפור המשפחתי של אבותיי שמגיע ממזרח אירופה באמצעות איתור מסמכים בארכיבים ובעבודה דרך קונסטלציה משפחתית.',
-        'המבט הרחב והזיקה הזו אל השורשים מהם צומחים אנשים הובילו אותי אל עולמות התוכן של טקסי אבל, חיים ומוות. הוסמכתי כמנחה בתוכנית אבל כשער לחיים עם פרנסיס וולר (Francis Weller), ואני שואב השראה קבועה ממשנתם של סטיבן ג׳נקינסון (Stephen Jenkinson) ואלחנדרו חודורובסקי (Alejandro Jodorowski). כיום אני פועל כאיש צוות בטקסי אבל קהילתיים, מתוך צורך אישי אך גם תחושת שליחות והכרחיות של טכנולוגיה כזו כמענה לאתגרים נוכחיים של בני האדם.',
-        'לאורך השנים יזמתי והקמתי מיזמים המשלבים גוף וקהילה: הקמתי את זוּזוּ - מרחב לאירועי תנועה אלטרנטיביים המאפשר ביטוי אישי חופשי, והייתי מייסד-שותף של Bodyfulness (מיזם Wellness לארגונים).',
-        'מחוץ לקליניקה אני בתהליך מתמשך והחקירה העצמית שלי מלווה בחיבור יומיומי לאדמה וליצירה: אני לומד על חיבור לאדמה דרך לימודי חקלאות יצרנית בקנה מידה קטן, שהיה בטבע, שימור מזון, חקירת תנועה ממוקדת רקמת פאשיה ומוצא עוגן והשראה במוזיקה, שירה ובשפת האחרוּת המופלאה - בה ולידה אנחנו חיים.',
-        'אל המפגשים הטיפוליים אני מביא איתי איכויות של הקשבה עמוקה, נוכחות, סקרנות, הבחנה והומור. הכוונה המרכזית שמנחה אותי היא לבנות יחד איתך יחסים טיפוליים שיש בהם מפגש אנושי בגובה העיניים, אמון הדדי, כבוד, וקצב מדויק שמתאים לך ולהקשרים הייחודיים של חייך.',
+        'שלום, אני דור. השם שבחרתי לקליניקה בעונה זו הוא ׳להיות אדם׳. הוא נולד מתוך התבוננות על כך שלהיות אדם בוגר בעולם הזה הוא תהליך מתמשך, הלוקח זמן, דורש חניכה ומכיל בתוכו מגוון רחב של חוויות.',
+        'הבחירה לעסוק בתחום הגיעה מתוך מחקר ועיבוד אישי ומקצועי עמוק שהחל לפני כ-11 שנים, והוביל אותי לחקור דרכים בהן הגוף והנפש נפגשים וקשורים. לאחר שירות צבאי משמעותי יצאתי למסע של חקירה, התנסות וגילוי.',
+        'מאז 2017 אני מלווה בקליניקה מבוגרים בתהליכי שינוי, התמודדות וצמיחה מתוך משבר, באופן פרטני, פנים אל פנים ואונליין. דרכי המקצועית החלה בעבודה עם יוגה טיפולית (ובהמשך שימשתי גם כעוזר הוראה בהכשרת מטפלים ומורים בתחום). התמחיתי בליווי אנשים החיים עם כאבים כרוניים ומחלות אוטואימוניות, אנשים בשיקום מפגיעות ופציעות, ובוויסות רגשי וגופני.',
+        'מ-2022 אני מטפל כפסיכותרפיסט בגישת ביוסינתזה, מוסמך מטעם המכון הבינלאומי בשוויץ (IIBS). התחברתי לביוסינתזה כי היא מתאימה את עצמה לאדם, ולא להפך. היא מבוססת על יצירת איזון, חיבור וקישור בין חלקים שונים בך, ומאפשרת לנוע מתוך מצוקה אל עבר משאבים טבעיים וחיוניות.',
+        'כיום אני עוזר הוראה בבית הספר לביוסינתזה בישראל, ולאחרונה התחלתי את הכשרת המדריכים (Supervisors) בגישה. הטיפול בקליניקה הפרטית מתנהל תחת הדרכה מקצועית קבועה, במסגרת של תהליכים קצרי מועד וממוקדים או תהליכים מעמיקים ארוכי טווח.',
+        'העבודה שלי בחדר הטיפולים מחוברת להקשרים הרחבים של החיים. בטיפול אני לוקח בחשבון את הסיפור האישי ואת הקשרי חייך, מתוך הבנה שאנחנו תמיד קשורים לאנשים, לסיפורים ולמקומות שעיצבו אותנו, גם אם אנחנו או הם כבר לא שם. תפיסה זו מלווה אותי גם באופן אישי: בעשור האחרון אני חוקר ובונה מחדש את הסיפור המשפחתי של אבותיי, שמגיעים ממזרח אירופה, באמצעות איתור מסמכים בארכיונים ועבודה דרך קונסטלציה משפחתית.',
+        'המבט הרחב והזיקה לשורשים שמהם צומחים אנשים הובילו אותי אל עולמות התוכן של טקסי אבל, חיים ומוות. הוסמכתי כמנחה בתוכנית ׳אבל כשער לחיים׳ של פרנסיס וולר (Francis Weller), ואני שואב השראה קבועה ממשנתם של סטיבן ג׳נקינסון (Stephen Jenkinson) ואלחנדרו ז׳ודורובסקי (Alejandro Jodorowsky). כיום אני פועל כאיש צוות בטקסי אבל קהילתיים, מתוך צורך אישי, ומתוך תחושת שליחות והכרח ב׳טכנולוגיה׳ כזו כמענה לאתגרים של בני האדם בימינו.',
+        'לאורך השנים יזמתי והקמתי מיזמים המשלבים גוף וקהילה: הקמתי את זוּזוּ, מרחב לאירועי תנועה אלטרנטיביים המאפשר ביטוי אישי חופשי, והייתי מייסד-שותף של Bodyfulness (מיזם Wellness לארגונים).',
+        'מחוץ לקליניקה החקירה העצמית שלי נמשכת, ומלווה בחיבור יומיומי לאדמה וליצירה: אני לומד חקלאות יצרנית בקנה מידה קטן, שהייה בטבע ושימור מזון, חוקר תנועה ממוקדת רקמת פאשיה, ומוצא עוגן והשראה במוזיקה, בשירה ובשפת האחרוּת המופלאה, שבתוכה ולצידה אנחנו חיים.',
+        'אל המפגשים הטיפוליים אני מביא איתי הקשבה עמוקה, נוכחות, סקרנות, הבחנה והומור. הכוונה המרכזית שמנחה אותי היא לבנות יחד איתך יחסים טיפוליים שיש בהם מפגש אנושי בגובה העיניים, אמון הדדי, כבוד וקצב מדויק, שמתאים לך ולהקשרים הייחודיים של חייך.',
       ],
       quote:{text:'חשבתי שאני רוצה להיות משורר, אבל בעומק ליבי - רציתי פשוט להיות שיר.',author:'- חיימה גיל דה בידמה'}
     },
@@ -559,10 +542,11 @@ const content = {
       locationLabel:'פרטי מיקום',
       consentLbl:'אני מסכים/ה למדיניות הפרטיות ומאשר/ת קבלת עדכונים מקצועיים.',
       consentLink:'קרא/י תקנון',
-      locationText:'הקליניקה ממוקמת בבית אורן. בהגעה למפגש הראשון אנחה אותך היכן לחנות ואיפה ממוקמת בדיוק.',
+      locationText:'הקליניקה עוברת לתל אביב ולפרדס חנה. פרטי המיקום המדויקים יעודכנו באתר בקרוב, ואת הכתובת אשלח בעת תיאום המפגש.',
     },
     accessibility:{
       title:'נגישות במרחב הטיפולי',
+      updateNotice:'עמוד זה נמצא בעדכון, מכיוון שהקליניקה עוברת לתל אביב ולפרדס חנה. הפרטים יעודכנו בקרוב. בינתיים, לשאלות בנוגע להנגשה ניתן ליצור איתי קשר ישירות.',
       s1Title:'גישה פיזית',
       s1p1:'מיקום וגישה: הקליניקה בבית אורן ממוקמת בקומת קרקע, עם גישה ישירה וללא מדרגות. המרחב נגיש ומותאם למשתמשים בכיסאות גלגלים.',
       s1p2:'חניה: בקרבת כניסת המבנה (60-70 מ) קיימת חניה ייעודית לאנשים עם מוגבלות.',
@@ -577,7 +561,7 @@ const content = {
     dir:'ltr', name:'Dor Ziv',
     navItems:['Home','The Approach','Who Is It For?','FAQ','From the Field','About','Contact','Accessibility'],
     langToggle:'עב', footerText:'© 2026 Dor Ziv - Somatic Psychotherapy', legalLinkText:'Terms & Privacy',
-    home:{ subtitle:'Somatic Psychotherapy · Beit Oren · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
+    home:{ subtitle:'Somatic Psychodynamic Psychotherapy · Tel Aviv · Pardes Hanna · Online', poemLines:`My heart is so small,\nit's almost invisible.\nHow can you place such big sorrows in it?\n"Look," he answered,\n"your eyes are even smaller,\nyet they behold the world."`, poemAuthor:'- Jalal al-Din Rumi', btn1:'Who Is It For?', btn2:'About Me', btn3:'Contact' },
     approach:{
       title:'A Perspective That Connects Life',
       intro:'Biosynthesis is an internationally recognized somatic psychotherapy method, founded in the 1970s by researcher and therapist David Boadella. The name means integration of life. It emerged from a humanistic vision of the human being as whole, seeking to reconnect the three dimensions of our existence: the physical, the emotional, and the spiritual. The approach has been officially recognized by the European Association for Psychotherapy (EAP) and operates under the standards of the European Association for Body Psychotherapy (EABP). The foundations of Biosynthesis draw on both classical and current streams of research and practice. It is rooted in analytic body psychotherapy and integrates principles from depth psychology, object relations theory, and transpersonal psychology. Boadella grounded the method in early developmental processes in the womb (embryology), from the understanding that as adults we can work with imprints that began in these early stages and shaped us across the years. Today, current research shows how the soma (the body) influences and is influenced directly through breath, movement, touch, and trust-based relationship. What makes Biosynthesis distinctive in clinical practice is its resource-focused orientation: building a trust-based relationship and finding the open pathway for the person - rather than fitting them to the method - with respect and curiosity toward their system. We hold that crises and life events have left patterns in the body that once protected and preserved, but now block vitality and aliveness. The shared work helps your system move from distress toward the natural strengths within you. Relationships that hold trust and safety, enabling new and corrective experiences, can bring about stable change in daily life - without breaking through defenses aggressively, without trying to mechanically fix what feels broken, and without opening wounds in a painful or overwhelming way.',
@@ -633,12 +617,12 @@ const content = {
       title:'About Me',
       paragraphs:[
         'Hello, I am Dor. The name I chose for the clinic, Become Human, was born from a contemplation of the fact that being a grown adult in this world is an ongoing process - one that takes time, requires initiation, and contains within it a wide range of experiences. My professional path came into being through deep personal and professional inquiry and processing that began about 11 years ago, and led me to explore the ways in which body and mind meet and are interconnected. Following meaningful military service, I set out on a journey of exploration, discovery, and experience.',
-        'Since 2017, I have been accompanying adults in the clinic through processes of change, coping, and growth from crisis - individually, face to face, and online. My professional path began through work with Yoga Therapy (I later also served as a teaching assistant in practitioner and teacher training in this field). I specialized in and worked with rehabilitation from injuries and trauma, chronic pain, autoimmune conditions, and emotional and somatic regulation.',
+        'Since 2017, I have been accompanying adults in the clinic through processes of change, coping, and growth from crisis - individually, face to face, and online. My professional path began through work with Yoga Therapy (I later also served as a teaching assistant in practitioner and teacher training in this field). I specialized in accompanying people living with chronic pain and autoimmune conditions, people in rehabilitation from injuries and trauma, and emotional and somatic regulation.',
         'From 2022, I have been working as a Body psychotherapist in the Biosynthesis approach, certified by the International Institute in Switzerland (IIBS). My connection to Biosynthesis arose from the fact that it adapts itself to the person, not the other way around. It is grounded in re-establishing balance among different parts of you, and allows movement from distress toward natural resources and vitality. I am currently part of the teaching faculty as a teaching assistant at the School for Biosynthesis in Israel, and have recently begun training as a Supervisor within the approach. My therapeutic process in the private clinic is conducted under ongoing professional supervision, within the frame of deep, long-term processes.',
         'My work in the therapy room is connected to the broader contexts of life. In therapy we take into account your personal story and the relational contexts of your life, from the understanding that we are always connected to the people, stories, and places that shaped us - even if we, or they, are no longer there. This understanding also accompanies me personally: over the past decade I have been researching and reconstructing the family story of my ancestors, who came from Eastern Europe, through locating documents in archives and working with family constellation.',
         'The wide-angle view and this kinship with the roots from which people grow led me into the world of grief rituals, life, and death. I was trained as a facilitator for Grief rituals in the Grief as Gateway to Life program with Francis Weller, and I draw ongoing inspiration from the teachings of Stephen Jenkinson and Alejandro Jodorowsky. I currently serve as a team member in community grief rituals, from the understanding that grief and sorrow are not pathology to be fixed, but an inseparable part of the process of human initiation and maturation. In my view, rituals are necessary human technologies for our time.',
         'Over the years I have initiated and built projects that integrate body and community: I established ZUZU - a space for alternative movement events that allows free personal expression - and was a co-founder of Bodyfulness (a wellness initiative for organizations).',
-        'Outside the clinic, my own inquiry is accompanied by daily connection to the earth and to creation: I am learning about connection to the land through small-scale agriculture, fermenting vegetables and preserving food, exploring movement focused on fascial tissue, and finding anchor and inspiration in music, song, and the wonderful language of otherness - in which and through which we live.',
+        'Outside the clinic, my own inquiry is accompanied by daily connection to the earth and to creation: I am learning about connection to the land through small-scale agriculture, fermenting vegetables and preserving food, exploring movement focused on fascial tissue, and finding anchor and inspiration in music, song, and the wondrous language of otherness, within which and alongside which we live.',
         'To our encounters I bring qualities of deep listening, presence, curiosity, discernment, and humor. The central intention that guides me is to build together with you a therapeutic relationship that holds human meeting at eye level, mutual trust, respect, and a precise pace that fits you and the unique contexts of your life.',
       ],
       quote:{text:'I thought I wanted to be a poet, but deep in my heart - I simply wanted to be a poem.',author:'- Jaime Gil de Biedma'}
@@ -692,10 +676,11 @@ const content = {
       locationLabel:'Location',
       consentLbl:'I agree to the privacy policy and consent to receive professional updates.',
       consentLink:'Read Terms',
-      locationText:'The clinic is located in Beit Oren. Upon arrival for the first session, I will guide you on where to park and exactly where we meet.',
+      locationText:'The clinic is moving to Tel Aviv and Pardes Hanna. Exact location details will be updated on the site soon, and I will send the address when we schedule our session.',
     },
     accessibility:{
       title:'Accessibility in the Therapeutic Space',
+      updateNotice:'This page is being updated as the clinic is moving to Tel Aviv and Pardes Hanna. Details will be updated soon. In the meantime, for any accessibility questions, please contact me directly.',
       s1Title:'Physical Access',
       s1p1:'Location & Access: The clinic in Beit Oren is located on the ground floor, with direct access and no stairs. The space is accessible and adapted for wheelchair users.',
       s1p2:'Parking: Close to the building entrance (60–70 m) there is a dedicated parking space for people with disabilities.',
@@ -961,10 +946,6 @@ function renderContact() {
           <div class="contact-card">
             <p class="location-label">${c.locationLabel}</p>
             <p class="location-text" style="text-align:${isRtl()?'right':'left'}">${c.locationText}</p>
-            <div class="map-btns">
-              <a href="https://waze.com/ul/hsvbfhwdcu" target="_blank" rel="noopener noreferrer" class="btn-map btn-waze">🧭 Waze</a>
-              <a href="https://maps.app.goo.gl/cVwskVfHNVyF8qPe6" target="_blank" rel="noopener noreferrer" class="btn-map btn-gmap">📍 Google Maps</a>
-            </div>
           </div>
         </div>
       </div>
@@ -977,12 +958,7 @@ function renderAccessibility() {
   el('accessibilityInner').dir = t().dir;
   el('accessibilityInner').innerHTML = `
     <h2 class="sec-h2" style="text-align:${isRtl()?'right':'left'}">${a.title}</h2>
-    <div class="accessibility-box">
-      <h3 class="accessibility-h3" style="text-align:${isRtl()?'right':'left'}">${a.s1Title}</h3>
-      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p1}</p>
-      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p2}</p>
-      <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s1p3}</p>
-    </div>
+    <div style="margin-bottom:24px;background:rgba(74,110,122,0.10);border:1.5px solid var(--warm);border-radius:14px;padding:18px 24px"><p style="margin:0;font-size:15px;line-height:1.65;color:var(--green);font-family:'Assistant',sans-serif;text-align:${isRtl()?'right':'left'}">${a.updateNotice}</p></div>
     <div class="accessibility-box">
       <h3 class="accessibility-h3" style="text-align:${isRtl()?'right':'left'}">${a.s3TitleMain} <span style="text-decoration:underline">${a.s3TitleSub}</span></h3>
       <p class="accessibility-p" style="text-align:${isRtl()?'right':'left'}">${a.s3p1}</p>
@@ -1018,6 +994,7 @@ function renderAll() {
 }
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────────────
+const VIEW_HASHES=['home','approach','who','faq','field','about','contact','accessibility','legal'];
 function showView(index) {
   document.querySelectorAll('.view').forEach(v => {
     v.classList.remove('active');
@@ -1029,6 +1006,7 @@ function showView(index) {
     next.style.display = 'block';
   }
   currentView = index;
+  try { const h='#'+VIEW_HASHES[index]; if (location.hash!==h) history.replaceState(null,'',h); } catch(e) {}
   menuOpen = false;
   el('mobileMenu').classList.remove('open');
   window.scrollTo(0, 0);
@@ -1112,6 +1090,14 @@ async function handleSubmit(e) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 renderAll();
+try {
+  const hi = VIEW_HASHES.indexOf(location.hash.replace('#',''));
+  if (hi > 0) showView(hi);
+  window.addEventListener('hashchange', () => {
+    const n = VIEW_HASHES.indexOf(location.hash.replace('#',''));
+    if (n >= 0 && n !== currentView) showView(n);
+  });
+} catch(e) {}
 </script>
 
 <!-- Floating WhatsApp Button -->
